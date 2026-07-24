@@ -1,0 +1,316 @@
+{
+  "updatedAt": "2026-07-23T13:42:00-07:00",
+  "timezone": "America/Los_Angeles",
+  "properties": [
+    {
+      "id": "anson",
+      "name": "Anson",
+      "city": "Burlingame",
+      "address": "1008 Carolan Ave, Burlingame",
+      "latitude": 37.5878,
+      "longitude": -122.3625,
+      "year": 2024,
+      "qualification": "built",
+      "management": "Greystar",
+      "website": "https://liveanson.com/",
+      "tracked": true
+    },
+    {
+      "id": "station-park-green",
+      "name": "Station Park Green",
+      "city": "San Mateo",
+      "address": "1700 S Delaware St, San Mateo",
+      "latitude": 37.5565,
+      "longitude": -122.2987,
+      "year": 2020,
+      "qualification": "built",
+      "management": "Essex",
+      "website": "https://www.essexapartmenthomes.com/apartments/san-mateo/station-park-green/floor-plans-and-pricing",
+      "tracked": true
+    },
+    {
+      "id": "mode",
+      "name": "MODE",
+      "city": "San Mateo",
+      "address": "2089 Pacific Blvd, San Mateo",
+      "latitude": 37.5489,
+      "longitude": -122.2932,
+      "year": 2023,
+      "qualification": "built",
+      "management": "Sares Regis",
+      "website": "https://www.modesanmateo.com/floorplans",
+      "tracked": true
+    },
+    {
+      "id": "the-hayden",
+      "name": "The Hayden",
+      "city": "Belmont",
+      "address": "815 Old County Rd, Belmont",
+      "latitude": 37.5208,
+      "longitude": -122.2734,
+      "year": 2020,
+      "qualification": "built",
+      "management": "Greystar",
+      "website": "https://www.thehaydenbelmont.com/",
+      "tracked": true
+    },
+    {
+      "id": "wheeler-plaza",
+      "name": "Wheeler Plaza",
+      "city": "San Carlos",
+      "address": "657 Walnut St, San Carlos",
+      "latitude": 37.5067,
+      "longitude": -122.2606,
+      "year": 2021,
+      "qualification": "built",
+      "management": "Sares Regis",
+      "website": "https://www.wheelerplaza.com/",
+      "tracked": true
+    },
+    {
+      "id": "cirrus",
+      "name": "Cirrus",
+      "city": "Redwood City",
+      "address": "2580 El Camino Real, Redwood City",
+      "latitude": 37.4663,
+      "longitude": -122.2208,
+      "year": 2018,
+      "qualification": "built",
+      "management": "IEC",
+      "website": "https://www.cirrusredwoodcityapartments.com/floorplans",
+      "tracked": true
+    },
+    {
+      "id": "lume",
+      "name": "Lume",
+      "city": "Menlo Park",
+      "address": "172 Constitution Dr, Menlo Park",
+      "latitude": 37.4818,
+      "longitude": -122.1717,
+      "year": 2020,
+      "qualification": "built",
+      "management": "Greystar",
+      "website": "https://livelume.com/floorplans/",
+      "tracked": true
+    },
+    {
+      "id": "roen",
+      "name": "ROEN Menlo Park",
+      "city": "Menlo Park",
+      "address": "3645 Haven Ave, Menlo Park",
+      "latitude": 37.4852,
+      "longitude": -122.1808,
+      "year": 2022,
+      "qualification": "built",
+      "management": "Essex",
+      "website": "https://www.essexapartmenthomes.com/apartments/menlo-park/roen-menlo-park/floor-plans-and-pricing",
+      "tracked": true
+    }
+  ],
+  "listings": [
+    {
+      "id": "spg-fir",
+      "propertyId": "station-park-green",
+      "unit": "Fir",
+      "floorplan": "Fir",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 721,
+      "rent": 3747,
+      "availableDate": "2026-07-23",
+      "sourceUrl": "https://www.essexapartmenthomes.com/apartments/san-mateo/station-park-green/floor-plans-and-pricing",
+      "precision": "floorplan",
+      "capturedAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "spg-cedar",
+      "propertyId": "station-park-green",
+      "unit": "Cedar",
+      "floorplan": "Cedar",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 735,
+      "rent": 4009,
+      "availableDate": "2026-07-23",
+      "sourceUrl": "https://www.essexapartmenthomes.com/apartments/san-mateo/station-park-green/floor-plans-and-pricing",
+      "precision": "floorplan",
+      "capturedAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "spg-elm",
+      "propertyId": "station-park-green",
+      "unit": "Elm",
+      "floorplan": "Elm",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 727,
+      "rent": 3969,
+      "availableDate": "2026-08-03",
+      "sourceUrl": "https://www.essexapartmenthomes.com/apartments/san-mateo/station-park-green/floor-plans-and-pricing",
+      "precision": "floorplan",
+      "capturedAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "cirrus-235",
+      "propertyId": "cirrus",
+      "unit": "#235",
+      "floorplan": "1 Bedroom 1 Bath A",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 663,
+      "rent": 3903,
+      "availableDate": "2026-08-20",
+      "sourceUrl": "https://cirrusredwoodcityapartments.securecafe.com/onlineleasing/cirrus-redwood-city-llc/oleapplication.aspx?FloorPlanID=6247600&MoveInDate=8%2F20%2F2026&UnitID=47083414&myOlePropertyId=2268862&stepname=RentalOptions",
+      "precision": "unit",
+      "capturedAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "cirrus-233",
+      "propertyId": "cirrus",
+      "unit": "#233",
+      "floorplan": "1 Bedroom 1 Bath A",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 633,
+      "rent": 3903,
+      "availableDate": "2026-08-22",
+      "sourceUrl": "https://cirrusredwoodcityapartments.securecafe.com/onlineleasing/cirrus-redwood-city-llc/oleapplication.aspx?FloorPlanID=6247600&MoveInDate=8%2F22%2F2026&UnitID=47083367&myOlePropertyId=2268862&stepname=RentalOptions",
+      "precision": "unit",
+      "capturedAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "cirrus-418",
+      "propertyId": "cirrus",
+      "unit": "#418",
+      "floorplan": "1 Bedroom 1 Bath A",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 663,
+      "rent": 3923,
+      "availableDate": "2026-08-23",
+      "sourceUrl": "https://cirrusredwoodcityapartments.securecafe.com/onlineleasing/cirrus-redwood-city-llc/oleapplication.aspx?FloorPlanID=6247600&MoveInDate=8%2F23%2F2026&UnitID=47083421&myOlePropertyId=2268862&stepname=RentalOptions",
+      "precision": "unit",
+      "capturedAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "cirrus-130",
+      "propertyId": "cirrus",
+      "unit": "#130",
+      "floorplan": "1 Bedroom 1 Bath A",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 663,
+      "rent": 3893,
+      "availableDate": "2026-08-26",
+      "sourceUrl": "https://www.cirrusredwoodcityapartments.com/floorplans/1-bedroom-1-bath-a",
+      "precision": "floorplan",
+      "capturedAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "cirrus-336",
+      "propertyId": "cirrus",
+      "unit": "#336",
+      "floorplan": "1 Bedroom 1 Bath A",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 663,
+      "rent": 3913,
+      "availableDate": "2026-08-27",
+      "sourceUrl": "https://www.cirrusredwoodcityapartments.com/floorplans/1-bedroom-1-bath-a",
+      "precision": "floorplan",
+      "capturedAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "roen-3204",
+      "propertyId": "roen",
+      "unit": "#3204",
+      "floorplan": "1A",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 715,
+      "rent": 3787,
+      "availableDate": "2026-07-23",
+      "sourceUrl": "https://www.essexapartmenthomes.com/apartments/menlo-park/roen-menlo-park/floor-plans-and-pricing",
+      "precision": "floorplan",
+      "capturedAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "roen-5112",
+      "propertyId": "roen",
+      "unit": "#5112",
+      "floorplan": "1B",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 806,
+      "rent": 3987,
+      "availableDate": "2026-08-08",
+      "sourceUrl": "https://www.essexapartmenthomes.com/apartments/menlo-park/roen-menlo-park/floor-plans-and-pricing",
+      "precision": "floorplan",
+      "capturedAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "roen-4307",
+      "propertyId": "roen",
+      "unit": "#4307",
+      "floorplan": "1C",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 724,
+      "rent": 3807,
+      "availableDate": "2026-09-01",
+      "sourceUrl": "https://www.essexapartmenthomes.com/apartments/menlo-park/roen-menlo-park/floor-plans-and-pricing",
+      "precision": "floorplan",
+      "capturedAt": "2026-07-23T13:42:00-07:00"
+    }
+  ],
+  "sources": [
+    {
+      "id": "cirrus",
+      "label": "Cirrus / RentCafe",
+      "status": "live",
+      "lastSuccessAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "station-park-green",
+      "label": "Station Park Green / Essex",
+      "status": "snapshot",
+      "lastSuccessAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "roen",
+      "label": "ROEN / Essex",
+      "status": "snapshot",
+      "lastSuccessAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "anson",
+      "label": "Anson",
+      "status": "watching",
+      "lastSuccessAt": null
+    },
+    {
+      "id": "mode",
+      "label": "MODE",
+      "status": "watching",
+      "lastSuccessAt": null
+    },
+    {
+      "id": "the-hayden",
+      "label": "The Hayden",
+      "status": "watching",
+      "lastSuccessAt": null
+    },
+    {
+      "id": "wheeler-plaza",
+      "label": "Wheeler Plaza",
+      "status": "watching",
+      "lastSuccessAt": null
+    },
+    {
+      "id": "lume",
+      "label": "Lume",
+      "status": "watching",
+      "lastSuccessAt": null
+    }
+  ]
+}

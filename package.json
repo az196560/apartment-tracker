@@ -1,5 +1,5 @@
 {
-  "name": "site-creator-vinext-starter",
+  "name": "peninsula-one",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -8,8 +8,10 @@
   "scripts": {
     "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
     "build": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
+    "build:pages": "PAGES_BUILD=true next build",
     "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
-    "test": "npm run build && node --test tests/rendered-html.test.mjs",
+    "sync:data": "node scripts/sync-inventory.mjs",
+    "test": "npm run build",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"
   },
@@ -20,8 +22,7 @@
     "next": "16.2.6",
     "react": "19.2.6",
     "react-dom": "19.2.6",
-    "react-leaflet": "^5.0.0",
-    "react-loading-skeleton": "^3.5.0"
+    "react-leaflet": "^5.0.0"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.37.1",
