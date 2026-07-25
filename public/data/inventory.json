@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-23T13:42:00-07:00",
+  "updatedAt": "2026-07-25T17:22:52.364Z",
   "timezone": "America/Los_Angeles",
   "properties": [
     {
@@ -57,9 +57,39 @@
       "year": 2021,
       "qualification": "built",
       "qualityNote": "市中心精品公寓 · 可步行到 Caltrain",
-      "inventoryStatus": "onboarding",
+      "inventoryStatus": "live",
       "management": "Property team",
       "website": "https://www.bayswaterburlingame.com/floorplans",
+      "tracked": true
+    },
+    {
+      "id": "the-bower",
+      "name": "The Bower",
+      "city": "Burlingame",
+      "address": "1095 Rollins Rd, Burlingame",
+      "latitude": 37.5886503,
+      "longitude": -122.3602583,
+      "year": 2024,
+      "qualification": "built",
+      "qualityNote": "新建自然系社区 · 会所、泳池与现代室内",
+      "inventoryStatus": "live",
+      "management": "Prometheus",
+      "website": "https://prometheusapartments.com/ca/burlingame-apartments/the-bower",
+      "tracked": true
+    },
+    {
+      "id": "hanover-burlingame",
+      "name": "Hanover Burlingame",
+      "city": "Burlingame",
+      "address": "1881 Rollins Rd, Burlingame",
+      "latitude": 37.5985185,
+      "longitude": -122.3821395,
+      "year": 2026,
+      "qualification": "built",
+      "qualityNote": "全新大型豪华社区 · 泳池、健身与 Millbrae 换乘",
+      "inventoryStatus": "live",
+      "management": "Hanover Company",
+      "website": "https://www.hanoverburlingame.com/burlingame/hanover-burlingame/conventional/",
       "tracked": true
     },
     {
@@ -438,21 +468,6 @@
       "tracked": true
     },
     {
-      "id": "firehouse-square",
-      "name": "Firehouse Square",
-      "city": "Belmont",
-      "address": "1300 El Camino Real, Belmont",
-      "latitude": 37.5192,
-      "longitude": -122.2753,
-      "year": 2023,
-      "qualification": "built",
-      "qualityNote": "新建品质社区 · 需满足收入资格",
-      "inventoryStatus": "manual",
-      "management": "MidPen Housing",
-      "website": "https://www.midpen-housing.org/property/firehouse-square/",
-      "tracked": true
-    },
-    {
       "id": "trestle",
       "name": "Trestle",
       "city": "San Carlos",
@@ -588,6 +603,36 @@
       "tracked": true
     },
     {
+      "id": "indian-creek",
+      "name": "Indian Creek",
+      "city": "Redwood City",
+      "address": "801 Marine Pkwy, Redwood City",
+      "latitude": 37.5389796,
+      "longitude": -122.2489697,
+      "year": null,
+      "qualification": "renovated",
+      "qualityNote": "Redwood Shores 水岸 · 翻新室内与室内恒温泳池",
+      "inventoryStatus": "onboarding",
+      "management": "Property team",
+      "website": "https://www.theindiancreekapts.com/floorplans",
+      "tracked": true
+    },
+    {
+      "id": "pescadero",
+      "name": "Pescadero Apartments",
+      "city": "Redwood City",
+      "address": "950 Redwood Shores Pkwy, Redwood City",
+      "latitude": 37.5437334,
+      "longitude": -122.235181,
+      "year": 1999,
+      "qualification": "established",
+      "qualityNote": "Redwood Shores · 泳池、水疗、蒸汽房与健身中心",
+      "inventoryStatus": "onboarding",
+      "management": "Property team",
+      "website": "https://www.pescaderoapartments.com/floorplans",
+      "tracked": true
+    },
+    {
       "id": "radius",
       "name": "Radius",
       "city": "Redwood City",
@@ -612,9 +657,9 @@
       "year": 2020,
       "qualification": "built",
       "qualityNote": "新建大型社区 · 泳池与多层公区",
-      "inventoryStatus": "onboarding",
+      "inventoryStatus": "live",
       "management": "Greystar",
-      "website": "https://livehighwater.com/",
+      "website": "https://livehighwater.com/floorplans/",
       "tracked": true
     },
     {
@@ -629,7 +674,97 @@
       "qualityNote": "现代公寓 · Downtown 与 101 兼顾",
       "inventoryStatus": "onboarding",
       "management": "Property team",
-      "website": "https://encoreredwoodcity.com/",
+      "website": "https://encoreredwoodcity.com/availability/",
+      "tracked": true
+    },
+    {
+      "id": "707-leahy",
+      "name": "707 Leahy",
+      "city": "Redwood City",
+      "address": "707 Leahy St, Redwood City",
+      "latitude": 37.4700076,
+      "longitude": -122.2154168,
+      "year": null,
+      "qualification": "renovated",
+      "qualityNote": "Woodside Plaza 附近 · 泳池、健身与翻新室内",
+      "inventoryStatus": "onboarding",
+      "management": "Woodmont",
+      "website": "https://www.live707leahy.com/apartments/ca/redwood-city/floor-plans",
+      "tracked": true
+    },
+    {
+      "id": "885-woodside",
+      "name": "885 Woodside",
+      "city": "Redwood City",
+      "address": "885 Woodside Rd, Redwood City",
+      "latitude": 37.46464,
+      "longitude": -122.2239817,
+      "year": null,
+      "qualification": "renovated",
+      "qualityNote": "宽敞户型 · 山景、泳池与互动房源地图",
+      "inventoryStatus": "live",
+      "management": "Greystar",
+      "website": "https://liveat885woodside.com/floor-plans/",
+      "tracked": true
+    },
+    {
+      "id": "locale",
+      "name": "Locale",
+      "city": "Redwood City",
+      "address": "488 Winslow St, Redwood City",
+      "latitude": 37.490187,
+      "longitude": -122.2317615,
+      "year": 2018,
+      "qualification": "built",
+      "qualityNote": "Downtown 精品公寓 · Caltrain 步行距离与屋顶配套",
+      "inventoryStatus": "onboarding",
+      "management": "Property team",
+      "website": "https://www.livelocale.com/floorplans/one-bedroom",
+      "tracked": true
+    },
+    {
+      "id": "villas-bair-island",
+      "name": "Villas at Bair Island",
+      "city": "Redwood City",
+      "address": "700 Bair Island Rd, Redwood City",
+      "latitude": 37.497726,
+      "longitude": -122.223633,
+      "year": null,
+      "qualification": "established",
+      "qualityNote": "门禁水岸社区 · Marina 栈道与宽敞高挑户型",
+      "inventoryStatus": "onboarding",
+      "management": "Irvine Company",
+      "website": "https://www.irvinecompanyapartments.com/locations/northern-california/redwood-city/villas-at-bair-island.html",
+      "tracked": true
+    },
+    {
+      "id": "avenue-two",
+      "name": "Avenue Two",
+      "city": "Redwood City",
+      "address": "1107 2nd Ave, Redwood City",
+      "latitude": 37.4854002,
+      "longitude": -122.2003301,
+      "year": null,
+      "qualification": "renovated",
+      "qualityNote": "翻新品质社区 · 智能家居、泳池与健身房",
+      "inventoryStatus": "onboarding",
+      "management": "SRG Residential",
+      "website": "https://www.avenuetworedwoodcity.com/floorplans",
+      "tracked": true
+    },
+    {
+      "id": "franklin-street",
+      "name": "Franklin Street",
+      "city": "Redwood City",
+      "address": "1553 El Camino Real, Redwood City",
+      "latitude": 37.480448,
+      "longitude": -122.227088,
+      "year": 2026,
+      "qualification": "built",
+      "qualityNote": "全新 Irvine Company 社区 · 大户型与现场管理",
+      "inventoryStatus": "onboarding",
+      "management": "Irvine Company",
+      "website": "https://www.irvinecompanyapartments.com/locations/northern-california/redwood-city/franklin-street.html",
       "tracked": true
     },
     {
@@ -693,6 +828,21 @@
       "tracked": true
     },
     {
+      "id": "vasara",
+      "name": "Vasara",
+      "city": "Menlo Park",
+      "address": "110 Constitution Dr, Menlo Park",
+      "latitude": 37.4849595,
+      "longitude": -122.1777732,
+      "year": 2024,
+      "qualification": "built",
+      "qualityNote": "新建现代社区 · 度假式公区与 Meta 通勤",
+      "inventoryStatus": "onboarding",
+      "management": "Greystar",
+      "website": "https://livevasara.com/floorplans/",
+      "tracked": true
+    },
+    {
       "id": "roen",
       "name": "ROEN Menlo Park",
       "city": "Menlo Park",
@@ -750,36 +900,6 @@
       "inventoryStatus": "onboarding",
       "management": "Sares Regis",
       "website": "https://www.sharongreenmenlo.com/apartments/ca/menlo-park/floor-plans",
-      "tracked": true
-    },
-    {
-      "id": "oak-creek",
-      "name": "Oak Creek Apartments",
-      "city": "Menlo Park",
-      "address": "1600 Sand Hill Rd, Menlo Park",
-      "latitude": 37.4306,
-      "longitude": -122.1854,
-      "year": null,
-      "qualification": "established",
-      "qualityNote": "园林式品质社区 · Stanford 资格限制",
-      "inventoryStatus": "manual",
-      "management": "Stanford Residential",
-      "website": "https://oakcreek.stanford.edu/",
-      "tracked": true
-    },
-    {
-      "id": "stanford-west",
-      "name": "Stanford West",
-      "city": "Menlo Park",
-      "address": "700 Clark Way, Menlo Park",
-      "latitude": 37.4448,
-      "longitude": -122.1746,
-      "year": null,
-      "qualification": "established",
-      "qualityNote": "大型社区 · Stanford 资格限制",
-      "inventoryStatus": "manual",
-      "management": "Stanford Residential",
-      "website": "https://stanfordwestapartments.stanford.edu/",
       "tracked": true
     }
   ],
@@ -937,6 +1057,811 @@
       "sourceUrl": "https://www.essexapartmenthomes.com/apartments/menlo-park/roen-menlo-park/floor-plans-and-pricing",
       "precision": "floorplan",
       "capturedAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "bayswater-320",
+      "propertyId": "bayswater-burlingame",
+      "unit": "#320",
+      "floorplan": "A1",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 651,
+      "rent": 4100,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-07-25",
+      "recommendedLeaseMonths": null,
+      "leaseTerms": [],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [],
+      "sourceUrl": "https://bayswaterburlingame.securecafe.com/onlineleasing/bayswater/oleapplication.aspx?FloorPlanID=4360439&MoveInDate=7%2F24%2F2026&UnitID=32779537&myOlePropertyId=1531960&stepname=RentalOptions",
+      "precision": "unit",
+      "capturedAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "bayswater-129",
+      "propertyId": "bayswater-burlingame",
+      "unit": "#129",
+      "floorplan": "A1",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 651,
+      "rent": 4100,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-07-25",
+      "recommendedLeaseMonths": null,
+      "leaseTerms": [],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [],
+      "sourceUrl": "https://bayswaterburlingame.securecafe.com/onlineleasing/bayswater/oleapplication.aspx?FloorPlanID=4360439&MoveInDate=7%2F24%2F2026&UnitID=32779544&myOlePropertyId=1531960&stepname=RentalOptions",
+      "precision": "unit",
+      "capturedAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "bayswater-419",
+      "propertyId": "bayswater-burlingame",
+      "unit": "#419",
+      "floorplan": "A1",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 651,
+      "rent": 4100,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-08-01",
+      "recommendedLeaseMonths": null,
+      "leaseTerms": [],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [],
+      "sourceUrl": "https://bayswaterburlingame.securecafe.com/onlineleasing/bayswater/oleapplication.aspx?FloorPlanID=4360439&MoveInDate=8%2F1%2F2026&UnitID=32779554&myOlePropertyId=1531960&stepname=RentalOptions",
+      "precision": "unit",
+      "capturedAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "bower-328",
+      "propertyId": "the-bower",
+      "unit": "#328",
+      "floorplan": "Plan 1A",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 732,
+      "rent": 3762,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-09-03",
+      "recommendedLeaseMonths": 21,
+      "leaseTerms": [
+        {
+          "months": 21,
+          "baseRent": 3762
+        }
+      ],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [],
+      "sourceUrl": "https://prometheusapartments.com/ca/burlingame-apartments/the-bower/unit-328",
+      "precision": "unit",
+      "capturedAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "bower-303",
+      "propertyId": "the-bower",
+      "unit": "#303",
+      "floorplan": "Plan 1C",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 733,
+      "rent": 3897,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-07-25",
+      "recommendedLeaseMonths": 21,
+      "leaseTerms": [
+        {
+          "months": 21,
+          "baseRent": 3897
+        }
+      ],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [],
+      "sourceUrl": "https://prometheusapartments.com/ca/burlingame-apartments/the-bower/unit-303",
+      "precision": "unit",
+      "capturedAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "hanover-1081",
+      "propertyId": "hanover-burlingame",
+      "unit": "#1081",
+      "floorplan": "A1",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 721,
+      "rent": 4495,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-07-25",
+      "recommendedLeaseMonths": 15,
+      "leaseTerms": [
+        {
+          "months": 15,
+          "baseRent": 4495
+        }
+      ],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [
+        {
+          "label": "Security deposit",
+          "amount": 500
+        }
+      ],
+      "sourceUrl": "https://www.hanoverburlingame.com/floorplans/burlingame-CA/hanover-burlingame/a1-1044525-1/",
+      "precision": "floorplan",
+      "capturedAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "hanover-2034",
+      "propertyId": "hanover-burlingame",
+      "unit": "#2034",
+      "floorplan": "A1",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 721,
+      "rent": 4555,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-08-23",
+      "recommendedLeaseMonths": 15,
+      "leaseTerms": [
+        {
+          "months": 15,
+          "baseRent": 4555
+        }
+      ],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [
+        {
+          "label": "Security deposit",
+          "amount": 500
+        }
+      ],
+      "sourceUrl": "https://www.hanoverburlingame.com/floorplans/burlingame-CA/hanover-burlingame/a1-1044525-1/",
+      "precision": "floorplan",
+      "capturedAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "hanover-1059",
+      "propertyId": "hanover-burlingame",
+      "unit": "#1059",
+      "floorplan": "A1",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 721,
+      "rent": 4495,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-08-26",
+      "recommendedLeaseMonths": 15,
+      "leaseTerms": [
+        {
+          "months": 15,
+          "baseRent": 4495
+        }
+      ],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [
+        {
+          "label": "Security deposit",
+          "amount": 500
+        }
+      ],
+      "sourceUrl": "https://www.hanoverburlingame.com/floorplans/burlingame-CA/hanover-burlingame/a1-1044525-1/",
+      "precision": "floorplan",
+      "capturedAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "hanover-1036",
+      "propertyId": "hanover-burlingame",
+      "unit": "#1036",
+      "floorplan": "A2",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 727,
+      "rent": 4572,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-09-13",
+      "recommendedLeaseMonths": 15,
+      "leaseTerms": [
+        {
+          "months": 15,
+          "baseRent": 4572
+        }
+      ],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [
+        {
+          "label": "Security deposit",
+          "amount": 500
+        }
+      ],
+      "sourceUrl": "https://www.hanoverburlingame.com/floorplans/burlingame-CA/hanover-burlingame/a2-1044559-1/",
+      "precision": "floorplan",
+      "capturedAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "highwater-102",
+      "propertyId": "highwater",
+      "unit": "#102",
+      "floorplan": "1N.1",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 688,
+      "rent": 4419,
+      "totalMonthlyPrice": 4461.85,
+      "availableDate": "2026-08-13",
+      "recommendedLeaseMonths": 13,
+      "leaseTerms": [
+        {
+          "months": 13,
+          "baseRent": 4419
+        }
+      ],
+      "mandatoryMonthlyFees": [
+        {
+          "label": "Utility - Electric - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Natural Gas - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Water",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Sewer",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Pest Control Services",
+          "amount": 2,
+          "amountMax": 2
+        },
+        {
+          "label": "Trash Services - CA",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Trash Services - Doorstep",
+          "amount": 35,
+          "amountMax": 35
+        },
+        {
+          "label": "Utility - Billing Administrative Fee",
+          "amount": 5.85,
+          "amountMax": 5.85
+        },
+        {
+          "label": "Renters Liability Insurance - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Varies"
+        }
+      ],
+      "optionalMonthlyFees": [
+        {
+          "label": "Parking - Covered",
+          "amount": 35,
+          "amountMax": 175,
+          "note": "Price varies based on rentable item type."
+        },
+        {
+          "label": "Parking - EV",
+          "amount": 275,
+          "amountMax": 275
+        },
+        {
+          "label": "Parking - Tandem",
+          "amount": 225,
+          "amountMax": 225
+        }
+      ],
+      "oneTimeFees": [
+        {
+          "label": "Application Fee",
+          "amount": 35,
+          "amountMax": 35
+        },
+        {
+          "label": "Security Deposit (Refundable)",
+          "amount": 750,
+          "amountMax": 750
+        },
+        {
+          "label": "Holding Deposit (Refundable)",
+          "amount": 100,
+          "amountMax": 100
+        },
+        {
+          "label": "Utility - Final Bill Fee",
+          "amount": 15,
+          "amountMax": 15
+        }
+      ],
+      "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=102",
+      "precision": "unit",
+      "capturedAt": "2026-07-25T17:22:52.364Z"
+    },
+    {
+      "id": "highwater-117",
+      "propertyId": "highwater",
+      "unit": "#117",
+      "floorplan": "1L.1",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 641,
+      "rent": 4388,
+      "totalMonthlyPrice": 4430.85,
+      "availableDate": "2026-07-26",
+      "recommendedLeaseMonths": 14,
+      "leaseTerms": [
+        {
+          "months": 14,
+          "baseRent": 4388
+        }
+      ],
+      "mandatoryMonthlyFees": [
+        {
+          "label": "Utility - Electric - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Natural Gas - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Water",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Sewer",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Pest Control Services",
+          "amount": 2,
+          "amountMax": 2
+        },
+        {
+          "label": "Trash Services - CA",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Trash Services - Doorstep",
+          "amount": 35,
+          "amountMax": 35
+        },
+        {
+          "label": "Utility - Billing Administrative Fee",
+          "amount": 5.85,
+          "amountMax": 5.85
+        },
+        {
+          "label": "Renters Liability Insurance - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Varies"
+        }
+      ],
+      "optionalMonthlyFees": [
+        {
+          "label": "Parking - Covered",
+          "amount": 35,
+          "amountMax": 175,
+          "note": "Price varies based on rentable item type."
+        },
+        {
+          "label": "Parking - EV",
+          "amount": 275,
+          "amountMax": 275
+        },
+        {
+          "label": "Parking - Tandem",
+          "amount": 225,
+          "amountMax": 225
+        }
+      ],
+      "oneTimeFees": [
+        {
+          "label": "Application Fee",
+          "amount": 35,
+          "amountMax": 35
+        },
+        {
+          "label": "Security Deposit (Refundable)",
+          "amount": 750,
+          "amountMax": 750
+        },
+        {
+          "label": "Holding Deposit (Refundable)",
+          "amount": 100,
+          "amountMax": 100
+        },
+        {
+          "label": "Utility - Final Bill Fee",
+          "amount": 15,
+          "amountMax": 15
+        }
+      ],
+      "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=117",
+      "precision": "unit",
+      "capturedAt": "2026-07-25T17:22:52.364Z"
+    },
+    {
+      "id": "highwater-604",
+      "propertyId": "highwater",
+      "unit": "#604",
+      "floorplan": "1A.3",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 903,
+      "rent": 4845,
+      "totalMonthlyPrice": 4887.85,
+      "availableDate": "2026-07-25",
+      "recommendedLeaseMonths": 14,
+      "leaseTerms": [
+        {
+          "months": 14,
+          "baseRent": 4845
+        }
+      ],
+      "mandatoryMonthlyFees": [
+        {
+          "label": "Utility - Electric - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Natural Gas - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Water",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Sewer",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Pest Control Services",
+          "amount": 2,
+          "amountMax": 2
+        },
+        {
+          "label": "Trash Services - CA",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Trash Services - Doorstep",
+          "amount": 35,
+          "amountMax": 35
+        },
+        {
+          "label": "Utility - Billing Administrative Fee",
+          "amount": 5.85,
+          "amountMax": 5.85
+        },
+        {
+          "label": "Renters Liability Insurance - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Varies"
+        }
+      ],
+      "optionalMonthlyFees": [
+        {
+          "label": "Parking - Covered",
+          "amount": 35,
+          "amountMax": 175,
+          "note": "Price varies based on rentable item type."
+        },
+        {
+          "label": "Parking - EV",
+          "amount": 275,
+          "amountMax": 275
+        },
+        {
+          "label": "Parking - Tandem",
+          "amount": 225,
+          "amountMax": 225
+        }
+      ],
+      "oneTimeFees": [
+        {
+          "label": "Application Fee",
+          "amount": 35,
+          "amountMax": 35
+        },
+        {
+          "label": "Security Deposit (Refundable)",
+          "amount": 750,
+          "amountMax": 750
+        },
+        {
+          "label": "Holding Deposit (Refundable)",
+          "amount": 100,
+          "amountMax": 100
+        },
+        {
+          "label": "Utility - Final Bill Fee",
+          "amount": 15,
+          "amountMax": 15
+        }
+      ],
+      "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=604",
+      "precision": "unit",
+      "capturedAt": "2026-07-25T17:22:52.364Z"
+    },
+    {
+      "id": "highwater-717",
+      "propertyId": "highwater",
+      "unit": "#717",
+      "floorplan": "1L.2",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 742,
+      "rent": 4549,
+      "totalMonthlyPrice": 4591.85,
+      "availableDate": "2026-07-25",
+      "recommendedLeaseMonths": 14,
+      "leaseTerms": [
+        {
+          "months": 14,
+          "baseRent": 4549
+        }
+      ],
+      "mandatoryMonthlyFees": [
+        {
+          "label": "Utility - Electric - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Natural Gas - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Water",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Sewer",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Pest Control Services",
+          "amount": 2,
+          "amountMax": 2
+        },
+        {
+          "label": "Trash Services - CA",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Trash Services - Doorstep",
+          "amount": 35,
+          "amountMax": 35
+        },
+        {
+          "label": "Utility - Billing Administrative Fee",
+          "amount": 5.85,
+          "amountMax": 5.85
+        },
+        {
+          "label": "Renters Liability Insurance - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Varies"
+        }
+      ],
+      "optionalMonthlyFees": [
+        {
+          "label": "Parking - Covered",
+          "amount": 35,
+          "amountMax": 175,
+          "note": "Price varies based on rentable item type."
+        },
+        {
+          "label": "Parking - EV",
+          "amount": 275,
+          "amountMax": 275
+        },
+        {
+          "label": "Parking - Tandem",
+          "amount": 225,
+          "amountMax": 225
+        }
+      ],
+      "oneTimeFees": [
+        {
+          "label": "Application Fee",
+          "amount": 35,
+          "amountMax": 35
+        },
+        {
+          "label": "Security Deposit (Refundable)",
+          "amount": 750,
+          "amountMax": 750
+        },
+        {
+          "label": "Holding Deposit (Refundable)",
+          "amount": 100,
+          "amountMax": 100
+        },
+        {
+          "label": "Utility - Final Bill Fee",
+          "amount": 15,
+          "amountMax": 15
+        }
+      ],
+      "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=717",
+      "precision": "unit",
+      "capturedAt": "2026-07-25T17:22:52.364Z"
+    },
+    {
+      "id": "highwater-843",
+      "propertyId": "highwater",
+      "unit": "#843",
+      "floorplan": "1E.2",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 649,
+      "rent": 4709,
+      "totalMonthlyPrice": 4751.85,
+      "availableDate": "2026-07-25",
+      "recommendedLeaseMonths": 14,
+      "leaseTerms": [
+        {
+          "months": 14,
+          "baseRent": 4709
+        }
+      ],
+      "mandatoryMonthlyFees": [
+        {
+          "label": "Utility - Electric - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Natural Gas - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Water",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Sewer",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Pest Control Services",
+          "amount": 2,
+          "amountMax": 2
+        },
+        {
+          "label": "Trash Services - CA",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Trash Services - Doorstep",
+          "amount": 35,
+          "amountMax": 35
+        },
+        {
+          "label": "Utility - Billing Administrative Fee",
+          "amount": 5.85,
+          "amountMax": 5.85
+        },
+        {
+          "label": "Renters Liability Insurance - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Varies"
+        }
+      ],
+      "optionalMonthlyFees": [
+        {
+          "label": "Parking - Covered",
+          "amount": 35,
+          "amountMax": 175,
+          "note": "Price varies based on rentable item type."
+        },
+        {
+          "label": "Parking - EV",
+          "amount": 275,
+          "amountMax": 275
+        },
+        {
+          "label": "Parking - Tandem",
+          "amount": 225,
+          "amountMax": 225
+        }
+      ],
+      "oneTimeFees": [
+        {
+          "label": "Application Fee",
+          "amount": 35,
+          "amountMax": 35
+        },
+        {
+          "label": "Security Deposit (Refundable)",
+          "amount": 750,
+          "amountMax": 750
+        },
+        {
+          "label": "Holding Deposit (Refundable)",
+          "amount": 100,
+          "amountMax": 100
+        },
+        {
+          "label": "Utility - Final Bill Fee",
+          "amount": 15,
+          "amountMax": 15
+        }
+      ],
+      "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=843",
+      "precision": "unit",
+      "capturedAt": "2026-07-25T17:22:52.364Z"
     }
   ],
   "sources": [
@@ -957,6 +1882,60 @@
       "label": "ROEN / Essex",
       "status": "snapshot",
       "lastSuccessAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "highwater",
+      "label": "Highwater / SightMap + RealPage",
+      "status": "live",
+      "lastSuccessAt": "2026-07-25T17:22:52.364Z"
+    },
+    {
+      "id": "885-woodside",
+      "label": "885 Woodside / SightMap",
+      "status": "live",
+      "lastSuccessAt": "2026-07-25T17:22:52.364Z"
+    },
+    {
+      "id": "bayswater-burlingame",
+      "label": "Bayswater / RentCafe",
+      "status": "snapshot",
+      "lastSuccessAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "the-bower",
+      "label": "The Bower / Prometheus",
+      "status": "snapshot",
+      "lastSuccessAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "hanover-burlingame",
+      "label": "Hanover Burlingame / Entrata",
+      "status": "snapshot",
+      "lastSuccessAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "707-leahy",
+      "label": "707 Leahy / RealPage",
+      "status": "watching",
+      "lastSuccessAt": null
+    },
+    {
+      "id": "indian-creek",
+      "label": "Indian Creek / RentCafe",
+      "status": "watching",
+      "lastSuccessAt": null
+    },
+    {
+      "id": "pescadero",
+      "label": "Pescadero / RentCafe",
+      "status": "watching",
+      "lastSuccessAt": null
+    },
+    {
+      "id": "encore-redwood-city",
+      "label": "Encore / Yardi",
+      "status": "watching",
+      "lastSuccessAt": null
     },
     {
       "id": "anson",

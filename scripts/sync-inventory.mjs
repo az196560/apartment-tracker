@@ -18,6 +18,23 @@ const cirrusFloorplans = [
   },
 ];
 
+const sightmapSources = [
+  {
+    propertyId: "highwater",
+    sourceId: "highwater",
+    dataUrl:
+      "https://sightmap.com/app/api/v1/r5v5xezjpny/sightmaps/86050",
+    embedUrl: "https://sightmap.com/embed/yjp209e5wxl",
+  },
+  {
+    propertyId: "885-woodside",
+    sourceId: "885-woodside",
+    dataUrl:
+      "https://sightmap.com/app/api/v1/jlw07gmjv2y/sightmaps/86909",
+    embedUrl: "https://sightmap.com/embed/x1p88z1opd6",
+  },
+];
+
 function decodeEntities(value) {
   return value
     .replaceAll("&amp;", "&")
@@ -90,7 +107,13 @@ async function scrapeCirrus(now) {
         baths: 1,
         sqft: source.sqft,
         rent: Number(rentText.replaceAll(",", "")),
+        totalMonthlyPrice: null,
         availableDate: isoDate(available, now),
+        recommendedLeaseMonths: null,
+        leaseTerms: [],
+        mandatoryMonthlyFees: [],
+        optionalMonthlyFees: [],
+        oneTimeFees: [],
         sourceUrl: applyUrl ?? source.url,
         precision: applyUrl ? "unit" : "floorplan",
         capturedAt: now.toISOString(),
@@ -102,42 +125,187 @@ async function scrapeCirrus(now) {
   return [...unique.values()];
 }
 
+function floorplanName(value) {
+  if (!value) return "1 Bedroom";
+  let name = value;
+  try {
+    const parsed = JSON.parse(value);
+    name = parsed.name ?? value;
+  } catch {
+    name = value;
+  }
+  return name.replace(/^(\d[A-Za-z])(\d)$/, "$1.$2");
+}
+
+function amountFor(unit, expense) {
+  const amount = unit.expense_amounts?.[expense.id];
+  if (!amount) return { amount: null };
+  return {
+    amount:
+      amount.min_amount === null ? null : Number(amount.min_amount),
+    amountMax:
+      amount.max_amount === null ? null : Number(amount.max_amount),
+    note: amount.text_amount ?? expense.disclaimer ?? undefined,
+  };
+}
+
+function feeLines(unit, classification, { required, group } = {}) {
+  const sections = unit.static_expenses ?? [];
+  const expenses = sections.flatMap((section) => section.expenses ?? []);
+
+  return expenses
+    .filter(
+      (expense) =>
+        expense.classification === classification &&
+        (required === undefined || expense.is_required === required) &&
+        (group === undefined || expense.group === group),
+    )
+    .map((expense) => ({
+      label: expense.label,
+      ...amountFor(unit, expense),
+    }));
+}
+
+function isOneBedroom(plan) {
+  return /^1(?:[A-Za-z]|\s|$)/.test(plan);
+}
+
+async function scrapeSightmap(source, now) {
+  const response = await fetch(source.dataUrl, {
+    headers: {
+      accept: "application/json",
+      "accept-encoding": "identity",
+      "user-agent":
+        "PeninsulaOneAvailabilityMonitor/1.0 (+https://github.com/az196560/apartment-tracker)",
+    },
+    signal: AbortSignal.timeout(25_000),
+  });
+  if (!response.ok) {
+    throw new Error(
+      `${source.propertyId} SightMap returned HTTP ${response.status}`,
+    );
+  }
+
+  const payload = await response.json();
+  const data = payload.data;
+  const plans = new Map(
+    (data.floor_plans ?? []).map((plan) => [
+      String(plan.id),
+      floorplanName(plan.name),
+    ]),
+  );
+
+  return (data.units ?? [])
+    .map((unit) => {
+      const plan = plans.get(String(unit.floor_plan_id)) ?? "1 Bedroom";
+      const recommendedLeaseMonths =
+        Number.parseInt(unit.display_lease_term, 10) || null;
+      const totalMonthlyPrice = Array.isArray(unit.total_price)
+        ? Number(unit.total_price[0])
+        : null;
+
+      return {
+        id: `${source.propertyId}-${String(unit.unit_number).toLowerCase()}`,
+        propertyId: source.propertyId,
+        unit: `#${unit.unit_number}`,
+        floorplan: plan,
+        beds: 1,
+        baths: 1,
+        sqft: Number(unit.area),
+        rent: Number(unit.price),
+        totalMonthlyPrice,
+        availableDate: unit.available_on,
+        recommendedLeaseMonths,
+        leaseTerms:
+          recommendedLeaseMonths && unit.price
+            ? [{ months: recommendedLeaseMonths, baseRent: Number(unit.price) }]
+            : [],
+        mandatoryMonthlyFees: feeLines(unit, "monthly", { required: true }),
+        optionalMonthlyFees: feeLines(unit, "optional", {
+          required: false,
+          group: "parking",
+        }),
+        oneTimeFees: feeLines(unit, "additional", { required: true }),
+        sourceUrl: `${source.embedUrl}?unit_number=${encodeURIComponent(unit.unit_number)}`,
+        precision: "unit",
+        capturedAt: now.toISOString(),
+      };
+    })
+    .filter(
+      (listing) =>
+        isOneBedroom(listing.floorplan) &&
+        Number.isFinite(listing.rent) &&
+        listing.availableDate,
+    );
+}
+
 async function main() {
   const inventory = JSON.parse(await readFile(inventoryPath, "utf8"));
   const now = new Date();
-  const cirrusListings = await scrapeCirrus(now);
+  const updates = [];
+  const failures = [];
 
-  if (cirrusListings.length === 0) {
-    throw new Error("No Cirrus 1B1B listings were parsed; keeping the last snapshot.");
+  try {
+    const cirrusListings = await scrapeCirrus(now);
+    if (cirrusListings.length === 0) {
+      throw new Error("No Cirrus 1B1B listings were parsed.");
+    }
+    updates.push({ propertyId: "cirrus", sourceId: "cirrus", listings: cirrusListings });
+  } catch (error) {
+    failures.push(error instanceof Error ? error.message : String(error));
   }
 
-  inventory.listings = [
-    ...inventory.listings.filter((listing) => listing.propertyId !== "cirrus"),
-    ...cirrusListings,
-  ];
+  for (const source of sightmapSources) {
+    try {
+      updates.push({
+        propertyId: source.propertyId,
+        sourceId: source.sourceId,
+        listings: await scrapeSightmap(source, now),
+      });
+    } catch (error) {
+      failures.push(error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  for (const update of updates) {
+    inventory.listings = [
+      ...inventory.listings.filter(
+        (listing) => listing.propertyId !== update.propertyId,
+      ),
+      ...update.listings,
+    ];
+
+    const property = inventory.properties.find(
+      (item) => item.id === update.propertyId,
+    );
+    if (property) property.inventoryStatus = "live";
+
+    const source = inventory.sources.find(
+      (item) => item.id === update.sourceId,
+    );
+    if (source) {
+      source.status = "live";
+      source.lastSuccessAt = now.toISOString();
+    }
+  }
   inventory.updatedAt = now.toISOString();
-
-  const source = inventory.sources.find((item) => item.id === "cirrus");
-  if (source) {
-    source.status = "live";
-    source.lastSuccessAt = now.toISOString();
-  }
 
   await writeFile(inventoryPath, `${JSON.stringify(inventory, null, 2)}\n`);
   process.stdout.write(
-    `Updated inventory with ${cirrusListings.length} Cirrus listings.\n`,
+    `Updated ${updates.length} sources with ${updates.reduce(
+      (count, update) => count + update.listings.length,
+      0,
+    )} 1B1B listings.\n`,
   );
+  if (failures.length) {
+    process.stdout.write(
+      `Retained previous snapshots for failed sources: ${failures.join(" | ")}\n`,
+    );
+  }
 }
 
 main().catch((error) => {
   const message = error instanceof Error ? error.message : String(error);
-  if (message.includes("HTTP 403")) {
-    process.stdout.write(
-      "Official site blocked automated access; retaining the last verified snapshot.\n",
-    );
-    process.exitCode = 0;
-    return;
-  }
   process.stderr.write(`${message}\n`);
   process.exitCode = 1;
 });

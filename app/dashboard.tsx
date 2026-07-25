@@ -73,6 +73,7 @@ function capturedLabel(value: string) {
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
+    timeZone: inventory.timezone,
   }).format(new Date(value));
 }
 
@@ -88,13 +89,37 @@ function propertyEra(property: ApartmentProperty) {
 
 function inventoryLabel(property: ApartmentProperty, count: number) {
   if (count > 0) return `${count} 套 1B1B`;
+  if (property.inventoryStatus === "live") return "今日无 1B1B";
   if (property.inventoryStatus === "manual") return "人工关注";
   return "库存接入中";
 }
 
+function formatMoney(value: number) {
+  return `$${value.toLocaleString("en-US", {
+    maximumFractionDigits: value % 1 === 0 ? 0 : 2,
+  })}`;
+}
+
+function feeAmount(
+  fee: NonNullable<ApartmentListing["mandatoryMonthlyFees"]>[number],
+) {
+  if (fee.amount === null) return fee.note ?? "金额浮动";
+  if (fee.amountMax && fee.amountMax !== fee.amount) {
+    return `${formatMoney(fee.amount)}–${formatMoney(fee.amountMax)}`;
+  }
+  return formatMoney(fee.amount);
+}
+
+function fixedMonthlyFees(listing: ApartmentListing) {
+  const known = (listing.mandatoryMonthlyFees ?? []).filter(
+    (fee) => fee.amount !== null,
+  );
+  return known.reduce((sum, fee) => sum + (fee.amount ?? 0), 0);
+}
+
 export default function Dashboard() {
   const [city, setCity] = useState("全部城市");
-  const [maxRent, setMaxRent] = useState(4300);
+  const [maxRent, setMaxRent] = useState(6000);
   const [availableNow, setAvailableNow] = useState(false);
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<SortMode>("price");
@@ -172,14 +197,14 @@ export default function Dashboard() {
 
   function clearFilters() {
     setCity("全部城市");
-    setMaxRent(4300);
+    setMaxRent(6000);
     setAvailableNow(false);
     setQuery("");
   }
 
   const hasFilters =
     city !== "全部城市" ||
-    (resultMode === "availability" && maxRent < 4300) ||
+    (resultMode === "availability" && maxRent < 6000) ||
     (resultMode === "availability" && availableNow) ||
     query.length > 0;
 
@@ -303,16 +328,16 @@ export default function Dashboard() {
                 <input
                   className="range"
                   type="range"
-                  min="3600"
-                  max="4300"
+                  min="3000"
+                  max="6000"
                   step="50"
                   value={maxRent}
                   onChange={(event) => setMaxRent(Number(event.target.value))}
                   aria-label="月租上限"
                 />
                 <div className="range-ends">
-                  <span>$3,600</span>
-                  <span>$4,300+</span>
+                  <span>$3,000</span>
+                  <span>$6,000+</span>
                 </div>
               </div>
 
@@ -350,7 +375,7 @@ export default function Dashboard() {
             <div>
               <strong>品质公寓标准</strong>
               <p>
-                专业管理、维护良好、配套完整并有稳定官网。资格受限社区会明确标注。
+                专业管理、维护良好、配套完整并有稳定官网；不收录收入、雇主或身份资格受限社区。
               </p>
             </div>
           </div>
@@ -567,6 +592,11 @@ export default function Dashboard() {
                     <div className="listing-list">
                       {filteredListings.map((listing) => {
                         const property = getProperty(listing);
+                        const fixedFees = fixedMonthlyFees(listing);
+                        const hasFeeDetails =
+                          (listing.mandatoryMonthlyFees?.length ?? 0) > 0 ||
+                          (listing.optionalMonthlyFees?.length ?? 0) > 0 ||
+                          (listing.oneTimeFees?.length ?? 0) > 0;
                         return (
                           <article
                             key={listing.id}
@@ -594,15 +624,98 @@ export default function Dashboard() {
                               </div>
                             </div>
                             <div className="listing-price">
-                              <strong>${listing.rent.toLocaleString()}</strong>
-                              <span>/ 月起</span>
+                              <strong>{formatMoney(listing.rent)}</strong>
+                              <span>base rent / 月</span>
+                              {listing.totalMonthlyPrice && (
+                                <small>
+                                  月付合计{" "}
+                                  {formatMoney(listing.totalMonthlyPrice)}
+                                </small>
+                              )}
                             </div>
+                            <div className="listing-facts">
+                              <div>
+                                <span>MOVE-IN</span>
+                                <strong>
+                                  {displayDate(listing.availableDate)}
+                                </strong>
+                              </div>
+                              <div>
+                                <span>建议租期</span>
+                                <strong>
+                                  {listing.recommendedLeaseMonths
+                                    ? `${listing.recommendedLeaseMonths} 个月`
+                                    : "官网未公开"}
+                                </strong>
+                              </div>
+                              <div>
+                                <span>已知固定月费</span>
+                                <strong>
+                                  {listing.totalMonthlyPrice
+                                    ? formatMoney(
+                                        listing.totalMonthlyPrice -
+                                          listing.rent,
+                                      )
+                                    : fixedFees > 0
+                                      ? formatMoney(fixedFees)
+                                      : "官网未公开"}
+                                </strong>
+                              </div>
+                            </div>
+                            <details className="fee-details">
+                              <summary>
+                                {hasFeeDetails
+                                  ? "查看月费、停车与一次性费用"
+                                  : "费用信息"}
+                              </summary>
+                              <div className="fee-groups">
+                                <div>
+                                  <span>固定月费</span>
+                                  {(listing.mandatoryMonthlyFees?.length ??
+                                    0) > 0 ? (
+                                    listing.mandatoryMonthlyFees?.map((fee) => (
+                                      <p key={fee.label}>
+                                        <span>{fee.label}</span>
+                                        <strong>{feeAmount(fee)}</strong>
+                                      </p>
+                                    ))
+                                  ) : (
+                                    <p>官网未明示</p>
+                                  )}
+                                </div>
+                                <div>
+                                  <span>停车 / 可选月费</span>
+                                  {(listing.optionalMonthlyFees?.length ??
+                                    0) > 0 ? (
+                                    listing.optionalMonthlyFees?.map((fee) => (
+                                      <p key={fee.label}>
+                                        <span>{fee.label}</span>
+                                        <strong>{feeAmount(fee)}</strong>
+                                      </p>
+                                    ))
+                                  ) : (
+                                    <p>官网未明示</p>
+                                  )}
+                                </div>
+                                <div>
+                                  <span>一次性费用</span>
+                                  {(listing.oneTimeFees?.length ?? 0) > 0 ? (
+                                    listing.oneTimeFees?.map((fee) => (
+                                      <p key={fee.label}>
+                                        <span>{fee.label}</span>
+                                        <strong>{feeAmount(fee)}</strong>
+                                      </p>
+                                    ))
+                                  ) : (
+                                    <p>官网未明示</p>
+                                  )}
+                                </div>
+                              </div>
+                            </details>
                             <div className="listing-footer">
                               <div>
                                 <CalendarDays size={15} />
-                                <span>
-                                  {displayDate(listing.availableDate)}
-                                </span>
+                                <span>抓取于 {capturedLabel(listing.capturedAt)}</span>
                               </div>
                               <a
                                 href={listing.sourceUrl}

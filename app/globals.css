@@ -1029,6 +1029,112 @@ button {
   font-size: 9px;
 }
 
+.listing-price small {
+  display: block;
+  margin-top: 5px;
+  color: var(--orange);
+  font-size: 8px;
+  font-weight: 750;
+}
+
+.listing-facts {
+  grid-column: 1 / -1;
+  margin-top: 13px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid #eceae4;
+  border-radius: 10px;
+  background: #faf9f5;
+}
+
+.listing-facts > div {
+  min-width: 0;
+  padding: 9px 10px;
+  display: grid;
+  gap: 3px;
+  border-right: 1px solid #eceae4;
+}
+
+.listing-facts > div:last-child {
+  border-right: 0;
+}
+
+.listing-facts span {
+  overflow: hidden;
+  color: #929793;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.listing-facts strong {
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 9px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fee-details {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+}
+
+.fee-details summary {
+  width: fit-content;
+  color: var(--forest-soft);
+  font-size: 9px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.fee-groups {
+  margin-top: 9px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.fee-groups > div {
+  min-width: 0;
+  padding: 9px;
+  border-radius: 9px;
+  background: #f3f1e9;
+}
+
+.fee-groups > div > span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--orange);
+  font-size: 7px;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.fee-groups p {
+  margin: 3px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  color: #737b77;
+  font-size: 7px;
+  line-height: 1.35;
+}
+
+.fee-groups p span {
+  min-width: 0;
+}
+
+.fee-groups p strong {
+  flex: none;
+  color: var(--ink);
+  font-size: 7px;
+}
+
 .listing-footer {
   grid-column: 1 / -1;
   margin-top: 13px;
@@ -1195,6 +1301,12 @@ button {
 
   .filter-close {
     cursor: pointer;
+  }
+}
+
+@media (max-width: 640px) {
+  .fee-groups {
+    grid-template-columns: 1fr;
   }
 }
 
