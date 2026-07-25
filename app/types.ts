@@ -7,8 +7,10 @@ export type ApartmentProperty = {
   address: string;
   latitude: number;
   longitude: number;
-  year: number;
-  qualification: "built" | "renovated";
+  year: number | null;
+  qualification: "built" | "renovated" | "established";
+  qualityNote: string;
+  inventoryStatus: "live" | "onboarding" | "manual";
   management: string;
   website: string;
   tracked: boolean;

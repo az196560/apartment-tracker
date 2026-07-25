@@ -1,11 +1,13 @@
 # Peninsula One
 
 Peninsula One 是一个面向旧金山半岛租房者的 1B1B 房源监控站，覆盖
-Burlingame、San Mateo、Belmont、San Carlos、Redwood City 和 Menlo Park。
+Burlingame、San Mateo、Foster City、Belmont、San Carlos、Redwood City 和 Menlo Park。
 
 ## 数据口径
 
-- 只收录 2016 年以后建成或整体翻新的公寓
+- 收录管理规范、维护良好、配套完整并有稳定官方租赁渠道的品质公寓
+- 新建、完成翻新和维护良好的成熟社区都可纳入，不再设置严格房龄门槛
+- 资格受限或只能人工确认库存的社区会单独标记
 - 只展示 1 bedroom / 1 bathroom
 - 优先使用物业官方租赁网站
 - 链接分为“精确房号”和“官方户型页”，不会把户型页标记为精确房源

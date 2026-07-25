@@ -50,6 +50,20 @@ export default function MapView({
       {properties.map((property) => {
         const count = countByProperty[property.id] ?? 0;
         const active = activePropertyId === property.id;
+        const fillColor =
+          count > 0
+            ? "#f16b3a"
+            : property.inventoryStatus === "manual"
+              ? "#87908b"
+              : "#263b36";
+        const era =
+          property.qualification === "renovated"
+            ? property.year
+              ? `${property.year} 翻新`
+              : "翻新品质"
+            : property.qualification === "built" && property.year
+              ? `${property.year} 建成`
+              : "成熟品质社区";
 
         return (
           <CircleMarker
@@ -59,7 +73,7 @@ export default function MapView({
             pathOptions={{
               color: "#ffffff",
               weight: active ? 4 : 3,
-              fillColor: count > 0 ? "#f16b3a" : "#263b36",
+              fillColor,
               fillOpacity: active ? 1 : 0.92,
             }}
             eventHandlers={{ click: () => onSelect(property.id) }}
@@ -67,16 +81,24 @@ export default function MapView({
             <Tooltip direction="top" offset={[0, -10]} opacity={1}>
               <strong>{property.name}</strong>
               <span className="map-tooltip-meta">
-                {count > 0 ? `${count} 套 1B1B` : "监控中"}
+                {count > 0
+                  ? `${count} 套 1B1B`
+                  : property.inventoryStatus === "manual"
+                    ? "人工关注"
+                    : "库存接入中"}
               </span>
             </Tooltip>
             <Popup>
               <div className="map-popup">
                 <span>{property.city}</span>
                 <strong>{property.name}</strong>
+                <p>{era} · {property.qualityNote}</p>
                 <p>
-                  {property.year} {property.qualification === "built" ? "建成" : "翻新"}
-                  · {count} 套可租
+                  {count > 0
+                    ? `${count} 套 1B1B 可租`
+                    : property.inventoryStatus === "manual"
+                      ? "人工关注"
+                      : "官方库存接入中"}
                 </p>
                 <a href={property.website} target="_blank" rel="noreferrer">
                   查看官网
