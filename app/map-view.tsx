@@ -55,6 +55,8 @@ export default function MapView({
             ? "#f16b3a"
             : property.inventoryStatus === "manual"
               ? "#87908b"
+              : property.inventoryStatus === "blocked"
+                ? "#b08752"
               : "#263b36";
         const era =
           property.qualification === "renovated"
@@ -83,8 +85,12 @@ export default function MapView({
               <span className="map-tooltip-meta">
                 {count > 0
                   ? `${count} 套 1B1B`
+                  : property.inventoryStatus === "live"
+                    ? "暂无房源"
                   : property.inventoryStatus === "manual"
                     ? "人工关注"
+                    : property.inventoryStatus === "blocked"
+                      ? "官网暂未开放库存"
                     : "库存接入中"}
               </span>
             </Tooltip>
@@ -96,8 +102,12 @@ export default function MapView({
                 <p>
                   {count > 0
                     ? `${count} 套 1B1B 可租`
+                    : property.inventoryStatus === "live"
+                      ? "暂无房源"
                     : property.inventoryStatus === "manual"
                       ? "人工关注"
+                      : property.inventoryStatus === "blocked"
+                        ? property.inventoryNote ?? "官网暂未开放实时库存"
                       : "官方库存接入中"}
                 </p>
                 <a href={property.website} target="_blank" rel="noreferrer">

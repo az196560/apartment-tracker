@@ -20,7 +20,10 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run sync:data
+      - run: npx playwright install --with-deps chromium
+      - run: xvfb-run -a npm run sync:data
+        env:
+          PLAYWRIGHT_HEADED: "1"
 
       - name: Commit refreshed inventory
         run: |

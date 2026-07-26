@@ -783,6 +783,10 @@ button {
   background: var(--forest);
 }
 
+.blocked-marker {
+  background: #b08752;
+}
+
 .manual-marker {
   background: #87908b;
 }
@@ -938,6 +942,11 @@ button {
 .inventory-badge.manual {
   background: #f0eee8;
   color: #7f8581;
+}
+
+.inventory-badge.blocked {
+  background: #f5ede1;
+  color: #8a6335;
 }
 
 .listing-card {

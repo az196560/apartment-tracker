@@ -89,8 +89,9 @@ function propertyEra(property: ApartmentProperty) {
 
 function inventoryLabel(property: ApartmentProperty, count: number) {
   if (count > 0) return `${count} 套 1B1B`;
-  if (property.inventoryStatus === "live") return "今日无 1B1B";
+  if (property.inventoryStatus === "live") return "暂无房源";
   if (property.inventoryStatus === "manual") return "人工关注";
+  if (property.inventoryStatus === "blocked") return "官网暂未开放库存";
   return "库存接入中";
 }
 
@@ -486,7 +487,10 @@ export default function Dashboard() {
                   <i className="available-marker" /> 已有房源
                 </span>
                 <span>
-                  <i className="watching-marker" /> 库存接入中
+                  <i className="watching-marker" /> 暂无房源
+                </span>
+                <span>
+                  <i className="blocked-marker" /> 官网暂未开放
                 </span>
                 <span>
                   <i className="manual-marker" /> 人工关注
@@ -540,7 +544,7 @@ export default function Dashboard() {
                               {property.address}
                             </p>
                             <p className="quality-note">
-                              {property.qualityNote}
+                              {property.inventoryNote ?? property.qualityNote}
                             </p>
                             <div className="property-card-footer">
                               <span
@@ -673,8 +677,8 @@ export default function Dashboard() {
                                   <span>固定月费</span>
                                   {(listing.mandatoryMonthlyFees?.length ??
                                     0) > 0 ? (
-                                    listing.mandatoryMonthlyFees?.map((fee) => (
-                                      <p key={fee.label}>
+                                    listing.mandatoryMonthlyFees?.map((fee, index) => (
+                                      <p key={`${fee.label}-${index}`}>
                                         <span>{fee.label}</span>
                                         <strong>{feeAmount(fee)}</strong>
                                       </p>
@@ -687,8 +691,8 @@ export default function Dashboard() {
                                   <span>停车 / 可选月费</span>
                                   {(listing.optionalMonthlyFees?.length ??
                                     0) > 0 ? (
-                                    listing.optionalMonthlyFees?.map((fee) => (
-                                      <p key={fee.label}>
+                                    listing.optionalMonthlyFees?.map((fee, index) => (
+                                      <p key={`${fee.label}-${index}`}>
                                         <span>{fee.label}</span>
                                         <strong>{feeAmount(fee)}</strong>
                                       </p>
@@ -700,8 +704,8 @@ export default function Dashboard() {
                                 <div>
                                   <span>一次性费用</span>
                                   {(listing.oneTimeFees?.length ?? 0) > 0 ? (
-                                    listing.oneTimeFees?.map((fee) => (
-                                      <p key={fee.label}>
+                                    listing.oneTimeFees?.map((fee, index) => (
+                                      <p key={`${fee.label}-${index}`}>
                                         <span>{fee.label}</span>
                                         <strong>{feeAmount(fee)}</strong>
                                       </p>

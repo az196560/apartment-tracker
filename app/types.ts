@@ -22,7 +22,8 @@ export type ApartmentProperty = {
   year: number | null;
   qualification: "built" | "renovated" | "established";
   qualityNote: string;
-  inventoryStatus: "live" | "onboarding" | "manual";
+  inventoryStatus: "live" | "onboarding" | "manual" | "blocked";
+  inventoryNote?: string;
   management: string;
   website: string;
   tracked: boolean;
@@ -54,6 +55,8 @@ export type InventorySource = {
   label: string;
   status: "live" | "snapshot" | "watching";
   lastSuccessAt: string | null;
+  lastAttemptAt?: string;
+  lastError?: string;
 };
 
 export type InventoryData = {
