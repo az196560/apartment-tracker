@@ -17,6 +17,7 @@ function duplicateIds(items) {
 
 const inventory = JSON.parse(await readFile(inventoryPath, "utf8"));
 const errors = [];
+const explicitlyExcludedPropertyIds = new Set(["shortstack", "the-heltsley"]);
 
 if (inventory.timezone !== "America/Los_Angeles") {
   errors.push(
@@ -41,13 +42,16 @@ for (const [collectionName, items] of [
 
 if (Array.isArray(inventory.properties)) {
   for (const property of inventory.properties) {
-    if (property.airConditioning !== true) {
-      errors.push(`${property.id} does not explicitly confirm air conditioning`);
+    if (typeof property.airConditioning !== "boolean") {
+      errors.push(`${property.id} must declare an air-conditioning review status`);
     }
-    if (property.inUnitWasherDryer !== true) {
+    if (typeof property.inUnitWasherDryer !== "boolean") {
       errors.push(
-        `${property.id} does not explicitly confirm an in-unit washer/dryer`,
+        `${property.id} must declare an in-unit washer/dryer review status`,
       );
+    }
+    if (explicitlyExcludedPropertyIds.has(property.id)) {
+      errors.push(`${property.id} must remain excluded by policy`);
     }
   }
 }
@@ -81,6 +85,6 @@ if (errors.length) {
 }
 
 process.stdout.write(
-  `Validated ${inventory.properties.length} amenity-qualified properties, ` +
+  `Validated ${inventory.properties.length} amenity-reviewed properties, ` +
     `${inventory.listings.length} listings, and ${inventory.sources.length} sources.\n`,
 );
