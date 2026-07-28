@@ -95,6 +95,26 @@ function inventoryLabel(property: ApartmentProperty, count: number) {
   return "库存接入中";
 }
 
+function AmenityStatus({ property }: { property: ApartmentProperty }) {
+  return (
+    <div
+      className="amenity-statuses"
+      aria-label={`${property.name} 设施确认状态`}
+    >
+      <span className={property.airConditioning ? "confirmed" : "unconfirmed"}>
+        {property.airConditioning ? "空调已确认" : "空调未确认"}
+      </span>
+      <span
+        className={property.inUnitWasherDryer ? "confirmed" : "unconfirmed"}
+      >
+        {property.inUnitWasherDryer
+          ? "室内洗烘已确认"
+          : "室内洗烘未确认"}
+      </span>
+    </div>
+  );
+}
+
 function formatMoney(value: number) {
   return `$${value.toLocaleString("en-US", {
     maximumFractionDigits: value % 1 === 0 ? 0 : 2,
@@ -246,8 +266,8 @@ export default function Dashboard() {
             好公寓，<span>都放进雷达。</span>
           </h1>
           <p>
-            不再只按房龄筛选。我们只收录明确配有空调和室内洗衣机/烘干机、管理规范、
-            维护良好且有官方租赁渠道的品质公寓，每天检查 1B1B 库存。
+            我们收录管理规范、维护良好且有官方租赁渠道的品质公寓，并明确标注空调和
+            室内洗烘的确认状态；空调未确认的社区也会保留，每天检查 1B1B 库存。
           </p>
         </div>
         <div className="hero-stats" aria-label="房源概览">
@@ -376,8 +396,8 @@ export default function Dashboard() {
             <div>
               <strong>品质公寓标准</strong>
               <p>
-                明确配有空调和室内洗衣机/烘干机，专业管理、维护良好并有稳定官网；
-                不收录资格受限社区。
+                空调未确认的社区保留并明确标注，同时展示室内洗烘确认状态；
+                The Heltsley 因仅有共享洗衣设施不收录。
               </p>
             </div>
           </div>
@@ -547,6 +567,7 @@ export default function Dashboard() {
                             <p className="quality-note">
                               {property.inventoryNote ?? property.qualityNote}
                             </p>
+                            <AmenityStatus property={property} />
                             <div className="property-card-footer">
                               <span
                                 className={`inventory-badge ${property.inventoryStatus}`}
@@ -627,6 +648,7 @@ export default function Dashboard() {
                                 <span>{listing.floorplan}</span>
                                 <span>{listing.sqft} ft²</span>
                               </div>
+                              <AmenityStatus property={property} />
                             </div>
                             <div className="listing-price">
                               <strong>{formatMoney(listing.rent)}</strong>

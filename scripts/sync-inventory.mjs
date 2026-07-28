@@ -8,9 +8,9 @@ const monitorUserAgent =
   "PeninsulaOneAvailabilityMonitor/2.0 (+https://github.com/az196560/apartment-tracker)";
 const restrictedPlanPattern =
   /affordable|below[\s-]?market|\bbmr\b|income[\s-]?(?:restricted|qualified)/i;
-const excludedPropertyIds = new Set(["shortstack"]);
+const excludedPropertyIds = new Set(["shortstack", "the-heltsley"]);
 const amenityPolicyOnly = process.argv.includes("--amenity-policy-only");
-const requiredAmenities = {
+const amenityReviews = {
   // Burlingame
   anson: { airConditioning: true, inUnitWasherDryer: true },
   revery: { airConditioning: true, inUnitWasherDryer: true },
@@ -1748,16 +1748,13 @@ async function main() {
   for (const property of inventory.properties) {
     Object.assign(
       property,
-      requiredAmenities[property.id] ?? {
+      amenityReviews[property.id] ?? {
         airConditioning: false,
         inUnitWasherDryer: false,
       },
       propertyOverrides[property.id] ?? {},
     );
   }
-  inventory.properties = inventory.properties.filter(
-    (property) => property.airConditioning && property.inUnitWasherDryer,
-  );
   const eligiblePropertyIds = new Set(
     inventory.properties.map((property) => property.id),
   );

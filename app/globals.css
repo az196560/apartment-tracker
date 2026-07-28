@@ -906,6 +906,35 @@ button {
   line-height: 1.55;
 }
 
+
+.amenity-statuses {
+  margin: -3px 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.amenity-statuses span {
+  padding: 4px 6px;
+  border: 1px solid #dce7e1;
+  border-radius: 999px;
+  background: #edf4f0;
+  color: var(--forest);
+  font-size: 7px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.amenity-statuses .unconfirmed {
+  border-color: #ecd7b8;
+  background: #fbf1df;
+  color: #8a6335;
+}
+
+.listing-main .amenity-statuses {
+  margin: 8px 0 0;
+}
+
 .property-card-footer {
   padding-top: 10px;
   border-top: 1px solid #eceae4;
