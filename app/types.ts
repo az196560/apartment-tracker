@@ -27,6 +27,8 @@ export type ApartmentProperty = {
   management: string;
   website: string;
   tracked: boolean;
+  airConditioning: boolean;
+  inUnitWasherDryer: boolean;
 };
 
 export type ApartmentListing = {

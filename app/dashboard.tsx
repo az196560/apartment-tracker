@@ -222,7 +222,7 @@ export default function Dashboard() {
         <div className="topbar-actions">
           <span className="sync-pill">
             <span className="sync-dot" />
-            每日自动检查 · 06:17
+            每日自动检查 · 05:00 PT
           </span>
           <a
             className="source-link"
@@ -246,8 +246,8 @@ export default function Dashboard() {
             好公寓，<span>都放进雷达。</span>
           </h1>
           <p>
-            不再只按房龄筛选。我们收录管理规范、维护良好、配套完整且有官方租赁渠道的
-            品质公寓，每天检查 1B1B 库存，并尽可能直达具体房号。
+            不再只按房龄筛选。我们只收录明确配有空调和室内洗衣机/烘干机、管理规范、
+            维护良好且有官方租赁渠道的品质公寓，每天检查 1B1B 库存。
           </p>
         </div>
         <div className="hero-stats" aria-label="房源概览">
@@ -376,7 +376,8 @@ export default function Dashboard() {
             <div>
               <strong>品质公寓标准</strong>
               <p>
-                专业管理、维护良好、配套完整并有稳定官网；不收录收入、雇主或身份资格受限社区。
+                明确配有空调和室内洗衣机/烘干机，专业管理、维护良好并有稳定官网；
+                不收录资格受限社区。
               </p>
             </div>
           </div>

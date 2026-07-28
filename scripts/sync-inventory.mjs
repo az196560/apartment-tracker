@@ -9,6 +9,106 @@ const monitorUserAgent =
 const restrictedPlanPattern =
   /affordable|below[\s-]?market|\bbmr\b|income[\s-]?(?:restricted|qualified)/i;
 const excludedPropertyIds = new Set(["shortstack"]);
+const amenityPolicyOnly = process.argv.includes("--amenity-policy-only");
+const requiredAmenities = {
+  // Burlingame
+  anson: { airConditioning: true, inUnitWasherDryer: true },
+  revery: { airConditioning: true, inUnitWasherDryer: true },
+  "one-adrian": { airConditioning: true, inUnitWasherDryer: true },
+  "bayswater-burlingame": {
+    airConditioning: false,
+    inUnitWasherDryer: true,
+  },
+  "the-bower": { airConditioning: true, inUnitWasherDryer: true },
+  "hanover-burlingame": {
+    airConditioning: false,
+    inUnitWasherDryer: true,
+  },
+  northpark: { airConditioning: false, inUnitWasherDryer: true },
+  "burlingame-towers": {
+    airConditioning: false,
+    inUnitWasherDryer: false,
+  },
+
+  // San Mateo
+  "station-park-green": {
+    airConditioning: true,
+    inUnitWasherDryer: true,
+  },
+  mode: { airConditioning: true, inUnitWasherDryer: true },
+  "the-lark": { airConditioning: true, inUnitWasherDryer: true },
+  "field-house": { airConditioning: true, inUnitWasherDryer: true },
+  quimby: { airConditioning: true, inUnitWasherDryer: true },
+  "the-russell": { airConditioning: true, inUnitWasherDryer: true },
+  hawthorne: { airConditioning: true, inUnitWasherDryer: true },
+  "the-morgan": { airConditioning: true, inUnitWasherDryer: true },
+  "888-san-mateo": { airConditioning: true, inUnitWasherDryer: true },
+  "park-place-san-mateo": {
+    airConditioning: true,
+    inUnitWasherDryer: true,
+  },
+  "55-west-fifth": { airConditioning: true, inUnitWasherDryer: true },
+  "creekside-san-mateo": {
+    airConditioning: false,
+    inUnitWasherDryer: true,
+  },
+
+  // Foster City
+  "the-triton": { airConditioning: true, inUnitWasherDryer: true },
+  "the-plaza-foster-city": {
+    airConditioning: true,
+    inUnitWasherDryer: true,
+  },
+  "100-grand": { airConditioning: true, inUnitWasherDryer: true },
+  miramar: { airConditioning: false, inUnitWasherDryer: false },
+  "marlin-cove": { airConditioning: false, inUnitWasherDryer: true },
+  "fosters-landing": { airConditioning: false, inUnitWasherDryer: true },
+  "schooner-bay": { airConditioning: false, inUnitWasherDryer: true },
+  "lantern-cove": { airConditioning: false, inUnitWasherDryer: true },
+  "waters-edge": { airConditioning: false, inUnitWasherDryer: true },
+  "the-hayden": { airConditioning: false, inUnitWasherDryer: true },
+
+  // Belmont and San Carlos
+  trestle: { airConditioning: true, inUnitWasherDryer: true },
+  "wheeler-plaza": { airConditioning: false, inUnitWasherDryer: false },
+
+  // Redwood City
+  cirrus: { airConditioning: true, inUnitWasherDryer: true },
+  indigo: { airConditioning: true, inUnitWasherDryer: true },
+  "franklin-299": { airConditioning: true, inUnitWasherDryer: true },
+  "201-marshall": { airConditioning: true, inUnitWasherDryer: true },
+  "the-heltsley": { airConditioning: true, inUnitWasherDryer: false },
+  huxley: { airConditioning: true, inUnitWasherDryer: true },
+  "riva-terra": { airConditioning: false, inUnitWasherDryer: true },
+  "indian-creek": { airConditioning: false, inUnitWasherDryer: true },
+  pescadero: { airConditioning: false, inUnitWasherDryer: true },
+  radius: { airConditioning: true, inUnitWasherDryer: true },
+  highwater: { airConditioning: true, inUnitWasherDryer: true },
+  "encore-redwood-city": {
+    airConditioning: true,
+    inUnitWasherDryer: true,
+  },
+  "707-leahy": { airConditioning: true, inUnitWasherDryer: true },
+  "885-woodside": { airConditioning: true, inUnitWasherDryer: true },
+  locale: { airConditioning: true, inUnitWasherDryer: true },
+  "villas-bair-island": {
+    airConditioning: true,
+    inUnitWasherDryer: true,
+  },
+  "avenue-two": { airConditioning: false, inUnitWasherDryer: true },
+  "franklin-street": { airConditioning: true, inUnitWasherDryer: true },
+  "blu-harbor": { airConditioning: true, inUnitWasherDryer: true },
+  "the-marston": { airConditioning: true, inUnitWasherDryer: true },
+  township: { airConditioning: true, inUnitWasherDryer: true },
+
+  // Menlo Park
+  lume: { airConditioning: true, inUnitWasherDryer: true },
+  vasara: { airConditioning: true, inUnitWasherDryer: true },
+  roen: { airConditioning: true, inUnitWasherDryer: true },
+  "anton-menlo": { airConditioning: false, inUnitWasherDryer: true },
+  "realm-menlo-park": { airConditioning: true, inUnitWasherDryer: true },
+  "sharon-green": { airConditioning: true, inUnitWasherDryer: true },
+};
 
 const cirrusFloorplans = [
   {
@@ -281,7 +381,12 @@ async function fetchText(url, options = {}) {
     },
     signal: options.signal ?? AbortSignal.timeout(30_000),
   });
-  if (!response.ok) throw new Error(`${url} returned HTTP ${response.status}`);
+  if (!response.ok) {
+    const endpoint = new URL(url);
+    throw new Error(
+      `${endpoint.origin}${endpoint.pathname} returned HTTP ${response.status}`,
+    );
+  }
   return response.text();
 }
 
@@ -296,7 +401,12 @@ async function fetchJson(url, options = {}) {
     },
     signal: options.signal ?? AbortSignal.timeout(30_000),
   });
-  if (!response.ok) throw new Error(`${url} returned HTTP ${response.status}`);
+  if (!response.ok) {
+    const endpoint = new URL(url);
+    throw new Error(
+      `${endpoint.origin}${endpoint.pathname} returned HTTP ${response.status}`,
+    );
+  }
   return response.json();
 }
 
@@ -766,8 +876,15 @@ function rentCafeAvailable(unit) {
 }
 
 async function scrapeLark(now) {
-  const apiUrl =
-    "https://api.rentcafe.com/rentcafeapi.aspx?requestType=apartmentavailability&apiToken=ee5f203dddf54475a9abab63594429fc&propertyId=1333368&showallunit=1";
+  const apiToken = process.env.RENTCAFE_API_TOKEN;
+  if (!apiToken) throw new Error("RENTCAFE_API_TOKEN is not configured");
+  const apiUrl = new URL("https://api.rentcafe.com/rentcafeapi.aspx");
+  apiUrl.search = new URLSearchParams({
+    requestType: "apartmentavailability",
+    apiToken,
+    propertyId: "1333368",
+    showallunit: "1",
+  }).toString();
   const payload = await fetchJson(apiUrl);
   if (!Array.isArray(payload)) throw new Error("The Lark returned invalid RentCafe data");
   return payload
@@ -1616,6 +1733,9 @@ function upsertSource(inventory, update, now) {
 async function main() {
   const inventory = JSON.parse(await readFile(inventoryPath, "utf8"));
   const now = new Date();
+  const originalPropertyIds = new Set(
+    inventory.properties.map((property) => property.id),
+  );
   inventory.properties = inventory.properties.filter(
     (property) => !excludedPropertyIds.has(property.id),
   );
@@ -1626,8 +1746,27 @@ async function main() {
     (source) => !excludedPropertyIds.has(source.id),
   );
   for (const property of inventory.properties) {
-    Object.assign(property, propertyOverrides[property.id] ?? {});
+    Object.assign(
+      property,
+      requiredAmenities[property.id] ?? {
+        airConditioning: false,
+        inUnitWasherDryer: false,
+      },
+      propertyOverrides[property.id] ?? {},
+    );
   }
+  inventory.properties = inventory.properties.filter(
+    (property) => property.airConditioning && property.inUnitWasherDryer,
+  );
+  const eligiblePropertyIds = new Set(
+    inventory.properties.map((property) => property.id),
+  );
+  inventory.listings = inventory.listings.filter((listing) =>
+    eligiblePropertyIds.has(listing.propertyId),
+  );
+  inventory.sources = inventory.sources.filter((source) =>
+    eligiblePropertyIds.has(source.id),
+  );
   const propertyById = new Map(
     inventory.properties.map((property) => [property.id, property]),
   );
@@ -1635,8 +1774,11 @@ async function main() {
   const failures = [];
 
   async function runSource(source, scrape) {
+    if (!originalPropertyIds.has(source.propertyId)) {
+      throw new Error(`Unknown property ${source.propertyId}`);
+    }
+    if (amenityPolicyOnly || !eligiblePropertyIds.has(source.propertyId)) return;
     const property = propertyById.get(source.propertyId);
-    if (!property) throw new Error(`Unknown property ${source.propertyId}`);
     try {
       const listings = await scrape(now, property, source);
       if (!Array.isArray(listings)) {
@@ -1734,7 +1876,7 @@ async function main() {
     }
   }
 
-  inventory.updatedAt = now.toISOString();
+  if (!amenityPolicyOnly) inventory.updatedAt = now.toISOString();
   inventory.listings.sort((a, b) => {
     const propertyOrder =
       inventory.properties.findIndex((property) => property.id === a.propertyId) -

@@ -2,7 +2,8 @@ name: Sync apartment inventory
 
 on:
   schedule:
-    - cron: "17 13 * * *"
+    - cron: "0 5 * * *"
+      timezone: "America/Los_Angeles"
   workflow_dispatch:
 
 permissions:
@@ -24,6 +25,16 @@ jobs:
       - run: xvfb-run -a npm run sync:data
         env:
           PLAYWRIGHT_HEADED: "1"
+          RENTCAFE_API_TOKEN: ${{ secrets.RENTCAFE_API_TOKEN }}
+
+      - name: Validate refreshed inventory
+        run: npm run validate:data
+
+      - name: Lint application
+        run: npm run lint
+
+      - name: Build GitHub Pages site
+        run: npm run build:pages
 
       - name: Commit refreshed inventory
         run: |
