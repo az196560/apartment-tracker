@@ -1,6 +1,11 @@
 name: Sync apartment inventory
 
 on:
+  push:
+    branches: ["main"]
+    paths:
+      - "scripts/sync-inventory.mjs"
+      - ".github/workflows/sync-inventory.yml"
   schedule:
     - cron: "0 5 * * *"
       timezone: "America/Los_Angeles"
