@@ -29,6 +29,11 @@ jobs:
 
       - run: npm ci
 
+      - name: Validate sync policy
+        run: |
+          node scripts/sync-inventory.mjs --amenity-policy-only
+          git diff --exit-code -- public/data/inventory.json
+
       - name: Validate inventory
         run: npm run validate:data
 

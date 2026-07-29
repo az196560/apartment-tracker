@@ -1771,6 +1771,7 @@ async function main() {
   const failures = [];
 
   async function runSource(source, scrape) {
+    if (excludedPropertyIds.has(source.propertyId)) return;
     if (!originalPropertyIds.has(source.propertyId)) {
       throw new Error(`Unknown property ${source.propertyId}`);
     }
