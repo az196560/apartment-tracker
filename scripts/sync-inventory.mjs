@@ -1733,6 +1733,28 @@ function upsertSource(inventory, update, now) {
 async function main() {
   const inventory = JSON.parse(await readFile(inventoryPath, "utf8"));
   const now = new Date();
+  const listingHistoryById = new Map(
+    (inventory.listingHistory ?? []).map((entry) => [entry.id, entry]),
+  );
+  for (const listing of inventory.listings) {
+    const history = listingHistoryById.get(listing.id);
+    if (history && history.propertyId !== listing.propertyId) {
+      throw new Error(
+        `${listing.id} changed property from ${history.propertyId} to ${listing.propertyId}`,
+      );
+    }
+    const firstSeenAt =
+      history?.firstSeenAt ??
+      listing.firstSeenAt ??
+      listing.capturedAt ??
+      inventory.updatedAt;
+    listing.firstSeenAt = firstSeenAt;
+    listingHistoryById.set(listing.id, {
+      id: listing.id,
+      propertyId: listing.propertyId,
+      firstSeenAt,
+    });
+  }
   const originalPropertyIds = new Set(
     inventory.properties.map((property) => property.id),
   );
@@ -1758,6 +1780,11 @@ async function main() {
   const eligiblePropertyIds = new Set(
     inventory.properties.map((property) => property.id),
   );
+  for (const [listingId, history] of listingHistoryById) {
+    if (!eligiblePropertyIds.has(history.propertyId)) {
+      listingHistoryById.delete(listingId);
+    }
+  }
   inventory.listings = inventory.listings.filter((listing) =>
     eligiblePropertyIds.has(listing.propertyId),
   );
@@ -1769,6 +1796,26 @@ async function main() {
   );
   const updates = [];
   const failures = [];
+
+  function preserveFirstSeenAt(listing) {
+    const history = listingHistoryById.get(listing.id);
+    if (history && history.propertyId !== listing.propertyId) {
+      throw new Error(
+        `${listing.id} changed property from ${history.propertyId} to ${listing.propertyId}`,
+      );
+    }
+    const firstSeenAt =
+      history?.firstSeenAt ??
+      listing.firstSeenAt ??
+      listing.capturedAt ??
+      now.toISOString();
+    listingHistoryById.set(listing.id, {
+      id: listing.id,
+      propertyId: listing.propertyId,
+      firstSeenAt,
+    });
+    return { ...listing, firstSeenAt };
+  }
 
   async function runSource(source, scrape) {
     if (excludedPropertyIds.has(source.propertyId)) return;
@@ -1828,7 +1875,7 @@ async function main() {
       ...inventory.listings.filter(
         (listing) => listing.propertyId !== update.propertyId,
       ),
-      ...update.listings,
+      ...update.listings.map(preserveFirstSeenAt),
     ];
     const property = propertyById.get(update.propertyId);
     property.inventoryStatus = "live";
@@ -1875,6 +1922,9 @@ async function main() {
   }
 
   if (!amenityPolicyOnly) inventory.updatedAt = now.toISOString();
+  inventory.listingHistory = [...listingHistoryById.values()].sort((a, b) =>
+    a.id.localeCompare(b.id),
+  );
   inventory.listings.sort((a, b) => {
     const propertyOrder =
       inventory.properties.findIndex((property) => property.id === a.propertyId) -

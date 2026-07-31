@@ -15,9 +15,20 @@ function duplicateIds(items) {
   return [...duplicates];
 }
 
+function isValidTimestamp(value) {
+  return typeof value === "string" && Number.isFinite(Date.parse(value));
+}
+
 const inventory = JSON.parse(await readFile(inventoryPath, "utf8"));
 const errors = [];
 const explicitlyExcludedPropertyIds = new Set(["shortstack", "the-heltsley"]);
+const updatedAt = Date.parse(inventory.updatedAt);
+
+if (!isValidTimestamp(inventory.updatedAt)) {
+  errors.push(
+    `updatedAt must be a valid timestamp, received ${inventory.updatedAt}`,
+  );
+}
 
 if (inventory.timezone !== "America/Los_Angeles") {
   errors.push(
@@ -28,6 +39,7 @@ if (inventory.timezone !== "America/Los_Angeles") {
 for (const [collectionName, items] of [
   ["properties", inventory.properties],
   ["listings", inventory.listings],
+  ["listingHistory", inventory.listingHistory],
   ["sources", inventory.sources],
 ]) {
   if (!Array.isArray(items)) {
@@ -62,12 +74,58 @@ const propertyIds = new Set(
     : [],
 );
 
+const listingHistoryById = new Map(
+  Array.isArray(inventory.listingHistory)
+    ? inventory.listingHistory.map((entry) => [entry.id, entry])
+    : [],
+);
+
+if (Array.isArray(inventory.listingHistory)) {
+  for (const entry of inventory.listingHistory) {
+    if (!propertyIds.has(entry.propertyId)) {
+      errors.push(
+        `${entry.id} history references excluded or unknown property ${entry.propertyId}`,
+      );
+    }
+    if (!isValidTimestamp(entry.firstSeenAt)) {
+      errors.push(`${entry.id} history must declare a valid firstSeenAt`);
+    } else if (
+      Number.isFinite(updatedAt) &&
+      Date.parse(entry.firstSeenAt) > updatedAt
+    ) {
+      errors.push(`${entry.id} history firstSeenAt cannot be after updatedAt`);
+    }
+  }
+}
+
 if (Array.isArray(inventory.listings)) {
   for (const listing of inventory.listings) {
     if (!propertyIds.has(listing.propertyId)) {
       errors.push(
         `${listing.id} references excluded or unknown property ${listing.propertyId}`,
       );
+    }
+    if (!isValidTimestamp(listing.capturedAt)) {
+      errors.push(`${listing.id} must declare a valid capturedAt`);
+    }
+    if (!isValidTimestamp(listing.firstSeenAt)) {
+      errors.push(`${listing.id} must declare a valid firstSeenAt`);
+    } else if (
+      isValidTimestamp(listing.capturedAt) &&
+      Date.parse(listing.firstSeenAt) > Date.parse(listing.capturedAt)
+    ) {
+      errors.push(`${listing.id} firstSeenAt cannot be after capturedAt`);
+    }
+    const history = listingHistoryById.get(listing.id);
+    if (!history) {
+      errors.push(`${listing.id} is missing from listingHistory`);
+    } else {
+      if (history.propertyId !== listing.propertyId) {
+        errors.push(`${listing.id} history property does not match its listing`);
+      }
+      if (history.firstSeenAt !== listing.firstSeenAt) {
+        errors.push(`${listing.id} history firstSeenAt does not match its listing`);
+      }
     }
   }
 }

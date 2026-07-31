@@ -1,6 +1,838 @@
 {
   "updatedAt": "2026-07-30T13:23:59.414Z",
   "timezone": "America/Los_Angeles",
+  "listingHistory": [
+    {
+      "id": "100-grand-0307",
+      "propertyId": "100-grand",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "100-grand-0309",
+      "propertyId": "100-grand",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "anson-2220",
+      "propertyId": "anson",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z"
+    },
+    {
+      "id": "anson-2309",
+      "propertyId": "anson",
+      "firstSeenAt": "2026-07-30T13:23:59.414Z"
+    },
+    {
+      "id": "anson-2426",
+      "propertyId": "anson",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "anton-menlo-130a",
+      "propertyId": "anton-menlo",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "anton-menlo-201b",
+      "propertyId": "anton-menlo",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "anton-menlo-321b",
+      "propertyId": "anton-menlo",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "anton-menlo-408c",
+      "propertyId": "anton-menlo",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "anton-menlo-420a",
+      "propertyId": "anton-menlo",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z"
+    },
+    {
+      "id": "avenue-two-405",
+      "propertyId": "avenue-two",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "bayswater-129",
+      "propertyId": "bayswater-burlingame",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "bayswater-320",
+      "propertyId": "bayswater-burlingame",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "bayswater-419",
+      "propertyId": "bayswater-burlingame",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "blu-harbor-0119",
+      "propertyId": "blu-harbor",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "blu-harbor-0213",
+      "propertyId": "blu-harbor",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "blu-harbor-0246",
+      "propertyId": "blu-harbor",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "blu-harbor-0247",
+      "propertyId": "blu-harbor",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "blu-harbor-0251",
+      "propertyId": "blu-harbor",
+      "firstSeenAt": "2026-07-29T20:04:25.327Z"
+    },
+    {
+      "id": "blu-harbor-0257",
+      "propertyId": "blu-harbor",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "blu-harbor-0262",
+      "propertyId": "blu-harbor",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "blu-harbor-0326",
+      "propertyId": "blu-harbor",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "blu-harbor-0347",
+      "propertyId": "blu-harbor",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "blu-harbor-0420",
+      "propertyId": "blu-harbor",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "bower-303",
+      "propertyId": "the-bower",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "bower-328",
+      "propertyId": "the-bower",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "cirrus-130",
+      "propertyId": "cirrus",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "cirrus-233",
+      "propertyId": "cirrus",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "cirrus-235",
+      "propertyId": "cirrus",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "cirrus-336",
+      "propertyId": "cirrus",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "cirrus-418",
+      "propertyId": "cirrus",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "creekside-san-mateo-290-2905",
+      "propertyId": "creekside-san-mateo",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "creekside-san-mateo-300-3016",
+      "propertyId": "creekside-san-mateo",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "creekside-san-mateo-320-3212",
+      "propertyId": "creekside-san-mateo",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "fosters-landing-6521937",
+      "propertyId": "fosters-landing",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "fosters-landing-6521961",
+      "propertyId": "fosters-landing",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "fosters-landing-6522135",
+      "propertyId": "fosters-landing",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "fosters-landing-6522146",
+      "propertyId": "fosters-landing",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "fosters-landing-6522233",
+      "propertyId": "fosters-landing",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z"
+    },
+    {
+      "id": "fosters-landing-6522343",
+      "propertyId": "fosters-landing",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "franklin-street-101-2103",
+      "propertyId": "franklin-street",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "franklin-street-101-3102",
+      "propertyId": "franklin-street",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "franklin-street-101-4303",
+      "propertyId": "franklin-street",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "hanover-1036",
+      "propertyId": "hanover-burlingame",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "hanover-1059",
+      "propertyId": "hanover-burlingame",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "hanover-1081",
+      "propertyId": "hanover-burlingame",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "hanover-2034",
+      "propertyId": "hanover-burlingame",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "highwater-102",
+      "propertyId": "highwater",
+      "firstSeenAt": "2026-07-25T17:22:52.364Z"
+    },
+    {
+      "id": "highwater-117",
+      "propertyId": "highwater",
+      "firstSeenAt": "2026-07-25T17:22:52.364Z"
+    },
+    {
+      "id": "highwater-604",
+      "propertyId": "highwater",
+      "firstSeenAt": "2026-07-25T17:22:52.364Z"
+    },
+    {
+      "id": "highwater-717",
+      "propertyId": "highwater",
+      "firstSeenAt": "2026-07-25T17:22:52.364Z"
+    },
+    {
+      "id": "highwater-807",
+      "propertyId": "highwater",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "highwater-843",
+      "propertyId": "highwater",
+      "firstSeenAt": "2026-07-25T17:22:52.364Z"
+    },
+    {
+      "id": "huxley-1-504",
+      "propertyId": "huxley",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "huxley-1-510",
+      "propertyId": "huxley",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "huxley-1-714",
+      "propertyId": "huxley",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "indian-creek-0303",
+      "propertyId": "indian-creek",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "indian-creek-0713",
+      "propertyId": "indian-creek",
+      "firstSeenAt": "2026-07-26T14:45:37.676Z"
+    },
+    {
+      "id": "lantern-cove-002-31",
+      "propertyId": "lantern-cove",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "lume-338",
+      "propertyId": "lume",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "lume-415",
+      "propertyId": "lume",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "lume-438",
+      "propertyId": "lume",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "lume-511",
+      "propertyId": "lume",
+      "firstSeenAt": "2026-07-29T20:04:25.327Z"
+    },
+    {
+      "id": "lume-534",
+      "propertyId": "lume",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "lume-614",
+      "propertyId": "lume",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "lume-710",
+      "propertyId": "lume",
+      "firstSeenAt": "2026-07-29T20:04:25.327Z"
+    },
+    {
+      "id": "lume-719",
+      "propertyId": "lume",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "lume-733",
+      "propertyId": "lume",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "marlin-cove-2106",
+      "propertyId": "marlin-cove",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z"
+    },
+    {
+      "id": "marlin-cove-3203",
+      "propertyId": "marlin-cove",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "marlin-cove-8104",
+      "propertyId": "marlin-cove",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "northpark-001-106",
+      "propertyId": "northpark",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "northpark-001-304",
+      "propertyId": "northpark",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "northpark-003-109",
+      "propertyId": "northpark",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "northpark-004-111",
+      "propertyId": "northpark",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "northpark-007-211",
+      "propertyId": "northpark",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "northpark-008-313",
+      "propertyId": "northpark",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "northpark-010-104",
+      "propertyId": "northpark",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "northpark-010-114",
+      "propertyId": "northpark",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "northpark-010-118",
+      "propertyId": "northpark",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "one-adrian-2310",
+      "propertyId": "one-adrian",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z"
+    },
+    {
+      "id": "one-adrian-2342",
+      "propertyId": "one-adrian",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "one-adrian-2402",
+      "propertyId": "one-adrian",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "one-adrian-2424",
+      "propertyId": "one-adrian",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "one-adrian-2521",
+      "propertyId": "one-adrian",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "one-adrian-2538",
+      "propertyId": "one-adrian",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "one-adrian-2539",
+      "propertyId": "one-adrian",
+      "firstSeenAt": "2026-07-26T14:45:37.676Z"
+    },
+    {
+      "id": "one-adrian-2601",
+      "propertyId": "one-adrian",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "one-adrian-2613",
+      "propertyId": "one-adrian",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "one-adrian-2634",
+      "propertyId": "one-adrian",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "one-adrian-2706",
+      "propertyId": "one-adrian",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "park-place-san-mateo-01-1112",
+      "propertyId": "park-place-san-mateo",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "park-place-san-mateo-01-1307",
+      "propertyId": "park-place-san-mateo",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "park-place-san-mateo-03-3314",
+      "propertyId": "park-place-san-mateo",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "park-place-san-mateo-04-4126",
+      "propertyId": "park-place-san-mateo",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "park-place-san-mateo-04-4410",
+      "propertyId": "park-place-san-mateo",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "pescadero-a101",
+      "propertyId": "pescadero",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "pescadero-b102",
+      "propertyId": "pescadero",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "pescadero-d103",
+      "propertyId": "pescadero",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "pescadero-d104",
+      "propertyId": "pescadero",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "pescadero-g104",
+      "propertyId": "pescadero",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "pescadero-i104",
+      "propertyId": "pescadero",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "pescadero-j104",
+      "propertyId": "pescadero",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "pescadero-k103",
+      "propertyId": "pescadero",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "pescadero-l103",
+      "propertyId": "pescadero",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "pescadero-n105",
+      "propertyId": "pescadero",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "radius-6755996",
+      "propertyId": "radius",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "revery-152",
+      "propertyId": "revery",
+      "firstSeenAt": "2026-07-27T15:54:11.058Z"
+    },
+    {
+      "id": "revery-250",
+      "propertyId": "revery",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "revery-254",
+      "propertyId": "revery",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "revery-703",
+      "propertyId": "revery",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "revery-706",
+      "propertyId": "revery",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "revery-719",
+      "propertyId": "revery",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "revery-721",
+      "propertyId": "revery",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "revery-723",
+      "propertyId": "revery",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "revery-752",
+      "propertyId": "revery",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "revery-803",
+      "propertyId": "revery",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "revery-813",
+      "propertyId": "revery",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "revery-821",
+      "propertyId": "revery",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "revery-827",
+      "propertyId": "revery",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "riva-terra-01-01102",
+      "propertyId": "riva-terra",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "riva-terra-01-02206",
+      "propertyId": "riva-terra",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "riva-terra-01-04209",
+      "propertyId": "riva-terra",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "riva-terra-01-07211",
+      "propertyId": "riva-terra",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "riva-terra-01-11001",
+      "propertyId": "riva-terra",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "riva-terra-01-4207",
+      "propertyId": "riva-terra",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "riva-terra-01-4308",
+      "propertyId": "riva-terra",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "riva-terra-01-6107",
+      "propertyId": "riva-terra",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "roen-3204",
+      "propertyId": "roen",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "roen-4307",
+      "propertyId": "roen",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "roen-43596851",
+      "propertyId": "roen",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "roen-5112",
+      "propertyId": "roen",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "schooner-bay-002-609",
+      "propertyId": "schooner-bay",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "schooner-bay-035-441",
+      "propertyId": "schooner-bay",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "schooner-bay-037-427",
+      "propertyId": "schooner-bay",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "sharon-green-h-109",
+      "propertyId": "sharon-green",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "spg-cedar",
+      "propertyId": "station-park-green",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "spg-elm",
+      "propertyId": "station-park-green",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "spg-fir",
+      "propertyId": "station-park-green",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "station-park-green-16314636",
+      "propertyId": "station-park-green",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "station-park-green-19793686",
+      "propertyId": "station-park-green",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "the-bower-37",
+      "propertyId": "the-bower",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "the-bower-51",
+      "propertyId": "the-bower",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "the-hayden-204",
+      "propertyId": "the-hayden",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "the-hayden-234",
+      "propertyId": "the-hayden",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "the-hayden-302",
+      "propertyId": "the-hayden",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "the-hayden-312",
+      "propertyId": "the-hayden",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "the-hayden-450",
+      "propertyId": "the-hayden",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z"
+    },
+    {
+      "id": "the-hayden-518",
+      "propertyId": "the-hayden",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "the-hayden-528",
+      "propertyId": "the-hayden",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "the-hayden-536",
+      "propertyId": "the-hayden",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "the-hayden-538",
+      "propertyId": "the-hayden",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z"
+    },
+    {
+      "id": "the-marston-516",
+      "propertyId": "the-marston",
+      "firstSeenAt": "2026-07-26T14:45:37.676Z"
+    },
+    {
+      "id": "the-marston-836",
+      "propertyId": "the-marston",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "the-triton-349",
+      "propertyId": "the-triton",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "the-triton-367",
+      "propertyId": "the-triton",
+      "firstSeenAt": "2026-07-29T20:04:25.327Z"
+    },
+    {
+      "id": "the-triton-451",
+      "propertyId": "the-triton",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "township-122",
+      "propertyId": "township",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "trestle-152",
+      "propertyId": "trestle",
+      "firstSeenAt": "2026-07-29T20:04:25.327Z"
+    },
+    {
+      "id": "trestle-156",
+      "propertyId": "trestle",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "vasara-310",
+      "propertyId": "vasara",
+      "firstSeenAt": "2026-07-26T14:45:37.676Z"
+    },
+    {
+      "id": "vasara-314",
+      "propertyId": "vasara",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "vasara-321",
+      "propertyId": "vasara",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "vasara-535",
+      "propertyId": "vasara",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z"
+    },
+    {
+      "id": "vasara-643",
+      "propertyId": "vasara",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "vasara-714",
+      "propertyId": "vasara",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    }
+  ],
   "properties": [
     {
       "id": "anson",
@@ -1015,6 +1847,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=2426",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -1040,6 +1873,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=2220",
       "precision": "unit",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -1065,6 +1899,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=2309",
       "precision": "unit",
+      "firstSeenAt": "2026-07-30T13:23:59.414Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -1171,6 +2006,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=152",
       "precision": "unit",
+      "firstSeenAt": "2026-07-27T15:54:11.058Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -1277,6 +2113,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=250",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -1383,6 +2220,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=703",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -1489,6 +2327,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=721",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -1595,6 +2434,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=803",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -1701,6 +2541,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=821",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -1807,6 +2648,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=813",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -1913,6 +2755,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=752",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -2019,6 +2862,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=827",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -2142,6 +2986,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2342",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -2265,6 +3110,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2706",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -2388,6 +3234,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2424",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -2511,6 +3358,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2601",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -2634,6 +3482,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2310",
       "precision": "unit",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -2757,6 +3606,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2634",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -2880,6 +3730,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2538",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -3003,6 +3854,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2539",
       "precision": "unit",
+      "firstSeenAt": "2026-07-26T14:45:37.676Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -3023,6 +3875,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://bayswaterburlingame.securecafe.com/onlineleasing/bayswater/oleapplication.aspx?FloorPlanID=4360439&MoveInDate=7%2F24%2F2026&UnitID=32779537&myOlePropertyId=1531960&stepname=RentalOptions",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00",
       "capturedAt": "2026-07-25T10:00:00-07:00"
     },
     {
@@ -3043,6 +3896,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://bayswaterburlingame.securecafe.com/onlineleasing/bayswater/oleapplication.aspx?FloorPlanID=4360439&MoveInDate=7%2F24%2F2026&UnitID=32779544&myOlePropertyId=1531960&stepname=RentalOptions",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00",
       "capturedAt": "2026-07-25T10:00:00-07:00"
     },
     {
@@ -3063,6 +3917,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://bayswaterburlingame.securecafe.com/onlineleasing/bayswater/oleapplication.aspx?FloorPlanID=4360439&MoveInDate=8%2F1%2F2026&UnitID=32779554&myOlePropertyId=1531960&stepname=RentalOptions",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00",
       "capturedAt": "2026-07-25T10:00:00-07:00"
     },
     {
@@ -3093,6 +3948,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/burlingame-apartments/the-bower/unit-303",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -3123,6 +3979,7 @@
       ],
       "sourceUrl": "https://www.hanoverburlingame.com/floorplans/burlingame-CA/hanover-burlingame/a1-1044525-1/",
       "precision": "floorplan",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00",
       "capturedAt": "2026-07-25T10:00:00-07:00"
     },
     {
@@ -3153,6 +4010,7 @@
       ],
       "sourceUrl": "https://www.hanoverburlingame.com/floorplans/burlingame-CA/hanover-burlingame/a1-1044525-1/",
       "precision": "floorplan",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00",
       "capturedAt": "2026-07-25T10:00:00-07:00"
     },
     {
@@ -3183,6 +4041,7 @@
       ],
       "sourceUrl": "https://www.hanoverburlingame.com/floorplans/burlingame-CA/hanover-burlingame/a1-1044525-1/",
       "precision": "floorplan",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00",
       "capturedAt": "2026-07-25T10:00:00-07:00"
     },
     {
@@ -3213,6 +4072,7 @@
       ],
       "sourceUrl": "https://www.hanoverburlingame.com/floorplans/burlingame-CA/hanover-burlingame/a2-1044559-1/",
       "precision": "floorplan",
+      "firstSeenAt": "2026-07-25T10:00:00-07:00",
       "capturedAt": "2026-07-25T10:00:00-07:00"
     },
     {
@@ -3304,6 +4164,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29251/007/211",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -3395,6 +4256,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29251/001/106",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -3486,6 +4348,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29251/004/111",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -3577,6 +4440,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29251/010/104",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -3668,6 +4532,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29251/010/118",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -3759,6 +4624,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29251/003/109",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -3850,6 +4716,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29251/008/313",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -3941,6 +4808,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29251/010/114",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4032,6 +4900,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29251/001/304",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4058,6 +4927,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.essexapartmenthomes.com/apartments/san-mateo/station-park-green/floor-plans-and-pricing?unit=10-323#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -4084,6 +4954,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.essexapartmenthomes.com/apartments/san-mateo/station-park-green/floor-plans-and-pricing?unit=00-340#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -4172,6 +5043,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29867/04/4126",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4260,6 +5132,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29867/01/1112",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4348,6 +5221,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29867/04/4410",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4436,6 +5310,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29867/01/1307",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4524,6 +5399,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29867/03/3314",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4614,6 +5490,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29162/320/3212",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4704,6 +5581,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29162/300/3016",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4794,6 +5672,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29162/290/2905",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4915,6 +5794,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/8ywklk16vlx?unit_number=349",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -5036,6 +5916,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/8ywklk16vlx?unit_number=451",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -5157,6 +6038,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/8ywklk16vlx?unit_number=367",
       "precision": "unit",
+      "firstSeenAt": "2026-07-29T20:04:25.327Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -5177,6 +6059,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.rcqalive.com/apartments/ca/foster-city/one-hundred-grand/default.aspx?unit=0307#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -5197,6 +6080,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.rcqalive.com/apartments/ca/foster-city/one-hundred-grand/default.aspx?unit=0309#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -5296,6 +6180,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px8l6jv19?unit_number=2106",
       "precision": "unit",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -5322,6 +6207,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.essexapartmenthomes.com/apartments/foster-city/fosters-landing/floor-plans-and-pricing?unit=1201#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -5348,6 +6234,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.essexapartmenthomes.com/apartments/foster-city/fosters-landing/floor-plans-and-pricing?unit=6607#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -5374,6 +6261,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.essexapartmenthomes.com/apartments/foster-city/fosters-landing/floor-plans-and-pricing?unit=1405#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -5400,6 +6288,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.essexapartmenthomes.com/apartments/foster-city/fosters-landing/floor-plans-and-pricing?unit=3220#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -5426,6 +6315,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.essexapartmenthomes.com/apartments/foster-city/fosters-landing/floor-plans-and-pricing?unit=3209#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -5452,6 +6342,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.essexapartmenthomes.com/apartments/foster-city/fosters-landing/floor-plans-and-pricing?unit=4407#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z",
       "capturedAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -5535,6 +6426,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/51013/037/427",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -5613,6 +6505,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/51014/002/609",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -5696,6 +6589,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/51013/035/441",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -5778,6 +6672,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/51012/002/31",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -5886,6 +6781,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=302",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -5994,6 +6890,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=234",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -6102,6 +6999,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=204",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -6210,6 +7108,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=312",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -6318,6 +7217,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=536",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -6426,6 +7326,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=450",
       "precision": "unit",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -6534,6 +7435,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=518",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -6642,6 +7544,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=538",
       "precision": "unit",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -6750,6 +7653,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=528",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -6780,6 +7684,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/san-carlos-apartments/trestle/unit-4309",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -6810,6 +7715,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/san-carlos-apartments/trestle/unit-4305",
       "precision": "unit",
+      "firstSeenAt": "2026-07-29T20:04:25.327Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -6824,6 +7730,7 @@
       "availableDate": "2026-08-20",
       "sourceUrl": "https://cirrusredwoodcityapartments.securecafe.com/onlineleasing/cirrus-redwood-city-llc/oleapplication.aspx?FloorPlanID=6247600&MoveInDate=8%2F20%2F2026&UnitID=47083414&myOlePropertyId=2268862&stepname=RentalOptions",
       "precision": "unit",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00",
       "capturedAt": "2026-07-23T13:42:00-07:00"
     },
     {
@@ -6838,6 +7745,7 @@
       "availableDate": "2026-08-22",
       "sourceUrl": "https://cirrusredwoodcityapartments.securecafe.com/onlineleasing/cirrus-redwood-city-llc/oleapplication.aspx?FloorPlanID=6247600&MoveInDate=8%2F22%2F2026&UnitID=47083367&myOlePropertyId=2268862&stepname=RentalOptions",
       "precision": "unit",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00",
       "capturedAt": "2026-07-23T13:42:00-07:00"
     },
     {
@@ -6852,6 +7760,7 @@
       "availableDate": "2026-08-23",
       "sourceUrl": "https://cirrusredwoodcityapartments.securecafe.com/onlineleasing/cirrus-redwood-city-llc/oleapplication.aspx?FloorPlanID=6247600&MoveInDate=8%2F23%2F2026&UnitID=47083421&myOlePropertyId=2268862&stepname=RentalOptions",
       "precision": "unit",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00",
       "capturedAt": "2026-07-23T13:42:00-07:00"
     },
     {
@@ -6866,6 +7775,7 @@
       "availableDate": "2026-08-26",
       "sourceUrl": "https://www.cirrusredwoodcityapartments.com/floorplans/1-bedroom-1-bath-a",
       "precision": "floorplan",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00",
       "capturedAt": "2026-07-23T13:42:00-07:00"
     },
     {
@@ -6880,6 +7790,7 @@
       "availableDate": "2026-08-27",
       "sourceUrl": "https://www.cirrusredwoodcityapartments.com/floorplans/1-bedroom-1-bath-a",
       "precision": "floorplan",
+      "firstSeenAt": "2026-07-23T13:42:00-07:00",
       "capturedAt": "2026-07-23T13:42:00-07:00"
     },
     {
@@ -7008,6 +7919,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/24060/1/510",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7136,6 +8048,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/24060/1/504",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7264,6 +8177,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/24060/1/714",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7355,6 +8269,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29858/01/04209",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7446,6 +8361,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29858/01/02206",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7533,6 +8449,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29857/01/4207",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7624,6 +8541,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29858/01/01102",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7711,6 +8629,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29857/01/6107",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7802,6 +8721,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29858/01/11001",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7893,6 +8813,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29858/01/07211",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7980,6 +8901,7 @@
       ],
       "sourceUrl": "https://www.equityapartments.com/UnitFees/29857/01/4308",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -8079,6 +9001,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp2dg09vxl?unit_number=0713",
       "precision": "unit",
+      "firstSeenAt": "2026-07-26T14:45:37.676Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -8178,6 +9101,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp2dg09vxl?unit_number=0303",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -8277,6 +9201,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=D103",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -8376,6 +9301,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=N105",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -8475,6 +9401,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=G104",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -8574,6 +9501,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=B102",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -8673,6 +9601,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=J104",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -8772,6 +9701,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=L103",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -8871,6 +9801,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=K103",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -8970,6 +9901,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=D104",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -8996,6 +9928,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.essexapartmenthomes.com/apartments/redwood-city/radius/floor-plans-and-pricing?unit=351#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -9111,6 +10044,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=117",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T17:22:52.364Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -9226,6 +10160,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=717",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T17:22:52.364Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -9341,6 +10276,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=843",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T17:22:52.364Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -9456,6 +10392,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=604",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T17:22:52.364Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -9571,6 +10508,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=102",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T17:22:52.364Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -9686,6 +10624,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=807",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -9706,6 +10645,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.rentcafe.com/apartments/ca/redwood-city/avenue-two-apartments/default.aspx?unit=405#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -9766,6 +10706,7 @@
       ],
       "sourceUrl": "https://www.irvinecompanyapartments.com/locations/northern-california/redwood-city/franklin-st/availability.html?unit=3102#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -9826,6 +10767,7 @@
       ],
       "sourceUrl": "https://www.irvinecompanyapartments.com/locations/northern-california/redwood-city/franklin-st/availability.html?unit=4303#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -9886,6 +10828,7 @@
       ],
       "sourceUrl": "https://www.irvinecompanyapartments.com/locations/northern-california/redwood-city/franklin-st/availability.html?unit=2103#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -10106,6 +11049,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0247",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -10326,6 +11270,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0347",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -10546,6 +11491,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0119",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -10766,6 +11712,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0257",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -10986,6 +11933,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0246",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -11206,6 +12154,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0262",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -11426,6 +12375,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0420",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -11646,6 +12596,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0326",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -11866,6 +12817,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0251",
       "precision": "unit",
+      "firstSeenAt": "2026-07-29T20:04:25.327Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -12086,6 +13038,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0213",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -12195,6 +13148,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/40vlgod3ple?unit_number=836",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -12304,6 +13258,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/40vlgod3ple?unit_number=516",
       "precision": "unit",
+      "firstSeenAt": "2026-07-26T14:45:37.676Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -12324,6 +13279,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.rentcafe.com/apartments/ca/redwood-city/township/default.aspx?unit=122#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -12428,6 +13384,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=415",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -12532,6 +13489,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=534",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -12636,6 +13594,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=733",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -12740,6 +13699,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=614",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -12844,6 +13804,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=338",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -12948,6 +13909,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=710",
       "precision": "unit",
+      "firstSeenAt": "2026-07-29T20:04:25.327Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -13052,6 +14014,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=511",
       "precision": "unit",
+      "firstSeenAt": "2026-07-29T20:04:25.327Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -13156,6 +14119,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=438",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -13255,6 +14219,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=535",
       "precision": "unit",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -13354,6 +14319,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=314",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -13453,6 +14419,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=714",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -13552,6 +14519,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=321",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -13651,6 +14619,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=643",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -13677,6 +14646,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.essexapartmenthomes.com/apartments/menlo-park/roen-menlo-park/floor-plans-and-pricing?unit=3204#FloorplanGroupContent",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -13782,6 +14752,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=130A",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -13887,6 +14858,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=321B",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -13992,6 +14964,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=201B",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -14097,6 +15070,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=408C",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -14202,6 +15176,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=420A",
       "precision": "unit",
+      "firstSeenAt": "2026-07-28T15:37:52.201Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -14227,6 +15202,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/gow3k7nyp2m?unit_number=H-109",
       "precision": "unit",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-30T13:23:59.414Z"
     }
   ],
