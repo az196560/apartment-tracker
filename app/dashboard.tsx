@@ -50,6 +50,7 @@ const corridorCities = [
 type SortMode = "price" | "date" | "size";
 type MobileView = "map" | "list";
 type ResultMode = "directory" | "availability";
+const recentListingWindowMs = 3 * 86_400_000;
 
 function getProperty(listing: ApartmentListing) {
   return inventory.properties.find(
@@ -75,6 +76,17 @@ function capturedLabel(value: string) {
     minute: "2-digit",
     timeZone: inventory.timezone,
   }).format(new Date(value));
+}
+
+function isRecentlyListed(listing: ApartmentListing) {
+  const firstSeenAt = Date.parse(listing.firstSeenAt);
+  const updatedAt = Date.parse(inventory.updatedAt);
+  return (
+    Number.isFinite(firstSeenAt) &&
+    Number.isFinite(updatedAt) &&
+    firstSeenAt <= updatedAt &&
+    updatedAt - firstSeenAt <= recentListingWindowMs
+  );
 }
 
 function propertyEra(property: ApartmentProperty) {
@@ -142,6 +154,7 @@ export default function Dashboard() {
   const [city, setCity] = useState("全部城市");
   const [maxRent, setMaxRent] = useState(6000);
   const [availableNow, setAvailableNow] = useState(false);
+  const [recentlyListedOnly, setRecentlyListedOnly] = useState(false);
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<SortMode>("price");
   const [resultMode, setResultMode] = useState<ResultMode>("directory");
@@ -174,7 +187,8 @@ export default function Dashboard() {
         visiblePropertyIds.has(listing.propertyId) &&
         listing.rent <= maxRent &&
         (!availableNow ||
-          listing.availableDate <= inventory.updatedAt.slice(0, 10)),
+          listing.availableDate <= inventory.updatedAt.slice(0, 10)) &&
+        (!recentlyListedOnly || isRecentlyListed(listing)),
     );
 
     return [...rows].sort((a, b) => {
@@ -184,7 +198,13 @@ export default function Dashboard() {
       if (sort === "size") return b.sqft - a.sqft;
       return a.rent - b.rent;
     });
-  }, [availableNow, filteredProperties, maxRent, sort]);
+  }, [
+    availableNow,
+    filteredProperties,
+    maxRent,
+    recentlyListedOnly,
+    sort,
+  ]);
 
   const listingCountByProperty = useMemo(
     () =>
@@ -205,6 +225,8 @@ export default function Dashboard() {
   const livePropertyCount = new Set(
     inventory.listings.map((listing) => listing.propertyId),
   ).size;
+  const recentlyListedCount =
+    inventory.listings.filter(isRecentlyListed).length;
 
   function selectProperty(propertyId: string) {
     setActivePropertyId(propertyId);
@@ -220,6 +242,7 @@ export default function Dashboard() {
     setCity("全部城市");
     setMaxRent(6000);
     setAvailableNow(false);
+    setRecentlyListedOnly(false);
     setQuery("");
   }
 
@@ -227,6 +250,7 @@ export default function Dashboard() {
     city !== "全部城市" ||
     (resultMode === "availability" && maxRent < 6000) ||
     (resultMode === "availability" && availableNow) ||
+    (resultMode === "availability" && recentlyListedOnly) ||
     query.length > 0;
 
   return (
@@ -382,6 +406,24 @@ export default function Dashboard() {
                     type="checkbox"
                     checked={availableNow}
                     onChange={(event) => setAvailableNow(event.target.checked)}
+                  />
+                  <i />
+                </label>
+              </div>
+
+              <div className="filter-group">
+                <span className="filter-title">上架时间</span>
+                <label className="toggle-row">
+                  <span>
+                    <Sparkles size={17} />
+                    最近 3 天新上架 · {recentlyListedCount} 套
+                  </span>
+                  <input
+                    type="checkbox"
+                    checked={recentlyListedOnly}
+                    onChange={(event) =>
+                      setRecentlyListedOnly(event.target.checked)
+                    }
                   />
                   <i />
                 </label>
@@ -619,6 +661,7 @@ export default function Dashboard() {
                       {filteredListings.map((listing) => {
                         const property = getProperty(listing);
                         const fixedFees = fixedMonthlyFees(listing);
+                        const recentlyListed = isRecentlyListed(listing);
                         const hasFeeDetails =
                           (listing.mandatoryMonthlyFees?.length ?? 0) > 0 ||
                           (listing.optionalMonthlyFees?.length ?? 0) > 0 ||
@@ -647,6 +690,11 @@ export default function Dashboard() {
                                 <strong>{listing.unit}</strong>
                                 <span>{listing.floorplan}</span>
                                 <span>{listing.sqft} ft²</span>
+                                {recentlyListed && (
+                                  <span className="recent-listing-badge">
+                                    最近 3 天新上架
+                                  </span>
+                                )}
                               </div>
                               <AmenityStatus property={property} />
                             </div>
@@ -742,7 +790,11 @@ export default function Dashboard() {
                             <div className="listing-footer">
                               <div>
                                 <CalendarDays size={15} />
-                                <span>抓取于 {capturedLabel(listing.capturedAt)}</span>
+                                <span>
+                                  首次发现 {capturedLabel(listing.firstSeenAt)}
+                                  {" · "}
+                                  抓取 {capturedLabel(listing.capturedAt)}
+                                </span>
                               </div>
                               <a
                                 href={listing.sourceUrl}
