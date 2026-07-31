@@ -13,6 +13,7 @@ Burlingame、San Mateo、Foster City、Belmont、San Carlos、Redwood City 和 M
 - 只展示 1 bedroom / 1 bathroom
 - 优先使用物业官方租赁网站
 - 链接分为“精确房号”和“官方户型页”，不会把户型页标记为精确房源
+- 每个房号保留首次被 tracker 发现的时间，可筛选最近 72 小时新上架房源
 - 价格和可租状态仅作追踪参考，签约前应以物业官网为准
 
 ## 本地开发
@@ -34,6 +35,7 @@ GitHub Actions 每天按 `America/Los_Angeles` 时区在早上 5:00 运行同步
 SightMap 动态库存接口，并尝试读取 Cirrus 的 RentCafe 房源。Highwater 会精确到
 房号、入住日、base rent、推荐租期、固定月费和停车费范围。官网阻止自动访问时，
 同步程序会保留上一次已验证快照，不会把库存误写为空。
+房源即使暂时下架，首次发现记录也会保留；同一房号再次出现时不会被误标为新房源。
 
 The Lark 的 RentCafe 接口需要通过环境变量 `RENTCAFE_API_TOKEN` 提供令牌；
 GitHub Actions 从同名 repository secret 读取，不在源码或日志中保存令牌。

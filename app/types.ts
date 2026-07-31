@@ -49,7 +49,14 @@ export type ApartmentListing = {
   oneTimeFees?: FeeLine[];
   sourceUrl: string;
   precision: SourcePrecision;
+  firstSeenAt: string;
   capturedAt: string;
+};
+
+export type ListingHistoryEntry = {
+  id: string;
+  propertyId: string;
+  firstSeenAt: string;
 };
 
 export type InventorySource = {
@@ -64,6 +71,7 @@ export type InventorySource = {
 export type InventoryData = {
   updatedAt: string;
   timezone: string;
+  listingHistory: ListingHistoryEntry[];
   properties: ApartmentProperty[];
   listings: ApartmentListing[];
   sources: InventorySource[];
