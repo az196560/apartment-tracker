@@ -513,7 +513,7 @@ async function scrapeSightmap(source, now) {
     payload.data.floor_plans.map((plan) => [String(plan.id), plan]),
   );
 
-  return (payload.data.units ?? [])
+  const listings = (payload.data.units ?? [])
     .map((unit) => {
       const plan = plans.get(String(unit.floor_plan_id));
       if (!plan || Number(plan.bedroom_count) !== 1) return null;
@@ -558,6 +558,23 @@ async function scrapeSightmap(source, now) {
       };
     })
     .filter(Boolean);
+
+  // SightMap can publish multiple availability snapshots for the same physical
+  // unit. Keep one stable listing id per unit, preferring the earliest move-in
+  // date and then the lowest advertised rent.
+  const listingById = new Map();
+  for (const listing of listings) {
+    const existing = listingById.get(listing.id);
+    if (
+      !existing ||
+      listing.availableDate < existing.availableDate ||
+      (listing.availableDate === existing.availableDate &&
+        listing.rent < existing.rent)
+    ) {
+      listingById.set(listing.id, listing);
+    }
+  }
+  return [...listingById.values()];
 }
 
 function extractBalanced(source, start, open = "{", close = "}") {
