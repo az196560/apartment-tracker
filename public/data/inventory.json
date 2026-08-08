@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-07T12:37:40.956Z",
+  "updatedAt": "2026-08-08T12:23:06.204Z",
   "timezone": "America/Los_Angeles",
   "listingHistory": [
     {
@@ -796,6 +796,11 @@
       "id": "the-bower-37",
       "propertyId": "the-bower",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "the-bower-44",
+      "propertyId": "the-bower",
+      "firstSeenAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "the-bower-51",
@@ -1954,7 +1959,7 @@
       "sqft": 793,
       "rent": 4979,
       "totalMonthlyPrice": 4979,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
@@ -1967,7 +1972,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=2426",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -1978,14 +1983,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 789,
-      "rent": 5085,
-      "totalMonthlyPrice": 5085,
+      "rent": 5077,
+      "totalMonthlyPrice": 5077,
       "availableDate": "2026-08-25",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
           "months": 12,
-          "baseRent": 5085
+          "baseRent": 5077
         }
       ],
       "mandatoryMonthlyFees": [],
@@ -1993,7 +1998,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=2220",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -2004,14 +2009,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 791,
-      "rent": 4960,
-      "totalMonthlyPrice": 4960,
+      "rent": 4952,
+      "totalMonthlyPrice": 4952,
       "availableDate": "2026-09-05",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
           "months": 12,
-          "baseRent": 4960
+          "baseRent": 4952
         }
       ],
       "mandatoryMonthlyFees": [],
@@ -2019,7 +2024,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=2309",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -2030,14 +2035,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 616,
-      "rent": 4460,
-      "totalMonthlyPrice": 4466.06,
-      "availableDate": "2026-08-07",
+      "rent": 4469,
+      "totalMonthlyPrice": 4475.06,
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
           "months": 12,
-          "baseRent": 4460
+          "baseRent": 4469
         }
       ],
       "mandatoryMonthlyFees": [
@@ -2126,7 +2131,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=703",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -2137,14 +2142,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 616,
-      "rent": 4460,
-      "totalMonthlyPrice": 4466.06,
-      "availableDate": "2026-08-07",
+      "rent": 4469,
+      "totalMonthlyPrice": 4475.06,
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
           "months": 12,
-          "baseRent": 4460
+          "baseRent": 4469
         }
       ],
       "mandatoryMonthlyFees": [
@@ -2233,7 +2238,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=721",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -2244,14 +2249,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 616,
-      "rent": 4710,
-      "totalMonthlyPrice": 4716.06,
-      "availableDate": "2026-08-07",
+      "rent": 4719,
+      "totalMonthlyPrice": 4725.06,
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
           "months": 12,
-          "baseRent": 4710
+          "baseRent": 4719
         }
       ],
       "mandatoryMonthlyFees": [
@@ -2340,7 +2345,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=803",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -2351,14 +2356,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 690,
-      "rent": 5105,
-      "totalMonthlyPrice": 5111.06,
-      "availableDate": "2026-08-07",
+      "rent": 5114,
+      "totalMonthlyPrice": 5120.06,
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
           "months": 12,
-          "baseRent": 5105
+          "baseRent": 5114
         }
       ],
       "mandatoryMonthlyFees": [
@@ -2447,114 +2452,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=813",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
-      "firstSeenAt": "2026-07-25T18:14:10.558Z"
-    },
-    {
-      "id": "revery-752",
-      "propertyId": "revery",
-      "unit": "#752",
-      "floorplan": "A3",
-      "beds": 1,
-      "baths": 1,
-      "sqft": 741,
-      "rent": 4680,
-      "totalMonthlyPrice": 4686.06,
-      "availableDate": "2026-08-19",
-      "recommendedLeaseMonths": 12,
-      "leaseTerms": [
-        {
-          "months": 12,
-          "baseRent": 4680
-        }
-      ],
-      "mandatoryMonthlyFees": [
-        {
-          "label": "Hot Water Energy",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage-Based (Utilities)"
-        },
-        {
-          "label": "Renters Liability Insurance - Third Party",
-          "amount": null,
-          "amountMax": null,
-          "note": "Varies"
-        },
-        {
-          "label": "Trash Services - CA",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage-Based (Utilities)"
-        },
-        {
-          "label": "Utility - Billing Administrative Fee",
-          "amount": 6.06,
-          "amountMax": 6.06
-        },
-        {
-          "label": "Utility - Electric - Third Party",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage-Based (Utilities)"
-        },
-        {
-          "label": "Utility - Natural Gas - Third Party",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage-Based (Utilities)"
-        },
-        {
-          "label": "Utility - Sewer",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage-Based (Utilities)"
-        },
-        {
-          "label": "Utility - Water",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage-Based (Utilities)"
-        }
-      ],
-      "optionalMonthlyFees": [
-        {
-          "label": "Parking",
-          "amount": 150,
-          "amountMax": 250,
-          "note": "Price varies based on rentable item type."
-        },
-        {
-          "label": "Parking - EV",
-          "amount": 300,
-          "amountMax": 300
-        }
-      ],
-      "oneTimeFees": [
-        {
-          "label": "Application Fee",
-          "amount": 55.67,
-          "amountMax": 55.67
-        },
-        {
-          "label": "Holding Deposit (Refundable)",
-          "amount": 600,
-          "amountMax": 600
-        },
-        {
-          "label": "Security Deposit (Refundable)",
-          "amount": 600,
-          "amountMax": 600
-        },
-        {
-          "label": "Utility - Final Bill Fee",
-          "amount": 15,
-          "amountMax": 15
-        }
-      ],
-      "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=752",
-      "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -2661,7 +2559,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=827",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -2768,7 +2666,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=730",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -2781,7 +2679,7 @@
       "sqft": 731,
       "rent": 4295,
       "totalMonthlyPrice": 4301.06,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
@@ -2892,7 +2790,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2342",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -2905,7 +2803,7 @@
       "sqft": 687,
       "rent": 4360,
       "totalMonthlyPrice": 4366.06,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
@@ -3016,7 +2914,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2706",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -3029,7 +2927,7 @@
       "sqft": 884,
       "rent": 4750,
       "totalMonthlyPrice": 4756.06,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
@@ -3140,7 +3038,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2424",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -3264,7 +3162,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2601",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -3388,7 +3286,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2310",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -3512,7 +3410,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2634",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -3636,7 +3534,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2538",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -3760,7 +3658,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2539",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-26T14:45:37.676Z"
     },
     {
@@ -3825,6 +3723,37 @@
       "precision": "unit",
       "firstSeenAt": "2026-07-25T10:00:00-07:00",
       "capturedAt": "2026-07-25T10:00:00-07:00"
+    },
+    {
+      "id": "the-bower-44",
+      "propertyId": "the-bower",
+      "unit": "#619",
+      "floorplan": "Plan 1A",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 732,
+      "rent": 4052,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-10-04",
+      "recommendedLeaseMonths": 13,
+      "leaseTerms": [
+        {
+          "months": 13,
+          "baseRent": 4052
+        }
+      ],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [
+        {
+          "label": "Deposit",
+          "amount": 500
+        }
+      ],
+      "sourceUrl": "https://prometheusapartments.com/ca/burlingame-apartments/the-bower/unit-619",
+      "precision": "unit",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
+      "firstSeenAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "hanover-1081",
@@ -4842,7 +4771,7 @@
       "sqft": 644,
       "rent": 4645,
       "totalMonthlyPrice": 4652.14,
-      "availableDate": "2026-10-02",
+      "availableDate": "2026-10-10",
       "recommendedLeaseMonths": null,
       "leaseTerms": [],
       "mandatoryMonthlyFees": [
@@ -4855,7 +4784,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://baymeadows.securecafe.com/onlineleasing/3098-kyne-st-w-san-mateo-ca-94403/rentaloptions.aspx?UnitID=44269483&FloorPlanID=5772324&myOlePropertyid=1978168",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -5586,7 +5515,7 @@
       "sqft": 875,
       "rent": 4390,
       "totalMonthlyPrice": 4396.06,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
@@ -5695,7 +5624,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/8ywklk16vlx?unit_number=349",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -5817,7 +5746,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/8ywklk16vlx?unit_number=451",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -5939,7 +5868,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/8ywklk16vlx?unit_number=367",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-29T20:04:25.327Z"
     },
     {
@@ -5952,7 +5881,7 @@
       "sqft": 772,
       "rent": 3772,
       "totalMonthlyPrice": null,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": null,
       "leaseTerms": [],
       "mandatoryMonthlyFees": [],
@@ -5960,7 +5889,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.rcqalive.com/apartments/ca/foster-city/one-hundred-grand/default.aspx?unit=0307#FloorplanGroupContent",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -5973,7 +5902,7 @@
       "sqft": 773,
       "rent": 3797,
       "totalMonthlyPrice": null,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": null,
       "leaseTerms": [],
       "mandatoryMonthlyFees": [],
@@ -5981,7 +5910,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.rcqalive.com/apartments/ca/foster-city/one-hundred-grand/default.aspx?unit=0309#FloorplanGroupContent",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -6081,7 +6010,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px8l6jv19?unit_number=5106",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -6640,7 +6569,7 @@
       "sqft": 526,
       "rent": 3841,
       "totalMonthlyPrice": 3847.06,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
@@ -6736,7 +6665,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=536",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -6749,7 +6678,7 @@
       "sqft": 600,
       "rent": 3866,
       "totalMonthlyPrice": 3872.06,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
@@ -6845,7 +6774,116 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=312",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "the-hayden-302",
+      "propertyId": "the-hayden",
+      "unit": "#302",
+      "floorplan": "AU2",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 600,
+      "rent": 3928,
+      "totalMonthlyPrice": 3934.06,
+      "availableDate": "2026-08-08",
+      "recommendedLeaseMonths": 12,
+      "leaseTerms": [
+        {
+          "months": 12,
+          "baseRent": 3928
+        }
+      ],
+      "mandatoryMonthlyFees": [
+        {
+          "label": "Utility - Electric - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Natural Gas - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Hot Water Energy",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Water",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Sewer",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Trash Services - CA",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Billing Administrative Fee",
+          "amount": 6.06,
+          "amountMax": 6.06
+        },
+        {
+          "label": "Porter Service Rebill",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Renters Liability Insurance - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Varies"
+        }
+      ],
+      "optionalMonthlyFees": [
+        {
+          "label": "Parking",
+          "amount": 275,
+          "amountMax": 375,
+          "note": "Price varies based on rentable item type."
+        },
+        {
+          "label": "Parking - EV",
+          "amount": 375,
+          "amountMax": 375
+        }
+      ],
+      "oneTimeFees": [
+        {
+          "label": "Application Fee",
+          "amount": 55.67,
+          "amountMax": 55.67
+        },
+        {
+          "label": "Security Deposit (Refundable)",
+          "amount": 600,
+          "amountMax": 600,
+          "note": "Price varies based on level of damage."
+        },
+        {
+          "label": "Holding Deposit (Refundable)",
+          "amount": 600,
+          "amountMax": 600
+        }
+      ],
+      "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=302",
+      "precision": "unit",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -6858,7 +6896,7 @@
       "sqft": 627,
       "rent": 3976,
       "totalMonthlyPrice": 3982.06,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
@@ -6954,7 +6992,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=234",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -6967,7 +7005,7 @@
       "sqft": 694,
       "rent": 4271,
       "totalMonthlyPrice": 4277.06,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 12,
       "leaseTerms": [
         {
@@ -7063,7 +7101,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=204",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7172,7 +7210,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=450",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -7281,7 +7319,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=518",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7390,7 +7428,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=524",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-31T00:19:29.800Z"
     },
     {
@@ -7499,7 +7537,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=538",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -7608,7 +7646,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=402",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -7717,7 +7755,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=528",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7748,7 +7786,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/san-carlos-apartments/trestle/unit-4305",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-29T20:04:25.327Z"
     },
     {
@@ -8945,9 +8983,9 @@
       "beds": 1,
       "baths": 1,
       "sqft": 679,
-      "rent": 3966,
-      "totalMonthlyPrice": 3973.14,
-      "availableDate": "2026-08-07",
+      "rent": 3955,
+      "totalMonthlyPrice": 3962.14,
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": null,
       "leaseTerms": [],
       "mandatoryMonthlyFees": [
@@ -9034,7 +9072,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp2dg09vxl?unit_number=0713",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-26T14:45:37.676Z"
     },
     {
@@ -9047,7 +9085,7 @@
       "sqft": 679,
       "rent": 4091,
       "totalMonthlyPrice": 4098.14,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": null,
       "leaseTerms": [],
       "mandatoryMonthlyFees": [
@@ -9134,7 +9172,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp2dg09vxl?unit_number=0303",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -9147,7 +9185,7 @@
       "sqft": 743,
       "rent": 3745,
       "totalMonthlyPrice": 3752.14,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": null,
       "leaseTerms": [],
       "mandatoryMonthlyFees": [
@@ -9234,107 +9272,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=N105",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
-      "firstSeenAt": "2026-07-25T18:14:10.558Z"
-    },
-    {
-      "id": "pescadero-g104",
-      "propertyId": "pescadero",
-      "unit": "#G104",
-      "floorplan": "1 Bed/1 Bath-A",
-      "beds": 1,
-      "baths": 1,
-      "sqft": 743,
-      "rent": 3997,
-      "totalMonthlyPrice": 4004.14,
-      "availableDate": "2026-08-07",
-      "recommendedLeaseMonths": null,
-      "leaseTerms": [],
-      "mandatoryMonthlyFees": [
-        {
-          "label": "Utility - Electric Service",
-          "amount": null,
-          "amountMax": null,
-          "note": "3rd Party"
-        },
-        {
-          "label": "Utility - Gas Service",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage Based"
-        },
-        {
-          "label": "Utility - Sewer Service",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage Based"
-        },
-        {
-          "label": "Utility - Administrative Billing Fee",
-          "amount": 7.14,
-          "amountMax": 7.14
-        },
-        {
-          "label": "Renter Provided Liability Insurance",
-          "amount": null,
-          "amountMax": null,
-          "note": "Varies"
-        },
-        {
-          "label": "Utility - Trash Service",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage Based"
-        },
-        {
-          "label": "Utility - Water Service",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage Based"
-        }
-      ],
-      "optionalMonthlyFees": [
-        {
-          "label": "Parking - Reserved",
-          "amount": 0,
-          "amountMax": 0
-        },
-        {
-          "label": "Parking - Unreserved",
-          "amount": 0,
-          "amountMax": 0
-        },
-        {
-          "label": "Parking - Annual Fee (Third Party)",
-          "amount": 25,
-          "amountMax": 25
-        }
-      ],
-      "oneTimeFees": [
-        {
-          "label": "Application - Fee",
-          "amount": 50,
-          "amountMax": 50
-        },
-        {
-          "label": "Security Deposit - Standard",
-          "amount": 500,
-          "amountMax": 600
-        },
-        {
-          "label": "Holding Fee",
-          "amount": 250,
-          "amountMax": 250
-        },
-        {
-          "label": "Utility - Final Bill Fee",
-          "amount": 10,
-          "amountMax": 10
-        }
-      ],
-      "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=G104",
-      "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -9434,7 +9372,107 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=J104",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "pescadero-g104",
+      "propertyId": "pescadero",
+      "unit": "#G104",
+      "floorplan": "1 Bed/1 Bath-A",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 743,
+      "rent": 3986,
+      "totalMonthlyPrice": 3993.14,
+      "availableDate": "2026-08-08",
+      "recommendedLeaseMonths": null,
+      "leaseTerms": [],
+      "mandatoryMonthlyFees": [
+        {
+          "label": "Utility - Electric Service",
+          "amount": null,
+          "amountMax": null,
+          "note": "3rd Party"
+        },
+        {
+          "label": "Utility - Gas Service",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage Based"
+        },
+        {
+          "label": "Utility - Sewer Service",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage Based"
+        },
+        {
+          "label": "Utility - Administrative Billing Fee",
+          "amount": 7.14,
+          "amountMax": 7.14
+        },
+        {
+          "label": "Renter Provided Liability Insurance",
+          "amount": null,
+          "amountMax": null,
+          "note": "Varies"
+        },
+        {
+          "label": "Utility - Trash Service",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage Based"
+        },
+        {
+          "label": "Utility - Water Service",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage Based"
+        }
+      ],
+      "optionalMonthlyFees": [
+        {
+          "label": "Parking - Reserved",
+          "amount": 0,
+          "amountMax": 0
+        },
+        {
+          "label": "Parking - Unreserved",
+          "amount": 0,
+          "amountMax": 0
+        },
+        {
+          "label": "Parking - Annual Fee (Third Party)",
+          "amount": 25,
+          "amountMax": 25
+        }
+      ],
+      "oneTimeFees": [
+        {
+          "label": "Application - Fee",
+          "amount": 50,
+          "amountMax": 50
+        },
+        {
+          "label": "Security Deposit - Standard",
+          "amount": 500,
+          "amountMax": 600
+        },
+        {
+          "label": "Holding Fee",
+          "amount": 250,
+          "amountMax": 250
+        },
+        {
+          "label": "Utility - Final Bill Fee",
+          "amount": 10,
+          "amountMax": 10
+        }
+      ],
+      "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=G104",
+      "precision": "unit",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -9534,7 +9572,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=L103",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -9634,7 +9672,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=K103",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -9674,7 +9712,7 @@
       "sqft": 641,
       "rent": 4340,
       "totalMonthlyPrice": 4382.85,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 13,
       "leaseTerms": [
         {
@@ -9777,7 +9815,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=117",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T17:22:52.364Z"
     },
     {
@@ -9790,7 +9828,7 @@
       "sqft": 649,
       "rent": 4650,
       "totalMonthlyPrice": 4692.85,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 13,
       "leaseTerms": [
         {
@@ -9893,7 +9931,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=843",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T17:22:52.364Z"
     },
     {
@@ -10009,7 +10047,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=102",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T17:22:52.364Z"
     },
     {
@@ -10125,7 +10163,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=807",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -10241,7 +10279,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=707",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-31T13:27:57.027Z"
     },
     {
@@ -10357,7 +10395,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=840",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -10378,7 +10416,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.rentcafe.com/apartments/ca/redwood-city/avenue-two-apartments/default.aspx?unit=712#FloorplanGroupContent",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -10399,7 +10437,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.rentcafe.com/apartments/ca/redwood-city/avenue-two-apartments/default.aspx?unit=103#FloorplanGroupContent",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -10412,7 +10450,7 @@
       "sqft": 816,
       "rent": 4363,
       "totalMonthlyPrice": 4369.98,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 15,
       "leaseTerms": [
         {
@@ -10532,7 +10570,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0247",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -10545,7 +10583,7 @@
       "sqft": 816,
       "rent": 4373,
       "totalMonthlyPrice": 4379.98,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 15,
       "leaseTerms": [
         {
@@ -10665,7 +10703,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0347",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -10678,7 +10716,7 @@
       "sqft": 887,
       "rent": 4573,
       "totalMonthlyPrice": 4579.98,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 15,
       "leaseTerms": [
         {
@@ -10798,7 +10836,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0326",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -10931,7 +10969,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0119",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -11064,7 +11102,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0257",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -11197,7 +11235,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0246",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -11208,14 +11246,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 702,
-      "rent": 4377,
-      "totalMonthlyPrice": 4383.98,
+      "rent": 4410,
+      "totalMonthlyPrice": 4416.98,
       "availableDate": "2026-09-05",
       "recommendedLeaseMonths": 15,
       "leaseTerms": [
         {
           "months": 15,
-          "baseRent": 4377
+          "baseRent": 4410
         }
       ],
       "mandatoryMonthlyFees": [
@@ -11330,7 +11368,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0262",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -11341,14 +11379,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 816,
-      "rent": 4492,
-      "totalMonthlyPrice": 4498.98,
+      "rent": 4525,
+      "totalMonthlyPrice": 4531.98,
       "availableDate": "2026-09-09",
       "recommendedLeaseMonths": 15,
       "leaseTerms": [
         {
           "months": 15,
-          "baseRent": 4492
+          "baseRent": 4525
         }
       ],
       "mandatoryMonthlyFees": [
@@ -11463,7 +11501,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0420",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -11474,14 +11512,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 887,
-      "rent": 4532,
-      "totalMonthlyPrice": 4538.98,
+      "rent": 4565,
+      "totalMonthlyPrice": 4571.98,
       "availableDate": "2026-09-24",
       "recommendedLeaseMonths": 15,
       "leaseTerms": [
         {
           "months": 15,
-          "baseRent": 4532
+          "baseRent": 4565
         }
       ],
       "mandatoryMonthlyFees": [
@@ -11596,7 +11634,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0251",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-29T20:04:25.327Z"
     },
     {
@@ -11607,14 +11645,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 887,
-      "rent": 4589,
-      "totalMonthlyPrice": 4595.98,
+      "rent": 4587,
+      "totalMonthlyPrice": 4593.98,
       "availableDate": "2026-10-07",
       "recommendedLeaseMonths": 15,
       "leaseTerms": [
         {
           "months": 15,
-          "baseRent": 4589
+          "baseRent": 4587
         }
       ],
       "mandatoryMonthlyFees": [
@@ -11729,7 +11767,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0213",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -11740,14 +11778,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 816,
-      "rent": 4464,
-      "totalMonthlyPrice": 4470.98,
+      "rent": 4462,
+      "totalMonthlyPrice": 4468.98,
       "availableDate": "2026-10-12",
       "recommendedLeaseMonths": 15,
       "leaseTerms": [
         {
           "months": 15,
-          "baseRent": 4464
+          "baseRent": 4462
         }
       ],
       "mandatoryMonthlyFees": [
@@ -11862,7 +11900,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0214",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -11873,14 +11911,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 808,
-      "rent": 4468,
-      "totalMonthlyPrice": 4471.7,
+      "rent": 4461,
+      "totalMonthlyPrice": 4464.7,
       "availableDate": "2026-09-10",
       "recommendedLeaseMonths": 15,
       "leaseTerms": [
         {
           "months": 15,
-          "baseRent": 4468
+          "baseRent": 4461
         }
       ],
       "mandatoryMonthlyFees": [
@@ -11972,7 +12010,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/40vlgod3ple?unit_number=810",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -11983,14 +12021,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 741,
-      "rent": 4368,
-      "totalMonthlyPrice": 4371.7,
+      "rent": 4361,
+      "totalMonthlyPrice": 4364.7,
       "availableDate": "2026-09-15",
       "recommendedLeaseMonths": 15,
       "leaseTerms": [
         {
           "months": 15,
-          "baseRent": 4368
+          "baseRent": 4361
         }
       ],
       "mandatoryMonthlyFees": [
@@ -12082,7 +12120,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/40vlgod3ple?unit_number=802",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -12093,14 +12131,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 768,
-      "rent": 4613,
-      "totalMonthlyPrice": 4616.7,
+      "rent": 4606,
+      "totalMonthlyPrice": 4609.7,
       "availableDate": "2026-10-24",
       "recommendedLeaseMonths": 15,
       "leaseTerms": [
         {
           "months": 15,
-          "baseRent": 4613
+          "baseRent": 4606
         }
       ],
       "mandatoryMonthlyFees": [
@@ -12192,7 +12230,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/40vlgod3ple?unit_number=516",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-26T14:45:37.676Z"
     },
     {
@@ -12226,7 +12264,7 @@
       "sqft": 685,
       "rent": 4234,
       "totalMonthlyPrice": 4362.18,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 14,
       "leaseTerms": [
         {
@@ -12318,7 +12356,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=415",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -12423,7 +12461,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=534",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -12528,7 +12566,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=733",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -12633,7 +12671,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=614",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -12738,7 +12776,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=710",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-29T20:04:25.327Z"
     },
     {
@@ -12843,7 +12881,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=511",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-29T20:04:25.327Z"
     },
     {
@@ -12948,7 +12986,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=338",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -13053,7 +13091,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=613",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -13158,7 +13196,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=623",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -13263,7 +13301,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=538",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -13368,7 +13406,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=438",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -13379,14 +13417,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 645,
-      "rent": 4329,
-      "totalMonthlyPrice": 4458.24,
-      "availableDate": "2026-08-07",
+      "rent": 4372,
+      "totalMonthlyPrice": 4501.24,
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 14,
       "leaseTerms": [
         {
           "months": 14,
-          "baseRent": 4329
+          "baseRent": 4372
         }
       ],
       "mandatoryMonthlyFees": [
@@ -13468,7 +13506,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=535",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -13479,14 +13517,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 585,
-      "rent": 4812,
-      "totalMonthlyPrice": 4941.24,
-      "availableDate": "2026-08-07",
+      "rent": 4861,
+      "totalMonthlyPrice": 4990.24,
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 14,
       "leaseTerms": [
         {
           "months": 14,
-          "baseRent": 4812
+          "baseRent": 4861
         }
       ],
       "mandatoryMonthlyFees": [
@@ -13568,7 +13606,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=314",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -13579,14 +13617,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 585,
-      "rent": 4918,
-      "totalMonthlyPrice": 5047.24,
-      "availableDate": "2026-08-07",
+      "rent": 4966,
+      "totalMonthlyPrice": 5095.24,
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 14,
       "leaseTerms": [
         {
           "months": 14,
-          "baseRent": 4918
+          "baseRent": 4966
         }
       ],
       "mandatoryMonthlyFees": [
@@ -13668,7 +13706,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=714",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -13679,14 +13717,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 654,
-      "rent": 5123,
-      "totalMonthlyPrice": 5252.24,
-      "availableDate": "2026-08-07",
+      "rent": 5171,
+      "totalMonthlyPrice": 5300.24,
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 14,
       "leaseTerms": [
         {
           "months": 14,
-          "baseRent": 5123
+          "baseRent": 5171
         }
       ],
       "mandatoryMonthlyFees": [
@@ -13768,7 +13806,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=321",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -13779,14 +13817,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 624,
-      "rent": 4579,
-      "totalMonthlyPrice": 4708.24,
+      "rent": 4622,
+      "totalMonthlyPrice": 4751.24,
       "availableDate": "2026-08-12",
       "recommendedLeaseMonths": 13,
       "leaseTerms": [
         {
           "months": 13,
-          "baseRent": 4579
+          "baseRent": 4622
         }
       ],
       "mandatoryMonthlyFees": [
@@ -13868,7 +13906,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=643",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -13879,14 +13917,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 708,
-      "rent": 4634,
-      "totalMonthlyPrice": 4763.24,
+      "rent": 4677,
+      "totalMonthlyPrice": 4806.24,
       "availableDate": "2026-08-19",
       "recommendedLeaseMonths": 13,
       "leaseTerms": [
         {
           "months": 13,
-          "baseRent": 4634
+          "baseRent": 4677
         }
       ],
       "mandatoryMonthlyFees": [
@@ -13968,7 +14006,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=724",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -13979,14 +14017,14 @@
       "beds": 1,
       "baths": 1,
       "sqft": 773,
-      "rent": 4929,
-      "totalMonthlyPrice": 5058.24,
+      "rent": 4972,
+      "totalMonthlyPrice": 5101.24,
       "availableDate": "2026-09-18",
       "recommendedLeaseMonths": 13,
       "leaseTerms": [
         {
           "months": 13,
-          "baseRent": 4929
+          "baseRent": 4972
         }
       ],
       "mandatoryMonthlyFees": [
@@ -14068,7 +14106,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=219",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -14099,6 +14137,112 @@
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
+      "id": "anton-menlo-130a",
+      "propertyId": "anton-menlo",
+      "unit": "#130A",
+      "floorplan": "Residence 2",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 756,
+      "rent": 3900,
+      "totalMonthlyPrice": 3930.12,
+      "availableDate": "2026-08-08",
+      "recommendedLeaseMonths": 14,
+      "leaseTerms": [
+        {
+          "months": 14,
+          "baseRent": 3900
+        }
+      ],
+      "mandatoryMonthlyFees": [
+        {
+          "label": "Hot Water Energy",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Pest Control Services",
+          "amount": 3,
+          "amountMax": 3
+        },
+        {
+          "label": "Renters Liability Insurance - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Varies"
+        },
+        {
+          "label": "Trash Services - CA",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Trash Services - Doorstep",
+          "amount": 22,
+          "amountMax": 22
+        },
+        {
+          "label": "Utility - Billing Administrative Fee",
+          "amount": 5.12,
+          "amountMax": 5.12
+        },
+        {
+          "label": "Utility - Electric - Third Party",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Sewer",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        },
+        {
+          "label": "Utility - Water",
+          "amount": null,
+          "amountMax": null,
+          "note": "Usage-Based (Utilities)"
+        }
+      ],
+      "optionalMonthlyFees": [
+        {
+          "label": "Parking - Garage",
+          "amount": 45,
+          "amountMax": 300,
+          "note": "Price varies based on rentable item type."
+        }
+      ],
+      "oneTimeFees": [
+        {
+          "label": "Utility - Final Bill Fee",
+          "amount": 15,
+          "amountMax": 15
+        },
+        {
+          "label": "Application Fee",
+          "amount": 35,
+          "amountMax": 35
+        },
+        {
+          "label": "Holding Deposit (Refundable)",
+          "amount": 300,
+          "amountMax": 300
+        },
+        {
+          "label": "Security Deposit (Refundable)",
+          "amount": 500,
+          "amountMax": 500
+        }
+      ],
+      "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=130A",
+      "precision": "unit",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
+      "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
       "id": "anton-menlo-201b",
       "propertyId": "anton-menlo",
       "unit": "#201B",
@@ -14108,7 +14252,7 @@
       "sqft": 756,
       "rent": 4100,
       "totalMonthlyPrice": 4130.12,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 14,
       "leaseTerms": [
         {
@@ -14201,7 +14345,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=201B",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -14214,7 +14358,7 @@
       "sqft": 756,
       "rent": 4156,
       "totalMonthlyPrice": 4186.12,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 14,
       "leaseTerms": [
         {
@@ -14307,7 +14451,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=408C",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -14413,7 +14557,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=420A",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -14519,113 +14663,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=312A",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
-      "firstSeenAt": "2026-08-07T12:37:40.956Z"
-    },
-    {
-      "id": "anton-menlo-413a",
-      "propertyId": "anton-menlo",
-      "unit": "#413A",
-      "floorplan": "Residence 2",
-      "beds": 1,
-      "baths": 1,
-      "sqft": 756,
-      "rent": 4336,
-      "totalMonthlyPrice": 4366.12,
-      "availableDate": "2026-09-26",
-      "recommendedLeaseMonths": 14,
-      "leaseTerms": [
-        {
-          "months": 14,
-          "baseRent": 4336
-        }
-      ],
-      "mandatoryMonthlyFees": [
-        {
-          "label": "Hot Water Energy",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage-Based (Utilities)"
-        },
-        {
-          "label": "Pest Control Services",
-          "amount": 3,
-          "amountMax": 3
-        },
-        {
-          "label": "Renters Liability Insurance - Third Party",
-          "amount": null,
-          "amountMax": null,
-          "note": "Varies"
-        },
-        {
-          "label": "Trash Services - CA",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage-Based (Utilities)"
-        },
-        {
-          "label": "Trash Services - Doorstep",
-          "amount": 22,
-          "amountMax": 22
-        },
-        {
-          "label": "Utility - Billing Administrative Fee",
-          "amount": 5.12,
-          "amountMax": 5.12
-        },
-        {
-          "label": "Utility - Electric - Third Party",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage-Based (Utilities)"
-        },
-        {
-          "label": "Utility - Sewer",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage-Based (Utilities)"
-        },
-        {
-          "label": "Utility - Water",
-          "amount": null,
-          "amountMax": null,
-          "note": "Usage-Based (Utilities)"
-        }
-      ],
-      "optionalMonthlyFees": [
-        {
-          "label": "Parking - Garage",
-          "amount": 45,
-          "amountMax": 300,
-          "note": "Price varies based on rentable item type."
-        }
-      ],
-      "oneTimeFees": [
-        {
-          "label": "Utility - Final Bill Fee",
-          "amount": 15,
-          "amountMax": 15
-        },
-        {
-          "label": "Application Fee",
-          "amount": 35,
-          "amountMax": 35
-        },
-        {
-          "label": "Holding Deposit (Refundable)",
-          "amount": 300,
-          "amountMax": 300
-        },
-        {
-          "label": "Security Deposit (Refundable)",
-          "amount": 500,
-          "amountMax": 500
-        }
-      ],
-      "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=413A",
-      "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -14638,7 +14676,7 @@
       "sqft": 810,
       "rent": 5622,
       "totalMonthlyPrice": 5622,
-      "availableDate": "2026-08-07",
+      "availableDate": "2026-08-08",
       "recommendedLeaseMonths": 10,
       "leaseTerms": [
         {
@@ -14651,7 +14689,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/gow3k7nyp2m?unit_number=E-012",
       "precision": "unit",
-      "capturedAt": "2026-08-07T12:37:40.956Z",
+      "capturedAt": "2026-08-08T12:23:06.204Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     }
   ],
@@ -14661,7 +14699,7 @@
       "label": "Cirrus / RentCafe",
       "status": "live",
       "lastSuccessAt": "2026-07-23T13:42:00-07:00",
-      "lastAttemptAt": "2026-08-07T12:37:40.956Z",
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
       "lastError": "https://www.cirrusredwoodcityapartments.com/floorplans/1-bedroom-1-bath-a returned HTTP 403"
     },
     {
@@ -14669,7 +14707,7 @@
       "label": "Station Park Green / Essex",
       "status": "live",
       "lastSuccessAt": "2026-07-28T15:37:52.201Z",
-      "lastAttemptAt": "2026-08-07T12:37:40.956Z",
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
       "lastError": "page.evaluate: Error: Essex API returned HTTP 429\n    at eval (eval at evaluate (:311:30), <anonymous>:6:29)\n    at async <anonymous>:337:30"
     },
     {
@@ -14677,19 +14715,20 @@
       "label": "ROEN / Essex",
       "status": "live",
       "lastSuccessAt": "2026-08-07T12:37:40.956Z",
-      "lastAttemptAt": "2026-07-31T13:27:57.027Z"
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
+      "lastError": "page.evaluate: Error: Essex API returned HTTP 429\n    at eval (eval at evaluate (:311:30), <anonymous>:6:29)\n    at async <anonymous>:337:30"
     },
     {
       "id": "highwater",
       "label": "Highwater / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "885-woodside",
       "label": "885 Woodside / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "bayswater-burlingame",
@@ -14701,7 +14740,7 @@
       "id": "the-bower",
       "label": "The Bower / Prometheus",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "hanover-burlingame",
@@ -14719,40 +14758,41 @@
       "id": "indian-creek",
       "label": "Indian Creek / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "pescadero",
       "label": "Pescadero / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "encore-redwood-city",
       "label": "Encore / Official unit map",
       "status": "live",
       "lastSuccessAt": "2026-07-31T13:27:57.027Z",
-      "lastAttemptAt": "2026-08-07T12:37:40.956Z",
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
       "lastError": "Encore did not expose its official unit map"
     },
     {
       "id": "anson",
       "label": "Anson / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "mode",
       "label": "MODE / RentCafe",
       "status": "live",
       "lastSuccessAt": "2026-08-07T12:37:40.956Z",
-      "lastAttemptAt": "2026-07-29T20:04:25.327Z"
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
+      "lastError": "https://www.rentcafe.com/apartments/ca/san-mateo/mode/default.aspx browser challenge did not finish"
     },
     {
       "id": "the-hayden",
       "label": "The Hayden / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "wheeler-plaza",
@@ -14764,56 +14804,56 @@
       "id": "lume",
       "label": "Lume / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "revery",
       "label": "Revery / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "one-adrian",
       "label": "One Adrian / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "blu-harbor",
       "label": "Blu Harbor / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "the-marston",
       "label": "The Marston / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "vasara",
       "label": "Vasara / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "sharon-green",
       "label": "Sharon Green / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "locale",
       "label": "Locale / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "northpark",
       "label": "Northpark / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-07T12:37:40.956Z",
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/burlingame/northpark-apartments returned HTTP 403"
     },
     {
@@ -14821,7 +14861,7 @@
       "label": "Park Place / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-07T12:37:40.956Z",
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/san-mateo/park-place-at-san-mateo-apartments returned HTTP 403"
     },
     {
@@ -14829,7 +14869,7 @@
       "label": "55 West Fifth / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-07T12:37:40.956Z",
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/san-mateo/55-west-fifth-apartments returned HTTP 403"
     },
     {
@@ -14837,7 +14877,7 @@
       "label": "Creekside / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-07T12:37:40.956Z",
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/san-mateo/creekside-apartments returned HTTP 403"
     },
     {
@@ -14845,7 +14885,7 @@
       "label": "Schooner Bay / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-07T12:37:40.956Z",
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/foster-city/schooner-bay-apartment-homes returned HTTP 403"
     },
     {
@@ -14853,7 +14893,7 @@
       "label": "Lantern Cove / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-07T12:37:40.956Z",
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/foster-city/lantern-cove-apartments returned HTTP 403"
     },
     {
@@ -14861,7 +14901,7 @@
       "label": "Huxley / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-07T12:37:40.956Z",
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/redwood-city/huxley-apartments returned HTTP 403"
     },
     {
@@ -14869,7 +14909,7 @@
       "label": "Riva Terra / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-07T12:37:40.956Z",
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/redwood-city/riva-terra-apartments-at-redwood-shores returned HTTP 403"
     },
     {
@@ -14877,120 +14917,123 @@
       "label": "The Lark / RentCafe API",
       "status": "live",
       "lastSuccessAt": "2026-07-28T15:37:52.201Z",
-      "lastAttemptAt": "2026-08-07T12:37:40.956Z",
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
       "lastError": "RENTCAFE_API_TOKEN is not configured"
     },
     {
       "id": "201-marshall",
       "label": "201 Marshall / RealPage API",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "franklin-299",
       "label": "Franklin 299 / G5 Inventory",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "indigo",
       "label": "Indigo / AIR Communities",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "realm-menlo-park",
       "label": "Realm Menlo Park / On-Site",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "the-triton",
       "label": "The Triton / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "field-house",
       "label": "Bay Meadows / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "quimby",
       "label": "Bay Meadows / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "the-russell",
       "label": "Bay Meadows / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "hawthorne",
       "label": "Bay Meadows / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "the-morgan",
       "label": "Bay Meadows / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "miramar",
       "label": "Miramar / Prometheus",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "trestle",
       "label": "Trestle / Prometheus",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "marlin-cove",
       "label": "Marlin Cove / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     },
     {
       "id": "the-plaza-foster-city",
       "label": "The Plaza / Essex",
       "status": "live",
       "lastSuccessAt": "2026-08-07T12:37:40.956Z",
-      "lastAttemptAt": "2026-07-31T13:27:57.027Z"
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
+      "lastError": "page.evaluate: Error: Essex API returned HTTP 429\n    at eval (eval at evaluate (:311:30), <anonymous>:6:29)\n    at async <anonymous>:337:30"
     },
     {
       "id": "fosters-landing",
       "label": "Foster's Landing / Essex",
       "status": "live",
       "lastSuccessAt": "2026-08-07T12:37:40.956Z",
-      "lastAttemptAt": "2026-07-31T13:27:57.027Z"
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
+      "lastError": "page.evaluate: Error: Essex API returned HTTP 429\n    at eval (eval at evaluate (:311:30), <anonymous>:6:29)\n    at async <anonymous>:337:30"
     },
     {
       "id": "radius",
       "label": "Radius / Essex",
       "status": "live",
       "lastSuccessAt": "2026-08-07T12:37:40.956Z",
-      "lastAttemptAt": "2026-07-31T13:27:57.027Z"
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
+      "lastError": "page.evaluate: Error: Essex API returned HTTP 429\n    at eval (eval at evaluate (:311:30), <anonymous>:6:29)\n    at async <anonymous>:337:30"
     },
     {
       "id": "100-grand",
       "label": "One Hundred Grand / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z",
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z",
       "lastAttemptAt": "2026-07-29T20:04:25.327Z"
     },
     {
       "id": "avenue-two",
       "label": "Avenue Two / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z",
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z",
       "lastAttemptAt": "2026-07-29T20:04:25.327Z"
     },
     {
@@ -14998,21 +15041,21 @@
       "label": "Township / RentCafe",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-07T12:37:40.956Z",
+      "lastAttemptAt": "2026-08-08T12:23:06.204Z",
       "lastError": "https://www.rentcafe.com/apartments/ca/redwood-city/township/default.aspx redirected to https://www.rentcafe.com/apartments-for-rent/redwood-city-ca/"
     },
     {
       "id": "villas-bair-island",
       "label": "Villas at Bair Island / Irvine Company",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z",
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z",
       "lastAttemptAt": "2026-07-29T20:04:25.327Z"
     },
     {
       "id": "franklin-street",
       "label": "Franklin Street / Irvine Company",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z",
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z",
       "lastAttemptAt": "2026-07-29T20:04:25.327Z"
     },
     {
@@ -15025,7 +15068,7 @@
       "id": "anton-menlo",
       "label": "Anton Menlo / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z"
+      "lastSuccessAt": "2026-08-08T12:23:06.204Z"
     }
   ]
 }
