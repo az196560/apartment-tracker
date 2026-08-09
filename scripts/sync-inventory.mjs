@@ -1097,9 +1097,15 @@ function rentCafeAvailable(unit) {
   return Boolean(unit.AvailableDate);
 }
 
-async function scrapeLark(now) {
-  const apiToken = process.env.RENTCAFE_API_TOKEN;
-  if (!apiToken) throw new Error("RENTCAFE_API_TOKEN is not configured");
+async function scrapeLark(now, property) {
+  let apiToken = process.env.RENTCAFE_API_TOKEN;
+  if (!apiToken) {
+    const html = await fetchText(property.website);
+    apiToken = decodeEntities(html).match(/\bapiToken=([a-z0-9]+)/i)?.[1];
+  }
+  if (!apiToken) {
+    throw new Error("The Lark did not expose its official RentCafe token");
+  }
   const apiUrl = new URL("https://api.rentcafe.com/rentcafeapi.aspx");
   apiUrl.search = new URLSearchParams({
     requestType: "apartmentavailability",
@@ -1801,6 +1807,10 @@ async function getAutomationPage() {
 }
 
 async function openAutomationPage(url) {
+  if (automationPage) {
+    await automationPage.close().catch(() => {});
+    automationPage = undefined;
+  }
   const page = await getAutomationPage();
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 75_000 });
   for (let attempt = 0; attempt < 30; attempt += 1) {
@@ -1836,14 +1846,28 @@ async function scrapeEssex(now, property, source) {
   const page = await openAutomationPage(property.website);
   const date = now.toISOString().slice(0, 10);
   const apiUrl = `https://www.essexapartmenthomes.com/api/properties/${source.essexId}/availability?start_date=${date}&end_date=${date}&format=spa`;
-  const payload = await page.evaluate(async (url) => {
-    const response = await fetch(url, {
-      headers: { accept: "application/json" },
-      credentials: "include",
-    });
-    if (!response.ok) throw new Error(`Essex API returned HTTP ${response.status}`);
-    return response.json();
-  }, apiUrl);
+  let payload;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const result = await page.evaluate(async (url) => {
+      const response = await fetch(url, {
+        headers: { accept: "application/json" },
+        credentials: "include",
+      });
+      return {
+        status: response.status,
+        payload: response.ok ? await response.json() : null,
+      };
+    }, apiUrl);
+    if (result.status === 429 && attempt < 2) {
+      await page.waitForTimeout(2_000 * (attempt + 1));
+      continue;
+    }
+    if (result.status < 200 || result.status >= 300) {
+      throw new Error(`Essex API returned HTTP ${result.status}`);
+    }
+    payload = result.payload;
+    break;
+  }
   const units = payload?.result?.units;
   if (!Array.isArray(units)) {
     throw new Error(`${property.name} returned invalid Essex inventory`);

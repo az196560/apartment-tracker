@@ -40,8 +40,8 @@ npm run validate:data
 
 `scripts/bay-area-catalog.mjs` 维护四区城市归属、经过设施审计的官方物业目录和已知户型。
 `scripts/sync-inventory.mjs` 每天重新执行硬性准入规则、读取官方动态库存，保留失败来源的最近快照，并更新
-`public/data/inventory.json`。The Lark 的 RentCafe 接口需要通过环境变量
-`RENTCAFE_API_TOKEN` 提供令牌；GitHub Actions 从同名 repository secret 读取。
+`public/data/inventory.json`。The Lark 默认从官网页面发现公开的 RentCafe 令牌；如需覆盖，
+也可以通过环境变量 `RENTCAFE_API_TOKEN` 提供。
 
 `inventoryStatus` 表示采集状态：`live` 为已接入每日接口，`onboarding` 为正在接入，
 `manual` 为官网仅提供人工询价，`blocked` 为官网当前阻止自动读取。
