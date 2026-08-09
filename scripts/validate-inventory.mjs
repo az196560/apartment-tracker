@@ -22,6 +22,7 @@ function isValidTimestamp(value) {
 const inventory = JSON.parse(await readFile(inventoryPath, "utf8"));
 const errors = [];
 const explicitlyExcludedPropertyIds = new Set(["shortstack", "the-heltsley"]);
+const supportedRegions = new Set(["sf", "peninsula", "south-bay", "east-bay"]);
 const updatedAt = Date.parse(inventory.updatedAt);
 
 if (!isValidTimestamp(inventory.updatedAt)) {
@@ -54,6 +55,18 @@ for (const [collectionName, items] of [
 
 if (Array.isArray(inventory.properties)) {
   for (const property of inventory.properties) {
+    if (!supportedRegions.has(property.region)) {
+      errors.push(`${property.id} must declare a supported Bay Area region`);
+    }
+    if (
+      !Array.isArray(property.bedroomTypes) ||
+      !property.bedroomTypes.length ||
+      property.bedroomTypes.some(
+        (beds) => !Number.isInteger(beds) || beds < 0 || beds > 4,
+      )
+    ) {
+      errors.push(`${property.id} must declare supported bedroom types from 0 to 4`);
+    }
     if (typeof property.airConditioning !== "boolean") {
       errors.push(`${property.id} must declare an air-conditioning review status`);
     }
@@ -105,6 +118,18 @@ if (Array.isArray(inventory.listings)) {
         `${listing.id} references excluded or unknown property ${listing.propertyId}`,
       );
     }
+    if (!Number.isInteger(listing.beds) || listing.beds < 0 || listing.beds > 4) {
+      errors.push(`${listing.id} must declare a bedroom count from 0 to 4`);
+    }
+    if (
+      listing.baths !== null &&
+      (typeof listing.baths !== "number" ||
+        !Number.isFinite(listing.baths) ||
+        listing.baths <= 0 ||
+        listing.baths > 4)
+    ) {
+      errors.push(`${listing.id} must declare a bathroom count above 0 and at most 4`);
+    }
     if (!isValidTimestamp(listing.capturedAt)) {
       errors.push(`${listing.id} must declare a valid capturedAt`);
     }
@@ -143,6 +168,6 @@ if (errors.length) {
 }
 
 process.stdout.write(
-  `Validated ${inventory.properties.length} amenity-reviewed properties, ` +
+  `Validated ${inventory.properties.length} region-tagged properties, ` +
     `${inventory.listings.length} listings, and ${inventory.sources.length} sources.\n`,
 );

@@ -1,11 +1,18 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import {
+  equityBedroomTypes,
+  equityStartingRents,
+  officialCatalogProperties,
+  officialEquityPropertyIds,
+  regionForCity,
+} from "./bay-area-catalog.mjs";
 
 const inventoryPath = fileURLToPath(
   new URL("../public/data/inventory.json", import.meta.url),
 );
 const monitorUserAgent =
-  "PeninsulaOneAvailabilityMonitor/2.0 (+https://github.com/az196560/apartment-tracker)";
+  "BayAreaApartmentTracker/3.0 (+https://github.com/az196560/apartment-tracker)";
 const restrictedPlanPattern =
   /affordable|below[\s-]?market|\bbmr\b|income[\s-]?(?:restricted|qualified)/i;
 const excludedPropertyIds = new Set(["shortstack", "the-heltsley"]);
@@ -149,16 +156,14 @@ const sightmapSources = [
   embedUrl: `https://sightmap.com/embed/${embedId}`,
 }));
 
-const equitySources = [
-  ["northpark", "Northpark / Equity Apartments"],
-  ["park-place-san-mateo", "Park Place / Equity Apartments"],
-  ["55-west-fifth", "55 West Fifth / Equity Apartments"],
-  ["creekside-san-mateo", "Creekside / Equity Apartments"],
-  ["schooner-bay", "Schooner Bay / Equity Apartments"],
-  ["lantern-cove", "Lantern Cove / Equity Apartments"],
-  ["huxley", "Huxley / Equity Apartments"],
-  ["riva-terra", "Riva Terra / Equity Apartments"],
-].map(([propertyId, label]) => ({ propertyId, sourceId: propertyId, label }));
+const catalogPropertyById = new Map(
+  officialCatalogProperties.map((property) => [property.id, property]),
+);
+const equitySources = officialEquityPropertyIds.map((propertyId) => ({
+  propertyId,
+  sourceId: propertyId,
+  label: `${catalogPropertyById.get(propertyId)?.name ?? propertyId} / Equity Apartments`,
+}));
 
 const fixedSources = [
   {
@@ -340,6 +345,36 @@ function numberValue(value) {
   return match ? Number(match[0]) : null;
 }
 
+function bedroomCount(value) {
+  const count = numberValue(value);
+  return Number.isInteger(count) && count >= 0 && count <= 4 ? count : null;
+}
+
+function bathroomCount(value) {
+  const count = numberValue(value);
+  return count !== null && count > 0 && count <= 4 ? count : null;
+}
+
+function numericField(value, names) {
+  if (!value || typeof value !== "object") return null;
+  for (const name of names) {
+    const count = numberValue(value[name]);
+    if (count !== null) return count;
+  }
+  return null;
+}
+
+function parseBedroomBathroomText(value) {
+  const text = String(value ?? "");
+  const beds = /studio/i.test(text)
+    ? 0
+    : bedroomCount(text.match(/(\d+)\s*(?:bed|br)\b/i)?.[1]);
+  const baths = bathroomCount(
+    text.match(/(\d+(?:\.\d+)?)\s*(?:bath|ba)\b/i)?.[1],
+  );
+  return { beds, baths };
+}
+
 function isoDate(value, now) {
   const raw = String(value ?? "").trim();
   if (!raw) return null;
@@ -516,10 +551,11 @@ async function scrapeSightmap(source, now) {
   const listings = (payload.data.units ?? [])
     .map((unit) => {
       const plan = plans.get(String(unit.floor_plan_id));
-      if (!plan || Number(plan.bedroom_count) !== 1) return null;
+      if (!plan) return null;
+      const beds = bedroomCount(plan.bedroom_count);
+      const baths = bathroomCount(plan.bathroom_count);
+      if (beds === null || baths === null) return null;
       if (restrictedPlanPattern.test(floorplanName(plan.name))) return null;
-      const baths = numberValue(plan.bathroom_count);
-      if (baths !== null && (baths < 1 || baths >= 2)) return null;
       const rent = numberValue(unit.price);
       const availableDate = isoDate(unit.available_on, now);
       if (rent === null || !availableDate) return null;
@@ -533,8 +569,8 @@ async function scrapeSightmap(source, now) {
         propertyId: source.propertyId,
         unit: `#${unit.unit_number}`,
         floorplan: floorplanName(plan.name),
-        beds: 1,
-        baths: 1,
+        beds,
+        baths,
         sqft: numberValue(unit.area) ?? 0,
         rent,
         totalMonthlyPrice,
@@ -639,16 +675,44 @@ async function scrapeEquity(source, property, now) {
   if (!Array.isArray(payload.BedroomTypes)) {
     throw new Error(`${property.name} did not return Equity bedroom inventory`);
   }
-  const units = payload.BedroomTypes.filter(
-    (bedroom) => Number(bedroom.BedroomCount) === 1,
-  ).flatMap((bedroom) => bedroom.AvailableUnits ?? []);
+  const units = payload.BedroomTypes.flatMap((bedroom) => {
+    const beds = bedroomCount(bedroom.BedroomCount);
+    if (beds === null) return [];
+    return (bedroom.AvailableUnits ?? []).map((unit) => ({
+      unit,
+      beds,
+      baths:
+        bathroomCount(
+          numericField(unit, [
+            "BathroomCount",
+            "BathCount",
+            "Bathrooms",
+            "Baths",
+            "NumberOfBathrooms",
+          ]),
+        ) ??
+        bathroomCount(
+          numericField(unit.Floorplan ?? unit.FloorPlan, [
+            "BathroomCount",
+            "BathCount",
+            "Bathrooms",
+            "Baths",
+          ]),
+        ) ??
+        bathroomCount(
+          numericField(bedroom, ["BathroomCount", "BathCount", "Bathrooms"]),
+        ) ??
+        parseBedroomBathroomText(unit.FloorplanName).baths ??
+        1,
+    }));
+  });
 
   return units
-    .filter((unit) => {
+    .filter(({ unit }) => {
       const name = String(unit.FloorplanName ?? "");
       return unit.AFFORDABLE !== "Y" && !restrictedPlanPattern.test(name);
     })
-    .map((unit) => {
+    .map(({ unit, beds, baths }) => {
       const rent = numberValue(unit.BestTerm?.Price);
       const availableDate = isoDate(unit.AvailableDate, now);
       if (rent === null || !availableDate) return null;
@@ -675,9 +739,9 @@ async function scrapeEquity(source, property, now) {
         id: `${source.propertyId}-${buildingId || "building"}-${unitId}`.toLowerCase(),
         propertyId: source.propertyId,
         unit: `#${unit.UnitNumber ?? unitId}`,
-        floorplan: String(unit.FloorplanName ?? "1 Bedroom"),
-        beds: 1,
-        baths: 1,
+        floorplan: String(unit.FloorplanName ?? `${beds} Bedroom`),
+        beds,
+        baths,
         sqft: numberValue(unit.SqFt) ?? 0,
         rent,
         totalMonthlyPrice: numberValue(
@@ -743,13 +807,13 @@ async function scrapeRealPageV2(now, property) {
     floorplans.map((plan) => [String(plan.id ?? plan.floorplanId), plan]),
   );
   return units
-    .filter((unit) => Number(unit.numberOfBeds ?? unit.beds) === 1)
     .map((unit) => {
       const plan = plans.get(String(unit.floorplanId)) ?? {};
-      const planName = String(plan.name ?? unit.floorplanName ?? "1 Bedroom");
+      const beds = bedroomCount(unit.numberOfBeds ?? unit.beds ?? plan.bedRooms);
+      const baths = bathroomCount(unit.numberOfBaths ?? plan.bathRooms);
+      if (beds === null || baths === null) return null;
+      const planName = String(plan.name ?? unit.floorplanName ?? `${beds} Bedroom`);
       if (restrictedPlanPattern.test(planName)) return null;
-      const bathCount = numberValue(unit.numberOfBaths ?? plan.bathRooms);
-      if (bathCount !== null && (bathCount < 1 || bathCount >= 2)) return null;
       const rent = numberValue(unit.rent ?? unit.baseRent);
       const availableDate = isoDate(
         unit.internalAvailableDate ?? unit.availableDate,
@@ -765,8 +829,8 @@ async function scrapeRealPageV2(now, property) {
         propertyId: "201-marshall",
         unit: `#${unit.unitNumber ?? unitId}`,
         floorplan: planName,
-        beds: 1,
-        baths: 1,
+        beds,
+        baths,
         sqft: numberValue(unit.squareFeet ?? plan.squareFeet) ?? 0,
         rent,
         totalMonthlyPrice: numberValue(unit.totalRent),
@@ -815,7 +879,7 @@ async function scrapeFranklin299(now, property) {
   const data = await g5Graphql(
     `query ApartmentComplex($locationUrn:String!,$moveInDate:String!){
       apartmentComplex(locationUrn:$locationUrn){
-        floorplans(beds:[1],moveInDate:$moveInDate){
+        floorplans(beds:[0,1,2,3,4],moveInDate:$moveInDate){
           id name beds baths sqft sqftDisplay startingRate totalRentStarting
           rateDisplay totalRentDisplay leaseTermBasisMin totalAvailableUnits
           unitsAvailableByFilters(moveInDate:$moveInDate,limit:50)
@@ -830,9 +894,11 @@ async function scrapeFranklin299(now, property) {
   }
   const listings = [];
   for (const plan of floorplans) {
-    if (Number(plan.beds) !== 1 || restrictedPlanPattern.test(plan.name)) continue;
-    const bathCount = numberValue(plan.baths);
-    if (bathCount !== null && (bathCount < 1 || bathCount >= 2)) continue;
+    const beds = bedroomCount(plan.beds);
+    const baths = bathroomCount(plan.baths);
+    if (beds === null || baths === null || restrictedPlanPattern.test(plan.name)) {
+      continue;
+    }
     if (!Number(plan.unitsAvailableByFilters ?? plan.totalAvailableUnits)) continue;
     const unitData = await g5Graphql(
       `query Units($floorplanId:Int!,$limit:Int,$moveInDate:String,$locationUrn:String){
@@ -866,8 +932,8 @@ async function scrapeFranklin299(now, property) {
         propertyId: "franklin-299",
         unit: `#${unit.displayName ?? unit.name ?? unitId}`,
         floorplan: String(unit.floorplan?.name ?? plan.name),
-        beds: 1,
-        baths: 1,
+        beds,
+        baths,
         sqft: numberValue(unit.floorplan?.sqft ?? unit.sqftDisplay) ?? 0,
         rent,
         totalMonthlyPrice: numberValue(plan.totalRentStarting),
@@ -907,9 +973,8 @@ async function scrapeLark(now) {
   return payload
     .filter(
       (unit) =>
-        Number(unit.Beds) === 1 &&
-        numberValue(unit.Baths) >= 1 &&
-        numberValue(unit.Baths) < 2 &&
+        bedroomCount(unit.Beds) !== null &&
+        bathroomCount(unit.Baths) !== null &&
         !restrictedPlanPattern.test(String(unit.FloorplanName ?? "")) &&
         rentCafeAvailable(unit),
     )
@@ -922,9 +987,9 @@ async function scrapeLark(now) {
         id: `the-lark-${unitId}`.toLowerCase(),
         propertyId: "the-lark",
         unit: `#${unit.ApartmentName ?? unitId}`,
-        floorplan: String(unit.FloorplanName ?? "1 Bedroom"),
-        beds: 1,
-        baths: 1,
+        floorplan: String(unit.FloorplanName ?? `${unit.Beds} Bedroom`),
+        beds: bedroomCount(unit.Beds),
+        baths: bathroomCount(unit.Baths),
         sqft: numberValue(unit.SQFT) ?? 0,
         rent,
         totalMonthlyPrice: null,
@@ -962,38 +1027,73 @@ async function mapLimit(values, limit, mapper) {
 
 async function scrapeIndigo(now, property) {
   const html = await fetchText(property.website);
-  const oneBedroomUrls = [
+  const floorplanUrls = [
     ...new Set(
-      [...html.matchAll(/href=["']([^"']*\/floor-plan\/1-bedroom\/[^"']+\.html)["']/gi)]
+      [
+        ...html.matchAll(
+          /href=["']([^"']*\/floor-plan\/(?:studio|\d+-bedroom)\/[^"']+\.html)["']/gi,
+        ),
+      ]
         .map((match) => new URL(decodeEntities(match[1]), property.website).toString()),
     ),
   ];
-  if (!oneBedroomUrls.length) {
-    throw new Error("Indigo did not expose its one-bedroom floorplans");
+  if (!floorplanUrls.length) {
+    throw new Error("Indigo did not expose its floorplans");
   }
-  const pages = await mapLimit(oneBedroomUrls, 6, async (url) => ({
-    url,
-    html: await fetchText(url),
-  }));
-  const unitPayloads = await mapLimit(pages, 6, async ({ url, html: pageHtml }) => {
-    const jsonPath = pageHtml.match(
-      /data-units-json-path=["']([^"']+)["']/i,
-    )?.[1];
-    if (!jsonPath) throw new Error(`${url} did not expose AIR unit inventory`);
-    const floorplanId =
-      pageHtml.match(/floorplan-id=["']([^"']+)["']/i)?.[1] ?? "floorplan";
-    return {
-      url,
-      floorplanId,
-      payload: await fetchJson(new URL(jsonPath, property.website)),
-    };
-  });
+  const pages = (
+    await mapLimit(floorplanUrls, 6, async (url) => {
+      try {
+        return { url, html: await fetchText(url) };
+      } catch {
+        return null;
+      }
+    })
+  ).filter(Boolean);
+  if (!pages.length) throw new Error("Indigo floorplan pages were unavailable");
+  const unitPayloads = (
+    await mapLimit(pages, 6, async ({ url, html: pageHtml }) => {
+      try {
+        const jsonPath = pageHtml.match(
+          /data-units-json-path=["']([^"']+)["']/i,
+        )?.[1];
+        if (!jsonPath) return null;
+        const floorplanId =
+          pageHtml.match(/floorplan-id=["']([^"']+)["']/i)?.[1] ??
+          "floorplan";
+        return {
+          url,
+          floorplanId,
+          payload: await fetchJson(new URL(jsonPath, property.website)),
+        };
+      } catch {
+        return null;
+      }
+    })
+  ).filter(Boolean);
+  if (!unitPayloads.length) {
+    throw new Error("Indigo unit inventory endpoints were unavailable");
+  }
   const listings = [];
   for (const { url, floorplanId, payload } of unitPayloads) {
     if (!payload || payload.success !== true || !Array.isArray(payload.units)) {
       throw new Error(`${url} returned invalid AIR inventory`);
     }
+    const urlBeds = /\/studio\//i.test(url)
+      ? 0
+      : bedroomCount(url.match(/\/(\d+)-bedroom\//i)?.[1]);
     for (const unit of payload.units) {
+      const textCounts = parseBedroomBathroomText(
+        `${unit.floorplanName ?? ""} ${unit.planName ?? ""}`,
+      );
+      const beds =
+        bedroomCount(unit.beds ?? unit.bedrooms ?? unit.numberOfBeds) ??
+        textCounts.beds ??
+        urlBeds;
+      const baths =
+        bathroomCount(unit.baths ?? unit.bathrooms ?? unit.numberOfBaths) ??
+        textCounts.baths ??
+        1;
+      if (beds === null || baths === null) continue;
       const rent = numberValue(
         unit.minRent ?? unit.minimumRent ?? unit.rent ?? unit.price,
       );
@@ -1010,8 +1110,8 @@ async function scrapeIndigo(now, property) {
         propertyId: "indigo",
         unit: `#${unit.unitNumber ?? unit.name ?? unitId}`,
         floorplan: String(unit.floorplanName ?? unit.planName ?? floorplanId),
-        beds: 1,
-        baths: 1,
+        beds,
+        baths,
         sqft: numberValue(unit.squareFeet ?? unit.sqft) ?? 0,
         rent,
         totalMonthlyPrice: numberValue(unit.totalRent),
@@ -1038,10 +1138,8 @@ async function scrapeRealm() {
   if (availabilityIndex < 0) {
     throw new Error("Realm did not expose On-Site unit inventory");
   }
-  const availabilityText = html.slice(availabilityIndex);
-  if (!/num_bedrooms\s*:\s*1(?:\D|$)/.test(availabilityText)) return [];
   throw new Error(
-    "Realm currently exposes 1BR inventory in a format that requires a parser update",
+    "Realm currently exposes inventory in a format that requires a parser update",
   );
 }
 
@@ -1078,7 +1176,9 @@ async function bayMeadowsInventory(now) {
     for (const [unitId, unit] of Object.entries(payload.availability)) {
       const propertyId = propertyIds[unit.propertySlug];
       const plan = payload.floorplans[String(unit.floorplan_id)];
-      if (!propertyId || !plan || Number(plan.beds) !== 1) continue;
+      const beds = bedroomCount(plan?.beds);
+      const baths = bathroomCount(plan?.baths);
+      if (!propertyId || !plan || beds === null || baths === null) continue;
       if (
         restrictedPlanPattern.test(
           `${plan.floorplanName ?? ""} ${unit.apartmentName ?? ""}`,
@@ -1086,8 +1186,6 @@ async function bayMeadowsInventory(now) {
       ) {
         continue;
       }
-      const bathCount = numberValue(plan.baths);
-      if (bathCount !== null && (bathCount < 1 || bathCount >= 2)) continue;
       const rent = numberValue(unit.price);
       const availableDate = isoDate(unit.availableDate, now);
       if (rent === null || !availableDate) continue;
@@ -1096,9 +1194,9 @@ async function bayMeadowsInventory(now) {
         id: `${propertyId}-${unitId}`.toLowerCase(),
         propertyId,
         unit: `#${unit.apartmentName ?? unitId}`,
-        floorplan: String(plan.floorplanName ?? "1 Bedroom"),
-        beds: 1,
-        baths: 1,
+        floorplan: String(plan.floorplanName ?? `${beds} Bedroom`),
+        beds,
+        baths,
         sqft: numberValue(unit.sqft) ?? 0,
         rent,
         totalMonthlyPrice: totalFees === null ? null : rent + totalFees,
@@ -1140,11 +1238,11 @@ async function scrapePrometheus(now, property, source) {
   }
   return payload
     .filter((unit) => {
-      const bathCount = numberValue(unit.bathrooms);
+      const beds = bedroomCount(unit.bedrooms);
+      const baths = bathroomCount(unit.bathrooms);
       return (
-        Number(unit.bedrooms) === 1 &&
-        bathCount >= 1 &&
-        bathCount < 2 &&
+        beds !== null &&
+        baths !== null &&
         !restrictedPlanPattern.test(String(unit.floorPlanName ?? ""))
       );
     })
@@ -1158,9 +1256,9 @@ async function scrapePrometheus(now, property, source) {
         id: `${property.id}-${unit.unitID ?? unitNumber}`.toLowerCase(),
         propertyId: property.id,
         unit: `#${unit.buildingNumber ? `${unit.buildingNumber}-` : ""}${unitNumber}`,
-        floorplan: String(unit.floorPlanName ?? "1 Bedroom"),
-        beds: 1,
-        baths: 1,
+        floorplan: String(unit.floorPlanName ?? `${unit.bedrooms} Bedroom`),
+        beds: bedroomCount(unit.bedrooms),
+        baths: bathroomCount(unit.bathrooms),
         sqft: numberValue(unit.area) ?? 0,
         rent,
         totalMonthlyPrice: null,
@@ -1201,8 +1299,9 @@ async function scrapeEncore(now) {
         objectText.match(
           new RegExp(`${field}:\\s*(?:"([^"]*)"|'([^']*)'|([^,}]+))`),
         )?.slice(1).find((item) => item !== undefined)?.trim() ?? "";
-      if (Number(value("unitBedrooms")) !== 1) return null;
-      if (numberValue(value("unitBathrooms")) !== 1) return null;
+      const beds = bedroomCount(value("unitBedrooms"));
+      const baths = bathroomCount(value("unitBathrooms"));
+      if (beds === null || baths === null) return null;
       const rent = numberValue(value("unitCost"));
       const availableDate = isoDate(value("unitAvailable"), now);
       if (rent === null || !availableDate) return null;
@@ -1212,9 +1311,9 @@ async function scrapeEncore(now) {
         id: `encore-redwood-city-${unitNumber}`.toLowerCase(),
         propertyId: "encore-redwood-city",
         unit: `#${unitNumber}`,
-        floorplan: value("unitPlan") || "1 Bedroom",
-        beds: 1,
-        baths: 1,
+        floorplan: value("unitPlan") || `${beds} Bedroom`,
+        beds,
+        baths,
         sqft: numberValue(value("unitSqft")) ?? 0,
         rent,
         totalMonthlyPrice: null,
@@ -1324,11 +1423,11 @@ async function scrapeEssex(now, property, source) {
   }
   return units
     .filter((unit) => {
-      const baths = numberValue(unit.baths);
+      const beds = bedroomCount(unit.beds);
+      const baths = bathroomCount(unit.baths);
       return (
-        Number(unit.beds) === 1 &&
-        baths >= 1 &&
-        baths < 2 &&
+        beds !== null &&
+        baths !== null &&
         !restrictedPlanPattern.test(
           `${unit.floorplan_name ?? ""} ${unit.name ?? ""}`,
         )
@@ -1359,9 +1458,9 @@ async function scrapeEssex(now, property, source) {
         id: `${property.id}-${unitId}`.toLowerCase(),
         propertyId: property.id,
         unit: `#${unitNumber}`,
-        floorplan: String(unit.floorplan_name ?? "1 Bedroom"),
-        beds: 1,
-        baths: 1,
+        floorplan: String(unit.floorplan_name ?? `${unit.beds} Bedroom`),
+        beds: bedroomCount(unit.beds),
+        baths: bathroomCount(unit.baths),
         sqft: numberValue(unit.sqft) ?? 0,
         rent,
         totalMonthlyPrice: numberValue(unit.total_monthly_price),
@@ -1387,29 +1486,44 @@ async function scrapeEssex(now, property, source) {
     .filter(Boolean);
 }
 
+function rentCafePlanSummary(value) {
+  const match = String(value).match(
+    /^(?:(?:Loft|Den|Townhome)\s*\/\s*)?(Studio|(\d+) Beds?)\s*\/\s*(\d+(?:\.\d+)?) Baths?\s*\/\s*([\d,]+) Sqft$/i,
+  );
+  if (!match) return null;
+  return {
+    beds: /^studio$/i.test(match[1]) ? 0 : bedroomCount(match[2]),
+    baths: bathroomCount(match[3]),
+    sqft: numberValue(match[4]),
+  };
+}
+
 function rentCafeDirectorySections(text) {
   const lines = text
     .split(/[\r\n\t]+/)
     .map((line) => line.replace(/\s+/g, " ").trim())
     .filter(Boolean);
   const sections = [];
-  const planPattern =
-    /^1 Bed \/ 1 Bath(?:s)? \/ ([\d,]+) Sqft$/i;
-  const anyPlanPattern =
-    /^(?:Studio|\d+ Beds?|(?:Loft|Den|Townhome) \/ \d+ Beds?) \/ \d+(?:\.\d+)? Baths? \/ [\d,]+ Sqft$/i;
   for (let index = 1; index < lines.length; index += 1) {
-    const planMatch = lines[index].match(planPattern);
-    if (!planMatch) continue;
+    const plan = rentCafePlanSummary(lines[index]);
+    if (
+      !plan ||
+      plan.beds === null ||
+      plan.baths === null ||
+      plan.sqft === null
+    ) {
+      continue;
+    }
     let end = lines.length;
     for (let cursor = index + 1; cursor < lines.length; cursor += 1) {
-      if (anyPlanPattern.test(lines[cursor])) {
+      if (rentCafePlanSummary(lines[cursor])) {
         end = cursor - 1;
         break;
       }
     }
     sections.push({
       floorplan: lines[index - 1],
-      sqft: Number(planMatch[1].replaceAll(",", "")),
+      ...plan,
       lines: lines.slice(index + 1, end),
     });
   }
@@ -1492,8 +1606,8 @@ async function scrapeRentCafeDirectory(now, property, source) {
         propertyId: property.id,
         unit: `#${unit}`,
         floorplan: section.floorplan,
-        beds: 1,
-        baths: 1,
+        beds: section.beds,
+        baths: section.baths,
         sqft: section.sqft,
         rent,
         totalMonthlyPrice: null,
@@ -1554,8 +1668,10 @@ async function scrapeRentCafeProperty(now, property, source) {
   }
   const listings = [];
   for (const section of sections) {
+    const textCounts = parseBedroomBathroomText(section.text);
     if (
-      !/1\s*Bedroom\s*[|/]\s*1\s*Bathroom/i.test(section.text) ||
+      textCounts.beds === null ||
+      textCounts.baths === null ||
       restrictedPlanPattern.test(section.text)
     ) {
       continue;
@@ -1576,8 +1692,8 @@ async function scrapeRentCafeProperty(now, property, source) {
         propertyId: property.id,
         unit: `#${unit.replace(/^#/, "")}`,
         floorplan: section.floorplan,
-        beds: 1,
-        baths: 1,
+        beds: textCounts.beds,
+        baths: textCounts.baths,
         sqft: numberValue(row.sqft) ?? defaultSqft ?? 0,
         rent,
         totalMonthlyPrice: null,
@@ -1653,7 +1769,7 @@ async function scrapeIrvine(now, property, source) {
       .locator("xpath=../..")
       .innerText()
       .catch(() => "");
-    if (!/\b1 Bed\s*\/\s*1 Bath\b/i.test(floorplanSummary)) {
+    if (!/(?:Studio|\d+ Beds?)\s*\/\s*\d+(?:\.\d+)? Baths?\b/i.test(floorplanSummary)) {
       continue;
     }
     clicked.add(name);
@@ -1666,11 +1782,11 @@ async function scrapeIrvine(now, property, source) {
     .filter(Boolean);
   const listings = [];
   for (let index = 0; index < lines.length - 2; index += 1) {
+    const textCounts = parseBedroomBathroomText(lines[index + 1]);
     if (
       !/^Plan\s+[A-Za-z0-9]+$/i.test(lines[index]) ||
-      !/^(?:(?:Loft|Den)\s*\/\s*)?1 Bed\s*\/\s*1 Bath$/i.test(
-        lines[index + 1],
-      )
+      textCounts.beds === null ||
+      textCounts.baths === null
     ) {
       continue;
     }
@@ -1709,8 +1825,8 @@ async function scrapeIrvine(now, property, source) {
         propertyId: property.id,
         unit: `#${building}-${unit}`,
         floorplan,
-        beds: 1,
-        baths: 1,
+        beds: textCounts.beds,
+        baths: textCounts.baths,
         sqft: numberValue(section[cursor + 1]) ?? sqft ?? 0,
         rent,
         totalMonthlyPrice: null,
@@ -1747,9 +1863,60 @@ function upsertSource(inventory, update, now) {
   }
 }
 
+function equityFloorplanFallback(property, now) {
+  const startingRents = equityStartingRents[property.id];
+  if (!startingRents) return [];
+  return Object.entries(startingRents).map(([bedsValue, rent]) => {
+    const beds = Number(bedsValue);
+    return {
+      id: `${property.id}-official-floorplan-${beds}`,
+      propertyId: property.id,
+      unit: "官方起租价",
+      floorplan: beds === 0 ? "Studio 官方起租价" : `${beds}BR 官方起租价`,
+      beds,
+      baths: null,
+      sqft: 0,
+      rent,
+      totalMonthlyPrice: null,
+      availableDate: now.toISOString().slice(0, 10),
+      recommendedLeaseMonths: null,
+      leaseTerms: [],
+      mandatoryMonthlyFees: [],
+      optionalMonthlyFees: [],
+      oneTimeFees: [],
+      sourceUrl: property.website,
+      precision: "floorplan",
+      capturedAt: now.toISOString(),
+    };
+  });
+}
+
 async function main() {
   const inventory = JSON.parse(await readFile(inventoryPath, "utf8"));
   const now = new Date();
+  const existingPropertyById = new Map(
+    inventory.properties.map((property) => [property.id, property]),
+  );
+  for (const catalogProperty of officialCatalogProperties) {
+    const existing = existingPropertyById.get(catalogProperty.id);
+    if (!existing) {
+      const added = structuredClone(catalogProperty);
+      inventory.properties.push(added);
+      existingPropertyById.set(added.id, added);
+      continue;
+    }
+    Object.assign(existing, {
+      name: catalogProperty.name,
+      city: catalogProperty.city,
+      address: catalogProperty.address,
+      latitude: catalogProperty.latitude,
+      longitude: catalogProperty.longitude,
+      management: catalogProperty.management,
+      website: catalogProperty.website,
+      region: catalogProperty.region,
+      bedroomTypes: catalogProperty.bedroomTypes,
+    });
+  }
   const listingHistoryById = new Map(
     (inventory.listingHistory ?? []).map((entry) => [entry.id, entry]),
   );
@@ -1793,6 +1960,17 @@ async function main() {
       },
       propertyOverrides[property.id] ?? {},
     );
+    property.region = regionForCity(property.city);
+    property.bedroomTypes = [
+      ...new Set(
+        equityBedroomTypes[property.id] ??
+          property.bedroomTypes ??
+          inventory.listings
+            .filter((listing) => listing.propertyId === property.id)
+            .map((listing) => listing.beds),
+      ),
+    ].sort((a, b) => a - b);
+    if (!property.bedroomTypes.length) property.bedroomTypes = [1];
   }
   const eligiblePropertyIds = new Set(
     inventory.properties.map((property) => property.id),
@@ -1901,15 +2079,34 @@ async function main() {
   }
 
   for (const failure of failures) {
-    const source = inventory.sources.find((item) => item.id === failure.sourceId);
-    if (source) {
-      source.lastAttemptAt = now.toISOString();
-      source.lastError = failure.message;
+    let source = inventory.sources.find((item) => item.id === failure.sourceId);
+    if (!source) {
+      source = {
+        id: failure.sourceId,
+        label: failure.label,
+        status: "watching",
+        lastSuccessAt: null,
+      };
+      inventory.sources.push(source);
     }
+    source.lastAttemptAt = now.toISOString();
+    source.lastError = failure.message;
     const property = propertyById.get(failure.propertyId);
-    const hasSnapshot = inventory.listings.some(
+    let hasSnapshot = inventory.listings.some(
       (listing) => listing.propertyId === failure.propertyId,
     );
+    if (!hasSnapshot && property) {
+      const fallbackListings = equityFloorplanFallback(property, now);
+      if (fallbackListings.length) {
+        inventory.listings.push(...fallbackListings.map(preserveFirstSeenAt));
+        property.inventoryStatus = "live";
+        property.inventoryNote =
+          "显示官方组合页当前起租价快照；单元页读取受限，定时任务会继续重试。";
+        source.status = "snapshot";
+        source.lastSuccessAt = now.toISOString();
+        hasSnapshot = true;
+      }
+    }
     if (property?.inventoryStatus === "onboarding" && !hasSnapshot) {
       property.inventoryStatus = "blocked";
       property.inventoryNote = `官网动态库存读取失败；每日任务会自动重试。${failure.message}`;
@@ -1938,6 +2135,33 @@ async function main() {
     }
   }
 
+  const observedBedroomTypes = new Map();
+  for (const listing of inventory.listings) {
+    const types = observedBedroomTypes.get(listing.propertyId) ?? new Set();
+    types.add(listing.beds);
+    observedBedroomTypes.set(listing.propertyId, types);
+  }
+  for (const property of inventory.properties) {
+    property.bedroomTypes = [
+      ...new Set([
+        ...(property.bedroomTypes ?? []),
+        ...(observedBedroomTypes.get(property.id) ?? []),
+      ]),
+    ].sort((a, b) => a - b);
+  }
+  const regionOrder = new Map([
+    ["sf", 0],
+    ["peninsula", 1],
+    ["south-bay", 2],
+    ["east-bay", 3],
+  ]);
+  inventory.properties.sort(
+    (a, b) =>
+      (regionOrder.get(a.region) ?? 99) - (regionOrder.get(b.region) ?? 99) ||
+      a.city.localeCompare(b.city) ||
+      a.name.localeCompare(b.name),
+  );
+
   if (!amenityPolicyOnly) inventory.updatedAt = now.toISOString();
   inventory.listingHistory = [...listingHistoryById.values()].sort((a, b) =>
     a.id.localeCompare(b.id),
@@ -1959,7 +2183,7 @@ async function main() {
     0,
   );
   process.stdout.write(
-    `Updated ${updates.length} official sources with ${listingCount} current 1B1B listings.\n`,
+    `Updated ${updates.length} official sources with ${listingCount} current listings across all supported floorplans.\n`,
   );
   if (failures.length) {
     process.stdout.write(

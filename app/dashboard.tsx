@@ -22,6 +22,7 @@ import inventoryJson from "../public/data/inventory.json";
 import type {
   ApartmentListing,
   ApartmentProperty,
+  BayAreaRegion,
   InventoryData,
 } from "./types";
 
@@ -30,27 +31,75 @@ const MapView = dynamic(() => import("./map-view"), {
   loading: () => (
     <div className="map-loading" aria-live="polite">
       <LocateFixed size={20} />
-      正在加载半岛地图…
+      正在加载湾区地图…
     </div>
   ),
 });
 
 const inventory = inventoryJson as InventoryData;
-const corridorCities = [
-  "全部城市",
-  "Burlingame",
-  "San Mateo",
-  "Foster City",
-  "Belmont",
-  "San Carlos",
-  "Redwood City",
-  "Menlo Park",
+const regionOptions: Array<{
+  value: "all" | BayAreaRegion;
+  label: string;
+  shortLabel: string;
+}> = [
+  { value: "all", label: "全部湾区", shortLabel: "全部" },
+  { value: "sf", label: "San Francisco", shortLabel: "SF" },
+  { value: "peninsula", label: "Peninsula", shortLabel: "半岛" },
+  { value: "south-bay", label: "South Bay", shortLabel: "南湾" },
+  { value: "east-bay", label: "East Bay", shortLabel: "东湾" },
 ];
+const regionLabelByValue = Object.fromEntries(
+  regionOptions.map((option) => [option.value, option.shortLabel]),
+) as Record<"all" | BayAreaRegion, string>;
+const bedroomOptions = [
+  { value: "all", label: "全部" },
+  { value: "0", label: "Studio" },
+  { value: "1", label: "1BR" },
+  { value: "2", label: "2BR" },
+  { value: "3", label: "3BR+" },
+] as const;
 
 type SortMode = "price" | "date" | "size";
 type MobileView = "map" | "list";
 type ResultMode = "directory" | "availability";
+type RegionFilter = "all" | BayAreaRegion;
+type BedroomFilter = (typeof bedroomOptions)[number]["value"];
 const recentListingWindowMs = 3 * 86_400_000;
+const allCities = "全部城市";
+
+function bedroomLabel(beds: number) {
+  return beds === 0 ? "Studio" : `${beds}BR`;
+}
+
+function bedBathLabel(listing: ApartmentListing) {
+  return `${bedroomLabel(listing.beds)}${
+    listing.baths === null ? "" : ` · ${listing.baths}BA`
+  }`;
+}
+
+function matchesBedroom(beds: number, bedroom: BedroomFilter) {
+  if (bedroom === "all") return true;
+  const requested = Number(bedroom);
+  return requested === 3 ? beds >= 3 : beds === requested;
+}
+
+function propertySearchText(property: ApartmentProperty) {
+  return [
+    property.name,
+    property.city,
+    property.address,
+    property.management,
+    property.qualityNote,
+    regionLabelByValue[property.region],
+    ...property.bedroomTypes.map(bedroomLabel),
+  ]
+    .join(" ")
+    .toLowerCase();
+}
+
+function listingSearchText(listing: ApartmentListing) {
+  return [listing.unit, listing.floorplan, bedBathLabel(listing)].join(" ").toLowerCase();
+}
 
 function getProperty(listing: ApartmentListing) {
   return inventory.properties.find(
@@ -100,7 +149,7 @@ function propertyEra(property: ApartmentProperty) {
 }
 
 function inventoryLabel(property: ApartmentProperty, count: number) {
-  if (count > 0) return `${count} 套 1B1B`;
+  if (count > 0) return `${count} 套可租`;
   if (property.inventoryStatus === "live") return "暂无房源";
   if (property.inventoryStatus === "manual") return "人工关注";
   if (property.inventoryStatus === "blocked") return "官网暂未开放库存";
@@ -151,8 +200,10 @@ function fixedMonthlyFees(listing: ApartmentListing) {
 }
 
 export default function Dashboard() {
-  const [city, setCity] = useState("全部城市");
-  const [maxRent, setMaxRent] = useState(6000);
+  const [region, setRegion] = useState<RegionFilter>("all");
+  const [city, setCity] = useState(allCities);
+  const [bedroom, setBedroom] = useState<BedroomFilter>("all");
+  const [maxRent, setMaxRent] = useState(10000);
   const [availableNow, setAvailableNow] = useState(false);
   const [recentlyListedOnly, setRecentlyListedOnly] = useState(false);
   const [query, setQuery] = useState("");
@@ -162,33 +213,68 @@ export default function Dashboard() {
   const [mobileView, setMobileView] = useState<MobileView>("map");
   const [filtersOpen, setFiltersOpen] = useState(false);
 
+  const cities = useMemo(
+    () => [
+      allCities,
+      ...new Set(
+        inventory.properties
+          .filter((property) => region === "all" || property.region === region)
+          .map((property) => property.city)
+          .sort(),
+      ),
+    ],
+    [region],
+  );
+
+  const listingsByProperty = useMemo(() => {
+    const grouped = new Map<string, ApartmentListing[]>();
+    for (const listing of inventory.listings) {
+      const rows = grouped.get(listing.propertyId) ?? [];
+      rows.push(listing);
+      grouped.set(listing.propertyId, rows);
+    }
+    return grouped;
+  }, []);
+
   const filteredProperties = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     return inventory.properties.filter((property) => {
+      const matchesRegion = region === "all" || property.region === region;
+      const matchesCity = city === allCities || property.city === city;
+      const matchesFloorplan = property.bedroomTypes.some((beds) =>
+        matchesBedroom(beds, bedroom),
+      );
       const matchesQuery =
         !normalizedQuery ||
-        property.name.toLowerCase().includes(normalizedQuery) ||
-        property.city.toLowerCase().includes(normalizedQuery) ||
-        property.address.toLowerCase().includes(normalizedQuery) ||
-        property.qualityNote.toLowerCase().includes(normalizedQuery);
+        propertySearchText(property).includes(normalizedQuery) ||
+        (listingsByProperty.get(property.id) ?? []).some((listing) =>
+          listingSearchText(listing).includes(normalizedQuery),
+        );
 
-      return (
-        (city === "全部城市" || property.city === city) && matchesQuery
-      );
+      return matchesRegion && matchesCity && matchesFloorplan && matchesQuery;
     });
-  }, [city, query]);
+  }, [bedroom, city, listingsByProperty, query, region]);
 
   const filteredListings = useMemo(() => {
     const visiblePropertyIds = new Set(
       filteredProperties.map((property) => property.id),
     );
     const rows = inventory.listings.filter(
-      (listing) =>
-        visiblePropertyIds.has(listing.propertyId) &&
-        listing.rent <= maxRent &&
-        (!availableNow ||
-          listing.availableDate <= inventory.updatedAt.slice(0, 10)) &&
-        (!recentlyListedOnly || isRecentlyListed(listing)),
+      (listing) => {
+        const property = getProperty(listing);
+        const normalizedQuery = query.trim().toLowerCase();
+        return (
+          visiblePropertyIds.has(listing.propertyId) &&
+          matchesBedroom(listing.beds, bedroom) &&
+          listing.rent <= maxRent &&
+          (!availableNow ||
+            listing.availableDate <= inventory.updatedAt.slice(0, 10)) &&
+          (!recentlyListedOnly || isRecentlyListed(listing)) &&
+          (!normalizedQuery ||
+            propertySearchText(property).includes(normalizedQuery) ||
+            listingSearchText(listing).includes(normalizedQuery))
+        );
+      },
     );
 
     return [...rows].sort((a, b) => {
@@ -200,8 +286,10 @@ export default function Dashboard() {
     });
   }, [
     availableNow,
+    bedroom,
     filteredProperties,
     maxRent,
+    query,
     recentlyListedOnly,
     sort,
   ]);
@@ -239,16 +327,20 @@ export default function Dashboard() {
   }
 
   function clearFilters() {
-    setCity("全部城市");
-    setMaxRent(6000);
+    setRegion("all");
+    setCity(allCities);
+    setBedroom("all");
+    setMaxRent(10000);
     setAvailableNow(false);
     setRecentlyListedOnly(false);
     setQuery("");
   }
 
   const hasFilters =
-    city !== "全部城市" ||
-    (resultMode === "availability" && maxRent < 6000) ||
+    region !== "all" ||
+    city !== allCities ||
+    bedroom !== "all" ||
+    (resultMode === "availability" && maxRent < 10000) ||
     (resultMode === "availability" && availableNow) ||
     (resultMode === "availability" && recentlyListedOnly) ||
     query.length > 0;
@@ -256,11 +348,11 @@ export default function Dashboard() {
   return (
     <main className="app-shell">
       <header className="topbar">
-        <a className="brand" href="#" aria-label="Peninsula One 首页">
-          <span className="brand-mark">P1</span>
+        <a className="brand" href="#" aria-label="Bay Area Apartment Radar 首页">
+          <span className="brand-mark">BA</span>
           <span>
-            <strong>Peninsula One</strong>
-            <small>半岛 1B1B 房源雷达</small>
+            <strong>Bay Area Apartment Radar</strong>
+            <small>湾区官方公寓库存</small>
           </span>
         </a>
         <div className="topbar-actions">
@@ -284,24 +376,24 @@ export default function Dashboard() {
         <div className="hero-copy">
           <div className="eyebrow">
             <Sparkles size={15} />
-            Burlingame → Menlo Park · US-101 走廊
+            SF · Peninsula · South Bay · East Bay
           </div>
           <h1>
             好公寓，<span>都放进雷达。</span>
           </h1>
           <p>
-            我们收录管理规范、维护良好且有官方租赁渠道的品质公寓，并明确标注空调和
-            室内洗烘的确认状态；空调未确认的社区也会保留，每天检查 1B1B 库存。
+            汇总专业物业官网公开的公寓、户型和可租单元。按区域、城市和户型快速筛选，
+            每天核对租金、入住日与官网直达链接。
           </p>
         </div>
         <div className="hero-stats" aria-label="房源概览">
           <div className="stat">
             <span>当前房源</span>
             <strong>{inventory.listings.length}</strong>
-            <small>套 1B1B</small>
+            <small>套官方库存</small>
           </div>
           <div className="stat">
-            <span>品质公寓</span>
+            <span>官方公寓</span>
             <strong>{inventory.properties.length}</strong>
             <small>个社区</small>
           </div>
@@ -313,25 +405,28 @@ export default function Dashboard() {
         </div>
       </section>
 
-      <section className="city-rail" aria-label="城市筛选">
-        {corridorCities.map((item) => {
-          const cityCount =
-            item === "全部城市"
+      <section className="city-rail" aria-label="区域筛选">
+        {regionOptions.map((option) => {
+          const regionCount =
+            option.value === "all"
               ? inventory.properties.length
               : inventory.properties.filter(
-                  (property) => property.city === item,
+                  (property) => property.region === option.value,
                 ).length;
 
           return (
             <button
-              key={item}
+              key={option.value}
               type="button"
-              className={city === item ? "city-chip active" : "city-chip"}
-              onClick={() => setCity(item)}
+              className={region === option.value ? "city-chip active" : "city-chip"}
+              onClick={() => {
+                setRegion(option.value);
+                setCity(allCities);
+              }}
             >
-              {city === item && <Check size={13} />}
-              {item}
-              <small>{cityCount}</small>
+              {region === option.value && <Check size={13} />}
+              {option.label}
+              <small>{regionCount}</small>
             </button>
           );
         })}
@@ -359,9 +454,39 @@ export default function Dashboard() {
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="公寓、城市或特色"
+              placeholder="搜索公寓、城市、户型或房号"
             />
           </label>
+
+          <div className="filter-group">
+            <span className="filter-title">城市</span>
+            <label className="city-select-field">
+              <select value={city} onChange={(event) => setCity(event.target.value)}>
+                {cities.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown size={15} />
+            </label>
+          </div>
+
+          <div className="filter-group">
+            <span className="filter-title">户型</span>
+            <div className="bedroom-options" aria-label="户型筛选">
+              {bedroomOptions.map((option) => (
+                <button
+                  key={option.value}
+                  type="button"
+                  className={bedroom === option.value ? "bedroom-option active" : "bedroom-option"}
+                  onClick={() => setBedroom(option.value)}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
           {resultMode === "availability" && (
             <>
@@ -373,26 +498,17 @@ export default function Dashboard() {
                 <input
                   className="range"
                   type="range"
-                  min="3000"
-                  max="6000"
+                  min="1500"
+                  max="10000"
                   step="50"
                   value={maxRent}
                   onChange={(event) => setMaxRent(Number(event.target.value))}
                   aria-label="月租上限"
                 />
                 <div className="range-ends">
-                  <span>$3,000</span>
-                  <span>$6,000+</span>
+                  <span>$1,500</span>
+                  <span>$10,000+</span>
                 </div>
-              </div>
-
-              <div className="filter-group">
-                <span className="filter-title">户型</span>
-                <button className="locked-filter" type="button">
-                  <Building2 size={17} />
-                  <span>1 Bedroom · 1 Bathroom</span>
-                  <Check size={16} />
-                </button>
               </div>
 
               <div className="filter-group">
@@ -438,8 +554,8 @@ export default function Dashboard() {
             <div>
               <strong>品质公寓标准</strong>
               <p>
-                空调未确认的社区保留并明确标注，同时展示室内洗烘确认状态；
-                The Heltsley 因仅有共享洗衣设施不收录。
+                仅采用物业官网公开目录和库存；设施尚未核实的社区会明确标注，
+                价格与可租状态最终以官网为准。
               </p>
             </div>
           </div>
@@ -456,7 +572,7 @@ export default function Dashboard() {
             <div>
               <span className="overline">
                 {resultMode === "directory"
-                  ? "CURATED DIRECTORY"
+                  ? "OFFICIAL PROPERTY DIRECTORY"
                   : "LIVE INVENTORY"}
               </span>
               <h2>
@@ -466,7 +582,7 @@ export default function Dashboard() {
                     ? filteredProperties.length
                     : filteredListings.length}
                 </strong>{" "}
-                {resultMode === "directory" ? "个品质公寓" : "套房源"}
+                {resultMode === "directory" ? "个官方公寓" : "套房源"}
               </h2>
             </div>
             <div className="toolbar-actions">
@@ -572,7 +688,9 @@ export default function Dashboard() {
                     <div>
                       <Building2 size={17} />
                       <span>覆盖城市</span>
-                      <strong>7</strong>
+                      <strong>
+                        {new Set(filteredProperties.map((property) => property.city)).size}
+                      </strong>
                     </div>
                     <div>
                       <ExternalLink size={17} />
@@ -599,7 +717,9 @@ export default function Dashboard() {
                             }
                           >
                             <div className="property-card-top">
-                              <span>{property.city}</span>
+                              <span>
+                                {regionLabelByValue[property.region]} · {property.city}
+                              </span>
                               <small>{propertyEra(property)}</small>
                             </div>
                             <h3>{property.name}</h3>
@@ -609,6 +729,14 @@ export default function Dashboard() {
                             <p className="quality-note">
                               {property.inventoryNote ?? property.qualityNote}
                             </p>
+                            <div
+                              className="floorplan-types"
+                              aria-label={`${property.name} 户型`}
+                            >
+                              {property.bedroomTypes.map((beds) => (
+                                <span key={beds}>{bedroomLabel(beds)}</span>
+                              ))}
+                            </div>
                             <AmenityStatus property={property} />
                             <div className="property-card-footer">
                               <span
@@ -634,7 +762,7 @@ export default function Dashboard() {
                     <div className="empty-state">
                       <Building2 size={28} />
                       <h3>没有匹配的公寓</h3>
-                      <p>换一个城市或搜索词试试。</p>
+                        <p>换一个区域、城市、户型或搜索词试试。</p>
                       <button type="button" onClick={clearFilters}>
                         重置筛选
                       </button>
@@ -681,15 +809,20 @@ export default function Dashboard() {
                           >
                             <div className="listing-main">
                               <div className="listing-location">
-                                <span>{property.city}</span>
+                                <span>
+                                  {regionLabelByValue[property.region]} · {property.city}
+                                </span>
                                 <small>{propertyEra(property)}</small>
                               </div>
                               <h3>{property.name}</h3>
                               <p>{property.address}</p>
                               <div className="unit-line">
                                 <strong>{listing.unit}</strong>
+                                <span className="bed-bath-label">
+                                  {bedBathLabel(listing)}
+                                </span>
                                 <span>{listing.floorplan}</span>
-                                <span>{listing.sqft} ft²</span>
+                                {listing.sqft > 0 && <span>{listing.sqft} ft²</span>}
                                 {recentlyListed && (
                                   <span className="recent-listing-badge">
                                     最近 3 天新上架

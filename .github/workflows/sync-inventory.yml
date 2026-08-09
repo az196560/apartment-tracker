@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths:
       - "scripts/sync-inventory.mjs"
+      - "scripts/bay-area-catalog.mjs"
       - ".github/workflows/sync-inventory.yml"
   schedule:
     - cron: "0 5 * * *"

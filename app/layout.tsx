@@ -3,16 +3,16 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://az196560.github.io/apartment-tracker/"),
-  title: "Peninsula One｜半岛 1B1B 房源雷达",
+  title: "Bay Area Apartment Radar｜湾区公寓库存",
   description:
-    "每天追踪 Burlingame 到 Menlo Park 的品质公寓 1B1B 可租信息，地图查看并直达官方房源。",
+    "每天追踪旧金山、半岛、南湾和东湾的官方公寓、户型与可租单元，支持区域、城市和户型筛选。",
   icons: {
     icon: "https://az196560.github.io/apartment-tracker/favicon.svg",
     shortcut: "https://az196560.github.io/apartment-tracker/favicon.svg",
   },
   openGraph: {
-    title: "Peninsula One｜半岛 1B1B 房源雷达",
-    description: "好公寓，都放进雷达。每天聚合半岛 101 沿线官方 1B1B 房源。",
+    title: "Bay Area Apartment Radar｜湾区公寓库存",
+    description: "每天聚合 SF、半岛、南湾和东湾的官方公寓与实时户型库存。",
     type: "website",
     locale: "zh_CN",
     images: [
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
         url: "og.png",
         width: 1731,
         height: 909,
-        alt: "Peninsula One apartment availability radar",
+        alt: "Bay Area Apartment Radar",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Peninsula One｜半岛 1B1B 房源雷达",
-    description: "每天追踪半岛 101 沿线品质公寓和官方 1B1B 房源。",
+    title: "Bay Area Apartment Radar｜湾区公寓库存",
+    description: "每天追踪湾区四区的官方公寓、户型与可租单元。",
     images: ["og.png"],
   },
 };

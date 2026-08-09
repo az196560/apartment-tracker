@@ -1,20 +1,27 @@
-# Peninsula One
+# Bay Area Apartment Radar
 
-Peninsula One 是一个面向旧金山半岛租房者的 1B1B 房源监控站，覆盖
-Burlingame、San Mateo、Foster City、Belmont、San Carlos、Redwood City 和 Menlo Park。
+Bay Area Apartment Radar 是一个聚合专业物业官网库存的湾区公寓追踪站，覆盖：
+
+- San Francisco
+- Peninsula
+- South Bay
+- East Bay
+
+站点支持按区域、城市、Studio / 1BR / 2BR / 3BR+ 和户型名称搜索，并把当前可租单元直接链接回物业官网。
 
 ## 数据口径
 
-- 收录管理规范、维护良好、配套完整并有稳定官方租赁渠道的品质公寓
-- 保留空调或室内洗烘状态尚未确认的社区，并在站内明确标注确认状态
-- The Heltsley 因确认仅提供共享洗衣设施而不收录
-- 新建、完成翻新和维护良好的成熟社区都可纳入，不再设置严格房龄门槛
-- 不收录有收入、雇主、学校或身份资格限制的社区
-- 只展示 1 bedroom / 1 bathroom
-- 优先使用物业官方租赁网站
+- 只收录有可验证物业官网或官方租赁渠道的专业管理公寓
+- 当前目录包含 Equity Residential 的完整湾区官方组合，以及原有半岛物业来源；其他运营商会按官方目录持续接入
+- 不把私人房东、转租或第三方聚合站房源混入官方物业库存
+- Studio 至 4BR 的公开户型均可进入数据集，3BR 和 4BR 在界面合并为 `3BR+`
+- 不收录有收入、雇主、学校或身份资格限制的户型
 - 链接分为“精确房号”和“官方户型页”，不会把户型页标记为精确房源
-- 每个房号保留首次被 tracker 发现的时间，可筛选最近 72 小时新上架房源
-- 价格和可租状态仅作追踪参考，签约前应以物业官网为准
+- 每个房号保留首次发现时间，可筛选最近 72 小时新上架房源
+- 官网阻止自动访问时保留上一次已验证快照，不会把库存误写为空
+- 空调与室内洗烘尚未核实的社区会保留并明确标注；价格和可租状态最终以物业官网为准
+
+“湾区目录”指上述四区内已经由官方来源验证并接入的专业物业，并不声称包含每一套私人出租住宅。
 
 ## 本地开发
 
@@ -30,23 +37,24 @@ npm run sync:data
 npm run validate:data
 ```
 
-GitHub Actions 每天按 `America/Los_Angeles` 时区在早上 5:00 运行同步任务，
-会在提交新库存前依次验证数据、运行 lint 并构建静态站点。当前已接入 Highwater 与 885 Woodside 的
-SightMap 动态库存接口，并尝试读取 Cirrus 的 RentCafe 房源。Highwater 会精确到
-房号、入住日、base rent、推荐租期、固定月费和停车费范围。官网阻止自动访问时，
-同步程序会保留上一次已验证快照，不会把库存误写为空。
-房源即使暂时下架，首次发现记录也会保留；同一房号再次出现时不会被误标为新房源。
+`scripts/bay-area-catalog.mjs` 维护四区城市归属、官方物业目录和已知户型。
+`scripts/sync-inventory.mjs` 每天读取官方动态库存，保留失败来源的最近快照，并更新
+`public/data/inventory.json`。The Lark 的 RentCafe 接口需要通过环境变量
+`RENTCAFE_API_TOKEN` 提供令牌；GitHub Actions 从同名 repository secret 读取。
 
-The Lark 的 RentCafe 接口需要通过环境变量 `RENTCAFE_API_TOKEN` 提供令牌；
-GitHub Actions 从同名 repository secret 读取，不在源码或日志中保存令牌。
+`inventoryStatus` 表示采集状态：`live` 为已接入每日接口，`onboarding` 为正在接入，
+`manual` 为官网仅提供人工询价，`blocked` 为官网当前阻止自动读取。
 
-`inventoryStatus` 表示采集状态：`live` 为已接入每日接口，`onboarding` 为正在开发
-适配器，`manual` 为官网仅提供人工询价。库存链接只有真正直达房号时才会标记为
-“精确房号”。
+## 自动化与部署
 
-## 部署
+GitHub Actions 每天按 `America/Los_Angeles` 时区在 05:00 运行同步任务，提交前依次执行：
 
-Pull request 会先运行数据验证、lint 和 GitHub Pages 构建；`main` 分支更新后，
-只有全部检查通过才会部署静态站点到：
+```bash
+npm run validate:data
+npm run lint
+npm run build:pages
+```
+
+`main` 通过检查后部署到：
 
 https://az196560.github.io/apartment-tracker/

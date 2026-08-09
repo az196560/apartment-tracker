@@ -1,4 +1,5 @@
 export type SourcePrecision = "unit" | "floorplan";
+export type BayAreaRegion = "sf" | "peninsula" | "south-bay" | "east-bay";
 
 export type FeeLine = {
   label: string;
@@ -16,6 +17,7 @@ export type ApartmentProperty = {
   id: string;
   name: string;
   city: string;
+  region: BayAreaRegion;
   address: string;
   latitude: number;
   longitude: number;
@@ -27,6 +29,7 @@ export type ApartmentProperty = {
   management: string;
   website: string;
   tracked: boolean;
+  bedroomTypes: number[];
   airConditioning: boolean;
   inUnitWasherDryer: boolean;
 };
@@ -36,8 +39,8 @@ export type ApartmentListing = {
   propertyId: string;
   unit: string;
   floorplan: string;
-  beds: 1;
-  baths: 1;
+  beds: number;
+  baths: number | null;
   sqft: number;
   rent: number;
   totalMonthlyPrice?: number | null;

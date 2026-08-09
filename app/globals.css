@@ -434,6 +434,61 @@ button {
   margin-bottom: 12px;
 }
 
+.city-select-field {
+  width: 100%;
+  height: 42px;
+  padding: 0 11px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: white;
+  color: var(--forest);
+}
+
+.city-select-field select {
+  min-width: 0;
+  flex: 1;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.bedroom-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.bedroom-option {
+  min-height: 34px;
+  padding: 0 7px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: white;
+  color: #68716d;
+  font-size: 9px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.bedroom-option:hover {
+  border-color: var(--forest-soft);
+  color: var(--forest);
+}
+
+.bedroom-option.active {
+  border-color: var(--forest);
+  background: var(--forest);
+  color: white;
+}
+
 .locked-filter,
 .toggle-row {
   width: 100%;
@@ -906,6 +961,23 @@ button {
   line-height: 1.55;
 }
 
+.floorplan-types {
+  margin: -3px 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.floorplan-types span {
+  padding: 4px 6px;
+  border-radius: 999px;
+  background: var(--orange-soft);
+  color: #c94f24;
+  font-size: 7px;
+  font-weight: 850;
+  line-height: 1;
+}
+
 
 .amenity-statuses {
   margin: -3px 0 10px;
@@ -1047,6 +1119,15 @@ button {
 .unit-line span {
   padding-left: 7px;
   border-left: 1px solid #d7d8d3;
+}
+
+.unit-line .bed-bath-label {
+  border: 0;
+  border-radius: 999px;
+  padding: 4px 7px;
+  background: var(--orange-soft);
+  color: #c94f24;
+  font-weight: 800;
 }
 
 .unit-line .recent-listing-badge {
@@ -1477,6 +1558,10 @@ button {
 }
 
 @media (max-width: 460px) {
+  .brand strong {
+    font-size: 16px;
+  }
+
   .hero-stats {
     overflow-x: auto;
   }

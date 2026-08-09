@@ -6,7 +6,9 @@ import {
   Popup,
   TileLayer,
   Tooltip,
+  useMap,
 } from "react-leaflet";
+import { useEffect } from "react";
 import type {
   ApartmentListing,
   ApartmentProperty,
@@ -18,6 +20,28 @@ type MapViewProps = {
   activePropertyId: string | null;
   onSelect: (propertyId: string) => void;
 };
+
+function FitProperties({ properties }: { properties: ApartmentProperty[] }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (!properties.length) return;
+    if (properties.length === 1) {
+      map.setView([properties[0].latitude, properties[0].longitude], 13, {
+        animate: true,
+      });
+      return;
+    }
+    map.fitBounds(
+      properties.map(
+        (property) => [property.latitude, property.longitude] as [number, number],
+      ),
+      { padding: [36, 36], maxZoom: 12, animate: true },
+    );
+  }, [map, properties]);
+
+  return null;
+}
 
 export default function MapView({
   properties,
@@ -35,9 +59,9 @@ export default function MapView({
 
   return (
     <MapContainer
-      center={[37.525, -122.258]}
-      zoom={11}
-      minZoom={10}
+      center={[37.58, -122.08]}
+      zoom={9}
+      minZoom={8}
       maxZoom={16}
       scrollWheelZoom
       zoomControl
@@ -47,6 +71,7 @@ export default function MapView({
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      <FitProperties properties={properties} />
       {properties.map((property) => {
         const count = countByProperty[property.id] ?? 0;
         const active = activePropertyId === property.id;
@@ -84,7 +109,7 @@ export default function MapView({
               <strong>{property.name}</strong>
               <span className="map-tooltip-meta">
                 {count > 0
-                  ? `${count} 套 1B1B`
+                  ? `${count} 套可租`
                   : property.inventoryStatus === "live"
                     ? "暂无房源"
                   : property.inventoryStatus === "manual"
@@ -101,7 +126,7 @@ export default function MapView({
                 <p>{era} · {property.qualityNote}</p>
                 <p>
                   {count > 0
-                    ? `${count} 套 1B1B 可租`
+                    ? `${count} 套可租`
                     : property.inventoryStatus === "live"
                       ? "暂无房源"
                     : property.inventoryStatus === "manual"
