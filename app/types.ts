@@ -30,8 +30,11 @@ export type ApartmentProperty = {
   website: string;
   tracked: boolean;
   bedroomTypes: number[];
+  marketRate: boolean;
   airConditioning: boolean;
   inUnitWasherDryer: boolean;
+  amenitiesVerifiedAt: string;
+  amenityEvidenceUrl: string;
 };
 
 export type ApartmentListing = {

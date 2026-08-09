@@ -1,5 +1,7 @@
 export const bayAreaRegions = ["sf", "peninsula", "south-bay", "east-bay"];
 
+export const policyVerifiedAt = "2026-08-09";
+
 const citiesByRegion = {
   sf: new Set(["San Francisco"]),
   peninsula: new Set([
@@ -59,7 +61,29 @@ export function regionForCity(city) {
   return match[0];
 }
 
+const verifiedEquityPropertyIds = new Set([
+  "340-fremont",
+  "alborada",
+  "archstone-fremont-center",
+  "briarwood",
+  "canyon-creek",
+  "city-gate-cupertino",
+  "estancia-santa-clara",
+  "la-terrazza",
+  "lorien-ivy",
+  "mill-creek",
+  "one-henry-adams",
+  "park-place-san-mateo",
+  "skylark",
+  "the-arches",
+  "the-lex",
+  "verde",
+  "vista-99",
+  "woodleaf",
+]);
+
 function equityProperty(property) {
+  const amenitiesVerified = verifiedEquityPropertyIds.has(property.id);
   return {
     year: null,
     qualification: "established",
@@ -67,14 +91,38 @@ function equityProperty(property) {
     inventoryStatus: "onboarding",
     management: "Equity Residential",
     tracked: true,
-    airConditioning: false,
-    inUnitWasherDryer: false,
+    marketRate: true,
+    airConditioning: amenitiesVerified,
+    inUnitWasherDryer: amenitiesVerified,
+    ...(amenitiesVerified
+      ? {
+          amenitiesVerifiedAt: policyVerifiedAt,
+          amenityEvidenceUrl: property.website,
+        }
+      : {}),
     region: regionForCity(property.city),
     ...property,
   };
 }
 
-export const officialCatalogProperties = [
+function auditedProperty(property) {
+  return {
+    year: null,
+    qualification: "established",
+    qualityNote: `${property.management} 官方租赁社区；空调、室内洗烘与普通市场价资格已经官网核验。`,
+    inventoryStatus: "onboarding",
+    tracked: true,
+    marketRate: true,
+    airConditioning: true,
+    inUnitWasherDryer: true,
+    amenitiesVerifiedAt: policyVerifiedAt,
+    amenityEvidenceUrl: property.amenityEvidenceUrl ?? property.website,
+    region: regionForCity(property.city),
+    ...property,
+  };
+}
+
+const equityCatalogProperties = [
   equityProperty({
     id: "canyon-creek",
     name: "Canyon Creek",
@@ -418,6 +466,486 @@ export const officialCatalogProperties = [
   }),
 ];
 
+const avalonCatalogProperties = [
+  auditedProperty({
+    id: "avalon-fremont",
+    name: "Avalon Fremont",
+    city: "Fremont",
+    address: "39939 Stevenson Common, Fremont, CA 94538",
+    latitude: 37.543598,
+    longitude: -121.971816,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/fremont-apartments/avalon-fremont",
+    bedroomTypes: [1, 2, 3],
+  }),
+  auditedProperty({
+    id: "eaves-fremont",
+    name: "eaves Fremont",
+    city: "Fremont",
+    address: "231 Woodcreek Commons, Fremont, CA 94539",
+    latitude: 37.4933847,
+    longitude: -121.9267408,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/fremont-apartments/eaves-fremont",
+    bedroomTypes: [1, 2],
+  }),
+  auditedProperty({
+    id: "avalon-mountain-view",
+    name: "Avalon Mountain View",
+    city: "Mountain View",
+    address: "1600 Villa Street, Mountain View, CA 94041",
+    latitude: 37.3978747,
+    longitude: -122.0874158,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/mountain-view-apartments/avalon-mountain-view",
+    bedroomTypes: [1],
+  }),
+  auditedProperty({
+    id: "eaves-creekside",
+    name: "eaves Creekside",
+    city: "Mountain View",
+    address: "151 Calderon Avenue, Mountain View, CA 94041",
+    latitude: 37.3899814,
+    longitude: -122.0705527,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/mountain-view-apartments/eaves-creekside",
+    bedroomTypes: [0, 1, 2],
+  }),
+  auditedProperty({
+    id: "eaves-pleasanton",
+    name: "eaves Pleasanton",
+    city: "Pleasanton",
+    address: "3650 Andrews Drive, Pleasanton, CA 94588",
+    latitude: 37.695159,
+    longitude: -121.881494,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/pleasanton-apartments/eaves-pleasanton",
+    bedroomTypes: [1, 2],
+  }),
+  auditedProperty({
+    id: "avalon-dogpatch",
+    name: "Avalon Dogpatch",
+    city: "San Francisco",
+    address: "800 Indiana Street, San Francisco, CA 94107",
+    latitude: 37.7592069,
+    longitude: -122.3937942,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/san-francisco-apartments/avalon-dogpatch",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+  auditedProperty({
+    id: "avalon-cahill-park",
+    name: "Avalon at Cahill Park",
+    city: "San Jose",
+    address: "754 The Alameda, San Jose, CA 95126",
+    latitude: 37.3315554,
+    longitude: -121.9051908,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/san-jose-apartments/avalon-at-cahill-park",
+    bedroomTypes: [1, 2],
+  }),
+  auditedProperty({
+    id: "eaves-san-jose",
+    name: "eaves San Jose",
+    city: "San Jose",
+    address: "1895 N Capitol Avenue, San Jose, CA 95132",
+    latitude: 37.4024653,
+    longitude: -121.8784138,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/san-jose-apartments/eaves-san-jose",
+    bedroomTypes: [0, 1, 2],
+  }),
+  auditedProperty({
+    id: "eaves-west-valley",
+    name: "eaves West Valley",
+    city: "San Jose",
+    address: "700 Saratoga Avenue, San Jose, CA 95129",
+    latitude: 37.313397,
+    longitude: -121.976708,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/san-jose-apartments/eaves-west-valley",
+    bedroomTypes: [0, 1, 2],
+  }),
+  auditedProperty({
+    id: "avalon-union-city",
+    name: "Avalon Union City",
+    city: "Union City",
+    address: "24 Union Square, Union City, CA 94587",
+    latitude: 37.59192743,
+    longitude: -122.0166063,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/union-city-apartments/avalon-union-city",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+  auditedProperty({
+    id: "avalon-walnut-creek",
+    name: "Avalon Walnut Creek",
+    city: "Walnut Creek",
+    address: "1001 Harvey Drive, Walnut Creek, CA 94597",
+    latitude: 37.927442,
+    longitude: -122.0577996,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/walnut-creek-apartments/avalon-walnut-creek",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+];
+
+const udrCatalogProperties = [
+  auditedProperty({
+    id: "5421-dublin-station",
+    name: "5421 at Dublin Station",
+    city: "Dublin",
+    address: "5421 Campbell Lane, Dublin, CA 94568",
+    latitude: 37.70468,
+    longitude: -121.900795,
+    management: "UDR",
+    website:
+      "https://www.udr.com/san-francisco-bay-area-apartments/dublin/5421-at-dublin-station/apartments-pricing/",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+  auditedProperty({
+    id: "residences-lake-merritt",
+    name: "Residences at Lake Merritt",
+    city: "Oakland",
+    address: "1940 Webster Street, Oakland, CA 94612",
+    latitude: 37.8074128,
+    longitude: -122.2658992,
+    management: "UDR",
+    website:
+      "https://www.udr.com/san-francisco-bay-area-apartments/lakeside/residences-at-lake-merritt/apartments-pricing/",
+    bedroomTypes: [0, 1, 2],
+  }),
+  auditedProperty({
+    id: "verve-mountain-view",
+    name: "Verve",
+    city: "Mountain View",
+    address: "1984 West El Camino Real, Mountain View, CA 94040",
+    latitude: 37.394911,
+    longitude: -122.1012866,
+    management: "UDR",
+    website:
+      "https://www.udr.com/san-francisco-bay-area-apartments/mountain-view/verve/apartments-pricing/",
+    bedroomTypes: [1, 2],
+  }),
+  auditedProperty({
+    id: "399-fremont",
+    name: "399 Fremont",
+    city: "San Francisco",
+    address: "399 Fremont Street, San Francisco, CA 94105",
+    latitude: 37.7868069,
+    longitude: -122.392111,
+    management: "UDR",
+    website:
+      "https://www.udr.com/san-francisco-bay-area-apartments/san-francisco/399-fremont/apartments-pricing/",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+  auditedProperty({
+    id: "channel-mission-bay",
+    name: "Channel Mission Bay",
+    city: "San Francisco",
+    address: "185 Channel Street, San Francisco, CA 94158",
+    latitude: 37.7742388,
+    longitude: -122.3910847,
+    management: "UDR",
+    website:
+      "https://www.udr.com/san-francisco-bay-area-apartments/san-francisco/channel-mission-bay/apartments-pricing/",
+    bedroomTypes: [0, 1, 2],
+  }),
+  auditedProperty({
+    id: "almaden-lake-village",
+    name: "Almaden Lake Village",
+    city: "San Jose",
+    address: "1045 Coleman Road, San Jose, CA 95123",
+    latitude: 37.2434797,
+    longitude: -121.8711429,
+    management: "UDR",
+    website:
+      "https://www.udr.com/san-francisco-bay-area-apartments/san-jose/almaden-lake-village/apartments-pricing/",
+    bedroomTypes: [1, 2, 3],
+  }),
+  auditedProperty({
+    id: "citysouth",
+    name: "CitySouth",
+    city: "San Mateo",
+    address: "3055 La Selva, San Mateo, CA 94403",
+    latitude: 37.543722,
+    longitude: -122.2843087,
+    management: "UDR",
+    website:
+      "https://www.udr.com/san-francisco-bay-area-apartments/san-mateo/citysouth/apartments-pricing/",
+    bedroomTypes: [1, 2, 3],
+  }),
+  auditedProperty({
+    id: "marina-playa",
+    name: "Marina Playa",
+    city: "Santa Clara",
+    address: "3500 Granada Avenue, Santa Clara, CA 95051",
+    latitude: 37.3479785,
+    longitude: -121.9939095,
+    management: "UDR",
+    website:
+      "https://www.udr.com/san-francisco-bay-area-apartments/santa-clara/marina-playa/apartments-pricing/",
+    bedroomTypes: [1, 2, 3],
+  }),
+  auditedProperty({
+    id: "river-terrace",
+    name: "River Terrace",
+    city: "Santa Clara",
+    address: "730 Agnew Road, Santa Clara, CA 95054",
+    latitude: 37.3930734,
+    longitude: -121.9484431,
+    management: "UDR",
+    website:
+      "https://www.udr.com/san-francisco-bay-area-apartments/santa-clara/river-terrace/apartments-pricing/",
+    bedroomTypes: [1, 2, 3],
+  }),
+];
+
+const windsorCatalogProperties = [
+  auditedProperty({
+    id: "dublin-station-windsor",
+    name: "Dublin Station by Windsor",
+    city: "Dublin",
+    address: "5300 Iron Horse Parkway, Dublin, CA 94568",
+    latitude: 37.7052524,
+    longitude: -121.8979199,
+    management: "Windsor Communities",
+    website:
+      "https://www.windsorcommunities.com/properties/dublin-station-by-windsor/",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+  auditedProperty({
+    id: "cannery-park-windsor",
+    name: "Cannery Park by Windsor",
+    city: "San Jose",
+    address: "415 E Taylor Street, San Jose, CA 95112",
+    latitude: 37.3544073,
+    longitude: -121.892249,
+    management: "Windsor Communities",
+    website:
+      "https://www.windsorcommunities.com/properties/cannery-park-by-windsor/",
+    bedroomTypes: [0, 1, 2],
+  }),
+  auditedProperty({
+    id: "pavona",
+    name: "Pavona Apartments",
+    city: "San Jose",
+    address: "760 N 7th Street, San Jose, CA 95112",
+    latitude: 37.3533588,
+    longitude: -121.8942754,
+    management: "Windsor Communities",
+    website:
+      "https://www.windsorcommunities.com/properties/pavona-apartments/",
+    bedroomTypes: [1, 2],
+  }),
+];
+
+const essexCatalogProperties = [
+  auditedProperty({
+    id: "le-parc",
+    name: "Le Parc",
+    city: "Santa Clara",
+    address: "440 N Winchester Boulevard, Santa Clara, CA 95050",
+    latitude: 37.337198,
+    longitude: -121.950304,
+    management: "Essex",
+    website:
+      "https://www.essexapartmenthomes.com/apartments/santa-clara/le-parc",
+    bedroomTypes: [1, 2],
+  }),
+  auditedProperty({
+    id: "1000-kiely",
+    name: "1000 Kiely",
+    city: "Santa Clara",
+    address: "1000 Kiely Boulevard, Santa Clara, CA 95051",
+    latitude: 37.3446095,
+    longitude: -121.978126,
+    management: "Essex",
+    website:
+      "https://www.essexapartmenthomes.com/apartments/santa-clara/1000-kiely/floor-plans-and-pricing",
+    bedroomTypes: [1, 2, 3],
+  }),
+  auditedProperty({
+    id: "marina-cove-santa-clara",
+    name: "Marina Cove",
+    city: "Santa Clara",
+    address: "3480 Granada Avenue, Santa Clara, CA 95051",
+    latitude: 37.3504208,
+    longitude: -121.9910776,
+    management: "Essex",
+    website:
+      "https://www.essexapartmenthomes.com/apartments/santa-clara/marina-cove/floor-plans-and-pricing",
+    bedroomTypes: [1, 2],
+  }),
+  auditedProperty({
+    id: "crow-canyon",
+    name: "Crow Canyon",
+    city: "San Ramon",
+    address: "1700 Promontory Lane, San Ramon, CA 94583",
+    latitude: 37.7772755,
+    longitude: -121.9862985,
+    management: "Essex",
+    website:
+      "https://www.essexapartmenthomes.com/apartments/san-ramon/crow-canyon",
+    bedroomTypes: [1, 2, 3],
+  }),
+];
+
+const greystarCatalogProperties = [
+  auditedProperty({
+    id: "the-martin-sf",
+    name: "The Martin Apartments",
+    city: "San Francisco",
+    address: "2051 3rd Street, San Francisco, CA 94107",
+    latitude: 37.763786,
+    longitude: -122.388375,
+    management: "Greystar",
+    website:
+      "https://www.greystar.com/the-martin-apartments-san-francisco-ca/p_14796",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+  auditedProperty({
+    id: "alta-potrero",
+    name: "Alta Potrero",
+    city: "San Francisco",
+    address: "1301 16th Street, San Francisco, CA 94103",
+    latitude: 37.7662670931,
+    longitude: -122.4003159184,
+    management: "Greystar",
+    website:
+      "https://www.greystar.com/alta-potrero-san-francisco-ca/p_21304",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+  auditedProperty({
+    id: "jasper-sf",
+    name: "Jasper",
+    city: "San Francisco",
+    address: "45 Lansing Street, San Francisco, CA 94105",
+    latitude: 37.7858204,
+    longitude: -122.3957322,
+    management: "Greystar",
+    website: "https://www.greystar.com/jasper-san-francisco-ca/p_16224",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+  auditedProperty({
+    id: "777-tenn",
+    name: "777 Tenn",
+    city: "San Francisco",
+    address: "777 Tennessee Street, San Francisco, CA 94107",
+    latitude: 37.7621092,
+    longitude: -122.3895128,
+    management: "Greystar",
+    website: "https://www.greystar.com/777-tenn-san-francisco-ca/p_16296",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+  auditedProperty({
+    id: "lynhaven",
+    name: "Lynhaven",
+    city: "San Jose",
+    address: "919 S Winchester Boulevard, San Jose, CA 95128",
+    latitude: 37.3094509,
+    longitude: -121.9525606,
+    management: "Greystar",
+    website: "https://www.greystar.com/lynhaven-san-jose-ca/p_16788",
+    bedroomTypes: [1, 2, 3],
+  }),
+  auditedProperty({
+    id: "one-south-market",
+    name: "One South Market Apartments",
+    city: "San Jose",
+    address: "1 S Market Street, San Jose, CA 95113",
+    latitude: 37.334883,
+    longitude: -121.892209,
+    management: "Greystar",
+    website:
+      "https://www.greystar.com/one-south-market-apartments-san-jose-ca/p_17562",
+    bedroomTypes: [1, 2, 3],
+  }),
+  auditedProperty({
+    id: "the-clara",
+    name: "The Clara",
+    city: "Santa Clara",
+    address: "5150 Calle Del Sol, Santa Clara, CA 95054",
+    latitude: 37.4086787705,
+    longitude: -121.9652850628,
+    management: "Greystar",
+    website: "https://www.greystar.com/the-clara-santa-clara-ca/p_22087",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+  auditedProperty({
+    id: "481-on-mathilda",
+    name: "481 on Mathilda",
+    city: "Sunnyvale",
+    address: "481 S Mathilda Avenue, Sunnyvale, CA 94086",
+    latitude: 37.37245,
+    longitude: -122.03655,
+    management: "Greystar",
+    website:
+      "https://www.greystar.com/481-on-mathilda-sunnyvale-ca/p_17074",
+    bedroomTypes: [0, 1, 2],
+  }),
+  auditedProperty({
+    id: "the-franciscan",
+    name: "The Franciscan",
+    city: "Campbell",
+    address: "601 Almarida Drive, Campbell, CA 95008",
+    latitude: 37.296481,
+    longitude: -121.941689,
+    management: "Greystar",
+    website:
+      "https://www.greystar.com/the-franciscan-campbell-ca/p_17147",
+    bedroomTypes: [1, 2],
+  }),
+];
+
+const relatedCatalogProperties = [
+  auditedProperty({
+    id: "mason-on-mariposa",
+    name: "Mason on Mariposa",
+    city: "San Francisco",
+    address: "1601 Mariposa Street, San Francisco, CA 94107",
+    latitude: 37.763181,
+    longitude: -122.3998144,
+    management: "Related Rentals",
+    website:
+      "https://www.relatedrentals.com/apartment-rentals/san-francisco/potrero-hill/mason-mariposa",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+  auditedProperty({
+    id: "fifteen-fifty",
+    name: "Fifteen Fifty",
+    city: "San Francisco",
+    address: "1550 Mission Street, San Francisco, CA 94103",
+    latitude: 37.7738246,
+    longitude: -122.4179072,
+    management: "Related Rentals",
+    website:
+      "https://www.relatedrentals.com/apartment-rentals/san-francisco/mission/fifteen-fifty",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+];
+
+export const officialCatalogProperties = [
+  ...equityCatalogProperties,
+  ...avalonCatalogProperties,
+  ...udrCatalogProperties,
+  ...windsorCatalogProperties,
+  ...essexCatalogProperties,
+  ...greystarCatalogProperties,
+  ...relatedCatalogProperties,
+];
+
 export const equityBedroomTypes = {
   northpark: [0, 1, 2],
   "park-place-san-mateo": [1, 2, 3],
@@ -428,7 +956,7 @@ export const equityBedroomTypes = {
   huxley: [0, 1, 2],
   "riva-terra": [1, 2],
   ...Object.fromEntries(
-    officialCatalogProperties.map((property) => [
+    equityCatalogProperties.map((property) => [
       property.id,
       property.bedroomTypes,
     ]),

@@ -5,6 +5,7 @@ import {
   equityStartingRents,
   officialCatalogProperties,
   officialEquityPropertyIds,
+  policyVerifiedAt,
   regionForCity,
 } from "./bay-area-catalog.mjs";
 
@@ -14,7 +15,7 @@ const inventoryPath = fileURLToPath(
 const monitorUserAgent =
   "BayAreaApartmentTracker/3.0 (+https://github.com/az196560/apartment-tracker)";
 const restrictedPlanPattern =
-  /affordable|below[\s-]?market|\bbmr\b|income[\s-]?(?:restricted|qualified)/i;
+  /affordable|below[\s-]?market|\bbmr\b|income[\s-]?(?:restricted|qualified)|workforce|senior|age[\s-]?restricted|student[\s-]?housing|faculty[\s-]?housing|employee[\s-]?housing/i;
 const excludedPropertyIds = new Set(["shortstack", "the-heltsley"]);
 const amenityPolicyOnly = process.argv.includes("--amenity-policy-only");
 const amenityReviews = {
@@ -54,7 +55,7 @@ const amenityReviews = {
     airConditioning: true,
     inUnitWasherDryer: true,
   },
-  "55-west-fifth": { airConditioning: true, inUnitWasherDryer: true },
+  "55-west-fifth": { airConditioning: false, inUnitWasherDryer: true },
   "creekside-san-mateo": {
     airConditioning: false,
     inUnitWasherDryer: true,
@@ -227,6 +228,38 @@ const fixedSources = [
   },
 ];
 
+const avalonSources = officialCatalogProperties
+  .filter((property) => property.management === "AvalonBay Communities")
+  .map((property) => ({
+    propertyId: property.id,
+    sourceId: property.id,
+    label: `${property.name} / AvalonBay`,
+  }));
+
+const udrSources = officialCatalogProperties
+  .filter((property) => property.management === "UDR")
+  .map((property) => ({
+    propertyId: property.id,
+    sourceId: property.id,
+    label: `${property.name} / UDR`,
+  }));
+
+const greystarSources = officialCatalogProperties
+  .filter((property) => property.management === "Greystar")
+  .map((property) => ({
+    propertyId: property.id,
+    sourceId: property.id,
+    label: `${property.name} / Greystar`,
+  }));
+
+const relatedSources = officialCatalogProperties
+  .filter((property) => property.management === "Related Rentals")
+  .map((property) => ({
+    propertyId: property.id,
+    sourceId: property.id,
+    label: `${property.name} / Related Rentals`,
+  }));
+
 const essexSources = [
   ["station-park-green", 629080, "Station Park Green / Essex"],
   ["the-plaza-foster-city", 1909812, "The Plaza / Essex"],
@@ -383,9 +416,23 @@ function isoDate(value, now) {
   }
   const iso = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
   if (iso) return `${iso[1]}-${iso[2]}-${iso[3]}`;
+  const dotNet = raw.match(/^\\?\/Date\((\d+)/);
+  if (dotNet) return new Date(Number(dotNet[1])).toISOString().slice(0, 10);
   const us = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
   if (us) {
     return `${us[3]}-${us[1].padStart(2, "0")}-${us[2].padStart(2, "0")}`;
+  }
+  const shortUs = raw.match(/^(\d{1,2})\/(\d{1,2})$/);
+  if (shortUs) {
+    let parsed = new Date(
+      `${now.getFullYear()}-${shortUs[1].padStart(2, "0")}-${shortUs[2].padStart(2, "0")}T12:00:00`,
+    );
+    if (parsed.getTime() < now.getTime() - 30 * 86_400_000) {
+      parsed = new Date(
+        `${now.getFullYear() + 1}-${shortUs[1].padStart(2, "0")}-${shortUs[2].padStart(2, "0")}T12:00:00`,
+      );
+    }
+    return parsed.toISOString().slice(0, 10);
   }
   const shortMonth = raw.match(
     /^(?:available\s+on\s+)?([A-Za-z]{3,9})\s+(\d{1,2})(?:st|nd|rd|th)?$/i,
@@ -443,6 +490,98 @@ async function fetchJson(url, options = {}) {
     );
   }
   return response.json();
+}
+
+function nestedText(value) {
+  if (typeof value === "string") return value;
+  if (Array.isArray(value)) return value.map(nestedText).join(" ");
+  if (value && typeof value === "object") {
+    return Object.values(value).map(nestedText).join(" ");
+  }
+  return "";
+}
+
+function universalAmenity(entries, pattern) {
+  return entries.some(
+    (entry) =>
+      pattern.test(entry) &&
+      !/\*|select (?:homes|apartments|units)|available (?:in|on)/i.test(entry),
+  );
+}
+
+async function discoverPrometheusCatalog(now) {
+  const payload = await fetchJson(
+    "https://shopping.prometheusapartments-prod-west2.com/search?filters=%7B%7D",
+    { headers: { origin: "https://prometheusapartments.com" } },
+  );
+  if (!Array.isArray(payload?.searchData)) {
+    throw new Error("Prometheus portfolio search returned invalid data");
+  }
+  const properties = [];
+  const sources = [];
+  for (const item of payload.searchData) {
+    if (item.state !== "California") continue;
+    let region;
+    try {
+      region = regionForCity(item.city);
+    } catch {
+      continue;
+    }
+    const webContent = item.webContent ?? {};
+    const fields = webContent.webContents?.fields ?? {};
+    const amenityEntries = (fields.additionalAmenitiesInsideYourHome ?? [])
+      .map(nestedText)
+      .map((entry) => entry.replace(/\s+/g, " ").trim())
+      .filter(Boolean);
+    const hasAirConditioning = universalAmenity(
+      amenityEntries,
+      /air conditioning|central air/i,
+    );
+    const hasInUnitLaundry = universalAmenity(
+      amenityEntries,
+      /washer|dryer|in[\s-]?unit laundry/i,
+    );
+    if (!hasAirConditioning || !hasInUnitLaundry) continue;
+    const slug = String(webContent.slug ?? item.name)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
+    const propertyId = slug === "trestle" ? "trestle" : slug;
+    const website = `https://prometheusapartments.com/ca/${webContent.cityPageSlug}/${webContent.slug}`;
+    const bedroomTypes = [
+      ...new Set((item.bedroom ?? []).map(bedroomCount).filter((beds) => beds !== null)),
+    ].sort((a, b) => a - b);
+    properties.push({
+      id: propertyId,
+      name: String(item.name),
+      city: String(item.city),
+      region,
+      address: String(webContent.fullAddress ?? `${item.name}, ${item.city}`).trim(),
+      latitude: numberValue(item.coordinates?.lat),
+      longitude: numberValue(item.coordinates?.lon),
+      year: null,
+      qualification: "established",
+      qualityNote:
+        "Prometheus 官方租赁社区；官网明确列出空调和每户室内洗烘，实时单元每日更新。",
+      inventoryStatus: "onboarding",
+      management: "Prometheus",
+      website,
+      tracked: true,
+      bedroomTypes: bedroomTypes.length ? bedroomTypes : [1],
+      marketRate: true,
+      airConditioning: true,
+      inUnitWasherDryer: true,
+      amenitiesVerifiedAt: now.toISOString().slice(0, 10),
+      amenityEvidenceUrl: website,
+    });
+    sources.push({
+      propertyId,
+      sourceId: propertyId,
+      label: `${item.name} / Prometheus`,
+      prometheusId: String(item.id),
+    });
+  }
+  return { properties, sources };
 }
 
 function exactApplyUrl(html, unit, pageUrl) {
@@ -1280,6 +1419,294 @@ async function scrapePrometheus(now, property, source) {
     .filter(Boolean);
 }
 
+async function scrapeAvalon(now, property) {
+  const html = await fetchText(property.website);
+  const markerIndex = html.indexOf('"units":');
+  const arrayStart = html.indexOf("[", markerIndex);
+  const arrayText =
+    markerIndex >= 0 && arrayStart >= 0
+      ? extractBalanced(html, arrayStart, "[", "]")
+      : null;
+  if (!arrayText) {
+    throw new Error(`${property.name} did not expose Avalon unit inventory`);
+  }
+  const units = JSON.parse(arrayText);
+  if (!Array.isArray(units)) {
+    throw new Error(`${property.name} returned invalid Avalon inventory`);
+  }
+  return units
+    .map((unit) => {
+      const beds = bedroomCount(unit.bedroomNumber);
+      const baths = bathroomCount(unit.bathroomNumber);
+      const policyText = `${unit.floorPlan?.name ?? ""} ${nestedText(
+        unit.characteristics,
+      )} ${nestedText(unit.promotions)} ${unit.url ?? ""}`;
+      if (beds === null || baths === null || restrictedPlanPattern.test(policyText)) {
+        return null;
+      }
+      const pricing = unit.startingAtPricesUnfurnished ?? {};
+      const rent = numberValue(pricing.prices?.price);
+      const totalMonthlyPrice = numberValue(pricing.prices?.totalPrice);
+      const availableDate = isoDate(
+        pricing.moveInDate ?? unit.availableDateUnfurnished,
+        now,
+      );
+      if (rent === null || !availableDate) return null;
+      const recommendedLeaseMonths = numberValue(pricing.leaseTerm);
+      const unitId = String(unit.unitId ?? unit.unitName);
+      const requiredFees =
+        totalMonthlyPrice !== null && totalMonthlyPrice > rent
+          ? totalMonthlyPrice - rent
+          : null;
+      return {
+        id: `${property.id}-${unitId}`.toLowerCase(),
+        propertyId: property.id,
+        unit: `#${unit.unitName ?? unitId}`,
+        floorplan: String(unit.floorPlan?.name ?? `${beds} Bedroom`),
+        beds,
+        baths,
+        sqft: numberValue(unit.squareFeet) ?? 0,
+        rent,
+        totalMonthlyPrice,
+        availableDate,
+        recommendedLeaseMonths,
+        leaseTerms: recommendedLeaseMonths
+          ? [{ months: recommendedLeaseMonths, baseRent: rent }]
+          : [],
+        mandatoryMonthlyFees:
+          requiredFees === null
+            ? []
+            : [{ label: "Required monthly fees", amount: requiredFees }],
+        optionalMonthlyFees: [],
+        oneTimeFees: [],
+        sourceUrl: new URL(unit.url ?? property.website, property.website).toString(),
+        precision: "unit",
+        capturedAt: now.toISOString(),
+      };
+    })
+    .filter(Boolean);
+}
+
+async function scrapeUdr(now, property) {
+  const html = await fetchText(property.website);
+  const payload = extractJsonAssignment(
+    html,
+    "window.udr.jsonObjPropertyViewModel",
+  );
+  if (!Array.isArray(payload.floorPlans)) {
+    throw new Error(`${property.name} returned invalid UDR inventory`);
+  }
+  return payload.floorPlans
+    .flatMap((plan) =>
+      (plan.units ?? []).map((unit) => ({
+        plan,
+        unit,
+      })),
+    )
+    .map(({ plan, unit }) => {
+      const beds = bedroomCount(unit.bedrooms ?? plan.bedRooms);
+      const baths = bathroomCount(unit.bathrooms ?? plan.bathRooms);
+      const policyText = `${plan.Name ?? ""} ${unit.floorplanName ?? ""} ${
+        unit.shortDescription ?? ""
+      } ${nestedText(unit.homeTypes)}`;
+      if (
+        beds === null ||
+        baths === null ||
+        unit.isAvailable === false ||
+        restrictedPlanPattern.test(policyText)
+      ) {
+        return null;
+      }
+      const rent = numberValue(unit.lowestRent?.baseRent ?? unit.lowestRent?.rent);
+      const availableDate = isoDate(
+        unit.AvailableDateLabel ?? unit.availableDate ?? plan.availableDate,
+        now,
+      );
+      if (rent === null || !availableDate) return null;
+      const recommendedLeaseMonths = numberValue(unit.lowestRent?.leaseTerm);
+      const monthlyCharges = numberValue(unit.monthlyCharges);
+      const unitId = String(
+        unit.apartmentId ?? unit.realpageunitid ?? unit.marketingName,
+      );
+      return {
+        id: `${property.id}-${unitId}`.toLowerCase(),
+        propertyId: property.id,
+        unit: `#${unit.marketingName ?? unitId}`,
+        floorplan: String(unit.floorplanName ?? plan.Name ?? `${beds} Bedroom`),
+        beds,
+        baths,
+        sqft: numberValue(unit.sqFt) ?? numberValue(plan.sqFtMin) ?? 0,
+        rent,
+        totalMonthlyPrice:
+          monthlyCharges === null ? null : rent + monthlyCharges,
+        availableDate,
+        recommendedLeaseMonths,
+        leaseTerms: recommendedLeaseMonths
+          ? [{ months: recommendedLeaseMonths, baseRent: rent }]
+          : [],
+        mandatoryMonthlyFees:
+          monthlyCharges && monthlyCharges > 0
+            ? [{ label: "Required monthly fees", amount: monthlyCharges }]
+            : [],
+        optionalMonthlyFees: [],
+        oneTimeFees: [],
+        sourceUrl: new URL(unit.previewLink ?? property.website, property.website).toString(),
+        precision: "unit",
+        capturedAt: now.toISOString(),
+      };
+    })
+    .filter(Boolean);
+}
+
+function greystarJsonArray(html, key) {
+  const decoded = html.replaceAll('\\"', '"');
+  const marker = `"${key}":`;
+  const markerIndex = decoded.lastIndexOf(marker);
+  const arrayStart = decoded.indexOf("[", markerIndex);
+  const arrayText =
+    markerIndex >= 0 && arrayStart >= 0
+      ? extractBalanced(decoded, arrayStart, "[", "]")
+      : null;
+  if (!arrayText) return null;
+  return { decoded, values: JSON.parse(arrayText) };
+}
+
+async function scrapeGreystar(now, property) {
+  const html = await fetchText(property.website);
+  const floorplanPayload = greystarJsonArray(html, "floorplans");
+  const unitPayload = greystarJsonArray(html, "propertyUnits");
+  if (!floorplanPayload || !unitPayload || !Array.isArray(unitPayload.values)) {
+    throw new Error(`${property.name} did not expose Greystar inventory`);
+  }
+  const plans = new Map(
+    floorplanPayload.values.map((plan) => [String(plan.id), plan]),
+  );
+  const feeMatches = [
+    ...unitPayload.decoded.matchAll(/"requiredMonthlyFeesMin":(\d+(?:\.\d+)?)/g),
+  ];
+  const requiredMonthlyFees = numberValue(feeMatches.at(-1)?.[1]);
+  return unitPayload.values
+    .map((unit) => {
+      const plan = plans.get(String(unit.floorPlanId)) ?? {};
+      const beds = bedroomCount(plan.bedroomCount);
+      const baths = bathroomCount(plan.bathroomCount);
+      const policyText = `${plan.label ?? ""} ${unit.floorPlanLabel ?? ""} ${
+        unit.unitNumber ?? ""
+      }`;
+      if (beds === null || baths === null || restrictedPlanPattern.test(policyText)) {
+        return null;
+      }
+      const rent = numberValue(unit.minPrice);
+      const availableDate = isoDate(unit.availableOn, now);
+      if (rent === null || !availableDate) return null;
+      const recommendedLeaseMonths = numberValue(unit.minBaseRentLeaseTerm);
+      const leaseTerms = Object.entries(unit.rentMatrix ?? {})
+        .filter(([key]) => key.startsWith("00-"))
+        .map(([key, price]) => ({
+          months: numberValue(key.split("-")[1]),
+          baseRent: numberValue(price),
+        }))
+        .filter((term) => term.months && term.baseRent !== null);
+      const unitId = String(unit.unitId ?? unit.unitNumber);
+      return {
+        id: `${property.id}-${unitId}`.toLowerCase(),
+        propertyId: property.id,
+        unit: `#${unit.unitNumber ?? unitId}`,
+        floorplan: String(unit.floorPlanLabel ?? plan.label ?? `${beds} Bedroom`),
+        beds,
+        baths,
+        sqft: numberValue(unit.area) ?? 0,
+        rent,
+        totalMonthlyPrice:
+          requiredMonthlyFees === null ? null : rent + requiredMonthlyFees,
+        availableDate,
+        recommendedLeaseMonths,
+        leaseTerms,
+        mandatoryMonthlyFees:
+          requiredMonthlyFees === null
+            ? []
+            : [
+                {
+                  label: "Required monthly fees",
+                  amount: requiredMonthlyFees,
+                },
+              ],
+        optionalMonthlyFees: [],
+        oneTimeFees: [],
+        sourceUrl: `${property.website}#floor-plans`,
+        precision: "floorplan",
+        capturedAt: now.toISOString(),
+      };
+    })
+    .filter(Boolean);
+}
+
+function htmlAttribute(tag, name) {
+  const match = tag.match(new RegExp(`${name}=["']([^"']*)["']`, "i"));
+  return match ? decodeEntities(match[1]) : null;
+}
+
+async function scrapeRelated(now, property) {
+  const html = await fetchText(property.website);
+  const listings = [];
+  const articlePattern =
+    /<article\b[^>]*class=["'][^"']*node--type-unit[^"']*["'][^>]*>[\s\S]*?<\/article>/gi;
+  for (const match of html.matchAll(articlePattern)) {
+    const article = match[0];
+    const openingTag = article.match(/^<article\b[^>]*>/i)?.[0] ?? "";
+    const apiId = htmlAttribute(openingTag, "data-api-id");
+    const rent = numberValue(htmlAttribute(openingTag, "data-price"));
+    const beds = bedroomCount(htmlAttribute(openingTag, "data-dimension6"));
+    const baths = bathroomCount(htmlAttribute(openingTag, "data-dimension7"));
+    const recommendedLeaseMonths = numberValue(
+      htmlAttribute(openingTag, "data-dimension8"),
+    );
+    const availableDate = isoDate(
+      htmlAttribute(openingTag, "data-dimension9"),
+      now,
+    );
+    const title = htmlAttribute(openingTag, "data-gtm-name") ?? "Apartment";
+    const floorplan = title.includes(":")
+      ? title.slice(title.indexOf(":") + 1).trim()
+      : title;
+    const href = article.match(/<a\b[^>]*href=["']([^"']+)["']/i)?.[1];
+    if (
+      !apiId ||
+      rent === null ||
+      beds === null ||
+      baths === null ||
+      !availableDate ||
+      !href ||
+      restrictedPlanPattern.test(`${floorplan} ${href}`)
+    ) {
+      continue;
+    }
+    listings.push({
+      id: `${property.id}-${apiId}`.toLowerCase(),
+      propertyId: property.id,
+      unit: `Listing ${apiId}`,
+      floorplan,
+      beds,
+      baths,
+      sqft: 0,
+      rent,
+      totalMonthlyPrice: null,
+      availableDate,
+      recommendedLeaseMonths,
+      leaseTerms: recommendedLeaseMonths
+        ? [{ months: recommendedLeaseMonths, baseRent: rent }]
+        : [],
+      mandatoryMonthlyFees: [],
+      optionalMonthlyFees: [],
+      oneTimeFees: [],
+      sourceUrl: new URL(decodeEntities(href), property.website).toString(),
+      precision: "unit",
+      capturedAt: now.toISOString(),
+    });
+  }
+  return [...new Map(listings.map((listing) => [listing.id, listing])).values()];
+}
+
 async function scrapeEncore(now) {
   const scriptUrl =
     "https://encoreredwoodcity.com/wp-content/themes/client-theme/includes/js/units.js";
@@ -1894,10 +2321,28 @@ function equityFloorplanFallback(property, now) {
 async function main() {
   const inventory = JSON.parse(await readFile(inventoryPath, "utf8"));
   const now = new Date();
+  const portfolioFailures = [];
+  let prometheusDiscovery = { properties: [], sources: [] };
+  if (!amenityPolicyOnly) {
+    try {
+      prometheusDiscovery = await discoverPrometheusCatalog(now);
+    } catch (error) {
+      portfolioFailures.push(
+        `Prometheus portfolio: ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
+  }
+  const catalogProperties = [
+    ...officialCatalogProperties,
+    ...prometheusDiscovery.properties,
+  ];
+  const currentCatalogPropertyById = new Map(
+    catalogProperties.map((property) => [property.id, property]),
+  );
   const existingPropertyById = new Map(
     inventory.properties.map((property) => [property.id, property]),
   );
-  for (const catalogProperty of officialCatalogProperties) {
+  for (const catalogProperty of catalogProperties) {
     const existing = existingPropertyById.get(catalogProperty.id);
     if (!existing) {
       const added = structuredClone(catalogProperty);
@@ -1915,8 +2360,24 @@ async function main() {
       website: catalogProperty.website,
       region: catalogProperty.region,
       bedroomTypes: catalogProperty.bedroomTypes,
+      qualityNote: catalogProperty.qualityNote,
+      marketRate: catalogProperty.marketRate,
+      airConditioning: catalogProperty.airConditioning,
+      inUnitWasherDryer: catalogProperty.inUnitWasherDryer,
+      ...(catalogProperty.amenitiesVerifiedAt
+        ? { amenitiesVerifiedAt: catalogProperty.amenitiesVerifiedAt }
+        : {}),
+      ...(catalogProperty.amenityEvidenceUrl
+        ? { amenityEvidenceUrl: catalogProperty.amenityEvidenceUrl }
+        : {}),
     });
   }
+  inventory.listings = inventory.listings.filter(
+    (listing) =>
+      !restrictedPlanPattern.test(
+        `${listing.floorplan ?? ""} ${listing.unit ?? ""} ${listing.sourceUrl ?? ""}`,
+      ),
+  );
   const listingHistoryById = new Map(
     (inventory.listingHistory ?? []).map((entry) => [entry.id, entry]),
   );
@@ -1952,14 +2413,45 @@ async function main() {
     (source) => !excludedPropertyIds.has(source.id),
   );
   for (const property of inventory.properties) {
+    const catalogProperty = currentCatalogPropertyById.get(property.id);
+    const previouslyVerified =
+      property.marketRate === true &&
+      property.airConditioning === true &&
+      property.inUnitWasherDryer === true &&
+      typeof property.amenitiesVerifiedAt === "string";
+    const amenityReview =
+      amenityReviews[property.id] ??
+      (catalogProperty?.airConditioning === true &&
+      catalogProperty?.inUnitWasherDryer === true
+        ? {
+            airConditioning: true,
+            inUnitWasherDryer: true,
+          }
+        : previouslyVerified
+          ? {
+              airConditioning: true,
+              inUnitWasherDryer: true,
+            }
+          : {
+              airConditioning: false,
+              inUnitWasherDryer: false,
+            });
     Object.assign(
       property,
-      amenityReviews[property.id] ?? {
-        airConditioning: false,
-        inUnitWasherDryer: false,
-      },
+      amenityReview,
       propertyOverrides[property.id] ?? {},
     );
+    if (property.airConditioning && property.inUnitWasherDryer) {
+      property.marketRate = true;
+      property.amenitiesVerifiedAt =
+        catalogProperty?.amenitiesVerifiedAt ??
+        property.amenitiesVerifiedAt ??
+        policyVerifiedAt;
+      property.amenityEvidenceUrl =
+        catalogProperty?.amenityEvidenceUrl ??
+        property.amenityEvidenceUrl ??
+        property.website;
+    }
     property.region = regionForCity(property.city);
     property.bedroomTypes = [
       ...new Set(
@@ -1972,6 +2464,12 @@ async function main() {
     ].sort((a, b) => a - b);
     if (!property.bedroomTypes.length) property.bedroomTypes = [1];
   }
+  inventory.properties = inventory.properties.filter(
+    (property) =>
+      property.marketRate === true &&
+      property.airConditioning === true &&
+      property.inUnitWasherDryer === true,
+  );
   const eligiblePropertyIds = new Set(
     inventory.properties.map((property) => property.id),
   );
@@ -1986,6 +2484,15 @@ async function main() {
   inventory.sources = inventory.sources.filter((source) =>
     eligiblePropertyIds.has(source.id),
   );
+  for (const property of inventory.properties) {
+    if (inventory.sources.some((source) => source.id === property.id)) continue;
+    inventory.sources.push({
+      id: property.id,
+      label: `${property.name} / ${property.management} official`,
+      status: "watching",
+      lastSuccessAt: null,
+    });
+  }
   const propertyById = new Map(
     inventory.properties.map((property) => [property.id, property]),
   );
@@ -2014,17 +2521,23 @@ async function main() {
 
   async function runSource(source, scrape) {
     if (excludedPropertyIds.has(source.propertyId)) return;
+    if (amenityPolicyOnly || !eligiblePropertyIds.has(source.propertyId)) return;
     if (!originalPropertyIds.has(source.propertyId)) {
       throw new Error(`Unknown property ${source.propertyId}`);
     }
-    if (amenityPolicyOnly || !eligiblePropertyIds.has(source.propertyId)) return;
     const property = propertyById.get(source.propertyId);
     try {
       const listings = await scrape(now, property, source);
       if (!Array.isArray(listings)) {
         throw new Error(`${property.name} scraper did not return an array`);
       }
-      updates.push({ ...source, listings });
+      const policyCompliantListings = listings.filter(
+        (listing) =>
+          !restrictedPlanPattern.test(
+            `${listing.floorplan ?? ""} ${listing.unit ?? ""} ${listing.sourceUrl ?? ""}`,
+          ),
+      );
+      updates.push({ ...source, listings: policyCompliantListings });
     } catch (error) {
       failures.push({
         ...source,
@@ -2038,19 +2551,38 @@ async function main() {
     scrapeCirrus,
   );
 
-  for (const source of sightmapSources) {
-    await runSource(source, (_, __, currentSource) =>
+  await mapLimit(sightmapSources, 4, (source) =>
+    runSource(source, (_, __, currentSource) =>
       scrapeSightmap(currentSource, now),
-    );
-  }
-  for (const source of equitySources) {
-    await runSource(source, (_, property, currentSource) =>
+    ),
+  );
+  await mapLimit(equitySources, 4, (source) =>
+    runSource(source, (_, property, currentSource) =>
       scrapeEquity(currentSource, property, now),
-    );
-  }
-  for (const source of fixedSources) {
-    await runSource(source, source.scrape);
-  }
+    ),
+  );
+  await mapLimit(fixedSources, 4, (source) =>
+    runSource(source, source.scrape),
+  );
+  const fixedSourcePropertyIds = new Set(
+    fixedSources.map((source) => source.propertyId),
+  );
+  const dynamicPrometheusSources = prometheusDiscovery.sources.filter(
+    (source) => !fixedSourcePropertyIds.has(source.propertyId),
+  );
+  await mapLimit(dynamicPrometheusSources, 5, (source) =>
+    runSource(source, scrapePrometheus),
+  );
+  await mapLimit(avalonSources, 4, (source) =>
+    runSource(source, scrapeAvalon),
+  );
+  await mapLimit(udrSources, 4, (source) => runSource(source, scrapeUdr));
+  await mapLimit(greystarSources, 4, (source) =>
+    runSource(source, scrapeGreystar),
+  );
+  await mapLimit(relatedSources, 2, (source) =>
+    runSource(source, scrapeRelated),
+  );
   try {
     for (const source of essexSources) {
       await runSource(source, scrapeEssex);
@@ -2189,6 +2721,13 @@ async function main() {
     process.stdout.write(
       `Retained previous snapshots for ${failures.length} failed sources:\n${failures
         .map((failure) => `- ${failure.propertyId}: ${failure.message}`)
+        .join("\n")}\n`,
+    );
+  }
+  if (portfolioFailures.length) {
+    process.stdout.write(
+      `Portfolio discovery warnings:\n${portfolioFailures
+        .map((failure) => `- ${failure}`)
         .join("\n")}\n`,
     );
   }

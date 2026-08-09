@@ -23,6 +23,8 @@ const inventory = JSON.parse(await readFile(inventoryPath, "utf8"));
 const errors = [];
 const explicitlyExcludedPropertyIds = new Set(["shortstack", "the-heltsley"]);
 const supportedRegions = new Set(["sf", "peninsula", "south-bay", "east-bay"]);
+const restrictedPlanPattern =
+  /affordable|below[\s-]?market|\bbmr\b|income[\s-]?(?:restricted|qualified)|workforce|senior|age[\s-]?restricted|student[\s-]?housing|faculty[\s-]?housing|employee[\s-]?housing/i;
 const updatedAt = Date.parse(inventory.updatedAt);
 
 if (!isValidTimestamp(inventory.updatedAt)) {
@@ -67,16 +69,34 @@ if (Array.isArray(inventory.properties)) {
     ) {
       errors.push(`${property.id} must declare supported bedroom types from 0 to 4`);
     }
-    if (typeof property.airConditioning !== "boolean") {
-      errors.push(`${property.id} must declare an air-conditioning review status`);
+    if (property.marketRate !== true) {
+      errors.push(`${property.id} must be an unrestricted market-rate community`);
     }
-    if (typeof property.inUnitWasherDryer !== "boolean") {
-      errors.push(
-        `${property.id} must declare an in-unit washer/dryer review status`,
-      );
+    if (property.airConditioning !== true) {
+      errors.push(`${property.id} must have verified air conditioning`);
+    }
+    if (property.inUnitWasherDryer !== true) {
+      errors.push(`${property.id} must have a verified in-unit washer/dryer`);
+    }
+    if (!isValidTimestamp(property.amenitiesVerifiedAt)) {
+      errors.push(`${property.id} must declare a valid amenitiesVerifiedAt date`);
+    }
+    try {
+      const evidenceUrl = new URL(property.amenityEvidenceUrl);
+      if (evidenceUrl.protocol !== "https:") throw new Error("not HTTPS");
+    } catch {
+      errors.push(`${property.id} must link to HTTPS amenity evidence`);
     }
     if (explicitlyExcludedPropertyIds.has(property.id)) {
       errors.push(`${property.id} must remain excluded by policy`);
+    }
+  }
+}
+
+if (Array.isArray(inventory.properties)) {
+  for (const region of supportedRegions) {
+    if (!inventory.properties.some((property) => property.region === region)) {
+      errors.push(`${region} must contain at least one qualifying property`);
     }
   }
 }
@@ -117,6 +137,13 @@ if (Array.isArray(inventory.listings)) {
       errors.push(
         `${listing.id} references excluded or unknown property ${listing.propertyId}`,
       );
+    }
+    if (
+      restrictedPlanPattern.test(
+        `${listing.floorplan ?? ""} ${listing.unit ?? ""} ${listing.sourceUrl ?? ""}`,
+      )
+    ) {
+      errors.push(`${listing.id} appears to require a special eligibility program`);
     }
     if (!Number.isInteger(listing.beds) || listing.beds < 0 || listing.beds > 4) {
       errors.push(`${listing.id} must declare a bedroom count from 0 to 4`);
@@ -159,6 +186,12 @@ if (Array.isArray(inventory.sources)) {
   for (const source of inventory.sources) {
     if (!propertyIds.has(source.id)) {
       errors.push(`${source.id} source has no included property`);
+    }
+  }
+  const sourceIds = new Set(inventory.sources.map((source) => source.id));
+  for (const propertyId of propertyIds) {
+    if (!sourceIds.has(propertyId)) {
+      errors.push(`${propertyId} must have an official inventory source`);
     }
   }
 }

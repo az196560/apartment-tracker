@@ -160,18 +160,11 @@ function AmenityStatus({ property }: { property: ApartmentProperty }) {
   return (
     <div
       className="amenity-statuses"
-      aria-label={`${property.name} 设施确认状态`}
+      aria-label={`${property.name} 硬性条件已核验`}
     >
-      <span className={property.airConditioning ? "confirmed" : "unconfirmed"}>
-        {property.airConditioning ? "空调已确认" : "空调未确认"}
-      </span>
-      <span
-        className={property.inUnitWasherDryer ? "confirmed" : "unconfirmed"}
-      >
-        {property.inUnitWasherDryer
-          ? "室内洗烘已确认"
-          : "室内洗烘未确认"}
-      </span>
+      <span className="confirmed">空调</span>
+      <span className="confirmed">室内洗烘</span>
+      <span className="confirmed">普通市场价</span>
     </div>
   );
 }
@@ -382,8 +375,8 @@ export default function Dashboard() {
             好公寓，<span>都放进雷达。</span>
           </h1>
           <p>
-            汇总专业物业官网公开的公寓、户型和可租单元。按区域、城市和户型快速筛选，
-            每天核对租金、入住日与官网直达链接。
+            只收录官网已核验空调、室内洗烘和普通市场价资格的专业公寓。
+            按区域、城市和户型筛选，每天核对租金、入住日与官网直达链接。
           </p>
         </div>
         <div className="hero-stats" aria-label="房源概览">
