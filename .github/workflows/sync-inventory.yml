@@ -13,12 +13,40 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: write
   contents: write
+
+concurrency:
+  group: sync-apartment-inventory-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
+      - name: Cancel superseded inventory runs
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data } = await github.rest.actions.listWorkflowRuns({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: "sync-inventory.yml",
+              branch: context.ref.replace("refs/heads/", ""),
+              status: "in_progress",
+              per_page: 20,
+            });
+            for (const run of data.workflow_runs) {
+              if (run.id !== context.runId && run.run_number < context.runNumber) {
+                await github.rest.actions.cancelWorkflowRun({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  run_id: run.id,
+                });
+              }
+            }
+
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4

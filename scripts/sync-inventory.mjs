@@ -1772,36 +1772,38 @@ let automationPage;
 
 async function getAutomationPage() {
   if (automationPage) return automationPage;
-  const { chromium } = await import("playwright");
-  const headed =
-    process.env.PLAYWRIGHT_HEADED === "1" ||
-    (process.env.PLAYWRIGHT_HEADED === undefined &&
-      process.platform === "darwin");
-  const launchOptions = {
-    headless: !headed,
-    args: [
-      "--disable-blink-features=AutomationControlled",
-      "--disable-dev-shm-usage",
-    ],
-  };
-  try {
-    automationBrowser = await chromium.launch({
-      ...launchOptions,
-      ...(process.platform === "darwin" ? { channel: "chrome" } : {}),
+  if (!automationContext) {
+    const { chromium } = await import("playwright");
+    const headed =
+      process.env.PLAYWRIGHT_HEADED === "1" ||
+      (process.env.PLAYWRIGHT_HEADED === undefined &&
+        process.platform === "darwin");
+    const launchOptions = {
+      headless: !headed,
+      args: [
+        "--disable-blink-features=AutomationControlled",
+        "--disable-dev-shm-usage",
+      ],
+    };
+    try {
+      automationBrowser = await chromium.launch({
+        ...launchOptions,
+        ...(process.platform === "darwin" ? { channel: "chrome" } : {}),
+      });
+    } catch {
+      automationBrowser = await chromium.launch(launchOptions);
+    }
+    automationContext = await automationBrowser.newContext({
+      locale: "en-US",
+      timezoneId: "America/Los_Angeles",
+      viewport: { width: 1440, height: 1000 },
+      userAgent:
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
     });
-  } catch {
-    automationBrowser = await chromium.launch(launchOptions);
+    await automationContext.addInitScript(() => {
+      Object.defineProperty(navigator, "webdriver", { get: () => undefined });
+    });
   }
-  automationContext = await automationBrowser.newContext({
-    locale: "en-US",
-    timezoneId: "America/Los_Angeles",
-    viewport: { width: 1440, height: 1000 },
-    userAgent:
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-  });
-  await automationContext.addInitScript(() => {
-    Object.defineProperty(navigator, "webdriver", { get: () => undefined });
-  });
   automationPage = await automationContext.newPage();
   return automationPage;
 }
