@@ -1,7 +1,22 @@
 {
-  "updatedAt": "2026-08-09T20:09:40.250Z",
+  "updatedAt": "2026-08-09T20:19:28.717Z",
   "timezone": "America/Los_Angeles",
   "listingHistory": [
+    {
+      "id": "100-grand-0153",
+      "propertyId": "100-grand",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
+    {
+      "id": "100-grand-0159",
+      "propertyId": "100-grand",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
+    {
+      "id": "100-grand-0218",
+      "propertyId": "100-grand",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
     {
       "id": "100-grand-0307",
       "propertyId": "100-grand",
@@ -11,6 +26,16 @@
       "id": "100-grand-0309",
       "propertyId": "100-grand",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "100-grand-0318",
+      "propertyId": "100-grand",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
+    {
+      "id": "100-grand-0358",
+      "propertyId": "100-grand",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "340-fremont-official-floorplan-0",
@@ -491,6 +516,11 @@
       "id": "franklin-street-101-4303",
       "propertyId": "franklin-street",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "franklin-street-99-1304",
+      "propertyId": "franklin-street",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "hanover-1036",
@@ -1733,6 +1763,26 @@
       "firstSeenAt": "2026-08-09T20:09:40.250Z"
     },
     {
+      "id": "villas-bair-island-710-310",
+      "propertyId": "villas-bair-island",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
+    {
+      "id": "villas-bair-island-730-102",
+      "propertyId": "villas-bair-island",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
+    {
+      "id": "villas-bair-island-740-102",
+      "propertyId": "villas-bair-island",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
+    {
+      "id": "villas-bair-island-740-303",
+      "propertyId": "villas-bair-island",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
+    {
       "id": "vista-99-official-floorplan-1",
       "propertyId": "vista-99",
       "firstSeenAt": "2026-08-09T20:09:40.250Z"
@@ -2168,7 +2218,9 @@
       "inUnitWasherDryer": true,
       "region": "peninsula",
       "bedroomTypes": [
-        1
+        1,
+        2,
+        3
       ]
     },
     {
@@ -2667,7 +2719,8 @@
       "inUnitWasherDryer": true,
       "region": "peninsula",
       "bedroomTypes": [
-        1
+        1,
+        2
       ]
     },
     {
@@ -2908,7 +2961,8 @@
       "inUnitWasherDryer": true,
       "region": "peninsula",
       "bedroomTypes": [
-        1
+        1,
+        2
       ]
     },
     {
@@ -4123,7 +4177,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=536",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4232,7 +4286,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=312",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4341,7 +4395,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=302",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4450,7 +4504,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=234",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4559,7 +4613,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=204",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4668,7 +4722,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=450",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -4777,7 +4831,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=518",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -4886,7 +4940,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=520",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -4995,7 +5049,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=435",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -5104,7 +5158,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=420",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -5213,7 +5267,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=524",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-31T00:19:29.800Z"
     },
     {
@@ -5322,7 +5376,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=538",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -5431,7 +5485,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=402",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -5540,7 +5594,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=528",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -5649,7 +5703,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/r5v510omwny?unit_number=514",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -5675,7 +5729,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=2426",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -5701,7 +5755,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=2324",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -5727,7 +5781,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=2417",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -5753,7 +5807,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=2102",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -5779,7 +5833,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=2220",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -5805,7 +5859,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=1220",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -5831,7 +5885,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=2108",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -5857,7 +5911,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=2309",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-30T13:23:59.414Z"
     },
     {
@@ -5883,7 +5937,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/rxwj6rxxp1e?unit_number=1302",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -7022,7 +7076,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2342",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7146,7 +7200,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2706",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7270,7 +7324,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2424",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7394,7 +7448,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=1123",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -7518,7 +7572,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2436",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -7642,7 +7696,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=1119",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -7766,7 +7820,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2601",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -7890,7 +7944,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=1502",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -8014,7 +8068,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2310",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -8138,7 +8192,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2634",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -8262,7 +8316,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2538",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -8386,7 +8440,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px5zl3v19?unit_number=2539",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-26T14:45:37.676Z"
     },
     {
@@ -8493,7 +8547,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=250",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -8600,7 +8654,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=703",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -8707,7 +8761,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=721",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -8814,7 +8868,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=803",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -8921,7 +8975,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=813",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -9028,7 +9082,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=412",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -9135,7 +9189,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=512",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -9242,7 +9296,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=612",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -9349,7 +9403,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=827",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -9456,7 +9510,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=449",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -9563,7 +9617,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw97oq0vo9?unit_number=730",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -9639,7 +9693,7 @@
       "sqft": 772,
       "rent": 3772,
       "totalMonthlyPrice": null,
-      "availableDate": "2026-08-08",
+      "availableDate": "2026-08-09",
       "recommendedLeaseMonths": null,
       "leaseTerms": [],
       "mandatoryMonthlyFees": [],
@@ -9647,7 +9701,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.rcqalive.com/apartments/ca/foster-city/one-hundred-grand/default.aspx?unit=0307#FloorplanGroupContent",
       "precision": "unit",
-      "capturedAt": "2026-08-08T12:23:06.204Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -9660,7 +9714,7 @@
       "sqft": 773,
       "rent": 3797,
       "totalMonthlyPrice": null,
-      "availableDate": "2026-08-08",
+      "availableDate": "2026-08-09",
       "recommendedLeaseMonths": null,
       "leaseTerms": [],
       "mandatoryMonthlyFees": [],
@@ -9668,8 +9722,113 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.rcqalive.com/apartments/ca/foster-city/one-hundred-grand/default.aspx?unit=0309#FloorplanGroupContent",
       "precision": "unit",
-      "capturedAt": "2026-08-08T12:23:06.204Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "100-grand-0218",
+      "propertyId": "100-grand",
+      "unit": "#0218",
+      "floorplan": "2x2 Flat",
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1138,
+      "rent": 4842,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-08-09",
+      "recommendedLeaseMonths": null,
+      "leaseTerms": [],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [],
+      "sourceUrl": "https://www.rcqalive.com/apartments/ca/foster-city/one-hundred-grand/default.aspx?unit=0218#FloorplanGroupContent",
+      "precision": "unit",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
+    {
+      "id": "100-grand-0318",
+      "propertyId": "100-grand",
+      "unit": "#0318",
+      "floorplan": "2x2 Flat",
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1138,
+      "rent": 4852,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-08-09",
+      "recommendedLeaseMonths": null,
+      "leaseTerms": [],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [],
+      "sourceUrl": "https://www.rcqalive.com/apartments/ca/foster-city/one-hundred-grand/default.aspx?unit=0318#FloorplanGroupContent",
+      "precision": "unit",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
+    {
+      "id": "100-grand-0153",
+      "propertyId": "100-grand",
+      "unit": "#0153",
+      "floorplan": "2x2.5 Townhome",
+      "beds": 2,
+      "baths": 2.5,
+      "sqft": 1377,
+      "rent": 4852,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-08-09",
+      "recommendedLeaseMonths": null,
+      "leaseTerms": [],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [],
+      "sourceUrl": "https://www.rcqalive.com/apartments/ca/foster-city/one-hundred-grand/default.aspx?unit=0153#FloorplanGroupContent",
+      "precision": "unit",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
+    {
+      "id": "100-grand-0159",
+      "propertyId": "100-grand",
+      "unit": "#0159",
+      "floorplan": "2x2.5 Townhome",
+      "beds": 2,
+      "baths": 2.5,
+      "sqft": 1377,
+      "rent": 4852,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-08-09",
+      "recommendedLeaseMonths": null,
+      "leaseTerms": [],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [],
+      "sourceUrl": "https://www.rcqalive.com/apartments/ca/foster-city/one-hundred-grand/default.aspx?unit=0159#FloorplanGroupContent",
+      "precision": "unit",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
+    {
+      "id": "100-grand-0358",
+      "propertyId": "100-grand",
+      "unit": "#0358",
+      "floorplan": "3x3 Townhome",
+      "beds": 3,
+      "baths": 3,
+      "sqft": 1388,
+      "rent": 5900,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-08-09",
+      "recommendedLeaseMonths": null,
+      "leaseTerms": [],
+      "mandatoryMonthlyFees": [],
+      "optionalMonthlyFees": [],
+      "oneTimeFees": [],
+      "sourceUrl": "https://www.rcqalive.com/apartments/ca/foster-city/one-hundred-grand/default.aspx?unit=0358#FloorplanGroupContent",
+      "precision": "unit",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "fosters-landing-6521937",
@@ -10067,7 +10226,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px8l6jv19?unit_number=7405",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -10167,7 +10326,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px8l6jv19?unit_number=7205",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -10267,7 +10426,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px8l6jv19?unit_number=4309",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -10367,7 +10526,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px8l6jv19?unit_number=4301",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -10467,7 +10626,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px8l6jv19?unit_number=5106",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -10567,7 +10726,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/y8px8l6jv19?unit_number=4408",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -10598,7 +10757,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/foster-city-apartments/miramar/unit-313",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -10629,7 +10788,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/foster-city-apartments/miramar/unit-303",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -10998,7 +11157,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/8ywklk16vlx?unit_number=124",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -11120,7 +11279,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/8ywklk16vlx?unit_number=548",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -11242,7 +11401,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/8ywklk16vlx?unit_number=533",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -11364,7 +11523,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/8ywklk16vlx?unit_number=451",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -11486,7 +11645,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/8ywklk16vlx?unit_number=232",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -11608,7 +11767,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/8ywklk16vlx?unit_number=367",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-29T20:04:25.327Z"
     },
     {
@@ -11714,7 +11873,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=201B",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -11820,7 +11979,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=408C",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -11926,7 +12085,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=435A",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -12032,7 +12191,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=410C",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -12138,7 +12297,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=341A",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -12244,7 +12403,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=420A",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -12350,7 +12509,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=312A",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -12456,7 +12615,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=413A",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -12562,7 +12721,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/k9zw4kj0v87?unit_number=425A",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -12667,7 +12826,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=325",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -12772,7 +12931,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=432",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -12877,7 +13036,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=526",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -12982,7 +13141,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=626",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -13087,7 +13246,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=525",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -13192,7 +13351,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=415",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -13297,7 +13456,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=534",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -13402,7 +13561,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=733",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -13507,7 +13666,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=727",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -13612,7 +13771,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=614",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -13717,7 +13876,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=343",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -13822,7 +13981,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=735",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -13927,7 +14086,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=710",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-29T20:04:25.327Z"
     },
     {
@@ -14032,7 +14191,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=511",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-29T20:04:25.327Z"
     },
     {
@@ -14137,7 +14296,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=338",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -14242,7 +14401,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=613",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -14347,7 +14506,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=623",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -14452,7 +14611,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=538",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -14557,7 +14716,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=632",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -14662,7 +14821,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=444",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -14767,7 +14926,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/dqw9k2y5po9?unit_number=438",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -14820,7 +14979,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/gow3k7nyp2m?unit_number=E-012",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -14846,7 +15005,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/gow3k7nyp2m?unit_number=J-026",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -14946,7 +15105,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=741",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -15046,7 +15205,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=745",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -15146,7 +15305,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=535",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-28T15:37:52.201Z"
     },
     {
@@ -15246,7 +15405,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=314",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -15346,7 +15505,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=714",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -15446,7 +15605,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=321",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -15546,7 +15705,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=504",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -15646,7 +15805,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=229",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -15746,7 +15905,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=359",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -15846,7 +16005,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=656",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -15946,7 +16105,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=643",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -16046,7 +16205,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=724",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -16146,7 +16305,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=351",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -16246,7 +16405,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=553",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -16346,7 +16505,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=437",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -16446,7 +16605,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=456",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -16546,7 +16705,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=219",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -16646,7 +16805,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/1ywyk6e1vq0?unit_number=654",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -16667,7 +16826,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.rentcafe.com/apartments/ca/redwood-city/avenue-two-apartments/default.aspx?unit=712#FloorplanGroupContent",
       "precision": "unit",
-      "capturedAt": "2026-08-08T12:23:06.204Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -16688,7 +16847,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://www.rentcafe.com/apartments/ca/redwood-city/avenue-two-apartments/default.aspx?unit=103#FloorplanGroupContent",
       "precision": "unit",
-      "capturedAt": "2026-08-08T12:23:06.204Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -16821,7 +16980,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0107",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -16954,7 +17113,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0416",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -17087,7 +17246,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0247",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -17220,7 +17379,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0347",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -17353,7 +17512,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0326",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -17486,7 +17645,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=9203",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -17619,7 +17778,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=5201",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -17752,7 +17911,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0240",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -17885,7 +18044,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0119",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -18018,7 +18177,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0257",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -18151,7 +18310,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0246",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -18284,7 +18443,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0304",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -18417,7 +18576,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0262",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -18550,7 +18709,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0420",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -18683,7 +18842,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=1132",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -18816,7 +18975,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0116",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -18949,7 +19108,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0530",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -19082,7 +19241,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0251",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-29T20:04:25.327Z"
     },
     {
@@ -19215,7 +19374,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0316",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -19348,7 +19507,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=9301",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -19481,7 +19640,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0213",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -19614,7 +19773,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/n9w60llew71?unit_number=0214",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -19691,6 +19850,67 @@
       "precision": "floorplan",
       "firstSeenAt": "2026-07-23T13:42:00-07:00",
       "capturedAt": "2026-07-23T13:42:00-07:00"
+    },
+    {
+      "id": "franklin-street-99-1304",
+      "propertyId": "franklin-street",
+      "unit": "#99-1304",
+      "floorplan": "PLAN J",
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1235,
+      "rent": 5410,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-09-10",
+      "recommendedLeaseMonths": 13,
+      "leaseTerms": [
+        {
+          "months": 13,
+          "baseRent": 5410
+        }
+      ],
+      "mandatoryMonthlyFees": [
+        {
+          "label": "Utility Billing Fee",
+          "amount": 5.55,
+          "note": "Maximum monthly fee; utilities are additionally usage based."
+        }
+      ],
+      "optionalMonthlyFees": [
+        {
+          "label": "Cat premium (per cat)",
+          "amount": 50
+        },
+        {
+          "label": "Dog premium (per dog)",
+          "amount": 75
+        },
+        {
+          "label": "Extra parking / garage",
+          "amount": null,
+          "note": "Varies by location."
+        }
+      ],
+      "oneTimeFees": [
+        {
+          "label": "Application fee (per applicant)",
+          "amount": 45
+        },
+        {
+          "label": "Holding deposit",
+          "amount": 200,
+          "amountMax": 600
+        },
+        {
+          "label": "Security deposit",
+          "amount": 600,
+          "note": "May increase up to one month's rent."
+        }
+      ],
+      "sourceUrl": "https://www.irvinecompanyapartments.com/locations/northern-california/redwood-city/franklin-st/availability.html?unit=1304#FloorplanGroupContent",
+      "precision": "unit",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "highwater-117",
@@ -19805,7 +20025,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=117",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T17:22:52.364Z"
     },
     {
@@ -19921,7 +20141,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=843",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T17:22:52.364Z"
     },
     {
@@ -20037,7 +20257,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=426",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -20153,7 +20373,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=705",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -20269,7 +20489,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=832",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -20385,7 +20605,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=102",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T17:22:52.364Z"
     },
     {
@@ -20501,7 +20721,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=201",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -20617,7 +20837,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=807",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -20733,7 +20953,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=707",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-31T13:27:57.027Z"
     },
     {
@@ -20849,7 +21069,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=840",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -20965,7 +21185,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=239",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -21081,7 +21301,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=119",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -21197,7 +21417,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp209e5wxl?unit_number=205",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -21684,7 +21904,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp2dg09vxl?unit_number=0713",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-26T14:45:37.676Z"
     },
     {
@@ -21784,7 +22004,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp2dg09vxl?unit_number=0303",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -21884,7 +22104,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp2dg09vxl?unit_number=0215",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -21984,7 +22204,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp2dg09vxl?unit_number=1025",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -22084,7 +22304,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp2dg09vxl?unit_number=0716",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -22184,7 +22404,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp2dg09vxl?unit_number=0816",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -22284,7 +22504,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/yjp2dg09vxl?unit_number=1104",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -22310,7 +22530,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/4yjp2o9zwxl?unit_number=408",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -22336,7 +22556,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/4yjp2o9zwxl?unit_number=330",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -22362,7 +22582,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/4yjp2o9zwxl?unit_number=222",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -22388,7 +22608,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://sightmap.com/embed/4yjp2o9zwxl?unit_number=327",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -22488,7 +22708,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=J104",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -22588,7 +22808,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=G104",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -22688,7 +22908,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=L103",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -22788,7 +23008,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=A204",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -22888,7 +23108,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=M204",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -22988,7 +23208,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=G304",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -23088,7 +23308,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=K103",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-25T18:14:10.558Z"
     },
     {
@@ -23188,7 +23408,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/m9pz8ldmpk1?unit_number=A202",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -24049,7 +24269,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/40vlgod3ple?unit_number=230",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -24159,7 +24379,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/40vlgod3ple?unit_number=810",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -24269,7 +24489,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/40vlgod3ple?unit_number=802",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -24379,7 +24599,7 @@
       ],
       "sourceUrl": "https://sightmap.com/embed/40vlgod3ple?unit_number=516",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-26T14:45:37.676Z"
     },
     {
@@ -24402,6 +24622,250 @@
       "precision": "unit",
       "firstSeenAt": "2026-07-25T18:14:10.558Z",
       "capturedAt": "2026-07-25T18:14:10.558Z"
+    },
+    {
+      "id": "villas-bair-island-740-102",
+      "propertyId": "villas-bair-island",
+      "unit": "#740-102",
+      "floorplan": "PLAN H",
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1196,
+      "rent": 6380,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-09-11",
+      "recommendedLeaseMonths": 13,
+      "leaseTerms": [
+        {
+          "months": 13,
+          "baseRent": 6380
+        }
+      ],
+      "mandatoryMonthlyFees": [
+        {
+          "label": "Utility Billing Fee",
+          "amount": 5.55,
+          "note": "Maximum monthly fee; utilities are additionally usage based."
+        }
+      ],
+      "optionalMonthlyFees": [
+        {
+          "label": "Cat premium (per cat)",
+          "amount": 50
+        },
+        {
+          "label": "Dog premium (per dog)",
+          "amount": 75
+        },
+        {
+          "label": "Extra parking / garage",
+          "amount": null,
+          "note": "Varies by location."
+        }
+      ],
+      "oneTimeFees": [
+        {
+          "label": "Application fee (per applicant)",
+          "amount": 45
+        },
+        {
+          "label": "Holding deposit",
+          "amount": 200,
+          "amountMax": 600
+        },
+        {
+          "label": "Security deposit",
+          "amount": 600,
+          "note": "May increase up to one month's rent."
+        }
+      ],
+      "sourceUrl": "https://www.irvinecompanyapartments.com/locations/northern-california/redwood-city/villas-at-bair-island/availability.html?unit=102#FloorplanGroupContent",
+      "precision": "unit",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
+    {
+      "id": "villas-bair-island-730-102",
+      "propertyId": "villas-bair-island",
+      "unit": "#730-102",
+      "floorplan": "PLAN H",
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1196,
+      "rent": 6380,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-09-13",
+      "recommendedLeaseMonths": 13,
+      "leaseTerms": [
+        {
+          "months": 13,
+          "baseRent": 6380
+        }
+      ],
+      "mandatoryMonthlyFees": [
+        {
+          "label": "Utility Billing Fee",
+          "amount": 5.55,
+          "note": "Maximum monthly fee; utilities are additionally usage based."
+        }
+      ],
+      "optionalMonthlyFees": [
+        {
+          "label": "Cat premium (per cat)",
+          "amount": 50
+        },
+        {
+          "label": "Dog premium (per dog)",
+          "amount": 75
+        },
+        {
+          "label": "Extra parking / garage",
+          "amount": null,
+          "note": "Varies by location."
+        }
+      ],
+      "oneTimeFees": [
+        {
+          "label": "Application fee (per applicant)",
+          "amount": 45
+        },
+        {
+          "label": "Holding deposit",
+          "amount": 200,
+          "amountMax": 600
+        },
+        {
+          "label": "Security deposit",
+          "amount": 600,
+          "note": "May increase up to one month's rent."
+        }
+      ],
+      "sourceUrl": "https://www.irvinecompanyapartments.com/locations/northern-california/redwood-city/villas-at-bair-island/availability.html?unit=102#FloorplanGroupContent",
+      "precision": "unit",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
+    {
+      "id": "villas-bair-island-740-303",
+      "propertyId": "villas-bair-island",
+      "unit": "#740-303",
+      "floorplan": "PLAN C",
+      "beds": 1,
+      "baths": 1,
+      "sqft": 949,
+      "rent": 5000,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-09-19",
+      "recommendedLeaseMonths": 13,
+      "leaseTerms": [
+        {
+          "months": 13,
+          "baseRent": 5000
+        }
+      ],
+      "mandatoryMonthlyFees": [
+        {
+          "label": "Utility Billing Fee",
+          "amount": 5.55,
+          "note": "Maximum monthly fee; utilities are additionally usage based."
+        }
+      ],
+      "optionalMonthlyFees": [
+        {
+          "label": "Cat premium (per cat)",
+          "amount": 50
+        },
+        {
+          "label": "Dog premium (per dog)",
+          "amount": 75
+        },
+        {
+          "label": "Extra parking / garage",
+          "amount": null,
+          "note": "Varies by location."
+        }
+      ],
+      "oneTimeFees": [
+        {
+          "label": "Application fee (per applicant)",
+          "amount": 45
+        },
+        {
+          "label": "Holding deposit",
+          "amount": 200,
+          "amountMax": 600
+        },
+        {
+          "label": "Security deposit",
+          "amount": 600,
+          "note": "May increase up to one month's rent."
+        }
+      ],
+      "sourceUrl": "https://www.irvinecompanyapartments.com/locations/northern-california/redwood-city/villas-at-bair-island/availability.html?unit=303#FloorplanGroupContent",
+      "precision": "unit",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
+    },
+    {
+      "id": "villas-bair-island-710-310",
+      "propertyId": "villas-bair-island",
+      "unit": "#710-310",
+      "floorplan": "PLAN F",
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1109,
+      "rent": 5550,
+      "totalMonthlyPrice": null,
+      "availableDate": "2026-10-04",
+      "recommendedLeaseMonths": 12,
+      "leaseTerms": [
+        {
+          "months": 12,
+          "baseRent": 5550
+        }
+      ],
+      "mandatoryMonthlyFees": [
+        {
+          "label": "Utility Billing Fee",
+          "amount": 5.55,
+          "note": "Maximum monthly fee; utilities are additionally usage based."
+        }
+      ],
+      "optionalMonthlyFees": [
+        {
+          "label": "Cat premium (per cat)",
+          "amount": 50
+        },
+        {
+          "label": "Dog premium (per dog)",
+          "amount": 75
+        },
+        {
+          "label": "Extra parking / garage",
+          "amount": null,
+          "note": "Varies by location."
+        }
+      ],
+      "oneTimeFees": [
+        {
+          "label": "Application fee (per applicant)",
+          "amount": 45
+        },
+        {
+          "label": "Holding deposit",
+          "amount": 200,
+          "amountMax": 600
+        },
+        {
+          "label": "Security deposit",
+          "amount": 600,
+          "note": "May increase up to one month's rent."
+        }
+      ],
+      "sourceUrl": "https://www.irvinecompanyapartments.com/locations/northern-california/redwood-city/villas-at-bair-island/availability.html?unit=310#FloorplanGroupContent",
+      "precision": "unit",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
+      "firstSeenAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "trestle-2",
@@ -24431,7 +24895,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/san-carlos-apartments/trestle/unit-1102",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -24462,7 +24926,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/san-carlos-apartments/trestle/unit-4106",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -24493,7 +24957,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/san-carlos-apartments/trestle/unit-3304",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -24524,7 +24988,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/san-carlos-apartments/trestle/unit-1212",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -24555,7 +25019,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/san-carlos-apartments/trestle/unit-5302",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -24586,7 +25050,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/san-carlos-apartments/trestle/unit-5307",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -24617,7 +25081,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/san-carlos-apartments/trestle/unit-4201",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -24648,7 +25112,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/san-carlos-apartments/trestle/unit-4305",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-07-29T20:04:25.327Z"
     },
     {
@@ -24679,7 +25143,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/san-carlos-apartments/trestle/unit-1101",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -24710,7 +25174,7 @@
       ],
       "sourceUrl": "https://prometheusapartments.com/ca/san-carlos-apartments/trestle/unit-2312",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -25454,7 +25918,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://baymeadows.securecafe.com/onlineleasing/3098-kyne-st-w-san-mateo-ca-94403/rentaloptions.aspx?UnitID=44269467&FloorPlanID=5772387&myOlePropertyid=1978168",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -25534,7 +25998,7 @@
       "oneTimeFees": [],
       "sourceUrl": "https://baymeadows.securecafe.com/onlineleasing/3098-kyne-st-w-san-mateo-ca-94403/rentaloptions.aspx?UnitID=44269483&FloorPlanID=5772324&myOlePropertyid=1978168",
       "precision": "unit",
-      "capturedAt": "2026-08-09T20:09:40.250Z",
+      "capturedAt": "2026-08-09T20:19:28.717Z",
       "firstSeenAt": "2026-08-07T12:37:40.956Z"
     },
     {
@@ -26552,7 +27016,7 @@
       "label": "Cirrus / RentCafe",
       "status": "live",
       "lastSuccessAt": "2026-07-23T13:42:00-07:00",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.cirrusredwoodcityapartments.com/floorplans/1-bedroom-1-bath-a returned HTTP 403"
     },
     {
@@ -26560,28 +27024,28 @@
       "label": "Station Park Green / Essex",
       "status": "live",
       "lastSuccessAt": "2026-07-28T15:37:52.201Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
-      "lastError": "browserType.launch: Executable doesn't exist at /tmp/apartment-tracker-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
+      "lastError": "page.evaluate: Error: Essex API returned HTTP 429\n    at eval (eval at evaluate (:311:30), <anonymous>:6:29)\n    at async <anonymous>:337:30"
     },
     {
       "id": "roen",
       "label": "ROEN / Essex",
       "status": "live",
       "lastSuccessAt": "2026-08-07T12:37:40.956Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
-      "lastError": "browserType.launch: Executable doesn't exist at /tmp/apartment-tracker-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
+      "lastError": "page.evaluate: Error: Essex API returned HTTP 429\n    at eval (eval at evaluate (:311:30), <anonymous>:6:29)\n    at async <anonymous>:337:30"
     },
     {
       "id": "highwater",
       "label": "Highwater / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "885-woodside",
       "label": "885 Woodside / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "bayswater-burlingame",
@@ -26593,7 +27057,7 @@
       "id": "the-bower",
       "label": "The Bower / Prometheus",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "hanover-burlingame",
@@ -26611,40 +27075,40 @@
       "id": "indian-creek",
       "label": "Indian Creek / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "pescadero",
       "label": "Pescadero / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "encore-redwood-city",
       "label": "Encore / Official unit map",
       "status": "live",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T12:25:32.934Z"
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
+      "lastError": "fetch failed"
     },
     {
       "id": "anson",
       "label": "Anson / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "mode",
       "label": "MODE / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-07T12:37:40.956Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
-      "lastError": "browserType.launch: Executable doesn't exist at /tmp/apartment-tracker-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z",
+      "lastAttemptAt": "2026-08-09T20:09:40.250Z"
     },
     {
       "id": "the-hayden",
       "label": "The Hayden / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "wheeler-plaza",
@@ -26656,56 +27120,56 @@
       "id": "lume",
       "label": "Lume / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "revery",
       "label": "Revery / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "one-adrian",
       "label": "One Adrian / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "blu-harbor",
       "label": "Blu Harbor / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "the-marston",
       "label": "The Marston / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "vasara",
       "label": "Vasara / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "sharon-green",
       "label": "Sharon Green / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "locale",
       "label": "Locale / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "northpark",
       "label": "Northpark / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/burlingame/northpark-apartments returned HTTP 403"
     },
     {
@@ -26713,7 +27177,7 @@
       "label": "Park Place / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/san-mateo/park-place-at-san-mateo-apartments returned HTTP 403"
     },
     {
@@ -26721,7 +27185,7 @@
       "label": "55 West Fifth / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/san-mateo/55-west-fifth-apartments returned HTTP 403"
     },
     {
@@ -26729,7 +27193,7 @@
       "label": "Creekside / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/san-mateo/creekside-apartments returned HTTP 403"
     },
     {
@@ -26737,7 +27201,7 @@
       "label": "Schooner Bay / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/foster-city/schooner-bay-apartment-homes returned HTTP 403"
     },
     {
@@ -26745,7 +27209,7 @@
       "label": "Lantern Cove / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/foster-city/lantern-cove-apartments returned HTTP 403"
     },
     {
@@ -26753,7 +27217,7 @@
       "label": "Huxley / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/redwood-city/huxley-apartments returned HTTP 403"
     },
     {
@@ -26761,7 +27225,7 @@
       "label": "Riva Terra / Equity Apartments",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/redwood-city/riva-terra-apartments-at-redwood-shores returned HTTP 403"
     },
     {
@@ -26769,26 +27233,26 @@
       "label": "The Lark / RentCafe API",
       "status": "live",
       "lastSuccessAt": "2026-07-28T15:37:52.201Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "RENTCAFE_API_TOKEN is not configured"
     },
     {
       "id": "201-marshall",
       "label": "201 Marshall / RealPage API",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "franklin-299",
       "label": "Franklin 299 / G5 Inventory",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "indigo",
       "label": "Indigo / AIR Communities",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z",
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z",
       "lastAttemptAt": "2026-08-09T20:04:12.571Z"
     },
     {
@@ -26796,126 +27260,122 @@
       "label": "Realm Menlo Park / On-Site",
       "status": "live",
       "lastSuccessAt": "2026-08-09T12:25:32.934Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "Realm currently exposes inventory in a format that requires a parser update"
     },
     {
       "id": "the-triton",
       "label": "The Triton / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "field-house",
       "label": "Bay Meadows / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "quimby",
       "label": "Bay Meadows / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "the-russell",
       "label": "Bay Meadows / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "hawthorne",
       "label": "Bay Meadows / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "the-morgan",
       "label": "Bay Meadows / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "miramar",
       "label": "Miramar / Prometheus",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "trestle",
       "label": "Trestle / Prometheus",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "marlin-cove",
       "label": "Marlin Cove / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "the-plaza-foster-city",
       "label": "The Plaza / Essex",
       "status": "live",
       "lastSuccessAt": "2026-08-07T12:37:40.956Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
-      "lastError": "browserType.launch: Executable doesn't exist at /tmp/apartment-tracker-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
+      "lastError": "page.evaluate: Error: Essex API returned HTTP 429\n    at eval (eval at evaluate (:311:30), <anonymous>:6:29)\n    at async <anonymous>:337:30"
     },
     {
       "id": "fosters-landing",
       "label": "Foster's Landing / Essex",
       "status": "live",
       "lastSuccessAt": "2026-08-07T12:37:40.956Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
-      "lastError": "browserType.launch: Executable doesn't exist at /tmp/apartment-tracker-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
+      "lastError": "page.evaluate: Error: Essex API returned HTTP 429\n    at eval (eval at evaluate (:311:30), <anonymous>:6:29)\n    at async <anonymous>:337:30"
     },
     {
       "id": "radius",
       "label": "Radius / Essex",
       "status": "live",
       "lastSuccessAt": "2026-08-07T12:37:40.956Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
-      "lastError": "browserType.launch: Executable doesn't exist at /tmp/apartment-tracker-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
+      "lastError": "page.evaluate: Error: Essex API returned HTTP 429\n    at eval (eval at evaluate (:311:30), <anonymous>:6:29)\n    at async <anonymous>:337:30"
     },
     {
       "id": "100-grand",
       "label": "One Hundred Grand / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-08T12:23:06.204Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
-      "lastError": "browserType.launch: Executable doesn't exist at /tmp/apartment-tracker-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z",
+      "lastAttemptAt": "2026-08-09T20:09:40.250Z"
     },
     {
       "id": "avenue-two",
       "label": "Avenue Two / RentCafe",
       "status": "live",
-      "lastSuccessAt": "2026-08-08T12:23:06.204Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
-      "lastError": "browserType.launch: Executable doesn't exist at /tmp/apartment-tracker-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z",
+      "lastAttemptAt": "2026-08-09T20:09:40.250Z"
     },
     {
       "id": "township",
       "label": "Township / RentCafe",
       "status": "live",
       "lastSuccessAt": "2026-07-25T18:14:10.558Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
-      "lastError": "browserType.launch: Executable doesn't exist at /tmp/apartment-tracker-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
+      "lastError": "https://www.rentcafe.com/apartments/ca/redwood-city/township/default.aspx redirected to https://www.rentcafe.com/apartments-for-rent/redwood-city-ca/"
     },
     {
       "id": "villas-bair-island",
       "label": "Villas at Bair Island / Irvine Company",
       "status": "live",
-      "lastSuccessAt": "2026-08-08T12:23:06.204Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
-      "lastError": "browserType.launch: Executable doesn't exist at /tmp/apartment-tracker-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z",
+      "lastAttemptAt": "2026-08-09T20:09:40.250Z"
     },
     {
       "id": "franklin-street",
       "label": "Franklin Street / Irvine Company",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T12:25:32.934Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
-      "lastError": "browserType.launch: Executable doesn't exist at /tmp/apartment-tracker-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z",
+      "lastAttemptAt": "2026-08-09T20:09:40.250Z"
     },
     {
       "id": "888-san-mateo",
@@ -26927,14 +27387,14 @@
       "id": "anton-menlo",
       "label": "Anton Menlo / SightMap",
       "status": "live",
-      "lastSuccessAt": "2026-08-09T20:09:40.250Z"
+      "lastSuccessAt": "2026-08-09T20:19:28.717Z"
     },
     {
       "id": "canyon-creek",
       "label": "Canyon Creek / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/san-ramon/canyon-creek-ca-apartments returned HTTP 403"
     },
     {
@@ -26942,7 +27402,7 @@
       "label": "Parkside / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/union-city/parkside-apartments returned HTTP 403"
     },
     {
@@ -26950,7 +27410,7 @@
       "label": "Skylark / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/union-city/skylark-apartments returned HTTP 403"
     },
     {
@@ -26958,7 +27418,7 @@
       "label": "Alborada / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/fremont/alborada-apartments returned HTTP 403"
     },
     {
@@ -26966,7 +27426,7 @@
       "label": "Archstone Fremont Center / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/fremont/archstone-fremont-center-apartments returned HTTP 403"
     },
     {
@@ -26974,7 +27434,7 @@
       "label": "Artistry Emeryville / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/emeryville/artistry-emeryville-apartments returned HTTP 403"
     },
     {
@@ -26982,7 +27442,7 @@
       "label": "Parc on Powell / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/emeryville/parc-on-powell-apartments returned HTTP 403"
     },
     {
@@ -26990,7 +27450,7 @@
       "label": "Aero / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco/alameda/aero-apartments returned HTTP 403"
     },
     {
@@ -26998,7 +27458,7 @@
       "label": "77 Bluxome / Equity Apartments",
       "status": "watching",
       "lastSuccessAt": null,
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/soma/77-bluxome-apartments returned HTTP 403"
     },
     {
@@ -27006,7 +27466,7 @@
       "label": "SoMa Square / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/soma/soma-square-apartments returned HTTP 403"
     },
     {
@@ -27014,7 +27474,7 @@
       "label": "Azure / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/mission-bay/azure-apartments returned HTTP 403"
     },
     {
@@ -27022,7 +27482,7 @@
       "label": "Potrero 1010 / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco/potrero-hill/potrero-1010-apartments returned HTTP 403"
     },
     {
@@ -27030,7 +27490,7 @@
       "label": "340 Fremont / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco/rincon-hill/340-fremont-apartments returned HTTP 403"
     },
     {
@@ -27038,7 +27498,7 @@
       "label": "One Henry Adams / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco/design-district/one-henry-adams-apartments returned HTTP 403"
     },
     {
@@ -27046,7 +27506,7 @@
       "label": "855 Brannan / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco/soma/855-brannan-apartments returned HTTP 403"
     },
     {
@@ -27054,7 +27514,7 @@
       "label": "Woodleaf / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/campbell/woodleaf-apartments returned HTTP 403"
     },
     {
@@ -27062,7 +27522,7 @@
       "label": "Mill Creek / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/milpitas/mill-creek-apartments returned HTTP 403"
     },
     {
@@ -27070,7 +27530,7 @@
       "label": "Lorien Ivy / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/santa-clara/lorien-ivy-apartments returned HTTP 403"
     },
     {
@@ -27078,7 +27538,7 @@
       "label": "Estancia at Santa Clara / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/santa-clara/estancia-at-santa-clara-apartments returned HTTP 403"
     },
     {
@@ -27086,7 +27546,7 @@
       "label": "Lorien / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/santa-clara/lorien-apartments returned HTTP 403"
     },
     {
@@ -27094,7 +27554,7 @@
       "label": "Arbor Terrace / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/sunnyvale/arbor-terrace-apartments returned HTTP 403"
     },
     {
@@ -27102,7 +27562,7 @@
       "label": "Briarwood / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/sunnyvale/briarwood-apartments returned HTTP 403"
     },
     {
@@ -27110,7 +27570,7 @@
       "label": "The Arches / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/sunnyvale/the-arches-apartments returned HTTP 403"
     },
     {
@@ -27118,7 +27578,7 @@
       "label": "Verde / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/san-jose/verde-apartments returned HTTP 403"
     },
     {
@@ -27126,7 +27586,7 @@
       "label": "Vista 99 / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/north-san-jose/vista-99-apartments returned HTTP 403"
     },
     {
@@ -27134,7 +27594,7 @@
       "label": "The Lex / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/san-jose/the-lex-apartments returned HTTP 403"
     },
     {
@@ -27142,7 +27602,7 @@
       "label": "City Gate at Cupertino / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/cupertino/city-gate-at-cupertino-apartments returned HTTP 403"
     },
     {
@@ -27150,7 +27610,7 @@
       "label": "Reserve at Mountain View / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/mountain-view/reserve-at-mountain-view-apartments returned HTTP 403"
     },
     {
@@ -27158,7 +27618,7 @@
       "label": "La Terrazza / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/colma/la-terrazza-apartments returned HTTP 403"
     },
     {
@@ -27166,7 +27626,7 @@
       "label": "South City Station / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/south-san-francisco/south-city-station-apartments returned HTTP 403"
     },
     {
@@ -27174,7 +27634,7 @@
       "label": "West 5th / Equity Apartments",
       "status": "snapshot",
       "lastSuccessAt": "2026-08-09T20:09:40.250Z",
-      "lastAttemptAt": "2026-08-09T20:09:40.250Z",
+      "lastAttemptAt": "2026-08-09T20:19:28.717Z",
       "lastError": "https://www.equityapartments.com/san-francisco-bay/san-mateo/west-5th-apartments returned HTTP 403"
     }
   ]
