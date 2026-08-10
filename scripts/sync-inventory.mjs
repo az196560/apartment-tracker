@@ -15,7 +15,7 @@ const inventoryPath = fileURLToPath(
 const monitorUserAgent =
   "BayAreaApartmentTracker/3.0 (+https://github.com/az196560/apartment-tracker)";
 const restrictedPlanPattern =
-  /affordable|below[\s-]?market|\bbmr\b|income[\s-]?(?:restricted|qualified)|workforce|senior|age[\s-]?restricted|student[\s-]?housing|faculty[\s-]?housing|employee[\s-]?housing/i;
+  /affordable|below[\s-]?market|\bbmr\b|\bmip\b|(?:middle|moderate)[\s-]?income|income[\s-]?(?:restricted|qualified)|workforce|senior|age[\s-]?restricted|student[\s-]?housing|faculty[\s-]?housing|employee[\s-]?housing/i;
 const excludedPropertyIds = new Set(["shortstack", "the-heltsley"]);
 const amenityPolicyOnly = process.argv.includes("--amenity-policy-only");
 const amenityReviews = {
@@ -150,6 +150,8 @@ const sightmapSources = [
   ["pescadero", "m9pz8ldmpk1", "Pescadero / SightMap"],
   ["indian-creek", "yjp2dg09vxl", "Indian Creek / SightMap"],
   ["anton-menlo", "k9zw4kj0v87", "Anton Menlo / SightMap"],
+  ["the-george-sf", "l8xvr1ompjk", "The George / Brookfield SightMap"],
+  ["the-emery", "40vlm3g7ple", "The Emery / Quarterra SightMap"],
 ].map(([propertyId, embedId, label]) => ({
   propertyId,
   sourceId: propertyId,
@@ -316,6 +318,30 @@ const irvineSources = [
     sourceId: "franklin-street",
     label: "Franklin Street / Irvine Company",
     url: "https://www.irvinecompanyapartments.com/locations/northern-california/redwood-city/franklin-st/availability.html",
+  },
+  {
+    propertyId: "cherry-orchard",
+    sourceId: "cherry-orchard",
+    label: "Cherry Orchard / Irvine Company",
+    url: "https://www.irvinecompanyapartments.com/locations/northern-california/sunnyvale/cherry-orchard/availability.html",
+  },
+  {
+    propertyId: "irvine-north-park",
+    sourceId: "irvine-north-park",
+    label: "North Park / Irvine Company",
+    url: "https://www.irvinecompanyapartments.com/locations/northern-california/san-jose/north-park/availability.html",
+  },
+  {
+    propertyId: "crescent-village",
+    sourceId: "crescent-village",
+    label: "Crescent Village / Irvine Company",
+    url: "https://www.irvinecompanyapartments.com/locations/northern-california/san-jose/crescent-village/availability.html",
+  },
+  {
+    propertyId: "irvine-river-view",
+    sourceId: "irvine-river-view",
+    label: "River View / Irvine Company",
+    url: "https://www.irvinecompanyapartments.com/locations/northern-california/san-jose/river-view/availability.html",
   },
 ];
 

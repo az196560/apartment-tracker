@@ -599,6 +599,142 @@ const avalonCatalogProperties = [
       "https://www.avaloncommunities.com/california/walnut-creek-apartments/avalon-walnut-creek",
     bedroomTypes: [0, 1, 2, 3],
   }),
+  auditedProperty({
+    id: "avalon-silicon-valley",
+    name: "Avalon Silicon Valley",
+    city: "Sunnyvale",
+    address: "1257 Lakeside Drive, Sunnyvale, CA 94085",
+    latitude: 37.388608,
+    longitude: -121.993803,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/sunnyvale-apartments/avalon-silicon-valley",
+    bedroomTypes: [0, 1, 2, 3],
+    amenityEvidenceUrl:
+      "https://www.homes.com/property/avalon-silicon-valley-sunnyvale-ca/mdfme68mzxk34/",
+    qualityNote:
+      "AvalonBay 官方租赁社区；实时库存来自官网，空调与室内洗烘由运营方发布的房源资料交叉核验。",
+  }),
+  auditedProperty({
+    id: "avalon-dublin-station",
+    name: "Avalon Dublin Station",
+    city: "Dublin",
+    address: "5200 Iron Horse Parkway, Dublin, CA 94568",
+    latitude: 37.705183,
+    longitude: -121.8977736,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/dublin-apartments/avalon-dublin-station",
+    bedroomTypes: [0, 1, 2],
+  }),
+  auditedProperty({
+    id: "avalon-west-dublin",
+    name: "Avalon West Dublin",
+    city: "Dublin",
+    address: "7688 Saint Patrick Way, Dublin, CA 94568",
+    latitude: 37.7009616,
+    longitude: -121.9330084,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/dublin-apartments/avalon-west-dublin",
+    bedroomTypes: [0, 1, 2],
+  }),
+  auditedProperty({
+    id: "eaves-dublin",
+    name: "eaves Dublin",
+    city: "Dublin",
+    address: "7904 Fall Creek Road, Dublin, CA 94568",
+    latitude: 37.729027,
+    longitude: -121.911734,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/dublin-apartments/eaves-dublin",
+    bedroomTypes: [1, 2, 3],
+  }),
+  auditedProperty({
+    id: "avalon-walnut-ridge",
+    name: "Avalon Walnut Ridge",
+    city: "Walnut Creek",
+    address: "121 Roble Road, Walnut Creek, CA 94597",
+    latitude: 37.9299177,
+    longitude: -122.0525967,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/walnut-creek-apartments/avalon-walnut-ridge",
+    bedroomTypes: [0, 1, 2],
+  }),
+  auditedProperty({
+    id: "avalon-morrison-park",
+    name: "Avalon Morrison Park",
+    city: "San Jose",
+    address: "899 Morrison Park Drive, San Jose, CA 95126",
+    latitude: 37.334275,
+    longitude: -121.907983,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/san-jose-apartments/avalon-morrison-park",
+    bedroomTypes: [1, 2, 3],
+  }),
+  auditedProperty({
+    id: "avalon-on-the-alameda",
+    name: "Avalon on the Alameda",
+    city: "San Jose",
+    address: "1300 The Alameda, San Jose, CA 95126",
+    latitude: 37.333744,
+    longitude: -121.911243,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/san-jose-apartments/avalon-on-the-alameda",
+    bedroomTypes: [1, 2, 3],
+  }),
+  auditedProperty({
+    id: "avalon-public-market",
+    name: "Avalon Public Market",
+    city: "Emeryville",
+    address: "6301 Shellmound Street, Emeryville, CA 94608",
+    latitude: 37.8428642,
+    longitude: -122.2956973,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/emeryville-apartments/avalon-public-market",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+  auditedProperty({
+    id: "avalon-san-bruno",
+    name: "Avalon San Bruno",
+    city: "San Bruno",
+    address: "1099 Admiral Court, San Bruno, CA 94066",
+    latitude: 37.6344331,
+    longitude: -122.4209544,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/san-bruno-apartments/avalon-san-bruno",
+    bedroomTypes: [1, 2, 3],
+  }),
+  auditedProperty({
+    id: "avalon-campbell",
+    name: "Avalon Campbell",
+    city: "Campbell",
+    address: "508 Railway Avenue, Campbell, CA 95008",
+    latitude: 37.2820271,
+    longitude: -121.945687,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/san-jose-apartments/avalon-campbell",
+    bedroomTypes: [1, 2],
+  }),
+  auditedProperty({
+    id: "avalon-towers-peninsula",
+    name: "Avalon Towers on the Peninsula",
+    city: "Mountain View",
+    address: "2400 West El Camino Real, Mountain View, CA 94040",
+    latitude: 37.398979,
+    longitude: -122.107014,
+    management: "AvalonBay Communities",
+    website:
+      "https://www.avaloncommunities.com/california/mountain-view-apartments/avalon-towers-on-the-peninsula",
+    bedroomTypes: [1, 2],
+  }),
 ];
 
 const udrCatalogProperties = [
@@ -936,6 +1072,96 @@ const relatedCatalogProperties = [
   }),
 ];
 
+const irvineCatalogProperties = [
+  auditedProperty({
+    id: "cherry-orchard",
+    name: "Cherry Orchard",
+    city: "Sunnyvale",
+    address: "250 W. El Camino Real, Sunnyvale, CA 94087",
+    latitude: 37.368179,
+    longitude: -122.0347005,
+    management: "Irvine Company",
+    website:
+      "https://www.irvinecompanyapartments.com/locations/northern-california/sunnyvale/cherry-orchard/availability.html",
+    bedroomTypes: [1, 2, 3],
+    amenityEvidenceUrl:
+      "https://www.irvinecompanyapartments.com/locations/northern-california/sunnyvale/cherry-orchard/features-amenities.html",
+  }),
+  auditedProperty({
+    id: "irvine-north-park",
+    name: "North Park",
+    city: "San Jose",
+    address: "3500 Palmilla Drive, San Jose, CA 95134",
+    latitude: 37.407955,
+    longitude: -121.9376672,
+    management: "Irvine Company",
+    website:
+      "https://www.irvinecompanyapartments.com/locations/northern-california/san-jose/north-park/availability.html",
+    bedroomTypes: [0, 1, 2, 3],
+    amenityEvidenceUrl:
+      "https://www.irvinecompanyapartments.com/locations/northern-california/san-jose/north-park/features-amenities.html",
+  }),
+  auditedProperty({
+    id: "crescent-village",
+    name: "Crescent Village",
+    city: "San Jose",
+    address: "320 Crescent Village Circle, San Jose, CA 95134",
+    latitude: 37.4024565,
+    longitude: -121.9300065,
+    management: "Irvine Company",
+    website:
+      "https://www.irvinecompanyapartments.com/locations/northern-california/san-jose/crescent-village/availability.html",
+    bedroomTypes: [0, 1, 2, 3],
+    amenityEvidenceUrl:
+      "https://www.irvinecompanyapartments.com/locations/northern-california/san-jose/crescent-village/features-amenities.html",
+  }),
+  auditedProperty({
+    id: "irvine-river-view",
+    name: "River View",
+    city: "San Jose",
+    address: "55 River Oaks Place, San Jose, CA 95134",
+    latitude: 37.4021394,
+    longitude: -121.9408608,
+    management: "Irvine Company",
+    website:
+      "https://www.irvinecompanyapartments.com/locations/northern-california/san-jose/river-view/availability.html",
+    bedroomTypes: [0, 1, 2],
+    amenityEvidenceUrl:
+      "https://www.irvinecompanyapartments.com/locations/northern-california/san-jose/river-view/features-amenities.html",
+  }),
+];
+
+const mapDiscoveredCatalogProperties = [
+  auditedProperty({
+    id: "the-george-sf",
+    name: "The George",
+    city: "San Francisco",
+    address: "434 Minna Street, San Francisco, CA 94103",
+    latitude: 37.781615,
+    longitude: -122.406926,
+    management: "Brookfield Properties",
+    website: "https://rent.brookfieldproperties.com/property/the-george/",
+    bedroomTypes: [0, 1, 2],
+    amenityEvidenceUrl:
+      "https://rent.brookfieldproperties.com/property/the-george/features-amenities/",
+  }),
+  auditedProperty({
+    id: "the-emery",
+    name: "The Emery",
+    city: "Emeryville",
+    address: "4510 Hubbard Street, Emeryville, CA 94608",
+    latitude: 37.8328059,
+    longitude: -122.289501,
+    management: "Quarterra Living",
+    website: "https://liveattheemery.com/floorplans/",
+    bedroomTypes: [0, 1, 2, 3],
+    amenityEvidenceUrl:
+      "https://www.zumper.com/apartment-buildings/p814363/the-emery-emeryville-ca",
+    qualityNote:
+      "Quarterra 官方租赁社区；实时库存来自官网，空调与室内洗烘由当前房源资料交叉核验。",
+  }),
+];
+
 export const officialCatalogProperties = [
   ...equityCatalogProperties,
   ...avalonCatalogProperties,
@@ -944,6 +1170,8 @@ export const officialCatalogProperties = [
   ...essexCatalogProperties,
   ...greystarCatalogProperties,
   ...relatedCatalogProperties,
+  ...irvineCatalogProperties,
+  ...mapDiscoveredCatalogProperties,
 ];
 
 export const equityBedroomTypes = {
