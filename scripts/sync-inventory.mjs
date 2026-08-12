@@ -152,6 +152,7 @@ const sightmapSources = [
   ["anton-menlo", "k9zw4kj0v87", "Anton Menlo / SightMap"],
   ["the-george-sf", "l8xvr1ompjk", "The George / Brookfield SightMap"],
   ["the-emery", "40vlm3g7ple", "The Emery / Quarterra SightMap"],
+  ["legacy-hayward", "9zw4z7ogv87", "Legacy at Hayward / SightMap"],
 ].map(([propertyId, embedId, label]) => ({
   propertyId,
   sourceId: propertyId,

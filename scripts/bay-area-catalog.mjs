@@ -1,6 +1,6 @@
 export const bayAreaRegions = ["sf", "peninsula", "south-bay", "east-bay"];
 
-export const policyVerifiedAt = "2026-08-09";
+export const policyVerifiedAt = "2026-08-12";
 
 const citiesByRegion = {
   sf: new Set(["San Francisco"]),
@@ -63,6 +63,7 @@ export function regionForCity(city) {
 
 const verifiedEquityPropertyIds = new Set([
   "340-fremont",
+  "aero",
   "alborada",
   "archstone-fremont-center",
   "briarwood",
@@ -940,6 +941,29 @@ const essexCatalogProperties = [
 
 const greystarCatalogProperties = [
   auditedProperty({
+    id: "alta-waverly",
+    name: "Alta Waverly",
+    city: "Oakland",
+    address: "2302 Valdez Street, Oakland, CA 94612",
+    latitude: 37.8122235,
+    longitude: -122.2636054,
+    management: "Greystar",
+    website: "https://www.greystar.com/alta-waverly-oakland-ca/p_21318",
+    bedroomTypes: [0, 1, 2],
+  }),
+  auditedProperty({
+    id: "atlas-oakland",
+    name: "Atlas Apartments",
+    city: "Oakland",
+    address: "385 14th Street, Oakland, CA 94612",
+    latitude: 37.803287,
+    longitude: -122.2695634,
+    management: "Greystar",
+    website:
+      "https://www.greystar.com/atlas-apartments-oakland-ca/p_16571",
+    bedroomTypes: [0, 1, 2],
+  }),
+  auditedProperty({
     id: "the-martin-sf",
     name: "The Martin Apartments",
     city: "San Francisco",
@@ -1132,6 +1156,18 @@ const irvineCatalogProperties = [
 ];
 
 const mapDiscoveredCatalogProperties = [
+  auditedProperty({
+    id: "legacy-hayward",
+    name: "Legacy at Hayward",
+    city: "Hayward",
+    address: "28168 Mission Boulevard, Hayward, CA 94544",
+    latitude: 37.638278,
+    longitude: -122.055834,
+    management: "Legacy Partners",
+    website: "https://legacyhayward.com/floorplans/",
+    bedroomTypes: [0, 1, 2, 3],
+    amenityEvidenceUrl: "https://legacyhayward.com/amenities/",
+  }),
   auditedProperty({
     id: "the-george-sf",
     name: "The George",

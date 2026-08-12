@@ -13,13 +13,61 @@ import type {
   ApartmentListing,
   ApartmentProperty,
 } from "./types";
+import { copy, type Language } from "./i18n";
 
 type MapViewProps = {
   properties: ApartmentProperty[];
   listings: ApartmentListing[];
   activePropertyId: string | null;
   onSelect: (propertyId: string) => void;
+  language: Language;
 };
+
+function mapEra(property: ApartmentProperty, language: Language) {
+  const t = copy[language];
+  if (property.qualification === "renovated") {
+    if (!property.year) return t.renovatedQuality;
+    return language === "zh"
+      ? `${property.year} ${t.renovated}`
+      : `${t.renovated} ${property.year}`;
+  }
+  if (property.qualification === "built" && property.year) {
+    return language === "zh"
+      ? `${property.year} ${t.built}`
+      : `${t.built} ${property.year}`;
+  }
+  return t.established;
+}
+
+function mapInventoryLabel(
+  property: ApartmentProperty,
+  count: number,
+  language: Language,
+  long = false,
+) {
+  const t = copy[language];
+  if (count > 0) {
+    return language === "en" && count === 1
+      ? "1 home available"
+      : `${count} ${t.homesAvailable}`;
+  }
+  if (property.inventoryStatus === "live") return t.noneAvailable;
+  if (property.inventoryStatus === "manual") return t.manualMonitoring;
+  if (property.inventoryStatus === "blocked") {
+    if (language === "zh" && long && property.inventoryNote) {
+      return property.inventoryNote;
+    }
+    return long
+      ? t.officialInventoryUnavailableLong
+      : t.officialInventoryUnavailable;
+  }
+  return t.inventoryConnecting;
+}
+
+function mapPropertyNote(property: ApartmentProperty, language: Language) {
+  if (language === "zh") return property.qualityNote;
+  return `${copy.en.verifiedCommunityNote} ${property.management}. ${copy.en.verifiedCriteriaNote}`;
+}
 
 function FitProperties({ properties }: { properties: ApartmentProperty[] }) {
   const map = useMap();
@@ -48,6 +96,7 @@ export default function MapView({
   listings,
   activePropertyId,
   onSelect,
+  language,
 }: MapViewProps) {
   const countByProperty = listings.reduce<Record<string, number>>(
     (counts, listing) => {
@@ -83,14 +132,7 @@ export default function MapView({
               : property.inventoryStatus === "blocked"
                 ? "#b08752"
               : "#263b36";
-        const era =
-          property.qualification === "renovated"
-            ? property.year
-              ? `${property.year} 翻新`
-              : "翻新品质"
-            : property.qualification === "built" && property.year
-              ? `${property.year} 建成`
-              : "成熟品质社区";
+        const era = mapEra(property, language);
 
         return (
           <CircleMarker
@@ -108,35 +150,17 @@ export default function MapView({
             <Tooltip direction="top" offset={[0, -10]} opacity={1}>
               <strong>{property.name}</strong>
               <span className="map-tooltip-meta">
-                {count > 0
-                  ? `${count} 套可租`
-                  : property.inventoryStatus === "live"
-                    ? "暂无房源"
-                  : property.inventoryStatus === "manual"
-                    ? "人工关注"
-                    : property.inventoryStatus === "blocked"
-                      ? "官网暂未开放库存"
-                    : "库存接入中"}
+                {mapInventoryLabel(property, count, language)}
               </span>
             </Tooltip>
             <Popup>
               <div className="map-popup">
                 <span>{property.city}</span>
                 <strong>{property.name}</strong>
-                <p>{era} · {property.qualityNote}</p>
-                <p>
-                  {count > 0
-                    ? `${count} 套可租`
-                    : property.inventoryStatus === "live"
-                      ? "暂无房源"
-                    : property.inventoryStatus === "manual"
-                      ? "人工关注"
-                      : property.inventoryStatus === "blocked"
-                        ? property.inventoryNote ?? "官网暂未开放实时库存"
-                      : "官方库存接入中"}
-                </p>
+                <p>{era} · {mapPropertyNote(property, language)}</p>
+                <p>{mapInventoryLabel(property, count, language, true)}</p>
                 <a href={property.website} target="_blank" rel="noreferrer">
-                  查看官网
+                  {copy[language].officialSite}
                 </a>
               </div>
             </Popup>

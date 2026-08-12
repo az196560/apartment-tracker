@@ -3,18 +3,20 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://az196560.github.io/apartment-tracker/"),
-  title: "Bay Area Apartment Radar｜湾区公寓库存",
+  title: "Bay Area Apartment Radar | Verified Bay Area Apartments",
   description:
-    "每天追踪旧金山、半岛、南湾和东湾带空调、室内洗烘且无特殊资格限制的官方公寓，支持区域、城市和户型筛选。",
+    "Daily official inventory for professionally managed apartments across San Francisco, the Peninsula, South Bay, and East Bay—verified for air conditioning, in-unit laundry, and unrestricted market-rate eligibility.",
   icons: {
     icon: "https://az196560.github.io/apartment-tracker/favicon.svg",
     shortcut: "https://az196560.github.io/apartment-tracker/favicon.svg",
   },
   openGraph: {
-    title: "Bay Area Apartment Radar｜湾区公寓库存",
-    description: "每天聚合湾区四区带空调、室内洗烘的普通市场价公寓与实时库存。",
+    title: "Bay Area Apartment Radar | Verified Bay Area Apartments",
+    description:
+      "Explore verified, unrestricted market-rate apartments with air conditioning and in-unit laundry across four Bay Area regions.",
     type: "website",
-    locale: "zh_CN",
+    locale: "en_US",
+    alternateLocale: ["zh_CN"],
     images: [
       {
         url: "og.png",
@@ -26,8 +28,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bay Area Apartment Radar｜湾区公寓库存",
-    description: "每天追踪湾区四区带空调、室内洗烘的普通市场价公寓。",
+    title: "Bay Area Apartment Radar | Verified Bay Area Apartments",
+    description:
+      "Daily official inventory for verified apartments across San Francisco, the Peninsula, South Bay, and East Bay.",
     images: ["og.png"],
   },
 };
@@ -38,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
+    <html lang="en">
       <body>{children}</body>
     </html>
   );

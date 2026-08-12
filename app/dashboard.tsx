@@ -11,14 +11,16 @@ import {
   ExternalLink,
   Filter,
   LocateFixed,
+  Languages,
   Map as MapIcon,
   Search,
   SlidersHorizontal,
   Sparkles,
   X,
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import inventoryJson from "../public/data/inventory.json";
+import { copy, type Language } from "./i18n";
 import type {
   ApartmentListing,
   ApartmentProperty,
@@ -31,7 +33,7 @@ const MapView = dynamic(() => import("./map-view"), {
   loading: () => (
     <div className="map-loading" aria-live="polite">
       <LocateFixed size={20} />
-      正在加载湾区地图…
+      {copy.en.loadingMap}
     </div>
   ),
 });
@@ -39,20 +41,15 @@ const MapView = dynamic(() => import("./map-view"), {
 const inventory = inventoryJson as InventoryData;
 const regionOptions: Array<{
   value: "all" | BayAreaRegion;
-  label: string;
-  shortLabel: string;
 }> = [
-  { value: "all", label: "全部湾区", shortLabel: "全部" },
-  { value: "sf", label: "San Francisco", shortLabel: "SF" },
-  { value: "peninsula", label: "Peninsula", shortLabel: "半岛" },
-  { value: "south-bay", label: "South Bay", shortLabel: "南湾" },
-  { value: "east-bay", label: "East Bay", shortLabel: "东湾" },
+  { value: "all" },
+  { value: "sf" },
+  { value: "peninsula" },
+  { value: "south-bay" },
+  { value: "east-bay" },
 ];
-const regionLabelByValue = Object.fromEntries(
-  regionOptions.map((option) => [option.value, option.shortLabel]),
-) as Record<"all" | BayAreaRegion, string>;
 const bedroomOptions = [
-  { value: "all", label: "全部" },
+  { value: "all", label: "All" },
   { value: "0", label: "Studio" },
   { value: "1", label: "1BR" },
   { value: "2", label: "2BR" },
@@ -65,7 +62,7 @@ type ResultMode = "directory" | "availability";
 type RegionFilter = "all" | BayAreaRegion;
 type BedroomFilter = (typeof bedroomOptions)[number]["value"];
 const recentListingWindowMs = 3 * 86_400_000;
-const allCities = "全部城市";
+const allCities = "__all__";
 
 function bedroomLabel(beds: number) {
   return beds === 0 ? "Studio" : `${beds}BR`;
@@ -90,7 +87,14 @@ function propertySearchText(property: ApartmentProperty) {
     property.address,
     property.management,
     property.qualityNote,
-    regionLabelByValue[property.region],
+    copy.en.region[property.region],
+    copy.zh.region[property.region],
+    copy.en.regionShort[property.region],
+    copy.zh.regionShort[property.region],
+    copy.en.airConditioning,
+    copy.en.inUnitLaundry,
+    copy.zh.airConditioning,
+    copy.zh.inUnitLaundry,
     ...property.bedroomTypes.map(bedroomLabel),
   ]
     .join(" ")
@@ -98,7 +102,21 @@ function propertySearchText(property: ApartmentProperty) {
 }
 
 function listingSearchText(listing: ApartmentListing) {
-  return [listing.unit, listing.floorplan, bedBathLabel(listing)].join(" ").toLowerCase();
+  return [
+    listing.unit,
+    listing.floorplan,
+    listing.unit.replace("官方起租价", "Official starting price"),
+    listing.floorplan.replace("官方起租价", "Official starting price"),
+    bedBathLabel(listing),
+  ]
+    .join(" ")
+    .toLowerCase();
+}
+
+function localizedListingText(value: string, language: Language) {
+  return language === "en"
+    ? value.replace("官方起租价", "Official starting price")
+    : value;
 }
 
 function getProperty(listing: ApartmentListing) {
@@ -107,18 +125,25 @@ function getProperty(listing: ApartmentListing) {
   )!;
 }
 
-function displayDate(value: string) {
+function displayDate(value: string, language: Language) {
+  const t = copy[language];
   const today = new Date(inventory.updatedAt);
   const date = new Date(`${value}T12:00:00-07:00`);
   const days = Math.round((date.getTime() - today.getTime()) / 86_400_000);
 
-  if (days <= 0) return "现在可入住";
-  if (days === 1) return "明天可入住";
-  return `${date.getMonth() + 1}月${date.getDate()}日可入住`;
+  if (days <= 0) return t.availableNow;
+  if (days === 1) return t.availableTomorrow;
+  if (language === "zh") {
+    return `${date.getMonth() + 1}月${date.getDate()}日${t.availableOn}`;
+  }
+  return `${t.availableOn} ${new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+  }).format(date)}`;
 }
 
-function capturedLabel(value: string) {
-  return new Intl.DateTimeFormat("zh-CN", {
+function capturedLabel(value: string, language: Language) {
+  return new Intl.DateTimeFormat(language === "zh" ? "zh-CN" : "en-US", {
     month: "numeric",
     day: "numeric",
     hour: "2-digit",
@@ -138,33 +163,70 @@ function isRecentlyListed(listing: ApartmentListing) {
   );
 }
 
-function propertyEra(property: ApartmentProperty) {
+function propertyEra(property: ApartmentProperty, language: Language) {
+  const t = copy[language];
   if (property.qualification === "renovated") {
-    return property.year ? `${property.year} 翻新` : "翻新品质";
+    return property.year
+      ? language === "zh"
+        ? `${property.year} ${t.renovated}`
+        : `${t.renovated} ${property.year}`
+      : t.renovatedQuality;
   }
   if (property.qualification === "built" && property.year) {
-    return `${property.year} 建成`;
+    return language === "zh"
+      ? `${property.year} ${t.built}`
+      : `${t.built} ${property.year}`;
   }
-  return "成熟品质社区";
+  return t.established;
 }
 
-function inventoryLabel(property: ApartmentProperty, count: number) {
-  if (count > 0) return `${count} 套可租`;
-  if (property.inventoryStatus === "live") return "暂无房源";
-  if (property.inventoryStatus === "manual") return "人工关注";
-  if (property.inventoryStatus === "blocked") return "官网暂未开放库存";
-  return "库存接入中";
+function inventoryLabel(
+  property: ApartmentProperty,
+  count: number,
+  language: Language,
+) {
+  const t = copy[language];
+  if (count > 0) {
+    return language === "en" && count === 1
+      ? "1 home available"
+      : `${count} ${t.homesAvailable}`;
+  }
+  if (property.inventoryStatus === "live") return t.noneAvailable;
+  if (property.inventoryStatus === "manual") return t.manualMonitoring;
+  if (property.inventoryStatus === "blocked") {
+    return t.officialInventoryUnavailable;
+  }
+  return t.inventoryConnecting;
 }
 
-function AmenityStatus({ property }: { property: ApartmentProperty }) {
+function propertyNote(property: ApartmentProperty, language: Language) {
+  if (language === "zh") {
+    return property.inventoryNote ?? property.qualityNote;
+  }
+  if (property.inventoryStatus === "blocked") return copy.en.blockedCommunityNote;
+  if (property.inventoryStatus === "manual") return copy.en.manualCommunityNote;
+  if (property.inventoryStatus === "onboarding") {
+    return copy.en.onboardingCommunityNote;
+  }
+  return `${copy.en.verifiedCommunityNote} ${property.management}. ${copy.en.verifiedCriteriaNote}`;
+}
+
+function AmenityStatus({
+  property,
+  language,
+}: {
+  property: ApartmentProperty;
+  language: Language;
+}) {
+  const t = copy[language];
   return (
     <div
       className="amenity-statuses"
-      aria-label={`${property.name} 硬性条件已核验`}
+      aria-label={`${property.name}: ${t.amenityAria}`}
     >
-      <span className="confirmed">空调</span>
-      <span className="confirmed">室内洗烘</span>
-      <span className="confirmed">普通市场价</span>
+      <span className="confirmed">{t.airConditioning}</span>
+      <span className="confirmed">{t.inUnitLaundry}</span>
+      <span className="confirmed">{t.marketRate}</span>
     </div>
   );
 }
@@ -177,8 +239,9 @@ function formatMoney(value: number) {
 
 function feeAmount(
   fee: NonNullable<ApartmentListing["mandatoryMonthlyFees"]>[number],
+  language: Language,
 ) {
-  if (fee.amount === null) return fee.note ?? "金额浮动";
+  if (fee.amount === null) return fee.note ?? copy[language].amountVaries;
   if (fee.amountMax && fee.amountMax !== fee.amount) {
     return `${formatMoney(fee.amount)}–${formatMoney(fee.amountMax)}`;
   }
@@ -193,6 +256,7 @@ function fixedMonthlyFees(listing: ApartmentListing) {
 }
 
 export default function Dashboard() {
+  const [language, setLanguage] = useState<Language>("en");
   const [region, setRegion] = useState<RegionFilter>("all");
   const [city, setCity] = useState(allCities);
   const [bedroom, setBedroom] = useState<BedroomFilter>("all");
@@ -205,6 +269,26 @@ export default function Dashboard() {
   const [activePropertyId, setActivePropertyId] = useState<string | null>(null);
   const [mobileView, setMobileView] = useState<MobileView>("map");
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const t = copy[language];
+
+  useEffect(() => {
+    const savedLanguage = window.localStorage.getItem(
+      "apartment-radar-language",
+    );
+    const preferredLanguage: Language = savedLanguage === "zh" ? "zh" : "en";
+    document.documentElement.lang = preferredLanguage === "zh" ? "zh-CN" : "en";
+    const languageTimer = window.setTimeout(
+      () => setLanguage(preferredLanguage),
+      0,
+    );
+    return () => window.clearTimeout(languageTimer);
+  }, []);
+
+  function changeLanguage(nextLanguage: Language) {
+    setLanguage(nextLanguage);
+    window.localStorage.setItem("apartment-radar-language", nextLanguage);
+    document.documentElement.lang = nextLanguage === "zh" ? "zh-CN" : "en";
+  }
 
   const cities = useMemo(
     () => [
@@ -341,25 +425,49 @@ export default function Dashboard() {
   return (
     <main className="app-shell">
       <header className="topbar">
-        <a className="brand" href="#" aria-label="Bay Area Apartment Radar 首页">
+        <a className="brand" href="#" aria-label={t.homeAria}>
           <span className="brand-mark">BA</span>
           <span>
             <strong>Bay Area Apartment Radar</strong>
-            <small>湾区官方公寓库存</small>
+            <small>{t.brandSubtitle}</small>
           </span>
         </a>
         <div className="topbar-actions">
           <span className="sync-pill">
             <span className="sync-dot" />
-            每日自动检查 · 05:00 PT
+            {t.dailySync}
           </span>
+          <div
+            className="language-switch"
+            role="group"
+            aria-label="Language / 语言"
+          >
+            <Languages size={15} aria-hidden="true" />
+            <button
+              type="button"
+              className={language === "en" ? "active" : ""}
+              aria-pressed={language === "en"}
+              onClick={() => changeLanguage("en")}
+            >
+              EN
+            </button>
+            <span aria-hidden="true">/</span>
+            <button
+              type="button"
+              className={language === "zh" ? "active" : ""}
+              aria-pressed={language === "zh"}
+              onClick={() => changeLanguage("zh")}
+            >
+              中文
+            </button>
+          </div>
           <a
             className="source-link"
             href="https://github.com/az196560/apartment-tracker"
             target="_blank"
             rel="noreferrer"
           >
-            数据与规则
+            {t.dataRules}
             <ArrowUpRight size={15} />
           </a>
         </div>
@@ -372,33 +480,30 @@ export default function Dashboard() {
             SF · Peninsula · South Bay · East Bay
           </div>
           <h1>
-            好公寓，<span>都放进雷达。</span>
+            {t.heroLead}{language === "en" ? " " : ""}<span>{t.heroAccent}</span>
           </h1>
-          <p>
-            只收录官网已核验空调、室内洗烘和普通市场价资格的专业公寓。
-            按区域、城市和户型筛选，每天核对租金、入住日与官网直达链接。
-          </p>
+          <p>{t.heroDescription}</p>
         </div>
-        <div className="hero-stats" aria-label="房源概览">
+        <div className="hero-stats" aria-label={t.statsAria}>
           <div className="stat">
-            <span>当前房源</span>
+            <span>{t.currentListings}</span>
             <strong>{inventory.listings.length}</strong>
-            <small>套官方库存</small>
+            <small>{t.officialInventory}</small>
           </div>
           <div className="stat">
-            <span>官方公寓</span>
+            <span>{t.officialApartments}</span>
             <strong>{inventory.properties.length}</strong>
-            <small>个社区</small>
+            <small>{t.communities}</small>
           </div>
           <div className="stat">
-            <span>已有库存</span>
+            <span>{t.withInventory}</span>
             <strong>{livePropertyCount}</strong>
-            <small>个社区</small>
+            <small>{t.communities}</small>
           </div>
         </div>
       </section>
 
-      <section className="city-rail" aria-label="区域筛选">
+      <section className="city-rail" aria-label={t.regionFilterAria}>
         {regionOptions.map((option) => {
           const regionCount =
             option.value === "all"
@@ -418,7 +523,7 @@ export default function Dashboard() {
               }}
             >
               {region === option.value && <Check size={13} />}
-              {option.label}
+              {t.region[option.value]}
               <small>{regionCount}</small>
             </button>
           );
@@ -429,13 +534,13 @@ export default function Dashboard() {
         <aside className={filtersOpen ? "filter-panel open" : "filter-panel"}>
           <div className="panel-heading">
             <div>
-              <span className="overline">SEARCH PARAMETERS</span>
-              <h2>你的筛选条件</h2>
+              <span className="overline">{t.searchParameters}</span>
+              <h2>{t.filtersTitle}</h2>
             </div>
             <button
               className="icon-button filter-close"
               type="button"
-              aria-label="关闭筛选"
+              aria-label={t.closeFilters}
               onClick={() => setFiltersOpen(false)}
             >
               <X size={18} />
@@ -447,17 +552,17 @@ export default function Dashboard() {
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="搜索公寓、城市、户型或房号"
+              placeholder={t.searchPlaceholder}
             />
           </label>
 
           <div className="filter-group">
-            <span className="filter-title">城市</span>
+            <span className="filter-title">{t.city}</span>
             <label className="city-select-field">
               <select value={city} onChange={(event) => setCity(event.target.value)}>
                 {cities.map((item) => (
                   <option key={item} value={item}>
-                    {item}
+                    {item === allCities ? t.allCities : item}
                   </option>
                 ))}
               </select>
@@ -466,8 +571,8 @@ export default function Dashboard() {
           </div>
 
           <div className="filter-group">
-            <span className="filter-title">户型</span>
-            <div className="bedroom-options" aria-label="户型筛选">
+            <span className="filter-title">{t.bedroom}</span>
+            <div className="bedroom-options" aria-label={t.bedroomFilterAria}>
               {bedroomOptions.map((option) => (
                 <button
                   key={option.value}
@@ -475,7 +580,7 @@ export default function Dashboard() {
                   className={bedroom === option.value ? "bedroom-option active" : "bedroom-option"}
                   onClick={() => setBedroom(option.value)}
                 >
-                  {option.label}
+                  {option.value === "all" ? t.allBedrooms : option.label}
                 </button>
               ))}
             </div>
@@ -485,7 +590,7 @@ export default function Dashboard() {
             <>
               <div className="filter-group">
                 <div className="filter-label">
-                  <span>月租上限</span>
+                  <span>{t.maxRent}</span>
                   <strong>${maxRent.toLocaleString()}</strong>
                 </div>
                 <input
@@ -496,7 +601,7 @@ export default function Dashboard() {
                   step="50"
                   value={maxRent}
                   onChange={(event) => setMaxRent(Number(event.target.value))}
-                  aria-label="月租上限"
+                  aria-label={t.maxRentAria}
                 />
                 <div className="range-ends">
                   <span>$1,500</span>
@@ -505,11 +610,11 @@ export default function Dashboard() {
               </div>
 
               <div className="filter-group">
-                <span className="filter-title">入住时间</span>
+                <span className="filter-title">{t.moveInTiming}</span>
                 <label className="toggle-row">
                   <span>
                     <CalendarDays size={17} />
-                    仅看现在可入住
+                    {t.availableNowOnly}
                   </span>
                   <input
                     type="checkbox"
@@ -521,11 +626,11 @@ export default function Dashboard() {
               </div>
 
               <div className="filter-group">
-                <span className="filter-title">上架时间</span>
+                <span className="filter-title">{t.listedDate}</span>
                 <label className="toggle-row">
                   <span>
                     <Sparkles size={17} />
-                    最近 3 天新上架 · {recentlyListedCount} 套
+                    {t.recentListings} · {recentlyListedCount} {t.listingCount}
                   </span>
                   <input
                     type="checkbox"
@@ -545,17 +650,14 @@ export default function Dashboard() {
               <Building2 size={18} />
             </span>
             <div>
-              <strong>品质公寓标准</strong>
-              <p>
-                仅采用物业官网公开目录和库存；设施尚未核实的社区会明确标注，
-                价格与可租状态最终以官网为准。
-              </p>
+              <strong>{t.qualityTitle}</strong>
+              <p>{t.qualityBody}</p>
             </div>
           </div>
 
           {hasFilters && (
             <button className="clear-button" type="button" onClick={clearFilters}>
-              清除全部筛选
+              {t.clearFilters}
             </button>
           )}
         </aside>
@@ -565,34 +667,36 @@ export default function Dashboard() {
             <div>
               <span className="overline">
                 {resultMode === "directory"
-                  ? "OFFICIAL PROPERTY DIRECTORY"
-                  : "LIVE INVENTORY"}
+                  ? t.directoryOverline
+                  : t.inventoryOverline}
               </span>
               <h2>
-                {resultMode === "directory" ? "收录" : "找到"}{" "}
+                {resultMode === "directory" ? t.included : t.found}{" "}
                 <strong>
                   {resultMode === "directory"
                     ? filteredProperties.length
                     : filteredListings.length}
                 </strong>{" "}
-                {resultMode === "directory" ? "个官方公寓" : "套房源"}
+                {resultMode === "directory"
+                  ? t.officialApartmentCount
+                  : t.listingCount}
               </h2>
             </div>
             <div className="toolbar-actions">
-              <div className="result-mode" aria-label="切换目录与实时房源">
+              <div className="result-mode" aria-label={t.resultModeAria}>
                 <button
                   type="button"
                   className={resultMode === "directory" ? "active" : ""}
                   onClick={() => setResultMode("directory")}
                 >
-                  公寓目录
+                  {t.directory}
                 </button>
                 <button
                   type="button"
                   className={resultMode === "availability" ? "active" : ""}
                   onClick={() => setResultMode("availability")}
                 >
-                  实时房源
+                  {t.liveInventory}
                   <small>{inventory.listings.length}</small>
                 </button>
               </div>
@@ -602,20 +706,20 @@ export default function Dashboard() {
                 onClick={() => setFiltersOpen(true)}
               >
                 <SlidersHorizontal size={16} />
-                筛选
+                {t.filter}
               </button>
               {resultMode === "availability" && (
                 <label className="sort-select">
-                  <span>排序</span>
+                  <span>{t.sort}</span>
                   <select
                     value={sort}
                     onChange={(event) =>
                       setSort(event.target.value as SortMode)
                     }
                   >
-                    <option value="price">价格最低</option>
-                    <option value="date">最早入住</option>
-                    <option value="size">面积最大</option>
+                    <option value="price">{t.sortPrice}</option>
+                    <option value="date">{t.sortDate}</option>
+                    <option value="size">{t.sortSize}</option>
                   </select>
                   <ChevronDown size={15} />
                 </label>
@@ -623,14 +727,14 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="mobile-view-toggle" aria-label="切换地图与列表">
+          <div className="mobile-view-toggle" aria-label={t.mobileViewAria}>
             <button
               className={mobileView === "map" ? "active" : ""}
               type="button"
               onClick={() => setMobileView("map")}
             >
               <MapIcon size={16} />
-              地图
+              {t.map}
             </button>
             <button
               className={mobileView === "list" ? "active" : ""}
@@ -638,7 +742,7 @@ export default function Dashboard() {
               onClick={() => setMobileView("list")}
             >
               <Filter size={16} />
-              列表
+              {t.list}
             </button>
           </div>
 
@@ -653,19 +757,20 @@ export default function Dashboard() {
                 listings={filteredListings}
                 activePropertyId={activePropertyId}
                 onSelect={selectProperty}
+                language={language}
               />
               <div className="map-legend">
                 <span>
-                  <i className="available-marker" /> 已有房源
+                  <i className="available-marker" /> {t.available}
                 </span>
                 <span>
-                  <i className="watching-marker" /> 暂无房源
+                  <i className="watching-marker" /> {t.noAvailability}
                 </span>
                 <span>
-                  <i className="blocked-marker" /> 官网暂未开放
+                  <i className="blocked-marker" /> {t.siteUnavailable}
                 </span>
                 <span>
-                  <i className="manual-marker" /> 人工关注
+                  <i className="manual-marker" /> {t.manualWatch}
                 </span>
               </div>
             </div>
@@ -680,15 +785,15 @@ export default function Dashboard() {
                   <div className="summary-strip">
                     <div>
                       <Building2 size={17} />
-                      <span>覆盖城市</span>
+                      <span>{t.coveredCities}</span>
                       <strong>
                         {new Set(filteredProperties.map((property) => property.city)).size}
                       </strong>
                     </div>
                     <div>
                       <ExternalLink size={17} />
-                      <span>均可跳转</span>
-                      <strong>官方渠道</strong>
+                      <span>{t.officialLinks}</span>
+                      <strong>{t.officialChannels}</strong>
                     </div>
                   </div>
 
@@ -711,39 +816,39 @@ export default function Dashboard() {
                           >
                             <div className="property-card-top">
                               <span>
-                                {regionLabelByValue[property.region]} · {property.city}
+                                {t.regionShort[property.region]} · {property.city}
                               </span>
-                              <small>{propertyEra(property)}</small>
+                              <small>{propertyEra(property, language)}</small>
                             </div>
                             <h3>{property.name}</h3>
                             <p className="property-address">
                               {property.address}
                             </p>
                             <p className="quality-note">
-                              {property.inventoryNote ?? property.qualityNote}
+                              {propertyNote(property, language)}
                             </p>
                             <div
                               className="floorplan-types"
-                              aria-label={`${property.name} 户型`}
+                              aria-label={`${property.name} ${t.floorplanAria}`}
                             >
                               {property.bedroomTypes.map((beds) => (
                                 <span key={beds}>{bedroomLabel(beds)}</span>
                               ))}
                             </div>
-                            <AmenityStatus property={property} />
+                            <AmenityStatus property={property} language={language} />
                             <div className="property-card-footer">
                               <span
                                 className={`inventory-badge ${property.inventoryStatus}`}
                               >
-                                {inventoryLabel(property, count)}
+                                {inventoryLabel(property, count, language)}
                               </span>
                               <a
                                 href={property.website}
                                 target="_blank"
                                 rel="noreferrer"
-                                aria-label={`查看 ${property.name} 官方网站`}
+                                aria-label={`${t.officialSiteAria} ${property.name}`}
                               >
-                                查看官网
+                                {t.officialSite}
                                 <ArrowUpRight size={15} />
                               </a>
                             </div>
@@ -754,10 +859,10 @@ export default function Dashboard() {
                   ) : (
                     <div className="empty-state">
                       <Building2 size={28} />
-                      <h3>没有匹配的公寓</h3>
-                        <p>换一个区域、城市、户型或搜索词试试。</p>
+                      <h3>{t.noApartments}</h3>
+                      <p>{t.noApartmentsBody}</p>
                       <button type="button" onClick={clearFilters}>
-                        重置筛选
+                        {t.resetFilters}
                       </button>
                     </div>
                   )}
@@ -767,12 +872,12 @@ export default function Dashboard() {
                   <div className="summary-strip">
                     <div>
                       <CircleDollarSign size={17} />
-                      <span>筛选后均价</span>
+                      <span>{t.averageRent}</span>
                       <strong>${averageRent.toLocaleString()}</strong>
                     </div>
                     <div>
                       <ExternalLink size={17} />
-                      <span>精确房号链接</span>
+                      <span>{t.exactUnitLinks}</span>
                       <strong>{exactLinks}</strong>
                     </div>
                   </div>
@@ -803,54 +908,54 @@ export default function Dashboard() {
                             <div className="listing-main">
                               <div className="listing-location">
                                 <span>
-                                  {regionLabelByValue[property.region]} · {property.city}
+                                  {t.regionShort[property.region]} · {property.city}
                                 </span>
-                                <small>{propertyEra(property)}</small>
+                                <small>{propertyEra(property, language)}</small>
                               </div>
                               <h3>{property.name}</h3>
                               <p>{property.address}</p>
                               <div className="unit-line">
-                                <strong>{listing.unit}</strong>
+                                <strong>{localizedListingText(listing.unit, language)}</strong>
                                 <span className="bed-bath-label">
                                   {bedBathLabel(listing)}
                                 </span>
-                                <span>{listing.floorplan}</span>
+                                <span>{localizedListingText(listing.floorplan, language)}</span>
                                 {listing.sqft > 0 && <span>{listing.sqft} ft²</span>}
                                 {recentlyListed && (
                                   <span className="recent-listing-badge">
-                                    最近 3 天新上架
+                                    {t.recentBadge}
                                   </span>
                                 )}
                               </div>
-                              <AmenityStatus property={property} />
+                              <AmenityStatus property={property} language={language} />
                             </div>
                             <div className="listing-price">
                               <strong>{formatMoney(listing.rent)}</strong>
-                              <span>base rent / 月</span>
+                              <span>{t.baseRentMonth}</span>
                               {listing.totalMonthlyPrice && (
                                 <small>
-                                  月付合计{" "}
+                                  {t.monthlyTotal}{" "}
                                   {formatMoney(listing.totalMonthlyPrice)}
                                 </small>
                               )}
                             </div>
                             <div className="listing-facts">
                               <div>
-                                <span>MOVE-IN</span>
+                                <span>{t.moveIn}</span>
                                 <strong>
-                                  {displayDate(listing.availableDate)}
+                                  {displayDate(listing.availableDate, language)}
                                 </strong>
                               </div>
                               <div>
-                                <span>建议租期</span>
+                                <span>{t.recommendedLease}</span>
                                 <strong>
                                   {listing.recommendedLeaseMonths
-                                    ? `${listing.recommendedLeaseMonths} 个月`
-                                    : "官网未公开"}
+                                    ? `${listing.recommendedLeaseMonths} ${t.months}`
+                                    : t.notPublished}
                                 </strong>
                               </div>
                               <div>
-                                <span>已知固定月费</span>
+                                <span>{t.knownFixedFees}</span>
                                 <strong>
                                   {listing.totalMonthlyPrice
                                     ? formatMoney(
@@ -859,56 +964,56 @@ export default function Dashboard() {
                                       )
                                     : fixedFees > 0
                                       ? formatMoney(fixedFees)
-                                      : "官网未公开"}
+                                      : t.notPublished}
                                 </strong>
                               </div>
                             </div>
                             <details className="fee-details">
                               <summary>
                                 {hasFeeDetails
-                                  ? "查看月费、停车与一次性费用"
-                                  : "费用信息"}
+                                  ? t.feeSummary
+                                  : t.feeInformation}
                               </summary>
                               <div className="fee-groups">
                                 <div>
-                                  <span>固定月费</span>
+                                  <span>{t.fixedMonthlyFees}</span>
                                   {(listing.mandatoryMonthlyFees?.length ??
                                     0) > 0 ? (
                                     listing.mandatoryMonthlyFees?.map((fee, index) => (
                                       <p key={`${fee.label}-${index}`}>
                                         <span>{fee.label}</span>
-                                        <strong>{feeAmount(fee)}</strong>
+                                        <strong>{feeAmount(fee, language)}</strong>
                                       </p>
                                     ))
                                   ) : (
-                                    <p>官网未明示</p>
+                                    <p>{t.notDisclosed}</p>
                                   )}
                                 </div>
                                 <div>
-                                  <span>停车 / 可选月费</span>
+                                  <span>{t.optionalMonthlyFees}</span>
                                   {(listing.optionalMonthlyFees?.length ??
                                     0) > 0 ? (
                                     listing.optionalMonthlyFees?.map((fee, index) => (
                                       <p key={`${fee.label}-${index}`}>
                                         <span>{fee.label}</span>
-                                        <strong>{feeAmount(fee)}</strong>
+                                        <strong>{feeAmount(fee, language)}</strong>
                                       </p>
                                     ))
                                   ) : (
-                                    <p>官网未明示</p>
+                                    <p>{t.notDisclosed}</p>
                                   )}
                                 </div>
                                 <div>
-                                  <span>一次性费用</span>
+                                  <span>{t.oneTimeFees}</span>
                                   {(listing.oneTimeFees?.length ?? 0) > 0 ? (
                                     listing.oneTimeFees?.map((fee, index) => (
                                       <p key={`${fee.label}-${index}`}>
                                         <span>{fee.label}</span>
-                                        <strong>{feeAmount(fee)}</strong>
+                                        <strong>{feeAmount(fee, language)}</strong>
                                       </p>
                                     ))
                                   ) : (
-                                    <p>官网未明示</p>
+                                    <p>{t.notDisclosed}</p>
                                   )}
                                 </div>
                               </div>
@@ -917,20 +1022,20 @@ export default function Dashboard() {
                               <div>
                                 <CalendarDays size={15} />
                                 <span>
-                                  首次发现 {capturedLabel(listing.firstSeenAt)}
+                                  {t.firstSeen} {capturedLabel(listing.firstSeenAt, language)}
                                   {" · "}
-                                  抓取 {capturedLabel(listing.capturedAt)}
+                                  {t.captured} {capturedLabel(listing.capturedAt, language)}
                                 </span>
                               </div>
                               <a
                                 href={listing.sourceUrl}
                                 target="_blank"
                                 rel="noreferrer"
-                                aria-label={`在官网查看 ${property.name} ${listing.unit}`}
+                                aria-label={`${t.officialSiteAria} ${property.name} ${listing.unit}`}
                               >
                                 {listing.precision === "unit"
-                                  ? "官网直达房号"
-                                  : "查看官网户型"}
+                                  ? t.unitSource
+                                  : t.floorplanSource}
                                 <ArrowUpRight size={16} />
                               </a>
                             </div>
@@ -942,8 +1047,8 @@ export default function Dashboard() {
                               }
                             >
                               {listing.precision === "unit"
-                                ? "精确房号"
-                                : "户型页"}
+                                ? t.exactUnit
+                                : t.floorplanPage}
                             </span>
                           </article>
                         );
@@ -952,15 +1057,13 @@ export default function Dashboard() {
                   ) : (
                     <div className="empty-state">
                       <Building2 size={28} />
-                      <h3>这个组合暂时没有房源</h3>
-                      <p>
-                        目录中的公寓仍在持续接入库存，可以先从官网查看。
-                      </p>
+                      <h3>{t.noListings}</h3>
+                      <p>{t.noListingsBody}</p>
                       <button
                         type="button"
                         onClick={() => setResultMode("directory")}
                       >
-                        查看公寓目录
+                        {t.viewDirectory}
                       </button>
                     </div>
                   )}
@@ -974,11 +1077,9 @@ export default function Dashboard() {
       <footer className="data-footer">
         <div>
           <span className="sync-dot" />
-          最近验证：{capturedLabel(inventory.updatedAt)} · Pacific Time
+          {t.lastVerified}: {capturedLabel(inventory.updatedAt, language)} · Pacific Time
         </div>
-        <p>
-          “收录”不代表背书；价格和可租状态可能随时变化，最终以公寓官网为准。本站与所列物业公司无隶属关系。
-        </p>
+        <p>{t.disclaimer}</p>
       </footer>
     </main>
   );

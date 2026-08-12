@@ -110,7 +110,8 @@ button {
 
 .topbar-actions,
 .sync-pill,
-.source-link {
+.source-link,
+.language-switch {
   display: flex;
   align-items: center;
 }
@@ -145,6 +146,43 @@ button {
   text-decoration: none;
   font-size: 13px;
   font-weight: 700;
+}
+
+.language-switch {
+  gap: 5px;
+  padding: 6px 9px;
+  border: 1px solid rgba(23, 59, 52, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.language-switch svg {
+  color: var(--forest);
+  margin-right: 1px;
+}
+
+.language-switch button {
+  padding: 2px 3px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.language-switch button.active {
+  color: var(--forest);
+  font-weight: 850;
+}
+
+.language-switch button:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 2px;
+  border-radius: 3px;
 }
 
 .hero {
