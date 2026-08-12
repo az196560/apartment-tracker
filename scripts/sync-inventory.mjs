@@ -24,15 +24,15 @@ const amenityReviews = {
   revery: { airConditioning: true, inUnitWasherDryer: true },
   "one-adrian": { airConditioning: true, inUnitWasherDryer: true },
   "bayswater-burlingame": {
-    airConditioning: false,
+    airConditioning: null,
     inUnitWasherDryer: true,
   },
   "the-bower": { airConditioning: true, inUnitWasherDryer: true },
   "hanover-burlingame": {
-    airConditioning: false,
+    airConditioning: null,
     inUnitWasherDryer: true,
   },
-  northpark: { airConditioning: false, inUnitWasherDryer: true },
+  northpark: { airConditioning: null, inUnitWasherDryer: true },
   "burlingame-towers": {
     airConditioning: false,
     inUnitWasherDryer: false,
@@ -55,9 +55,9 @@ const amenityReviews = {
     airConditioning: true,
     inUnitWasherDryer: true,
   },
-  "55-west-fifth": { airConditioning: false, inUnitWasherDryer: true },
+  "55-west-fifth": { airConditioning: null, inUnitWasherDryer: true },
   "creekside-san-mateo": {
-    airConditioning: false,
+    airConditioning: null,
     inUnitWasherDryer: true,
   },
 
@@ -69,12 +69,12 @@ const amenityReviews = {
   },
   "100-grand": { airConditioning: true, inUnitWasherDryer: true },
   miramar: { airConditioning: false, inUnitWasherDryer: false },
-  "marlin-cove": { airConditioning: false, inUnitWasherDryer: true },
-  "fosters-landing": { airConditioning: false, inUnitWasherDryer: true },
-  "schooner-bay": { airConditioning: false, inUnitWasherDryer: true },
-  "lantern-cove": { airConditioning: false, inUnitWasherDryer: true },
-  "waters-edge": { airConditioning: false, inUnitWasherDryer: true },
-  "the-hayden": { airConditioning: false, inUnitWasherDryer: true },
+  "marlin-cove": { airConditioning: null, inUnitWasherDryer: true },
+  "fosters-landing": { airConditioning: null, inUnitWasherDryer: true },
+  "schooner-bay": { airConditioning: null, inUnitWasherDryer: true },
+  "lantern-cove": { airConditioning: null, inUnitWasherDryer: true },
+  "waters-edge": { airConditioning: null, inUnitWasherDryer: true },
+  "the-hayden": { airConditioning: null, inUnitWasherDryer: true },
 
   // Belmont and San Carlos
   trestle: { airConditioning: true, inUnitWasherDryer: true },
@@ -87,9 +87,9 @@ const amenityReviews = {
   "201-marshall": { airConditioning: true, inUnitWasherDryer: true },
   "the-heltsley": { airConditioning: true, inUnitWasherDryer: false },
   huxley: { airConditioning: true, inUnitWasherDryer: true },
-  "riva-terra": { airConditioning: false, inUnitWasherDryer: true },
-  "indian-creek": { airConditioning: false, inUnitWasherDryer: true },
-  pescadero: { airConditioning: false, inUnitWasherDryer: true },
+  "riva-terra": { airConditioning: null, inUnitWasherDryer: true },
+  "indian-creek": { airConditioning: null, inUnitWasherDryer: true },
+  pescadero: { airConditioning: null, inUnitWasherDryer: true },
   radius: { airConditioning: true, inUnitWasherDryer: true },
   highwater: { airConditioning: true, inUnitWasherDryer: true },
   "encore-redwood-city": {
@@ -103,7 +103,7 @@ const amenityReviews = {
     airConditioning: true,
     inUnitWasherDryer: true,
   },
-  "avenue-two": { airConditioning: false, inUnitWasherDryer: true },
+  "avenue-two": { airConditioning: null, inUnitWasherDryer: true },
   "franklin-street": { airConditioning: true, inUnitWasherDryer: true },
   "blu-harbor": { airConditioning: true, inUnitWasherDryer: true },
   "the-marston": { airConditioning: true, inUnitWasherDryer: true },
@@ -113,7 +113,7 @@ const amenityReviews = {
   lume: { airConditioning: true, inUnitWasherDryer: true },
   vasara: { airConditioning: true, inUnitWasherDryer: true },
   roen: { airConditioning: true, inUnitWasherDryer: true },
-  "anton-menlo": { airConditioning: false, inUnitWasherDryer: true },
+  "anton-menlo": { airConditioning: null, inUnitWasherDryer: true },
   "realm-menlo-park": { airConditioning: true, inUnitWasherDryer: true },
   "sharon-green": { airConditioning: true, inUnitWasherDryer: true },
 };
@@ -2403,6 +2403,18 @@ async function main() {
       existingPropertyById.set(added.id, added);
       continue;
     }
+    const shouldInitializeUnverifiedInventoryStatus =
+      !amenityPolicyOnly &&
+      catalogProperty.airConditioning === null &&
+      existing.inventoryStatus !== "manual" &&
+      !inventory.listings.some(
+        (listing) => listing.propertyId === catalogProperty.id,
+      ) &&
+      !inventory.sources.some(
+        (source) =>
+          source.id === catalogProperty.id &&
+          typeof source.lastSuccessAt === "string",
+      );
     Object.assign(existing, {
       name: catalogProperty.name,
       city: catalogProperty.city,
@@ -2423,7 +2435,13 @@ async function main() {
       ...(catalogProperty.amenityEvidenceUrl
         ? { amenityEvidenceUrl: catalogProperty.amenityEvidenceUrl }
         : {}),
+      ...(shouldInitializeUnverifiedInventoryStatus
+        ? { inventoryStatus: catalogProperty.inventoryStatus }
+        : {}),
     });
+    if (shouldInitializeUnverifiedInventoryStatus) {
+      delete existing.inventoryNote;
+    }
   }
   inventory.listings = inventory.listings.filter(
     (listing) =>
@@ -2474,10 +2492,11 @@ async function main() {
       typeof property.amenitiesVerifiedAt === "string";
     const amenityReview =
       amenityReviews[property.id] ??
-      (catalogProperty?.airConditioning === true &&
+      ((catalogProperty?.airConditioning === true ||
+        catalogProperty?.airConditioning === null) &&
       catalogProperty?.inUnitWasherDryer === true
         ? {
-            airConditioning: true,
+            airConditioning: catalogProperty.airConditioning,
             inUnitWasherDryer: true,
           }
         : previouslyVerified
@@ -2494,7 +2513,11 @@ async function main() {
       amenityReview,
       propertyOverrides[property.id] ?? {},
     );
-    if (property.airConditioning && property.inUnitWasherDryer) {
+    if (
+      (property.airConditioning === true ||
+        property.airConditioning === null) &&
+      property.inUnitWasherDryer === true
+    ) {
       property.marketRate = true;
       property.amenitiesVerifiedAt =
         catalogProperty?.amenitiesVerifiedAt ??
@@ -2520,7 +2543,8 @@ async function main() {
   inventory.properties = inventory.properties.filter(
     (property) =>
       property.marketRate === true &&
-      property.airConditioning === true &&
+      (property.airConditioning === true ||
+        property.airConditioning === null) &&
       property.inUnitWasherDryer === true,
   );
   const eligiblePropertyIds = new Set(

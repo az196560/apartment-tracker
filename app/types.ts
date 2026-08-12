@@ -31,7 +31,8 @@ export type ApartmentProperty = {
   tracked: boolean;
   bedroomTypes: number[];
   marketRate: boolean;
-  airConditioning: boolean;
+  /** true = verified, null = not verified, false = confirmed absent */
+  airConditioning: boolean | null;
   inUnitWasherDryer: boolean;
   amenitiesVerifiedAt: string;
   amenityEvidenceUrl: string;

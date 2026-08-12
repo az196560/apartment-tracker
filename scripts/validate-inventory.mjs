@@ -72,8 +72,13 @@ if (Array.isArray(inventory.properties)) {
     if (property.marketRate !== true) {
       errors.push(`${property.id} must be an unrestricted market-rate community`);
     }
-    if (property.airConditioning !== true) {
-      errors.push(`${property.id} must have verified air conditioning`);
+    if (
+      property.airConditioning !== true &&
+      property.airConditioning !== null
+    ) {
+      errors.push(
+        `${property.id} must have verified or explicitly unverified air conditioning`,
+      );
     }
     if (property.inUnitWasherDryer !== true) {
       errors.push(`${property.id} must have a verified in-unit washer/dryer`);

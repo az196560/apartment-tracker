@@ -3,17 +3,17 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://az196560.github.io/apartment-tracker/"),
-  title: "Bay Area Apartment Radar | Verified Bay Area Apartments",
+  title: "Bay Area Apartment Radar | Official Bay Area Apartments",
   description:
-    "Daily official inventory for professionally managed apartments across San Francisco, the Peninsula, South Bay, and East Bay—verified for air conditioning, in-unit laundry, and unrestricted market-rate eligibility.",
+    "Daily official inventory for professionally managed Bay Area apartments with in-unit laundry, including optional clearly labeled communities where air conditioning is not yet verified.",
   icons: {
     icon: "https://az196560.github.io/apartment-tracker/favicon.svg",
     shortcut: "https://az196560.github.io/apartment-tracker/favicon.svg",
   },
   openGraph: {
-    title: "Bay Area Apartment Radar | Verified Bay Area Apartments",
+    title: "Bay Area Apartment Radar | Official Bay Area Apartments",
     description:
-      "Explore verified, unrestricted market-rate apartments with air conditioning and in-unit laundry across four Bay Area regions.",
+      "Explore unrestricted market-rate apartments with in-unit laundry across four Bay Area regions, with verified and clearly labeled AC-unverified options.",
     type: "website",
     locale: "en_US",
     alternateLocale: ["zh_CN"],
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bay Area Apartment Radar | Verified Bay Area Apartments",
+    title: "Bay Area Apartment Radar | Official Bay Area Apartments",
     description:
-      "Daily official inventory for verified apartments across San Francisco, the Peninsula, South Bay, and East Bay.",
+      "Daily official apartment inventory across San Francisco, the Peninsula, South Bay, and East Bay.",
     images: ["og.png"],
   },
 };

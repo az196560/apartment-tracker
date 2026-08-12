@@ -1103,6 +1103,12 @@ button {
   line-height: 1;
 }
 
+.amenity-statuses .unverified {
+  border-color: #ecd7b8;
+  background: #fbf1df;
+  color: #8a6335;
+}
+
 .listing-main .amenity-statuses {
   margin: 8px 0 0;
 }

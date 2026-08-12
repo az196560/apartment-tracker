@@ -65,6 +65,9 @@ function mapInventoryLabel(
 }
 
 function mapPropertyNote(property: ApartmentProperty, language: Language) {
+  if (property.airConditioning === null) {
+    return copy[language].unverifiedCriteriaNote;
+  }
   if (language === "zh") return property.qualityNote;
   return `${copy.en.verifiedCommunityNote} ${property.management}. ${copy.en.verifiedCriteriaNote}`;
 }

@@ -7,6 +7,7 @@ import {
   CalendarDays,
   Check,
   ChevronDown,
+  CircleHelp,
   CircleDollarSign,
   ExternalLink,
   Filter,
@@ -80,6 +81,16 @@ function matchesBedroom(beds: number, bedroom: BedroomFilter) {
   return requested === 3 ? beds >= 3 : beds === requested;
 }
 
+function matchesAirConditioning(
+  property: ApartmentProperty,
+  includeUnverified: boolean,
+) {
+  return (
+    property.airConditioning === true ||
+    (includeUnverified && property.airConditioning === null)
+  );
+}
+
 function propertySearchText(property: ApartmentProperty) {
   return [
     property.name,
@@ -95,6 +106,9 @@ function propertySearchText(property: ApartmentProperty) {
     copy.en.inUnitLaundry,
     copy.zh.airConditioning,
     copy.zh.inUnitLaundry,
+    ...(property.airConditioning === null
+      ? [copy.en.airConditioningUnverified, copy.zh.airConditioningUnverified]
+      : []),
     ...property.bedroomTypes.map(bedroomLabel),
   ]
     .join(" ")
@@ -200,6 +214,9 @@ function inventoryLabel(
 }
 
 function propertyNote(property: ApartmentProperty, language: Language) {
+  if (property.airConditioning === null) {
+    return copy[language].unverifiedCriteriaNote;
+  }
   if (language === "zh") {
     return property.inventoryNote ?? property.qualityNote;
   }
@@ -224,7 +241,15 @@ function AmenityStatus({
       className="amenity-statuses"
       aria-label={`${property.name}: ${t.amenityAria}`}
     >
-      <span className="confirmed">{t.airConditioning}</span>
+      <span
+        className={
+          property.airConditioning === true ? "confirmed" : "unverified"
+        }
+      >
+        {property.airConditioning === true
+          ? t.airConditioning
+          : t.airConditioningUnverified}
+      </span>
       <span className="confirmed">{t.inUnitLaundry}</span>
       <span className="confirmed">{t.marketRate}</span>
     </div>
@@ -266,6 +291,8 @@ export default function Dashboard() {
   const [region, setRegion] = useState<RegionFilter>("all");
   const [city, setCity] = useState(allCities);
   const [bedroom, setBedroom] = useState<BedroomFilter>("all");
+  const [includeUnverifiedAirConditioning, setIncludeUnverifiedAirConditioning] =
+    useState(false);
   const [minRent, setMinRent] = useState("");
   const [maxRent, setMaxRent] = useState("");
   const [minSqft, setMinSqft] = useState("");
@@ -306,12 +333,19 @@ export default function Dashboard() {
       allCities,
       ...new Set(
         inventory.properties
-          .filter((property) => region === "all" || property.region === region)
+          .filter(
+            (property) =>
+              (region === "all" || property.region === region) &&
+              matchesAirConditioning(
+                property,
+                includeUnverifiedAirConditioning,
+              ),
+          )
           .map((property) => property.city)
           .sort(),
       ),
     ],
-    [region],
+    [includeUnverifiedAirConditioning, region],
   );
 
   const listingsByProperty = useMemo(() => {
@@ -329,6 +363,10 @@ export default function Dashboard() {
     return inventory.properties.filter((property) => {
       const matchesRegion = region === "all" || property.region === region;
       const matchesCity = city === allCities || property.city === city;
+      const matchesAirConditioningStatus = matchesAirConditioning(
+        property,
+        includeUnverifiedAirConditioning,
+      );
       const matchesFloorplan = property.bedroomTypes.some((beds) =>
         matchesBedroom(beds, bedroom),
       );
@@ -339,9 +377,22 @@ export default function Dashboard() {
           listingSearchText(listing).includes(normalizedQuery),
         );
 
-      return matchesRegion && matchesCity && matchesFloorplan && matchesQuery;
+      return (
+        matchesRegion &&
+        matchesCity &&
+        matchesAirConditioningStatus &&
+        matchesFloorplan &&
+        matchesQuery
+      );
     });
-  }, [bedroom, city, listingsByProperty, query, region]);
+  }, [
+    bedroom,
+    city,
+    includeUnverifiedAirConditioning,
+    listingsByProperty,
+    query,
+    region,
+  ]);
 
   const filteredListings = useMemo(() => {
     const visiblePropertyIds = new Set(
@@ -405,8 +456,13 @@ export default function Dashboard() {
   const livePropertyCount = new Set(
     inventory.listings.map((listing) => listing.propertyId),
   ).size;
-  const recentlyListedCount =
-    inventory.listings.filter(isRecentlyListed).length;
+  const recentlyListedCount = inventory.listings.filter((listing) => {
+    const property = getProperty(listing);
+    return (
+      isRecentlyListed(listing) &&
+      matchesAirConditioning(property, includeUnverifiedAirConditioning)
+    );
+  }).length;
 
   function selectProperty(propertyId: string) {
     setActivePropertyId(propertyId);
@@ -422,6 +478,7 @@ export default function Dashboard() {
     setRegion("all");
     setCity(allCities);
     setBedroom("all");
+    setIncludeUnverifiedAirConditioning(false);
     setMinRent("");
     setMaxRent("");
     setMinSqft("");
@@ -434,6 +491,7 @@ export default function Dashboard() {
     region !== "all" ||
     city !== allCities ||
     bedroom !== "all" ||
+    includeUnverifiedAirConditioning ||
     (resultMode === "availability" && minRent !== "") ||
     (resultMode === "availability" && maxRent !== "") ||
     (resultMode === "availability" && minSqft !== "") ||
@@ -526,9 +584,19 @@ export default function Dashboard() {
         {regionOptions.map((option) => {
           const regionCount =
             option.value === "all"
-              ? inventory.properties.length
+              ? inventory.properties.filter((property) =>
+                  matchesAirConditioning(
+                    property,
+                    includeUnverifiedAirConditioning,
+                  ),
+                ).length
               : inventory.properties.filter(
-                  (property) => property.region === option.value,
+                  (property) =>
+                    property.region === option.value &&
+                    matchesAirConditioning(
+                      property,
+                      includeUnverifiedAirConditioning,
+                    ),
                 ).length;
 
           return (
@@ -603,6 +671,26 @@ export default function Dashboard() {
                 </button>
               ))}
             </div>
+          </div>
+
+          <div className="filter-group">
+            <span className="filter-title">{t.airConditioningFilter}</span>
+            <label className="toggle-row">
+              <span>
+                <CircleHelp size={17} />
+                {t.includeUnverifiedAirConditioning}
+              </span>
+              <input
+                type="checkbox"
+                checked={includeUnverifiedAirConditioning}
+                onChange={(event) => {
+                  setIncludeUnverifiedAirConditioning(event.target.checked);
+                  setCity(allCities);
+                }}
+              />
+              <i />
+            </label>
+            <p className="filter-hint">{t.unverifiedAirConditioningHint}</p>
           </div>
 
           {resultMode === "availability" && (
