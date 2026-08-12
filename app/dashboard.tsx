@@ -255,12 +255,20 @@ function fixedMonthlyFees(listing: ApartmentListing) {
   return known.reduce((sum, fee) => sum + (fee.amount ?? 0), 0);
 }
 
+function numericFilterValue(value: string, fallback: number) {
+  if (value.trim() === "") return fallback;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? Math.max(0, parsed) : fallback;
+}
+
 export default function Dashboard() {
   const [language, setLanguage] = useState<Language>("en");
   const [region, setRegion] = useState<RegionFilter>("all");
   const [city, setCity] = useState(allCities);
   const [bedroom, setBedroom] = useState<BedroomFilter>("all");
-  const [maxRent, setMaxRent] = useState(10000);
+  const [minRent, setMinRent] = useState("");
+  const [maxRent, setMaxRent] = useState("");
+  const [minSqft, setMinSqft] = useState("");
   const [availableNow, setAvailableNow] = useState(false);
   const [recentlyListedOnly, setRecentlyListedOnly] = useState(false);
   const [query, setQuery] = useState("");
@@ -270,6 +278,9 @@ export default function Dashboard() {
   const [mobileView, setMobileView] = useState<MobileView>("map");
   const [filtersOpen, setFiltersOpen] = useState(false);
   const t = copy[language];
+  const minimumRent = numericFilterValue(minRent, 0);
+  const maximumRent = numericFilterValue(maxRent, Number.POSITIVE_INFINITY);
+  const minimumSqft = numericFilterValue(minSqft, 0);
 
   useEffect(() => {
     const savedLanguage = window.localStorage.getItem(
@@ -343,7 +354,9 @@ export default function Dashboard() {
         return (
           visiblePropertyIds.has(listing.propertyId) &&
           matchesBedroom(listing.beds, bedroom) &&
-          listing.rent <= maxRent &&
+          listing.rent >= minimumRent &&
+          listing.rent <= maximumRent &&
+          listing.sqft >= minimumSqft &&
           (!availableNow ||
             listing.availableDate <= inventory.updatedAt.slice(0, 10)) &&
           (!recentlyListedOnly || isRecentlyListed(listing)) &&
@@ -365,7 +378,9 @@ export default function Dashboard() {
     availableNow,
     bedroom,
     filteredProperties,
-    maxRent,
+    maximumRent,
+    minimumRent,
+    minimumSqft,
     query,
     recentlyListedOnly,
     sort,
@@ -407,7 +422,9 @@ export default function Dashboard() {
     setRegion("all");
     setCity(allCities);
     setBedroom("all");
-    setMaxRent(10000);
+    setMinRent("");
+    setMaxRent("");
+    setMinSqft("");
     setAvailableNow(false);
     setRecentlyListedOnly(false);
     setQuery("");
@@ -417,7 +434,9 @@ export default function Dashboard() {
     region !== "all" ||
     city !== allCities ||
     bedroom !== "all" ||
-    (resultMode === "availability" && maxRent < 10000) ||
+    (resultMode === "availability" && minRent !== "") ||
+    (resultMode === "availability" && maxRent !== "") ||
+    (resultMode === "availability" && minSqft !== "") ||
     (resultMode === "availability" && availableNow) ||
     (resultMode === "availability" && recentlyListedOnly) ||
     query.length > 0;
@@ -589,25 +608,62 @@ export default function Dashboard() {
           {resultMode === "availability" && (
             <>
               <div className="filter-group">
-                <div className="filter-label">
-                  <span>{t.maxRent}</span>
-                  <strong>${maxRent.toLocaleString()}</strong>
-                </div>
-                <input
-                  className="range"
-                  type="range"
-                  min="1500"
-                  max="10000"
-                  step="50"
-                  value={maxRent}
-                  onChange={(event) => setMaxRent(Number(event.target.value))}
-                  aria-label={t.maxRentAria}
-                />
-                <div className="range-ends">
-                  <span>$1,500</span>
-                  <span>$10,000+</span>
+                <span className="filter-title">{t.monthlyRent}</span>
+                <div className="number-filter-grid">
+                  <label className="number-filter-field">
+                    <span>{t.minimum}</span>
+                    <span className="number-input-shell">
+                      <i aria-hidden="true">$</i>
+                      <input
+                        type="number"
+                        min="0"
+                        step="50"
+                        inputMode="numeric"
+                        value={minRent}
+                        onChange={(event) => setMinRent(event.target.value)}
+                        placeholder={t.noMinimum}
+                        aria-label={t.minimumRentAria}
+                      />
+                    </span>
+                  </label>
+                  <label className="number-filter-field">
+                    <span>{t.maximum}</span>
+                    <span className="number-input-shell">
+                      <i aria-hidden="true">$</i>
+                      <input
+                        type="number"
+                        min="0"
+                        step="50"
+                        inputMode="numeric"
+                        value={maxRent}
+                        onChange={(event) => setMaxRent(event.target.value)}
+                        placeholder={t.noMaximum}
+                        aria-label={t.maximumRentAria}
+                      />
+                    </span>
+                  </label>
                 </div>
               </div>
+
+              <div className="filter-group">
+                <span className="filter-title">{t.minimumSize}</span>
+                <label className="number-filter-field">
+                  <span className="number-input-shell">
+                    <input
+                      type="number"
+                      min="0"
+                      step="25"
+                      inputMode="numeric"
+                      value={minSqft}
+                      onChange={(event) => setMinSqft(event.target.value)}
+                      placeholder={t.anySize}
+                      aria-label={t.minimumSqftAria}
+                    />
+                    <i aria-hidden="true">ft²</i>
+                  </span>
+                </label>
+                <p className="filter-hint">{t.sqftFilterHint}</p>
+                </div>
 
               <div className="filter-group">
                 <span className="filter-title">{t.moveInTiming}</span>
