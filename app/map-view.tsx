@@ -158,7 +158,11 @@ export default function MapView({
             </Tooltip>
             <Popup>
               <div className="map-popup">
-                <span>{property.city}</span>
+                <span>
+                  {property.area
+                    ? `${property.city} · ${property.area}`
+                    : property.city}
+                </span>
                 <strong>{property.name}</strong>
                 <p>{era} · {mapPropertyNote(property, language)}</p>
                 <p>{mapInventoryLabel(property, count, language, true)}</p>

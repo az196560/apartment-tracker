@@ -228,6 +228,63 @@ const unverifiedAirConditioningCatalogProperties = [
     bedroomTypes: [1, 2],
   }),
   unverifiedAirConditioningProperty({
+    id: "beach-park",
+    name: "Beach Park Apartments",
+    city: "Foster City",
+    address: "1999 Beach Park Boulevard, Foster City, CA 94404",
+    latitude: 37.569424,
+    longitude: -122.264967,
+    inventoryStatus: "live",
+    management: "Prometheus",
+    website:
+      "https://prometheusapartments.com/ca/foster-city-apartments/beach-park",
+    bedroomTypes: [1, 2],
+    amenitiesVerifiedAt: "2026-08-17",
+  }),
+  unverifiedAirConditioningProperty({
+    id: "the-lagoons",
+    name: "The Lagoons",
+    city: "Foster City",
+    address: "711 Bounty Drive, Foster City, CA 94404",
+    latitude: 37.554946,
+    longitude: -122.2626,
+    inventoryStatus: "live",
+    management: "Prometheus",
+    website:
+      "https://prometheusapartments.com/ca/foster-city-apartments/the-lagoons",
+    bedroomTypes: [0, 1, 2, 3],
+    amenitiesVerifiedAt: "2026-08-17",
+  }),
+  unverifiedAirConditioningProperty({
+    id: "miramar",
+    name: "Miramar",
+    city: "Foster City",
+    address: "1288 E Hillsdale Boulevard, Foster City, CA 94404",
+    latitude: 37.568255,
+    longitude: -122.265721,
+    inventoryStatus: "live",
+    management: "Prometheus",
+    website:
+      "https://prometheusapartments.com/ca/foster-city-apartments/miramar",
+    bedroomTypes: [1, 2, 3],
+    amenitiesVerifiedAt: "2026-08-17",
+  }),
+  unverifiedAirConditioningProperty({
+    id: "harbor-cove",
+    name: "Harbor Cove Apartments",
+    city: "Foster City",
+    address: "900 E Hillsdale Boulevard, Foster City, CA 94404",
+    latitude: 37.5539704,
+    longitude: -122.2763203,
+    qualification: "renovated",
+    inventoryStatus: "live",
+    management: "Woodmont Real Estate Services",
+    website:
+      "https://www.harborcoveapartments.com/apartments/ca/foster-city/floor-plans",
+    bedroomTypes: [0, 1, 2],
+    amenitiesVerifiedAt: "2026-08-17",
+  }),
+  unverifiedAirConditioningProperty({
     id: "fosters-landing",
     name: "Foster's Landing",
     city: "Foster City",
@@ -299,6 +356,7 @@ const unverifiedAirConditioningCatalogProperties = [
     id: "riva-terra",
     name: "Riva Terra at Redwood Shores",
     city: "Redwood City",
+    area: "Redwood Shores",
     address: "850 Davit Lane, Redwood City, CA 94065",
     latitude: 37.5364,
     longitude: -122.253,
@@ -313,6 +371,7 @@ const unverifiedAirConditioningCatalogProperties = [
     id: "indian-creek",
     name: "Indian Creek",
     city: "Redwood City",
+    area: "Redwood Shores",
     address: "801 Marine Parkway, Redwood City, CA 94065",
     latitude: 37.5389796,
     longitude: -122.2489697,
@@ -326,6 +385,7 @@ const unverifiedAirConditioningCatalogProperties = [
     id: "pescadero",
     name: "Pescadero Apartments",
     city: "Redwood City",
+    area: "Redwood Shores",
     address: "950 Redwood Shores Parkway, Redwood City, CA 94065",
     latitude: 37.5437334,
     longitude: -122.235181,
@@ -1093,6 +1153,22 @@ const udrCatalogProperties = [
 
 const windsorCatalogProperties = [
   auditedProperty({
+    id: "blu-harbor",
+    name: "Blu Harbor by Windsor",
+    city: "Redwood City",
+    area: "Bair Island",
+    address: "1 Blu Harbor Boulevard, Redwood City, CA 94063",
+    latitude: 37.5104,
+    longitude: -122.2037,
+    year: 2017,
+    qualification: "built",
+    inventoryStatus: "live",
+    management: "Windsor Communities",
+    website:
+      "https://www.windsorcommunities.com/properties/blu-harbor-by-windsor/",
+    bedroomTypes: [0, 1, 2, 3],
+  }),
+  auditedProperty({
     id: "dublin-station-windsor",
     name: "Dublin Station by Windsor",
     city: "Dublin",
@@ -1339,6 +1415,22 @@ const relatedCatalogProperties = [
 ];
 
 const irvineCatalogProperties = [
+  auditedProperty({
+    id: "villas-bair-island",
+    name: "Villas at Bair Island",
+    city: "Redwood City",
+    area: "Bair Island",
+    address: "700 Bair Island Road, Redwood City, CA 94063",
+    latitude: 37.497726,
+    longitude: -122.223633,
+    inventoryStatus: "live",
+    management: "Irvine Company",
+    website:
+      "https://www.irvinecompanyapartments.com/locations/northern-california/redwood-city/villas-at-bair-island/availability.html",
+    bedroomTypes: [1, 2, 3],
+    amenityEvidenceUrl:
+      "https://www.irvinecompanyapartments.com/locations/northern-california/redwood-city/villas-at-bair-island/features-amenities.html",
+  }),
   auditedProperty({
     id: "cherry-orchard",
     name: "Cherry Orchard",

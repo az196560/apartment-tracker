@@ -17,6 +17,8 @@ export type ApartmentProperty = {
   id: string;
   name: string;
   city: string;
+  /** Named neighborhood or subarea used for more precise local discovery. */
+  area?: string;
   region: BayAreaRegion;
   address: string;
   latitude: number;

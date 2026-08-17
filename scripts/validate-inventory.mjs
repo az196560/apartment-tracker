@@ -61,6 +61,12 @@ if (Array.isArray(inventory.properties)) {
       errors.push(`${property.id} must declare a supported Bay Area region`);
     }
     if (
+      property.area !== undefined &&
+      (typeof property.area !== "string" || property.area.trim() === "")
+    ) {
+      errors.push(`${property.id} must declare a non-empty area when present`);
+    }
+    if (
       !Array.isArray(property.bedroomTypes) ||
       !property.bedroomTypes.length ||
       property.bedroomTypes.some(

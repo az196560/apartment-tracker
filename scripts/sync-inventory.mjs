@@ -68,7 +68,10 @@ const amenityReviews = {
     inUnitWasherDryer: true,
   },
   "100-grand": { airConditioning: true, inUnitWasherDryer: true },
-  miramar: { airConditioning: false, inUnitWasherDryer: false },
+  miramar: { airConditioning: null, inUnitWasherDryer: true },
+  "beach-park": { airConditioning: null, inUnitWasherDryer: true },
+  "the-lagoons": { airConditioning: null, inUnitWasherDryer: true },
+  "harbor-cove": { airConditioning: null, inUnitWasherDryer: true },
   "marlin-cove": { airConditioning: null, inUnitWasherDryer: true },
   "fosters-landing": { airConditioning: null, inUnitWasherDryer: true },
   "schooner-bay": { airConditioning: null, inUnitWasherDryer: true },
@@ -186,7 +189,15 @@ const fixedSources = [
     propertyId: "franklin-299",
     sourceId: "franklin-299",
     label: "Franklin 299 / G5 Inventory",
-    scrape: scrapeFranklin299,
+    url: "https://www.franklin299.com/apartments/ca/redwood-city/floor-plans",
+    scrape: scrapeG5Inventory,
+  },
+  {
+    propertyId: "harbor-cove",
+    sourceId: "harbor-cove",
+    label: "Harbor Cove / G5 Inventory",
+    url: "https://www.harborcoveapartments.com/apartments/ca/foster-city/floor-plans",
+    scrape: scrapeG5Inventory,
   },
   {
     propertyId: "indigo",
@@ -214,6 +225,8 @@ const fixedSources = [
   })),
   ...[
     ["the-bower", 5177855, "The Bower / Prometheus"],
+    ["beach-park", 1023601, "Beach Park / Prometheus"],
+    ["the-lagoons", 3514475, "The Lagoons / Prometheus"],
     ["miramar", 1088225, "Miramar / Prometheus"],
     ["trestle", 4245946, "Trestle / Prometheus"],
   ].map(([propertyId, prometheusId, label]) => ({
@@ -360,6 +373,9 @@ const unavailableProperties = [
 ];
 
 const propertyOverrides = {
+  "the-triton": {
+    address: "55 Triton Park Lane, Foster City, CA 94404",
+  },
   "the-plaza-foster-city": {
     management: "Essex",
     website:
@@ -1028,19 +1044,20 @@ async function g5Graphql(query, variables) {
   return payload.data;
 }
 
-async function scrapeFranklin299(now, property) {
-  const floorplansUrl = new URL(
-    "/apartments/ca/redwood-city/floor-plans",
-    property.website,
-  ).toString();
+async function scrapeG5Inventory(now, property, source) {
+  const floorplansUrl = source.url ?? property.website;
   const html = await fetchText(floorplansUrl);
   const configText = html.match(
     /<script[^>]+id=["']floor-plans-plus-config["'][^>]*>([\s\S]*?)<\/script>/i,
   )?.[1];
-  if (!configText) throw new Error("Franklin 299 did not expose G5 inventory config");
+  if (!configText) {
+    throw new Error(`${property.name} did not expose G5 inventory config`);
+  }
   const config = JSON.parse(decodeEntities(configText));
   const locationUrn = config.locationUrn ?? config.location_urn;
-  if (!locationUrn) throw new Error("Franklin 299 G5 location URN is missing");
+  if (!locationUrn) {
+    throw new Error(`${property.name} G5 location URN is missing`);
+  }
   const date = now.toISOString().slice(0, 10);
   const data = await g5Graphql(
     `query ApartmentComplex($locationUrn:String!,$moveInDate:String!){
@@ -1056,7 +1073,7 @@ async function scrapeFranklin299(now, property) {
   );
   const floorplans = data?.apartmentComplex?.floorplans;
   if (!Array.isArray(floorplans)) {
-    throw new Error("Franklin 299 returned an invalid G5 payload");
+    throw new Error(`${property.name} returned an invalid G5 payload`);
   }
   const listings = [];
   for (const plan of floorplans) {
@@ -1094,8 +1111,8 @@ async function scrapeFranklin299(now, property) {
       );
       const unitId = String(unit.externalId ?? unit.id ?? unit.name);
       listings.push({
-        id: `franklin-299-${unitId}`.toLowerCase(),
-        propertyId: "franklin-299",
+        id: `${property.id}-${unitId}`.toLowerCase(),
+        propertyId: property.id,
         unit: `#${unit.displayName ?? unit.name ?? unitId}`,
         floorplan: String(unit.floorplan?.name ?? plan.name),
         beds,
@@ -2418,6 +2435,7 @@ async function main() {
     Object.assign(existing, {
       name: catalogProperty.name,
       city: catalogProperty.city,
+      area: catalogProperty.area,
       address: catalogProperty.address,
       latitude: catalogProperty.latitude,
       longitude: catalogProperty.longitude,

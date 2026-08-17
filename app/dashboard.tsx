@@ -95,6 +95,7 @@ function propertySearchText(property: ApartmentProperty) {
   return [
     property.name,
     property.city,
+    property.area,
     property.address,
     property.management,
     property.qualityNote,
@@ -328,25 +329,21 @@ export default function Dashboard() {
     document.documentElement.lang = nextLanguage === "zh" ? "zh-CN" : "en";
   }
 
-  const cities = useMemo(
-    () => [
-      allCities,
-      ...new Set(
-        inventory.properties
-          .filter(
-            (property) =>
-              (region === "all" || property.region === region) &&
-              matchesAirConditioning(
-                property,
-                includeUnverifiedAirConditioning,
-              ),
-          )
-          .map((property) => property.city)
-          .sort(),
-      ),
-    ],
-    [includeUnverifiedAirConditioning, region],
-  );
+  const locations = useMemo(() => {
+    const regionProperties = inventory.properties.filter(
+      (property) => region === "all" || property.region === region,
+    );
+    return {
+      cities: [...new Set(regionProperties.map((property) => property.city))].sort(),
+      areas: [
+        ...new Set(
+          regionProperties
+            .map((property) => property.area)
+            .filter((area): area is string => Boolean(area)),
+        ),
+      ].sort(),
+    };
+  }, [region]);
 
   const listingsByProperty = useMemo(() => {
     const grouped = new Map<string, ApartmentListing[]>();
@@ -362,7 +359,8 @@ export default function Dashboard() {
     const normalizedQuery = query.trim().toLowerCase();
     return inventory.properties.filter((property) => {
       const matchesRegion = region === "all" || property.region === region;
-      const matchesCity = city === allCities || property.city === city;
+      const matchesCity =
+        city === allCities || property.city === city || property.area === city;
       const matchesAirConditioningStatus = matchesAirConditioning(
         property,
         includeUnverifiedAirConditioning,
@@ -646,12 +644,33 @@ export default function Dashboard() {
           <div className="filter-group">
             <span className="filter-title">{t.city}</span>
             <label className="city-select-field">
-              <select value={city} onChange={(event) => setCity(event.target.value)}>
-                {cities.map((item) => (
-                  <option key={item} value={item}>
-                    {item === allCities ? t.allCities : item}
-                  </option>
-                ))}
+              <select
+                value={city}
+                onChange={(event) => {
+                  const nextLocation = event.target.value;
+                  setCity(nextLocation);
+                  if (nextLocation !== allCities) {
+                    setIncludeUnverifiedAirConditioning(true);
+                  }
+                }}
+              >
+                <option value={allCities}>{t.allCities}</option>
+                <optgroup label={t.cities}>
+                  {locations.cities.map((item) => (
+                    <option key={item} value={item}>
+                      {item}
+                    </option>
+                  ))}
+                </optgroup>
+                {locations.areas.length > 0 && (
+                  <optgroup label={t.neighborhoods}>
+                    {locations.areas.map((item) => (
+                      <option key={item} value={item}>
+                        {item}
+                      </option>
+                    ))}
+                  </optgroup>
+                )}
               </select>
               <ChevronDown size={15} />
             </label>
@@ -683,10 +702,9 @@ export default function Dashboard() {
               <input
                 type="checkbox"
                 checked={includeUnverifiedAirConditioning}
-                onChange={(event) => {
-                  setIncludeUnverifiedAirConditioning(event.target.checked);
-                  setCity(allCities);
-                }}
+                onChange={(event) =>
+                  setIncludeUnverifiedAirConditioning(event.target.checked)
+                }
               />
               <i />
             </label>
@@ -960,7 +978,8 @@ export default function Dashboard() {
                           >
                             <div className="property-card-top">
                               <span>
-                                {t.regionShort[property.region]} · {property.city}
+                                {t.regionShort[property.region]} ·{" "}
+                                {property.area ?? property.city}
                               </span>
                               <small>{propertyEra(property, language)}</small>
                             </div>
@@ -1052,7 +1071,8 @@ export default function Dashboard() {
                             <div className="listing-main">
                               <div className="listing-location">
                                 <span>
-                                  {t.regionShort[property.region]} · {property.city}
+                                  {t.regionShort[property.region]} ·{" "}
+                                  {property.area ?? property.city}
                                 </span>
                                 <small>{propertyEra(property, language)}</small>
                               </div>
